@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Breadcrumb, Section, SectionTitle, CTABlock, PhotoPlaceholder, ServiceIcons, GuideCard } from "@/components/ui";
+import { WindowConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -53,31 +54,66 @@ export default function WindowsPage() {
         </div>
       </section>
 
-      {/* Advanced Components — matches Figma */}
+      {/* Configurator */}
+      <WindowConfigurator />
+
+      {/* GEALAN Profile Systems */}
       <Section gray>
-        <SectionTitle badge="Technology" title="Advanced Components for Maximum Comfort and Reliability" subtitle="Every DECA window is built with premium European components engineered for decades of performance." />
+        <SectionTitle badge="Engineered in Germany" title="GEALAN Profile Systems" subtitle="We build with GEALAN — one of Europe's leading uPVC profile manufacturers with 50+ years of innovation." />
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="bg-white rounded-xl border border-border overflow-hidden">
-            <PhotoPlaceholder description="Фото: разрез uPVC профиля DECA с обозначением 6 камер, стального армирования, уплотнителей" height="h-64" className="rounded-none border-0" />
+            <PhotoPlaceholder description="Фото: GEALAN-LINEAR профиль — современный угловой дизайн, алюминиевый вид" height="h-64" className="rounded-none border-0" />
             <div className="p-6">
-              <h3 className="font-bold text-lg text-text-primary mb-2">uPVC Profile</h3>
-              <p className="text-sm text-text-secondary leading-relaxed">6-chamber design with 2.8mm walls, galvanized steel reinforcement, and triple EPDM sealing for maximum thermal and acoustic insulation.</p>
+              <div className="flex items-center gap-2 mb-2">
+                <h3 className="font-bold text-lg text-text-primary">GEALAN-LINEAR</h3>
+                <span className="text-[9px] font-semibold text-brand bg-brand/10 px-1.5 py-0.5 rounded">Premium</span>
+              </div>
+              <p className="text-sm text-text-secondary leading-relaxed mb-3">Modern angular design with aluminum-like aesthetics. 3-level sealing, narrow visible widths for maximum glass area.</p>
+              <div className="grid grid-cols-2 gap-2 text-xs">
+                <div className="bg-warm-gray rounded px-2.5 py-1.5"><span className="font-medium text-text-secondary">U-Factor:</span> <span className="text-text-primary font-semibold">0.14–0.25</span></div>
+                <div className="bg-warm-gray rounded px-2.5 py-1.5"><span className="font-medium text-text-secondary">IGU:</span> <span className="text-text-primary font-semibold">0.8″–2.0″</span></div>
+                <div className="bg-warm-gray rounded px-2.5 py-1.5"><span className="font-medium text-text-secondary">Max Size:</span> <span className="text-text-primary font-semibold">11′6″ × 11′6″</span></div>
+                <div className="bg-warm-gray rounded px-2.5 py-1.5"><span className="font-medium text-text-secondary">Sealing:</span> <span className="text-text-primary font-semibold">3 Levels</span></div>
+              </div>
             </div>
           </div>
           <div className="bg-white rounded-xl border border-border overflow-hidden">
-            <PhotoPlaceholder description="Фото: разрез алюминиевого профиля с термомостом и полиамидными вставками" height="h-64" className="rounded-none border-0" />
+            <PhotoPlaceholder description="Фото: GEALAN S 8000 профиль — классический 5-6 камерный дизайн, 3 дюйма глубина" height="h-64" className="rounded-none border-0" />
             <div className="p-6">
-              <h3 className="font-bold text-lg text-text-primary mb-2">Aluminum Profile</h3>
-              <p className="text-sm text-text-secondary leading-relaxed">Thermal break technology with polyamide strips eliminates cold bridging. Slim sightlines maximize glass area while maintaining structural integrity.</p>
+              <div className="flex items-center gap-2 mb-2">
+                <h3 className="font-bold text-lg text-text-primary">GEALAN S 8000</h3>
+                <span className="text-[9px] font-semibold text-brand bg-brand/10 px-1.5 py-0.5 rounded">Popular</span>
+              </div>
+              <p className="text-sm text-text-secondary leading-relaxed mb-3">Classic 5–6 chamber system with 3″ installation depth. Large main chamber for steel stiffeners, elements up to 80″.</p>
+              <div className="grid grid-cols-2 gap-2 text-xs">
+                <div className="bg-warm-gray rounded px-2.5 py-1.5"><span className="font-medium text-text-secondary">U-Factor:</span> <span className="text-text-primary font-semibold">0.16–0.27</span></div>
+                <div className="bg-warm-gray rounded px-2.5 py-1.5"><span className="font-medium text-text-secondary">IGU:</span> <span className="text-text-primary font-semibold">0.8″–2.0″</span></div>
+                <div className="bg-warm-gray rounded px-2.5 py-1.5"><span className="font-medium text-text-secondary">Max Size:</span> <span className="text-text-primary font-semibold">11′6″ × 11′6″</span></div>
+                <div className="bg-warm-gray rounded px-2.5 py-1.5"><span className="font-medium text-text-secondary">Chambers:</span> <span className="text-text-primary font-semibold">5–6</span></div>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* GEALAN-acrylcolor + components */}
+        <div className="bg-white rounded-xl border border-border p-6 mb-8">
+          <div className="flex items-start gap-4">
+            <div className="shrink-0 w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center">
+              <svg className="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>
+            </div>
+            <div>
+              <h4 className="font-bold text-text-primary mb-1">GEALAN-acrylcolor Surface Technology</h4>
+              <p className="text-sm text-text-secondary leading-relaxed">Co-extruded acrylic surface (since 1980) — scratch-resistant, weather-resistant, lightfast, and dirt-resistant. Available in Matte, Smooth, Grained, and RealWood finishes. Over 40 standard colors + 200 RAL custom options.</p>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { title: "Multi-Point Locks", desc: "Up to 12 locking points for maximum security", photoDesc: "Фото: крупный план многоточечного замка" },
-            { title: "EPDM Seals", desc: "Triple sealing system for air and water tightness", photoDesc: "Фото: крупный план уплотнителей EPDM в профиле" },
-            { title: "Glass Packages", desc: "Double and triple glazing with argon fill", photoDesc: "Фото: разрез стеклопакета — 3 стекла, аргон, дистанционная рамка" },
-            { title: "European Hardware", desc: "Roto and Siegenia handles and hinges", photoDesc: "Фото: фурнитура Roto/Siegenia — ручка и петля крупным планом" },
+            { title: "3-Level Sealing", desc: "EPDM triple sealing for air & water tightness", photoDesc: "Фото: крупный план уплотнителей EPDM в профиле" },
+            { title: "Glass Packages", desc: "Double and triple glazing, IGU up to 2.0\"", photoDesc: "Фото: разрез стеклопакета — 3 стекла, аргон, дистанционная рамка" },
+            { title: "FlexScreen Option", desc: "Virtually invisible spring-steel insect screens", photoDesc: "Фото: FlexScreen москитная сетка — пружинная стальная рамка, вид сбоку" },
           ].map((c) => (
             <div key={c.title} className="bg-white rounded-xl border border-border overflow-hidden">
               <PhotoPlaceholder description={c.photoDesc} height="h-32" className="rounded-none border-0" />

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Breadcrumb, Section, SectionTitle, CTABlock, PhotoPlaceholder, ServiceIcons, GuideCard, StatCard } from "@/components/ui";
+import { EntryDoorConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -45,6 +46,9 @@ export default function EntryDoorsPage() {
           <StatCard value="50+" label="Year Lifespan" />
         </div>
       </section>
+
+      {/* Configurator */}
+      <EntryDoorConfigurator />
 
       {/* Security */}
       <Section>
