@@ -1,10 +1,67 @@
-"use client";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb, PageHero, Section, SectionTitle, CTABlock, ImagePlaceholder, StatCard } from "@/components/ui";
+
+export const metadata: Metadata = {
+  title: "Tilt & Turn Windows | European Style | DECA Windows",
+  description: "Premium European tilt & turn windows with two opening modes. U-values as low as 0.10, noise reduction up to 50 dB, manufactured in Massachusetts.",
+  keywords: "tilt and turn windows, European windows, energy efficient, soundproof windows, Massachusetts",
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long do tilt and turn windows last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With proper maintenance, DECA tilt and turn windows have a service life of 50+ years. We back this with a 15-year frame warranty and 10-year glass warranty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are tilt and turn windows more expensive than double hung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Initial cost is typically 15-30% higher, but the energy savings, durability, and superior performance make them significantly more cost-effective over the window's lifetime."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get custom sizes and shapes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We manufacture every window to order at our Massachusetts factory. Arched, circular, triangular, and any custom dimensions are available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How energy efficient are they?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our triple-glazed tilt and turn windows achieve U-values as low as 0.10 W/m²K — significantly exceeding ENERGY STAR requirements of 0.30."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do they meet US building codes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. All DECA windows are NFRC certified and meet or exceed all US building code requirements."
+      }
+    }
+  ]
+};
 
 export default function TiltTurnPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Breadcrumb items={[{ label: "Windows", href: "/windows" }, { label: "Tilt & Turn Windows" }]} />
 
       {/* Hero with two-column layout */}

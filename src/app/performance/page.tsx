@@ -1,6 +1,12 @@
-"use client";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb, PageHero, Section, SectionTitle, StatCard, FeatureCard, CTABlock, ImagePlaceholder } from "@/components/ui";
+
+export const metadata: Metadata = {
+  title: "Performance & Testing Data | DECA Windows",
+  description: "Comprehensive test results proving our windows exceed industry standards by up to 300%. U-values, noise reduction, energy efficiency data.",
+  keywords: "window performance, energy efficiency, sound insulation, NFRC certification, building codes",
+};
 
 export default function PerformancePage() {
   return (

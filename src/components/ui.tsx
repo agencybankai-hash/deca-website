@@ -131,8 +131,34 @@ export function CTABlock({
 
 /* ===== Breadcrumb ===== */
 export function Breadcrumb({ items }: { items: { label: string; href?: string }[] }) {
+  // Build breadcrumb schema
+  const breadcrumbItems = [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.decawindows.com/"
+    },
+    ...items.map((item, i) => ({
+      "@type": "ListItem",
+      "position": i + 2,
+      "name": item.label,
+      "item": item.href ? `https://www.decawindows.com${item.href}` : undefined
+    }))
+  ];
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbItems
+  };
+
   return (
     <div className="bg-warm-gray border-b border-border">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-2 text-sm text-text-muted">
         <Link href="/" className="hover:text-blue-accent transition-colors">Home</Link>
         {items.map((item, i) => (

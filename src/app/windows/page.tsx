@@ -29,13 +29,13 @@ export default function WindowsPage() {
               title: "uPVC / Vinyl Windows",
               desc: "6-chamber profile with 2.8mm walls. Exceptional durability, noise resistance, and thermal insulation. 30+ year service life.",
               tag: "Energy Efficient",
-              href: "/tilt-turn",
+              href: "/windows/upvc-windows",
             },
             {
               title: "Aluminum Windows",
               desc: "Modern European design with thermal break technology. Slim profiles, maximum glass area, contemporary aesthetics.",
               tag: "Modern Design",
-              href: "/tilt-turn",
+              href: "/windows/aluminum-windows",
             },
           ].map((w) => (
             <Link key={w.title} href={w.href} className="group">
