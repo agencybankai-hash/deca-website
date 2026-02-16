@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Section, SectionTitle, PhotoPlaceholder, VideoPlaceholder, ProductCard, StatCard, ServiceIcons, GuideCard } from "@/components/ui";
+import { Section, SectionTitle, PhotoPlaceholder, ProductCard, StatCard, ServiceIcons, GuideCard } from "@/components/ui";
 
 /* ===== Feature Tabs Data (Figma: Silence, Warmth, Convenience, Lifespan, Safety) ===== */
 const featureTabs = [
@@ -48,12 +48,18 @@ export default function HomeContent() {
 
   return (
     <>
-      {/* ===== HERO with Video ===== */}
+      {/* ===== HERO with YouTube Video Background ===== */}
       <section className="bg-brand-dark relative overflow-hidden">
-        <div className="absolute inset-0">
-          <VideoPlaceholder description="Видео: производство DECA — цех в Вестфилде, сборка окон, готовая продукция" />
+        {/* YouTube video background — no controls, autoplay, muted, looped */}
+        <div className="absolute inset-0 pointer-events-none">
+          <iframe
+            src="https://www.youtube.com/embed/noGgLNCpZGM?autoplay=1&mute=1&loop=1&playlist=noGgLNCpZGM&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1&start=0"
+            allow="autoplay; encrypted-media"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full min-h-full h-auto border-0"
+            title="DECA Windows & Doors"
+          />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/80 to-brand-dark/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/70 to-brand-dark/30" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-24 md:py-36 min-h-[600px] flex items-center">
           <div className="max-w-2xl">
             <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur text-white/80 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 border border-white/10">
