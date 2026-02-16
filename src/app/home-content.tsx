@@ -282,13 +282,20 @@ export default function HomeContent() {
       </Section>
 
       {/* ===== Final CTA (Figma: "Let's work together") ===== */}
-      <section className="bg-brand text-white py-20">
+      <section className="bg-white py-24 border-t border-border">
         <div className="max-w-3xl mx-auto text-center px-4 sm:px-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Let&apos;s Work Together to Build Better Spaces</h2>
-          <p className="text-white/60 text-lg mb-8">Whether you&apos;re a homeowner, contractor, or architect — we&apos;re here to help you find the perfect window and door solution.</p>
-          <Link href="/quote" className="inline-block bg-blue-accent hover:bg-blue-hover text-white px-10 py-4 rounded font-semibold text-lg transition-colors">
-            Get Started Today
-          </Link>
+          <span className="inline-block text-xs font-semibold tracking-wider uppercase text-brand mb-4">Ready to Start?</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">Let&apos;s Work Together to Build Better Spaces</h2>
+          <p className="text-text-secondary text-lg mb-8">Whether you&apos;re a homeowner, contractor, or architect — we&apos;re here to help you find the perfect window and door solution.</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/quote" className="inline-block bg-brand hover:bg-brand-dark text-white px-10 py-4 rounded font-semibold text-lg transition-colors">
+              Get Started Today
+            </Link>
+            <a href="tel:+14137714457" className="inline-flex items-center gap-2 text-text-muted hover:text-brand transition-colors font-medium">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+              (413) 771-4457
+            </a>
+          </div>
         </div>
       </section>
     </>
