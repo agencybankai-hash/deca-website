@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb, Section, SectionTitle, CTABlock, PhotoPlaceholder, ServiceIcons, GuideCard, StatCard } from "@/components/ui";
+import { WindowConfigurator } from "@/components/ProductConfigurator";
 
 export const metadata: Metadata = {
   title: "Tilt & Turn Windows | European Style | DECA Windows",
@@ -70,6 +71,9 @@ export default function TiltTurnPage() {
           </div>
         </div>
       </section>
+
+      {/* Configurator */}
+      <WindowConfigurator />
 
       {/* How It Works - Two Modes */}
       <Section>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Breadcrumb, Section, SectionTitle, CTABlock, PhotoPlaceholder, ServiceIcons, GuideCard, StatCard } from "@/components/ui";
+import { WindowConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -42,6 +43,9 @@ export default function UPVCWindowsPage() {
           <StatCard value="6" label="Chamber Design" />
         </div>
       </section>
+
+      {/* Configurator */}
+      <WindowConfigurator />
 
       {/* What is uPVC */}
       <Section>

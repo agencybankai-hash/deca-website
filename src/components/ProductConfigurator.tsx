@@ -25,7 +25,7 @@ interface ConfiguratorProps {
   subtitle: string;
   steps: Step[];
   svgPreview: (selections: Record<string, string>) => React.ReactNode;
-  productType: "window" | "sliding-door" | "entry-door";
+  productType: "window" | "sliding-door" | "entry-door" | "french-door";
 }
 
 /* ──────────────── SVG Preview Helpers ──────────────── */
@@ -456,6 +456,149 @@ export function EntryDoorConfigurator() {
       steps={steps}
       svgPreview={(sel) => <EntryDoorSVG selections={sel} />}
       productType="entry-door"
+    />
+  );
+}
+
+/* ──────────────── French Door SVG ──────────────── */
+
+function FrenchDoorSVG({ selections }: { selections: Record<string, string> }) {
+  const frameColor = selections.color === "anthracite" ? "#3C3C3C"
+    : selections.color === "black" ? "#1A1A1A"
+    : selections.color === "dark-brown" ? "#4A2E1C"
+    : selections.color === "golden-oak" ? "#B8860B"
+    : "#FFFFFF";
+
+  const glassColor = selections.glass === "triple" ? "#d0e8ff"
+    : selections.glass === "frosted" ? "#e8eef4"
+    : "#deeeff";
+
+  const isDouble = selections.config === "double" || selections.config === "with-sidelights" || selections.config === "with-transom";
+  const hasSidelights = selections.config === "with-sidelights";
+  const hasTransom = selections.config === "with-transom";
+
+  return (
+    <svg viewBox="0 0 300 360" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      {/* Transom */}
+      {hasTransom && (
+        <>
+          <rect x={isDouble ? "50" : "70"} y="10" width={isDouble ? "200" : "160"} height="45" rx="2" fill={frameColor} stroke="#888" strokeWidth="1.5"/>
+          <rect x={isDouble ? "58" : "78"} y="18" width={isDouble ? "184" : "144"} height="30" rx="1" fill={glassColor} stroke="#aac" strokeWidth="0.5"/>
+        </>
+      )}
+
+      {/* Sidelights */}
+      {hasSidelights && (
+        <>
+          <rect x="20" y="10" width="30" height="330" rx="2" fill={frameColor} stroke="#888" strokeWidth="1.5"/>
+          <rect x="26" y="18" width="18" height="314" rx="1" fill={glassColor} stroke="#aac" strokeWidth="0.5"/>
+          <rect x="250" y="10" width="30" height="330" rx="2" fill={frameColor} stroke="#888" strokeWidth="1.5"/>
+          <rect x="256" y="18" width="18" height="314" rx="1" fill={glassColor} stroke="#aac" strokeWidth="0.5"/>
+        </>
+      )}
+
+      {/* Main doors */}
+      {isDouble ? (
+        <>
+          {/* Left door */}
+          <rect x={hasSidelights ? "54" : "50"} y={hasTransom ? "59" : "10"} width={hasSidelights ? "94" : "98"} height={hasTransom ? "281" : "330"} rx="2" fill={frameColor} stroke="#888" strokeWidth="1.5"/>
+          <rect x={hasSidelights ? "62" : "58"} y={hasTransom ? "67" : "18"} width={hasSidelights ? "78" : "82"} height={hasTransom ? "265" : "314"} rx="1" fill={glassColor} stroke="#aac" strokeWidth="0.5"/>
+          {/* Left handle */}
+          <rect x={hasSidelights ? "140" : "148"} y="175" width="3" height="18" rx="1.5" fill="#999"/>
+
+          {/* Right door */}
+          <rect x={hasSidelights ? "152" : "152"} y={hasTransom ? "59" : "10"} width={hasSidelights ? "94" : "98"} height={hasTransom ? "281" : "330"} rx="2" fill={frameColor} stroke="#888" strokeWidth="1.5"/>
+          <rect x={hasSidelights ? "160" : "160"} y={hasTransom ? "67" : "18"} width={hasSidelights ? "78" : "82"} height={hasTransom ? "265" : "314"} rx="1" fill={glassColor} stroke="#aac" strokeWidth="0.5"/>
+          {/* Right handle */}
+          <rect x="157" y="175" width="3" height="18" rx="1.5" fill="#999"/>
+
+          {/* Opening arrows */}
+          <path d={`M${hasSidelights ? "100" : "100"} ${hasTransom ? "180" : "170"} L${hasSidelights ? "80" : "80"} ${hasTransom ? "200" : "190"}`} stroke="#7799bb" strokeWidth="1" opacity="0.4" strokeDasharray="3,2"/>
+          <path d={`M${hasSidelights ? "200" : "200"} ${hasTransom ? "180" : "170"} L${hasSidelights ? "220" : "220"} ${hasTransom ? "200" : "190"}`} stroke="#7799bb" strokeWidth="1" opacity="0.4" strokeDasharray="3,2"/>
+        </>
+      ) : (
+        /* Single door */
+        <>
+          <rect x="70" y="10" width="160" height="330" rx="2" fill={frameColor} stroke="#888" strokeWidth="1.5"/>
+          <rect x="78" y="18" width="144" height="314" rx="1" fill={glassColor} stroke="#aac" strokeWidth="0.5"/>
+          {/* Handle */}
+          <rect x="210" y="175" width="3" height="18" rx="1.5" fill="#999"/>
+          {/* Opening arrow */}
+          <path d="M150 180 L130 200" stroke="#7799bb" strokeWidth="1" opacity="0.4" strokeDasharray="3,2"/>
+        </>
+      )}
+
+      {/* Label */}
+      <text x="150" y="354" textAnchor="middle" fontSize="8" fill="#999" fontFamily="system-ui">
+        {selections.config === "with-sidelights" ? "Double + Sidelights" : selections.config === "with-transom" ? "Double + Transom" : isDouble ? "Double French" : "Single French"}
+      </text>
+    </svg>
+  );
+}
+
+export function FrenchDoorConfigurator() {
+  const steps: Step[] = [
+    {
+      id: "config",
+      title: "Configuration",
+      type: "card",
+      options: [
+        { id: "single", label: "Single French Door", desc: "One-panel swing, 32–42\" width" },
+        { id: "double", label: "Double French Doors", desc: "Two matching doors, 60–72\" total", tag: "Classic" },
+        { id: "with-sidelights", label: "Double + Sidelights", desc: "Flanked by fixed glass panels for maximum light", tag: "Popular" },
+        { id: "with-transom", label: "Double + Transom", desc: "Fixed transom above extends height" },
+      ],
+    },
+    {
+      id: "material",
+      title: "Frame Material",
+      type: "card",
+      options: [
+        { id: "upvc", label: "uPVC", desc: "Best thermal insulation, low maintenance", tag: "Popular" },
+        { id: "aluminum", label: "Aluminum", desc: "Slim profiles, modern aesthetic" },
+        { id: "composite", label: "Composite", desc: "Premium look & feel" },
+      ],
+    },
+    {
+      id: "glass",
+      title: "Glazing",
+      type: "card",
+      options: [
+        { id: "double", label: "Double Glazing", desc: "Insulated, argon fill", specs: "U-Value 0.9–1.3" },
+        { id: "triple", label: "Triple Glazing", desc: "Maximum thermal performance", specs: "U-Value 0.9", tag: "Best Performance" },
+        { id: "frosted", label: "Frosted Glass", desc: "Light with privacy" },
+      ],
+    },
+    {
+      id: "color",
+      title: "Frame Color",
+      type: "swatch",
+      options: [
+        { id: "white", label: "White", color: "#FFFFFF" },
+        { id: "anthracite", label: "Anthracite", color: "#3C3C3C" },
+        { id: "black", label: "Black", color: "#1A1A1A" },
+        { id: "golden-oak", label: "Golden Oak", color: "#B8860B" },
+        { id: "dark-brown", label: "Dark Brown", color: "#4A2E1C" },
+      ],
+    },
+    {
+      id: "screen",
+      title: "Insect Screen",
+      type: "card",
+      options: [
+        { id: "none", label: "No Screen", desc: "Add later if needed" },
+        { id: "plisse", label: "Plissé Screen", desc: "Retractable pleated mesh", tag: "Recommended" },
+      ],
+    },
+  ];
+
+  return (
+    <Configurator
+      title="Configure Your French Doors"
+      subtitle="Design your perfect doors. Get a free custom quote."
+      steps={steps}
+      svgPreview={(sel) => <FrenchDoorSVG selections={sel} />}
+      productType="french-door"
     />
   );
 }
