@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { ClientProviders } from "@/components/ClientProviders";
 import { GA_MEASUREMENT_ID, GTM_ID, getGTMHeadScript, getGA4Script, getGTMBodyNoscript } from "@/lib/analytics";
 
 export const metadata: Metadata = {
@@ -87,9 +88,11 @@ export default function RootLayout({
         {gtmBody && GTM_ID !== "GTM-XXXXXXX" && (
           <noscript dangerouslySetInnerHTML={{ __html: gtmBody }} />
         )}
-        <Nav />
-        <main>{children}</main>
-        <Footer />
+        <ClientProviders>
+          <Nav />
+          <main>{children}</main>
+          <Footer />
+        </ClientProviders>
       </body>
     </html>
   );
