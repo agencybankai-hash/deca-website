@@ -1,78 +1,186 @@
 import Link from "next/link";
-import { Breadcrumb, PageHero, Section, SectionTitle, CTABlock, ImagePlaceholder } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, CTABlock, PhotoPlaceholder, ServiceIcons, GuideCard } from "@/components/ui";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "European-Style Windows | uPVC & Aluminum | DECA Windows",
-  description: "Premium tilt & turn, uPVC, and aluminum windows manufactured in Massachusetts. Industry-leading U-values, sound insulation, and security.",
+  description: "Premium tilt & turn, uPVC, and aluminum windows manufactured in Massachusetts. Industry-leading U-values, sound insulation, and security. Factory-direct pricing.",
+  alternates: { canonical: "/windows" },
 };
 
 export default function WindowsPage() {
   return (
     <>
       <Breadcrumb items={[{ label: "Windows" }]} />
-      <PageHero
-        title="European-Style Windows"
-        subtitle="Premium tilt & turn, uPVC, and aluminum windows manufactured in Massachusetts. Industry-leading U-values, sound insulation, and security."
-        badge="Our Products"
-      />
 
-      <Section>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Tilt & Turn Windows",
-              desc: "Our flagship product. Two opening modes, U-value as low as 0.10, up to 12 locking points. The most versatile window system available.",
-              tag: "Most Popular",
-              href: "/tilt-turn",
-            },
-            {
-              title: "uPVC / Vinyl Windows",
-              desc: "6-chamber profile with 2.8mm walls. Exceptional durability, noise resistance, and thermal insulation. 30+ year service life.",
-              tag: "Energy Efficient",
-              href: "/windows/upvc-windows",
-            },
-            {
-              title: "Aluminum Windows",
-              desc: "Modern European design with thermal break technology. Slim profiles, maximum glass area, contemporary aesthetics.",
-              tag: "Modern Design",
-              href: "/windows/aluminum-windows",
-            },
-          ].map((w) => (
-            <Link key={w.title} href={w.href} className="group">
-              <div className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-lg transition-all">
-                <ImagePlaceholder label="Product Image" height="h-56" />
-                <div className="p-6">
-                  <span className="inline-block text-xs font-semibold text-blue-accent bg-blue-light px-2.5 py-1 rounded mb-3">{w.tag}</span>
-                  <h3 className="font-bold text-text-primary text-lg mb-2 group-hover:text-blue-accent transition-colors">{w.title}</h3>
-                  <p className="text-sm text-text-secondary leading-relaxed mb-4">{w.desc}</p>
-                  <span className="text-blue-accent font-medium text-sm">Learn More &rarr;</span>
-                </div>
+      {/* Hero — matching Figma Windows page */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div>
+              <span className="inline-block text-xs font-semibold tracking-wider uppercase text-blue-accent mb-3">Our Products</span>
+              <h1 className="text-4xl md:text-5xl font-bold text-text-primary leading-tight mb-4">DECA Windows</h1>
+              <p className="text-lg text-text-secondary leading-relaxed mb-8">
+                European engineering, manufactured in Massachusetts. Our windows deliver industry-leading thermal performance (U-value 0.10),
+                exceptional noise reduction (45-50 dB), and multi-point security — all with factory-direct pricing and a 15-year warranty.
+              </p>
+              {/* Subcategory links — matches Figma sidebar */}
+              <div className="space-y-3">
+                {[
+                  { href: "/tilt-turn", label: "Tilt & Turn Windows", tag: "Most Popular", desc: "Two opening modes for ventilation, cleaning, and security." },
+                  { href: "/windows/upvc-windows", label: "uPVC / Vinyl Windows", tag: "Energy Efficient", desc: "6-chamber profile, exceptional thermal insulation." },
+                  { href: "/windows/aluminum-windows", label: "Aluminum Windows", tag: "Modern Design", desc: "Slim profiles, maximum glass area, contemporary aesthetics." },
+                ].map((item) => (
+                  <Link key={item.href} href={item.href} className="group flex items-center gap-4 p-4 bg-warm-gray rounded-xl border border-border hover:border-blue-accent/30 hover:shadow-md transition-all">
+                    <div className="shrink-0 w-12 h-12 rounded-lg bg-blue-accent/10 flex items-center justify-center group-hover:bg-blue-accent transition-colors">
+                      <svg className="w-6 h-6 text-blue-accent group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-0.5">
+                        <h3 className="font-semibold text-text-primary group-hover:text-blue-accent transition-colors">{item.label}</h3>
+                        <span className="text-[10px] font-semibold text-blue-accent bg-blue-light px-2 py-0.5 rounded">{item.tag}</span>
+                      </div>
+                      <p className="text-sm text-text-muted truncate">{item.desc}</p>
+                    </div>
+                  </Link>
+                ))}
               </div>
-            </Link>
-          ))}
+            </div>
+            <PhotoPlaceholder description="Фото: общий вид коллекции окон DECA — несколько моделей в белом/сером цвете" height="h-[500px]" />
+          </div>
         </div>
-      </Section>
+      </section>
 
-      {/* Glazing Options */}
+      {/* Advanced Components — matches Figma */}
       <Section gray>
-        <SectionTitle title="Glazing Options" subtitle="Choose the right glass package for your climate and needs." />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <SectionTitle badge="Technology" title="Advanced Components for Maximum Comfort and Reliability" subtitle="Every DECA window is built with premium European components engineered for decades of performance." />
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="bg-white rounded-xl border border-border overflow-hidden">
+            <PhotoPlaceholder description="Фото: разрез uPVC профиля DECA с обозначением 6 камер, стального армирования, уплотнителей" height="h-64" className="rounded-none border-0" />
+            <div className="p-6">
+              <h3 className="font-bold text-lg text-text-primary mb-2">uPVC Profile</h3>
+              <p className="text-sm text-text-secondary leading-relaxed">6-chamber design with 2.8mm walls, galvanized steel reinforcement, and triple EPDM sealing for maximum thermal and acoustic insulation.</p>
+            </div>
+          </div>
+          <div className="bg-white rounded-xl border border-border overflow-hidden">
+            <PhotoPlaceholder description="Фото: разрез алюминиевого профиля с термомостом и полиамидными вставками" height="h-64" className="rounded-none border-0" />
+            <div className="p-6">
+              <h3 className="font-bold text-lg text-text-primary mb-2">Aluminum Profile</h3>
+              <p className="text-sm text-text-secondary leading-relaxed">Thermal break technology with polyamide strips eliminates cold bridging. Slim sightlines maximize glass area while maintaining structural integrity.</p>
+            </div>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { title: "Double Glazed", uval: "0.25", desc: "Two panes with argon fill. Excellent performance for moderate climates." },
-            { title: "Triple Glazed", uval: "0.10-0.13", desc: "Three panes with dual argon chambers. Maximum efficiency for cold climates.", featured: true },
-            { title: "Laminated Double", uval: "0.18", desc: "Safety glass with acoustic benefits. Hurricane and impact resistance." },
-          ].map((g) => (
-            <div key={g.title} className={`bg-white rounded-xl border p-6 text-center ${g.featured ? "border-blue-accent shadow-lg" : "border-border"}`}>
-              {g.featured && <span className="inline-block text-xs font-semibold text-blue-accent bg-blue-light px-2.5 py-1 rounded mb-3">Recommended</span>}
-              <h3 className="font-bold text-text-primary text-lg mb-2">{g.title}</h3>
-              <p className="text-3xl font-bold text-blue-accent mb-3">U: {g.uval}</p>
-              <p className="text-sm text-text-secondary leading-relaxed">{g.desc}</p>
+            { title: "Multi-Point Locks", desc: "Up to 12 locking points for maximum security", photoDesc: "Фото: крупный план многоточечного замка" },
+            { title: "EPDM Seals", desc: "Triple sealing system for air and water tightness", photoDesc: "Фото: крупный план уплотнителей EPDM в профиле" },
+            { title: "Glass Packages", desc: "Double and triple glazing with argon fill", photoDesc: "Фото: разрез стеклопакета — 3 стекла, аргон, дистанционная рамка" },
+            { title: "European Hardware", desc: "Roto and Siegenia handles and hinges", photoDesc: "Фото: фурнитура Roto/Siegenia — ручка и петля крупным планом" },
+          ].map((c) => (
+            <div key={c.title} className="bg-white rounded-xl border border-border overflow-hidden">
+              <PhotoPlaceholder description={c.photoDesc} height="h-32" className="rounded-none border-0" />
+              <div className="p-4">
+                <h4 className="font-semibold text-sm text-text-primary mb-1">{c.title}</h4>
+                <p className="text-xs text-text-muted leading-relaxed">{c.desc}</p>
+              </div>
             </div>
           ))}
         </div>
       </Section>
 
-      <CTABlock title="Find Your Perfect Window" subtitle="Use our configurator or get a free consultation." btnText="Get a Quote" />
+      {/* Window Types Grid — matches Figma */}
+      <Section>
+        <SectionTitle badge="Configurations" title="Window Types" subtitle="Available in uPVC and aluminum. All types support tilt & turn functionality." />
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+          {[
+            { name: "Fixed Window", desc: "Maximum light, no opening mechanism", photoDesc: "Фото/схема: глухое (неоткрывающееся) окно" },
+            { name: "Single Casement", desc: "One tilt & turn sash", photoDesc: "Фото/схема: одностворчатое окно с поворотно-откидной створкой" },
+            { name: "Double Casement", desc: "Two tilt & turn sashes", photoDesc: "Фото/схема: двустворчатое окно" },
+            { name: "Triple Casement", desc: "Three-sash configuration", photoDesc: "Фото/схема: трёхстворчатое окно" },
+            { name: "Basement / Hopper", desc: "Top-hinged inward tilt", photoDesc: "Фото/схема: подвальное/откидное окно" },
+            { name: "Custom Combo", desc: "Any combination of fixed + operable", photoDesc: "Фото/схема: комбинированное окно — глухая часть + створка" },
+          ].map((wt) => (
+            <div key={wt.name} className="bg-warm-gray rounded-xl border border-border overflow-hidden hover:shadow-md transition-all">
+              <PhotoPlaceholder description={wt.photoDesc} height="h-40" className="rounded-none border-0" />
+              <div className="p-4 text-center">
+                <h4 className="font-semibold text-text-primary mb-1">{wt.name}</h4>
+                <p className="text-xs text-text-muted">{wt.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Colors — matches Figma swatches section */}
+      <Section gray>
+        <SectionTitle badge="Customization" title="Colors That Complement Your Style" subtitle="Choose from over 40 standard colors and 200+ RAL custom options for both interior and exterior finishes." />
+        <div className="grid grid-cols-4 md:grid-cols-8 gap-3 mb-8">
+          {[
+            { name: "White", color: "#FFFFFF" }, { name: "Cream", color: "#F5F0E1" },
+            { name: "Light Gray", color: "#C4C4C4" }, { name: "Anthracite", color: "#3C3C3C" },
+            { name: "Dark Brown", color: "#4A2E1C" }, { name: "Golden Oak", color: "#B8860B" },
+            { name: "Mahogany", color: "#6B3A2A" }, { name: "Black", color: "#1A1A1A" },
+          ].map((c) => (
+            <div key={c.name} className="text-center">
+              <div className="w-full aspect-square rounded-lg border border-border mb-2" style={{ backgroundColor: c.color }} />
+              <span className="text-xs text-text-muted">{c.name}</span>
+            </div>
+          ))}
+        </div>
+        <p className="text-center text-sm text-text-muted">Wood-grain laminate finishes also available. <Link href="/quote" className="text-blue-accent hover:text-blue-hover">Contact us for samples →</Link></p>
+      </Section>
+
+      {/* Gallery */}
+      <Section>
+        <SectionTitle badge="Gallery" title="Windows in Real Homes" />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <PhotoPlaceholder description="Фото: панорамное окно в гостиной с видом на лес" height="h-48" />
+          <PhotoPlaceholder description="Фото: кухня с угловым остеклением DECA" height="h-48" />
+          <PhotoPlaceholder description="Фото: мансардное окно в спальне" height="h-48" />
+          <PhotoPlaceholder description="Фото: фасад коттеджа с окнами DECA разных размеров" height="h-48" />
+        </div>
+      </Section>
+
+      {/* Service Icons */}
+      <Section gray>
+        <SectionTitle title="Exceptional Service in Massachusetts" />
+        <ServiceIcons />
+      </Section>
+
+      {/* Expert Guides */}
+      <Section>
+        <SectionTitle badge="Resources" title="Expert Guides and Instructions" />
+        <div className="grid md:grid-cols-3 gap-6">
+          <GuideCard title="How Tilt & Turn Windows Work" desc="Complete guide to the dual-function opening mechanism that defines European windows." href="/blog" photoDesc="Фото: схема работы поворотно-откидного механизма" />
+          <GuideCard title="Triple vs Double Glazing" desc="Which glass package is right for your climate? A data-driven comparison." href="/blog" photoDesc="Фото: сравнительная диаграмма двойного и тройного стеклопакета" />
+          <GuideCard title="Window Maintenance Guide" desc="Simple steps to keep your DECA windows performing for decades." href="/blog" photoDesc="Фото: уход за окнами — чистка профиля и смазка фурнитуры" />
+        </div>
+      </Section>
+
+      {/* FAQ */}
+      <Section gray>
+        <SectionTitle badge="FAQ" title="Frequently Asked Questions" />
+        <div className="max-w-3xl mx-auto space-y-4">
+          {[
+            { q: "What is the difference between uPVC and aluminum windows?", a: "uPVC windows offer superior thermal insulation and are more affordable. Aluminum windows provide slimmer profiles, larger glass areas, and a more modern aesthetic. Both are available in tilt & turn configuration with the same glazing and hardware options." },
+            { q: "Can I get custom sizes and configurations?", a: "Yes. Every DECA window is made to order. We can accommodate virtually any size, shape, or configuration — including arched tops, angled shapes, and multi-unit combinations." },
+            { q: "How do tilt & turn windows open?", a: "Tilt & turn windows have two modes controlled by a single handle. Turn the handle 90° to tilt the sash inward from the top for ventilation. Turn it 180° to swing the entire sash inward like a door for full opening and easy cleaning." },
+            { q: "What glazing options are available?", a: "We offer double-glazed (U-value 0.25), triple-glazed (U-value 0.10-0.13), and laminated safety glass. All units come with argon fill, Low-E coating, and warm-edge spacer bars as standard." },
+          ].map((faq) => (
+            <details key={faq.q} className="group bg-white rounded-xl border border-border">
+              <summary className="flex items-center justify-between cursor-pointer px-6 py-5 text-text-primary font-medium">
+                {faq.q}
+                <svg className="w-5 h-5 text-text-muted shrink-0 ml-4 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+              </summary>
+              <div className="px-6 pb-5 text-text-secondary leading-relaxed">{faq.a}</div>
+            </details>
+          ))}
+        </div>
+      </Section>
+
+      <CTABlock title="Find Your Perfect Window" subtitle="Use our configurator or get a free consultation from our experts." btnText="Get a Quote" variant="blue" />
     </>
   );
 }
