@@ -65,25 +65,25 @@ export default function HomeContent() {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/70 to-brand-dark/30" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-24 md:py-36 min-h-[600px] flex items-center">
-          <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur text-white/80 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 border border-white/10">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
-              Massachusetts, USA
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-32 min-h-[540px] flex items-center">
+          <div className="max-w-xl">
+            <span className="inline-flex items-center gap-1.5 text-white/50 text-[11px] font-medium tracking-widest uppercase mb-5">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+              Westfield, Massachusetts
             </span>
-            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
-              DECA — European Energy-Efficient Windows and Doors Built in USA
+            <h1 className="text-3xl md:text-[44px] font-bold text-white leading-[1.15] mb-4 tracking-tight">
+              European Energy-Efficient Windows & Doors Built in USA
             </h1>
-            <p className="text-lg md:text-xl text-white/60 mb-8 leading-relaxed">
-              Manufacturer of PVC & Aluminum windows and doors. Factory-direct pricing, 15-year warranty, U-value 0.10.
+            <p className="text-sm md:text-base text-white/50 mb-8 leading-relaxed max-w-md">
+              Factory-direct PVC & Aluminum systems. 15-year warranty, U-value&nbsp;0.10, noise reduction up to&nbsp;50&nbsp;dB.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/windows" className="bg-blue-accent hover:bg-blue-hover text-white px-8 py-3.5 rounded font-semibold transition-colors uppercase tracking-wide text-sm flex items-center gap-2">
-                Explore Our Products
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/windows" className="bg-white hover:bg-gray-100 text-slate-dark px-6 py-3 rounded text-sm font-semibold transition-colors flex items-center gap-2">
+                Explore Products
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </Link>
-              <Link href="/quote" className="border border-white/30 hover:bg-white/10 text-white px-8 py-3.5 rounded font-semibold transition-colors uppercase tracking-wide text-sm">
-                Contact Us for a Quote
+              <Link href="/quote" className="border border-white/20 hover:border-white/40 hover:bg-white/5 text-white/80 px-6 py-3 rounded text-sm font-medium transition-colors">
+                Request a Quote
               </Link>
             </div>
           </div>
@@ -119,8 +119,8 @@ export default function HomeContent() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-5">{activeFeature.title}</h2>
-            <p className="text-text-secondary leading-relaxed text-lg mb-6">{activeFeature.description}</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">{activeFeature.title}</h2>
+            <p className="text-text-secondary leading-relaxed text-[15px] mb-5">{activeFeature.description}</p>
             <Link href="/performance" className="inline-flex items-center gap-2 text-blue-accent font-medium hover:text-blue-hover transition-colors">
               Learn more
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
@@ -148,10 +148,10 @@ export default function HomeContent() {
       </Section>
 
       {/* ===== CTA Block (Figma: blue bg — "Got Questions?") ===== */}
-      <section className="bg-blue-accent text-white py-20">
+      <section className="bg-brand text-white py-16">
         <div className="max-w-3xl mx-auto text-center px-4 sm:px-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Got Questions? We&apos;re Here to Help!</h2>
-          <p className="text-white/70 text-lg mb-8">Call us directly or request a callback — our team responds within 24 hours.</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">Got Questions? We&apos;re Here to Help!</h2>
+          <p className="text-white/60 text-[15px] mb-6">Call us directly or request a callback — our team responds within 24 hours.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/quote" className="inline-block bg-white text-brand hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-colors">
               Request a Quote
@@ -281,20 +281,25 @@ export default function HomeContent() {
         </div>
       </Section>
 
-      {/* ===== Final CTA (Figma: "Let's work together") ===== */}
-      <section className="bg-white py-24 border-t border-border">
-        <div className="max-w-3xl mx-auto text-center px-4 sm:px-6">
-          <span className="inline-block text-xs font-semibold tracking-wider uppercase text-brand mb-4">Ready to Start?</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">Let&apos;s Work Together to Build Better Spaces</h2>
-          <p className="text-text-secondary text-lg mb-8">Whether you&apos;re a homeowner, contractor, or architect — we&apos;re here to help you find the perfect window and door solution.</p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/quote" className="inline-block bg-brand hover:bg-brand-dark text-white px-10 py-4 rounded font-semibold text-lg transition-colors">
-              Get Started Today
-            </Link>
-            <a href="tel:+14137714457" className="inline-flex items-center gap-2 text-text-muted hover:text-brand transition-colors font-medium">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
-              (413) 771-4457
-            </a>
+      {/* ===== Final CTA — warm dark slate, contrasts with brand-blue footer ===== */}
+      <section className="bg-slate-dark text-white py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <span className="inline-block text-[10px] font-semibold tracking-widest uppercase text-brand-lighter mb-3">Ready to Start?</span>
+              <h2 className="text-2xl md:text-3xl font-bold mb-3 leading-snug">Let&apos;s Work Together to Build Better Spaces</h2>
+              <p className="text-white/50 text-sm leading-relaxed">Whether you&apos;re a homeowner, contractor, or architect — we&apos;re here to help you find the perfect window and door solution.</p>
+            </div>
+            <div className="flex flex-col gap-3 md:items-end">
+              <Link href="/quote" className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-slate-dark px-8 py-3.5 rounded font-semibold transition-colors text-sm">
+                Get a Free Quote
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              </Link>
+              <a href="tel:+14137714457" className="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors text-sm">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+                (413) 771-4457
+              </a>
+            </div>
           </div>
         </div>
       </section>

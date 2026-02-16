@@ -51,10 +51,10 @@ export function Section({ children, className = "", dark = false, gray = false, 
 export function SectionTitle({ badge, title, subtitle, light = false, align = "center" }: { badge?: string; title: string; subtitle?: string; light?: boolean; align?: "center" | "left" }) {
   const textAlign = align === "center" ? "text-center" : "text-left";
   return (
-    <div className={`${textAlign} mb-12`}>
-      {badge && <span className={`inline-block text-xs font-semibold tracking-wider uppercase mb-3 ${light ? "text-blue-accent/70" : "text-blue-accent"}`}>{badge}</span>}
-      <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${light ? "text-white" : "text-text-primary"}`}>{title}</h2>
-      {subtitle && <p className={`max-w-2xl text-lg leading-relaxed ${align === "center" ? "mx-auto" : ""} ${light ? "text-white/70" : "text-text-secondary"}`}>{subtitle}</p>}
+    <div className={`${textAlign} mb-10`}>
+      {badge && <span className={`inline-block text-[10px] font-semibold tracking-widest uppercase mb-2 ${light ? "text-brand-lighter" : "text-brand"}`}>{badge}</span>}
+      <h2 className={`text-2xl md:text-3xl font-bold mb-3 ${light ? "text-white" : "text-text-primary"}`}>{title}</h2>
+      {subtitle && <p className={`max-w-2xl text-[15px] leading-relaxed ${align === "center" ? "mx-auto" : ""} ${light ? "text-white/60" : "text-text-secondary"}`}>{subtitle}</p>}
     </div>
   );
 }

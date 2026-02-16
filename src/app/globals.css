@@ -7,6 +7,9 @@
   --color-brand-darker: #243b80;
   --color-brand-light: #4a66b8;
   --color-brand-lighter: #5a78c4;
+  /* Warm dark accent — for CTA contrast against brand-blue footer */
+  --color-slate-dark: #1b2038;
+  --color-slate: #252a42;
   /* Legacy navy aliases → now brand-based */
   --color-navy-950: #2d4590;
   --color-navy-900: #3854AA;
