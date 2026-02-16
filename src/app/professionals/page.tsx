@@ -111,7 +111,7 @@ export default function ProfessionalsPage() {
       </Section>
 
       {/* B2B Contact Form */}
-      <section id="contact-form" className="bg-navy-900 text-white py-20">
+      <section id="contact-form" className="bg-brand text-white py-20">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get Professional Pricing</h2>
           <p className="text-white/60 text-lg mb-10">Tell us about your project and we'll prepare a detailed quote.</p>

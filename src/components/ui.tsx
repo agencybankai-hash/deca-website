@@ -24,7 +24,7 @@ export function PhotoPlaceholder({
 export function VideoPlaceholder({ description }: { description: string }) {
   return (
     <div className="bg-black/90 rounded-xl aspect-video flex flex-col items-center justify-center text-center p-6 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-950/50 to-navy-800/30" />
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-dark/50 to-brand/30" />
       <div className="relative z-10">
         <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4 mx-auto backdrop-blur">
           <svg className="w-8 h-8 text-white/80 ml-1" fill="currentColor" viewBox="0 0 24 24">
@@ -39,7 +39,7 @@ export function VideoPlaceholder({ description }: { description: string }) {
 
 /* ===== Section wrapper ===== */
 export function Section({ children, className = "", dark = false, gray = false, id }: { children: React.ReactNode; className?: string; dark?: boolean; gray?: boolean; id?: string }) {
-  const bg = dark ? "bg-navy-950 text-white" : gray ? "bg-warm-gray" : "bg-white";
+  const bg = dark ? "bg-brand text-white" : gray ? "bg-warm-gray" : "bg-white";
   return (
     <section id={id} className={`py-20 ${bg} ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">{children}</div>
@@ -106,14 +106,14 @@ export function StatCard({ value, label, light = false }: { value: string; label
 
 /* ===== CTA Block ("Got Questions?" from Figma) ===== */
 export function CTABlock({ title, subtitle, btnText, btnHref = "/quote", variant = "navy" }: { title: string; subtitle: string; btnText: string; btnHref?: string; variant?: "navy" | "blue" }) {
-  const bg = variant === "blue" ? "bg-blue-accent" : "bg-navy-900";
+  const bg = variant === "blue" ? "bg-brand-light" : "bg-brand";
   return (
     <section className={`${bg} text-white py-20`}>
       <div className="max-w-3xl mx-auto text-center px-4 sm:px-6">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
         <p className="text-white/60 text-lg mb-8">{subtitle}</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href={btnHref} className="inline-block bg-white text-navy-950 hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-colors">{btnText}</Link>
+          <Link href={btnHref} className="inline-block bg-white text-brand hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-colors">{btnText}</Link>
           <a href="tel:+14137714457" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
             (413) 771-4457
@@ -188,8 +188,8 @@ export function Breadcrumb({ items }: { items: { label: string; href?: string }[
 /* ===== Page Hero ===== */
 export function PageHero({ title, subtitle, badge, children }: { title: string; subtitle?: string; badge?: string; children?: React.ReactNode }) {
   return (
-    <section className="bg-navy-950 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 opacity-80" />
+    <section className="bg-brand relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand to-brand-light opacity-80" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
         <div className="max-w-3xl">
           {badge && <span className="inline-block text-xs font-semibold tracking-wider uppercase text-blue-accent mb-4">{badge}</span>}

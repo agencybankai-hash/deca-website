@@ -25,7 +25,7 @@ export default function TiltTurnLP() {
   return (
     <div className="min-h-screen bg-white">
       {/* Top Bar */}
-      <div className="bg-[#0a0e27] text-white py-3 px-4">
+      <div className="bg-[#3854AA] text-white py-3 px-4">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <span className="text-xl font-bold tracking-tight">DECA</span>
           <a href={`tel:${PHONE.replace(/[^\d+]/g, "")}`} className="text-sm font-medium hover:text-blue-300">
@@ -35,7 +35,7 @@ export default function TiltTurnLP() {
       </div>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#0a0e27] to-[#1a2050] text-white py-16 px-4">
+      <section className="bg-gradient-to-br from-[#3854AA] to-[#4a66b8] text-white py-16 px-4">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-block bg-blue-600/20 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full mb-4">
@@ -87,7 +87,7 @@ export default function TiltTurnLP() {
             { num: "4.9★", label: "Customer Rating" },
           ].map((s) => (
             <div key={s.label}>
-              <div className="text-2xl font-bold text-[#0a0e27]">{s.num}</div>
+              <div className="text-2xl font-bold text-[#3854AA]">{s.num}</div>
               <div className="text-sm text-gray-600">{s.label}</div>
             </div>
           ))}
@@ -97,7 +97,7 @@ export default function TiltTurnLP() {
       {/* Benefits */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-[#0a0e27] mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-center text-[#3854AA] mb-12">
             Why Homeowners Choose DECA Tilt & Turn
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -128,7 +128,7 @@ export default function TiltTurnLP() {
               },
             ].map((b) => (
               <div key={b.title} className="bg-[#f8f9fa] rounded-xl p-6 border border-[#e9ecef]">
-                <h3 className="text-lg font-semibold text-[#0a0e27] mb-2">{b.title}</h3>
+                <h3 className="text-lg font-semibold text-[#3854AA] mb-2">{b.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{b.desc}</p>
               </div>
             ))}
@@ -139,13 +139,13 @@ export default function TiltTurnLP() {
       {/* Comparison */}
       <section className="bg-[#f8f9fa] py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-center text-[#0a0e27] mb-8">
+          <h2 className="text-2xl font-bold text-center text-[#3854AA] mb-8">
             DECA vs. Standard American Windows
           </h2>
           <div className="bg-white rounded-xl border border-[#e9ecef] overflow-hidden">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-[#0a0e27] text-white">
+                <tr className="bg-[#3854AA] text-white">
                   <th className="text-left py-3 px-4">Feature</th>
                   <th className="text-center py-3 px-4">DECA Tilt & Turn</th>
                   <th className="text-center py-3 px-4">Standard Double-Hung</th>
@@ -164,7 +164,7 @@ export default function TiltTurnLP() {
                   ["Lifespan", "30-50 years", "15-25 years"],
                 ].map(([feat, deca, std], i) => (
                   <tr key={feat} className={i % 2 === 0 ? "bg-white" : "bg-[#f8f9fa]"}>
-                    <td className="py-3 px-4 font-medium text-[#0a0e27]">{feat}</td>
+                    <td className="py-3 px-4 font-medium text-[#3854AA]">{feat}</td>
                     <td className="py-3 px-4 text-center text-green-700 font-semibold">{deca}</td>
                     <td className="py-3 px-4 text-center text-gray-500">{std}</td>
                   </tr>
@@ -182,7 +182,7 @@ export default function TiltTurnLP() {
             &ldquo;Our heating bill dropped 68% the first winter after installing DECA tilt & turn windows.
             The noise from Route 9 is practically gone. Best home improvement we&apos;ve ever made.&rdquo;
           </p>
-          <p className="font-semibold text-[#0a0e27]">— Sarah M., Northampton, MA</p>
+          <p className="font-semibold text-[#3854AA]">— Sarah M., Northampton, MA</p>
           <div className="flex justify-center gap-1 mt-2">
             {[1, 2, 3, 4, 5].map((n) => (
               <span key={n} className="text-yellow-500 text-lg">★</span>
@@ -192,7 +192,7 @@ export default function TiltTurnLP() {
       </section>
 
       {/* Quote Form */}
-      <section id="quote-form" className="bg-[#0a0e27] py-16 px-4">
+      <section id="quote-form" className="bg-[#3854AA] py-16 px-4">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-2">
             Get Your Free Quote in 24 Hours
@@ -290,7 +290,7 @@ export default function TiltTurnLP() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#060818] text-gray-400 py-8 px-4 text-center text-sm">
+      <footer className="bg-[#2d4590] text-gray-400 py-8 px-4 text-center text-sm">
         <p>© 2025 DECA Windows & Doors. Manufactured in Westfield, Massachusetts.</p>
         <p className="mt-1">109 Apremont Way, Westfield, MA 01085 · {PHONE}</p>
       </footer>

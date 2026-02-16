@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-navy-950: #0a0e27;
-  --color-navy-900: #111640;
-  --color-navy-800: #1a1f52;
-  --color-navy-700: #252b6a;
-  --color-navy-600: #3038a0;
-  --color-blue-accent: #3b5bdb;
+  /* Brand blue palette — extracted from Figma/PDF: #3854AA */
+  --color-brand: #3854AA;
+  --color-brand-dark: #2d4590;
+  --color-brand-darker: #243b80;
+  --color-brand-light: #4a66b8;
+  --color-brand-lighter: #5a78c4;
+  /* Legacy navy aliases → now brand-based */
+  --color-navy-950: #2d4590;
+  --color-navy-900: #3854AA;
+  --color-navy-800: #4a66b8;
+  --color-navy-700: #5a78c4;
+  --color-navy-600: #6b89cf;
+  --color-blue-accent: #3854AA;
   --color-blue-light: #edf2ff;
-  --color-blue-hover: #364fc7;
+  --color-blue-hover: #2d4590;
   --color-warm-gray: #f8f9fa;
   --color-text-primary: #1a1b1e;
   --color-text-secondary: #495057;
@@ -40,9 +47,9 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Dark hero overlay */
+/* Dark hero overlay — brand blue based */
 .hero-overlay {
-  background: linear-gradient(180deg, rgba(10,14,39,0.85) 0%, rgba(17,22,64,0.75) 100%);
+  background: linear-gradient(180deg, rgba(45,69,144,0.90) 0%, rgba(56,84,170,0.80) 100%);
 }
 
 /* Scrollbar styling */

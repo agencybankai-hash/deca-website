@@ -49,11 +49,11 @@ export default function HomeContent() {
   return (
     <>
       {/* ===== HERO with Video ===== */}
-      <section className="bg-navy-950 relative overflow-hidden">
+      <section className="bg-brand-dark relative overflow-hidden">
         <div className="absolute inset-0">
           <VideoPlaceholder description="Видео: производство DECA — цех в Вестфилде, сборка окон, готовая продукция" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-950/80 to-navy-950/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/80 to-brand-dark/40" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-24 md:py-36 min-h-[600px] flex items-center">
           <div className="max-w-2xl">
             <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur text-white/80 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 border border-white/10">
@@ -142,7 +142,7 @@ export default function HomeContent() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Got Questions? We&apos;re Here to Help!</h2>
           <p className="text-white/70 text-lg mb-8">Call us directly or request a callback — our team responds within 24 hours.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/quote" className="inline-block bg-white text-navy-950 hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-colors">
+            <Link href="/quote" className="inline-block bg-white text-brand hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-colors">
               Request a Quote
             </Link>
             <a href="tel:+14137714457" className="inline-flex items-center gap-2 text-white/90 hover:text-white transition-colors font-medium">
@@ -271,7 +271,7 @@ export default function HomeContent() {
       </Section>
 
       {/* ===== Final CTA (Figma: "Let's work together") ===== */}
-      <section className="bg-navy-950 text-white py-20">
+      <section className="bg-brand text-white py-20">
         <div className="max-w-3xl mx-auto text-center px-4 sm:px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Let&apos;s Work Together to Build Better Spaces</h2>
           <p className="text-white/60 text-lg mb-8">Whether you&apos;re a homeowner, contractor, or architect — we&apos;re here to help you find the perfect window and door solution.</p>

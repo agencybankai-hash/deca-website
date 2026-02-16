@@ -46,7 +46,7 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50">
       {/* Top bar — B2B links */}
-      <div className="bg-[#060818] text-white/50 text-xs hidden lg:block">
+      <div className="bg-brand-darker text-white/50 text-xs hidden lg:block">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-8">
           <div className="flex items-center gap-5">
             {topBarLinks.map((link) => (
@@ -66,7 +66,7 @@ export default function Nav() {
       </div>
 
       {/* Main nav */}
-      <nav className="bg-navy-950/95 backdrop-blur-md border-b border-white/5">
+      <nav className="bg-brand backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
@@ -139,7 +139,7 @@ export default function Nav() {
             </a>
             <Link
               href="/quote"
-              className="bg-blue-accent hover:bg-blue-hover text-white px-5 py-2.5 rounded text-sm font-semibold transition-colors flex items-center gap-2 uppercase tracking-wide"
+              className="bg-white hover:bg-gray-100 text-brand px-5 py-2.5 rounded text-sm font-semibold transition-colors flex items-center gap-2 uppercase tracking-wide"
             >
               Request a Quote
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -165,7 +165,7 @@ export default function Nav() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden bg-navy-900 border-t border-white/10 py-4 px-4 space-y-1">
+          <div className="lg:hidden bg-brand-dark border-t border-white/10 py-4 px-4 space-y-1">
             {navItems.flatMap((item) =>
               item.children
                 ? item.children.map((child) => (
