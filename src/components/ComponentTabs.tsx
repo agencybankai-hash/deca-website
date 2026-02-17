@@ -67,8 +67,8 @@ export default function ComponentTabs({ items }: ComponentTabsProps) {
         })}
       </div>
 
-      {/* Right — Large component image on white background */}
-      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white flex items-center justify-center">
+      {/* Right — Large component image */}
+      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#f6f6f6] flex items-center justify-center">
         <Image
           key={items[active]?.image}
           src={items[active]?.image}

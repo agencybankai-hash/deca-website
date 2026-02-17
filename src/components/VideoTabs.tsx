@@ -143,8 +143,8 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
         })}
       </div>
 
-      {/* Right — Video on white background */}
-      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white">
+      {/* Right — Video */}
+      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#f6f6f6]">
         <video
           ref={videoRef}
           key={tabs[active]?.video}
