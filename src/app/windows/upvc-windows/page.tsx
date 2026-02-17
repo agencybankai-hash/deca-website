@@ -420,7 +420,7 @@ export default function UPVCWindowsPage() {
                 alt={`DECA ${w.name}`}
                 width={400}
                 height={300}
-                className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-64 object-contain group-hover:scale-105 transition-transform duration-500"
               />
               <div className="p-4">
                 <h4 className="font-semibold text-text-primary text-sm">{w.name}</h4>

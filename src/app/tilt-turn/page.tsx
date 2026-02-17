@@ -324,7 +324,7 @@ export default function TiltTurnPage() {
             { src: "basemant-windows.webp", name: "Basement Windows", desc: "Compact tilt-only for below-grade" },
           ].map((w) => (
             <div key={w.name} className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-all group">
-              <Image src={`${a}/images/${w.src}`} alt={`DECA ${w.name}`} width={400} height={300} className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <Image src={`${a}/images/${w.src}`} alt={`DECA ${w.name}`} width={400} height={300} className="w-full h-64 object-contain group-hover:scale-105 transition-transform duration-500" />
               <div className="p-4">
                 <h4 className="font-semibold text-text-primary text-sm">{w.name}</h4>
                 <p className="text-xs text-text-muted">{w.desc}</p>
