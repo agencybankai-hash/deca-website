@@ -5,6 +5,9 @@ import { WindowConfigurator } from "@/components/ProductConfigurator";
 import VideoTabs from "@/components/VideoTabs";
 import ComponentTabs from "@/components/ComponentTabs";
 import GalleryLightbox from "@/components/GalleryLightbox";
+import AnimatedStats from "@/components/AnimatedStats";
+import PerformanceBars from "@/components/PerformanceBars";
+import EnergySavingsCard from "@/components/EnergySavingsCard";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -78,13 +81,17 @@ export default function UPVCWindowsPage() {
         </div>
       </section>
 
-      {/* ═══════ STATS BAR ═══════ */}
-      <section className="bg-brand text-white py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <StatCard value="50+" label="Year Lifespan" light />
-          <StatCard value="0.14" label="Lowest U-Value" light />
-          <StatCard value="83mm" label="Profile Depth" light />
-          <StatCard value="6" label="Chamber Design" light />
+      {/* ═══════ STATS BAR — Animated rings + counters ═══════ */}
+      <section className="bg-brand text-white py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <AnimatedStats
+            stats={[
+              { value: 50, suffix: "+", label: "Year Lifespan", ring: 100 },
+              { value: 0.14, suffix: "", label: "Lowest U-Value", ring: 95, decimals: 2 },
+              { value: 83, suffix: "mm", label: "Profile Depth", ring: 70 },
+              { value: 6, suffix: "", label: "Chamber Design", ring: 85 },
+            ]}
+          />
         </div>
       </section>
 
@@ -354,6 +361,61 @@ export default function UPVCWindowsPage() {
             },
           ]}
         />
+      </Section>
+
+      {/* ═══════ PERFORMANCE — DECA vs Traditional ═══════ */}
+      <Section>
+        <SectionTitle
+          badge="Why Upgrade"
+          title="DECA vs. Traditional Windows"
+          subtitle="See how European uPVC technology outperforms standard American vinyl windows."
+        />
+        <PerformanceBars
+          metrics={[
+            {
+              label: "Thermal Insulation",
+              icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" /></svg>,
+              deca: 95,
+              decaLabel: "U-Factor 0.14",
+              traditional: 40,
+              traditionalLabel: "U-Factor 0.30",
+            },
+            {
+              label: "Sound Reduction",
+              icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" /></svg>,
+              deca: 90,
+              decaLabel: "42–50 dB",
+              traditional: 55,
+              traditionalLabel: "25–30 dB",
+            },
+            {
+              label: "Air Tightness",
+              icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" /></svg>,
+              deca: 98,
+              decaLabel: "12-point lock",
+              traditional: 35,
+              traditionalLabel: "2-point lock",
+            },
+            {
+              label: "Lifespan",
+              icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>,
+              deca: 100,
+              decaLabel: "50+ years",
+              traditional: 40,
+              traditionalLabel: "15–20 years",
+            },
+          ]}
+        />
+      </Section>
+
+      {/* ═══════ ENERGY SAVINGS INFOGRAPHIC ═══════ */}
+      <Section gray>
+        <SectionTitle
+          badge="Your Investment"
+          title="The Economics of Quality Windows"
+          subtitle="Energy-efficient windows aren't just better — they pay for themselves."
+        />
+        <EnergySavingsCard />
       </Section>
 
       {/* ═══════ GALLERY — Project photos ═══════ */}
