@@ -105,17 +105,17 @@ export default function TiltTurnPage() {
             {
               title: "Tilt Mode — Ventilation",
               desc: "Turn handle up — window tilts inward at the top for secure, rain-safe airflow. Perfect for sleep, child safety, and year-round ventilation.",
-              video: "https://dl.dropbox.com/scl/fi/pl8p06wjj21den45p2ufi/Ventilation.mp4?rlkey=66l9f1984ecjla13h4fpm5muj",
+              video: `${a}/videos/ventilation.mp4`,
             },
             {
               title: "Turn Mode — Easy Cleaning",
               desc: "Turn handle to the side — window opens fully inward like a door. Clean exterior glass from inside your home, on any floor.",
-              video: "https://dl.dropbox.com/scl/fi/iydq7eq3auh1aibpal07m/Easy_To_Clean.mp4?rlkey=3lhrtstfesxyor2cmx66c244g",
+              video: `${a}/videos/easy-to-clean.mp4`,
             },
             {
               title: "Closed — Airtight & Secure",
               desc: "Handle down — up to 12 locking points engage simultaneously. Compression seals create an airtight, watertight, burglar-resistant barrier.",
-              video: "https://dl.dropbox.com/scl/fi/wgy6ge1z4hy9bknj18wwb/Air-tight-_-Secure.mp4?rlkey=8u2hm5foapiwtq380c58v9bj9",
+              video: `${a}/videos/airtight-secure.mp4`,
             },
           ].map((v) => (
             <div key={v.title} className="bg-white rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow">

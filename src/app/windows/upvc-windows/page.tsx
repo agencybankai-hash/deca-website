@@ -318,9 +318,9 @@ export default function UPVCWindowsPage() {
         <SectionTitle badge="See It In Action" title="Why Homeowners Love Tilt & Turn" />
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { title: "Easy Ventilation", desc: "Tilt mode provides secure, rain-safe airflow. No need to open the window fully.", video: "https://dl.dropbox.com/scl/fi/pl8p06wjj21den45p2ufi/Ventilation.mp4?rlkey=66l9f1984ecjla13h4fpm5muj" },
-            { title: "Effortless Cleaning", desc: "Turn mode swings the sash inward 180° for easy exterior glass cleaning from inside.", video: "https://dl.dropbox.com/scl/fi/iydq7eq3auh1aibpal07m/Easy_To_Clean.mp4?rlkey=3lhrtstfesxyor2cmx66c244g" },
-            { title: "Airtight & Secure", desc: "Multi-point locking engages 8–12 points simultaneously. RC2/RC3 certified security.", video: "https://dl.dropbox.com/scl/fi/wgy6ge1z4hy9bknj18wwb/Air-tight-_-Secure.mp4?rlkey=8u2hm5foapiwtq380c58v9bj9" },
+            { title: "Easy Ventilation", desc: "Tilt mode provides secure, rain-safe airflow. No need to open the window fully.", video: `${a}/videos/ventilation.mp4` },
+            { title: "Effortless Cleaning", desc: "Turn mode swings the sash inward 180° for easy exterior glass cleaning from inside.", video: `${a}/videos/easy-to-clean.mp4` },
+            { title: "Airtight & Secure", desc: "Multi-point locking engages 8–12 points simultaneously. RC2/RC3 certified security.", video: `${a}/videos/airtight-secure.mp4` },
           ].map((v) => (
             <div key={v.title} className="bg-white rounded-xl border border-border overflow-hidden">
               <div className="relative aspect-video bg-gray-100 rounded-t-xl overflow-hidden">
