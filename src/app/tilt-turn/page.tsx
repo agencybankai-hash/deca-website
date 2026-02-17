@@ -68,7 +68,7 @@ export default function TiltTurnPage() {
             {/* Hero image */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src={`${a}/gallery/gallery-9.webp`}
+                src={`${a}/gallery/gallery-3.webp`}
                 alt="DECA tilt & turn window installed in a modern home"
                 width={800}
                 height={600}
@@ -105,32 +105,29 @@ export default function TiltTurnPage() {
             {
               title: "Tilt Mode — Ventilation",
               desc: "Turn handle up — window tilts inward at the top for secure, rain-safe airflow. Perfect for sleep, child safety, and year-round ventilation.",
-              video: "https://dl.dropbox.com/scl/fi/pl8p06wjj21den45p2ufi/Ventilation.mp4",
-              poster: `${a}/components/components-1.webp`,
+              video: "https://dl.dropbox.com/scl/fi/pl8p06wjj21den45p2ufi/Ventilation.mp4?rlkey=66l9f1984ecjla13h4fpm5muj",
             },
             {
               title: "Turn Mode — Easy Cleaning",
               desc: "Turn handle to the side — window opens fully inward like a door. Clean exterior glass from inside your home, on any floor.",
-              video: "https://dl.dropbox.com/scl/fi/iydq7eq3auh1aibpal07m/Easy_To_Clean.mp4",
-              poster: `${a}/components/components-3.webp`,
+              video: "https://dl.dropbox.com/scl/fi/iydq7eq3auh1aibpal07m/Easy_To_Clean.mp4?rlkey=3lhrtstfesxyor2cmx66c244g",
             },
             {
               title: "Closed — Airtight & Secure",
               desc: "Handle down — up to 12 locking points engage simultaneously. Compression seals create an airtight, watertight, burglar-resistant barrier.",
-              video: "https://dl.dropbox.com/scl/fi/wgy6ge1z4hy9bknj18wwb/Air-tight-_-Secure.mp4",
-              poster: `${a}/components/components-4.webp`,
+              video: "https://dl.dropbox.com/scl/fi/wgy6ge1z4hy9bknj18wwb/Air-tight-_-Secure.mp4?rlkey=8u2hm5foapiwtq380c58v9bj9",
             },
           ].map((v) => (
             <div key={v.title} className="bg-white rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="relative aspect-video bg-black">
-                <a href={v.video} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
-                  <Image src={v.poster} alt={v.title} width={640} height={360} className="w-full h-full object-cover" />
-                </a>
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                  </div>
-                </div>
+              <div className="relative aspect-video bg-gray-100 rounded-t-xl overflow-hidden">
+                <video
+                  src={v.video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-6">
                 <h3 className="font-bold text-text-primary text-lg mb-2">{v.title}</h3>
@@ -263,14 +260,14 @@ export default function TiltTurnPage() {
         <SectionTitle badge="Our Work" title="Tilt & Turn in Real Homes" subtitle="DECA windows installed across New England." />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
-            { src: `${a}/gallery/gallery-10.webp`, tall: true },
-            { src: `${a}/gallery/gallery-9.webp`, tall: true },
-            { src: `${a}/images/two-sections.webp` },
-            { src: `${a}/images/three-sections.webp` },
-            { src: `${a}/images/curved-type.webp` },
-            { src: `${a}/images/basemant-windows.webp` },
-            { src: `${a}/components/components-2.webp` },
-            { src: `${a}/images/kitchen-windows.webp` },
+            { src: `${a}/gallery/gallery-1.webp`, tall: true },
+            { src: `${a}/gallery/gallery-2.webp`, tall: true },
+            { src: `${a}/gallery/gallery-3.webp` },
+            { src: `${a}/gallery/gallery-4.webp` },
+            { src: `${a}/gallery/gallery-5.webp` },
+            { src: `${a}/gallery/gallery-6.webp` },
+            { src: `${a}/gallery/gallery-7.webp` },
+            { src: `${a}/gallery/gallery-8.webp` },
           ].map((item, i) => (
             <div key={i} className={`rounded-xl overflow-hidden ${item.tall ? "md:row-span-2" : ""}`}>
               <Image
