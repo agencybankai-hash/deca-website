@@ -119,15 +119,17 @@ export default function TiltTurnPage() {
             },
           ].map((v) => (
             <div key={v.title} className="bg-white rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="relative aspect-video bg-gray-100 rounded-t-xl overflow-hidden">
-                <video
-                  src={v.video}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
+              <div className="p-4 pb-0">
+                <div className="relative aspect-video bg-gray-100 rounded-xl overflow-hidden">
+                  <video
+                    src={v.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
               <div className="p-6">
                 <h3 className="font-bold text-text-primary text-lg mb-2">{v.title}</h3>

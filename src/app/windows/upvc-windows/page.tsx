@@ -324,15 +324,17 @@ export default function UPVCWindowsPage() {
             { title: "Airtight & Secure", desc: "Multi-point locking engages 8–12 points simultaneously. RC2/RC3 certified security.", video: `${a}/videos/airtight-secure.mp4` },
           ].map((v) => (
             <div key={v.title} className="bg-white rounded-xl border border-border overflow-hidden">
-              <div className="relative aspect-video bg-gray-100 rounded-t-xl overflow-hidden">
-                <video
-                  src={v.video}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
+              <div className="p-4 pb-0">
+                <div className="relative aspect-video bg-gray-100 rounded-xl overflow-hidden">
+                  <video
+                    src={v.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
               <div className="p-5">
                 <h4 className="font-semibold text-text-primary mb-1">{v.title}</h4>
