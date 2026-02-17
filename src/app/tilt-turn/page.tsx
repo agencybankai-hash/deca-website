@@ -140,65 +140,67 @@ export default function TiltTurnPage() {
       {/* ═══════ CONFIGURATOR ═══════ */}
       <WindowConfigurator />
 
-      {/* ═══════ PROFILE TECHNOLOGY ═══════ */}
+      {/* ═══════ PROFILE TECHNOLOGY — Visual showcase ═══════ */}
       <Section gray>
         <SectionTitle
           badge="GEALAN Engineering"
-          title="Technical Specifications"
+          title="Profile Technology"
+          subtitle="See what's inside every DECA window — German-engineered GEALAN profiles built for decades of performance."
+        />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { src: "components-1.webp", label: "Profile Cross-Section", desc: "Multi-chamber uPVC profile with galvanized steel reinforcement for structural rigidity." },
+            { src: "components-2.webp", label: "Chamber Structure", desc: "5–6 insulating chambers trap air, creating a thermal barrier that outperforms standard vinyl by 40%." },
+            { src: "components-3.webp", label: "Triple Seal System", desc: "Three continuous EPDM gaskets block air, water, and sound at every point of the frame." },
+            { src: "components-5.webp", label: "Hardware Detail", desc: "Precision Roto/Siegenia hardware with up to 12 locking points for maximum security." },
+            { src: "components-4.webp", label: "Steel Reinforcement", desc: "Galvanized steel inserts prevent flexing and warping across extreme temperatures (-30°F to 140°F)." },
+          ].map((c) => (
+            <div key={c.src} className={`bg-white rounded-2xl overflow-hidden border border-border ${c.src === "components-4.webp" ? "sm:col-span-2" : ""}`}>
+              <div className="bg-gray-50 p-4">
+                <Image
+                  src={`${a}/components/${c.src}`}
+                  alt={`DECA tilt & turn window — ${c.label}`}
+                  width={600}
+                  height={400}
+                  className={`w-full object-contain ${c.src === "components-4.webp" ? "h-64" : "h-56"}`}
+                />
+              </div>
+              <div className="p-4">
+                <h4 className="text-sm font-bold text-text-primary mb-1">{c.label}</h4>
+                <p className="text-xs text-text-muted leading-relaxed">{c.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* ═══════ TECHNICAL SPECS TABLE ═══════ */}
+      <Section>
+        <SectionTitle
+          badge="Specifications"
+          title="Technical Data"
           subtitle="Professional-grade GEALAN profiles with NFRC-certified performance."
         />
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="bg-white rounded-xl border border-border overflow-hidden">
-            {[
-              ["Profile System", "GEALAN-LINEAR® / S 8000"],
-              ["Profile Depth", "74mm – 83mm"],
-              ["Material", "uPVC + galvanized steel reinforcement"],
-              ["Chamber Count", "5–6 chambers"],
-              ["Surface", "GEALAN-acrylcolor® (co-extruded)"],
-              ["Glass Package", "Triple-pane, argon-filled, up to 52mm"],
-              ["U-Factor", "As low as 0.14 W/m²K"],
-              ["Max Size", "Up to 11′6″ × 11′6″"],
-              ["Sound Insulation", "STC 42–50 dB"],
-              ["Lock Points", "8–12 multi-point (Roto/Siegenia)"],
-              ["Security Rating", "RC2 / RC3 certified"],
-              ["Insect Screen", "FlexScreen® (virtually invisible)"],
-            ].map(([label, value], i) => (
-              <div key={label} className={`flex justify-between px-6 py-4 border-b border-border last:border-b-0 ${i % 2 === 0 ? "bg-warm-gray" : "bg-white"}`}>
-                <span className="text-sm font-medium text-text-secondary">{label}</span>
-                <span className="text-sm text-text-primary font-semibold text-right">{value}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Cross-section images */}
-          <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { src: "components-1.webp", label: "Profile cross-section" },
-                { src: "components-2.webp", label: "Chamber structure" },
-                { src: "components-3.webp", label: "Seal detail" },
-                { src: "components-5.webp", label: "Hardware detail" },
-              ].map((c) => (
-                <div key={c.src} className="bg-white rounded-xl overflow-hidden border border-border">
-                  <Image
-                    src={`${a}/components/${c.src}`}
-                    alt={`DECA tilt & turn window ${c.label}`}
-                    width={400}
-                    height={300}
-                    className="w-full h-40 object-cover"
-                  />
-                  <p className="text-[11px] text-text-muted text-center py-2">{c.label}</p>
-                </div>
-              ))}
+        <div className="max-w-3xl mx-auto bg-white rounded-xl border border-border overflow-hidden">
+          {[
+            ["Profile System", "GEALAN-LINEAR® / S 8000"],
+            ["Profile Depth", "74mm – 83mm"],
+            ["Material", "uPVC + galvanized steel reinforcement"],
+            ["Chamber Count", "5–6 chambers"],
+            ["Surface", "GEALAN-acrylcolor® (co-extruded)"],
+            ["Glass Package", "Triple-pane, argon-filled, up to 52mm"],
+            ["U-Factor", "As low as 0.14 W/m²K"],
+            ["Max Size", "Up to 11′6″ × 11′6″"],
+            ["Sound Insulation", "STC 42–50 dB"],
+            ["Lock Points", "8–12 multi-point (Roto/Siegenia)"],
+            ["Security Rating", "RC2 / RC3 certified"],
+            ["Insect Screen", "FlexScreen® (virtually invisible)"],
+          ].map(([label, value], i) => (
+            <div key={label} className={`flex justify-between px-6 py-4 border-b border-border last:border-b-0 ${i % 2 === 0 ? "bg-warm-gray" : "bg-white"}`}>
+              <span className="text-sm font-medium text-text-secondary">{label}</span>
+              <span className="text-sm text-text-primary font-semibold text-right">{value}</span>
             </div>
-            <Image
-              src={`${a}/components/components-4.webp`}
-              alt="DECA window steel reinforcement detail"
-              width={600}
-              height={300}
-              className="w-full rounded-xl border border-border"
-            />
-          </div>
+          ))}
         </div>
       </Section>
 

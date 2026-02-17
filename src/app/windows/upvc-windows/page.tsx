@@ -165,7 +165,7 @@ export default function UPVCWindowsPage() {
                   alt={`DECA uPVC window ${c.label}`}
                   width={400}
                   height={300}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-56 object-contain p-3"
                 />
                 <p className="text-[11px] text-text-muted text-center py-2">{c.label}</p>
               </div>
