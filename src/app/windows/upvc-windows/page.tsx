@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Breadcrumb, Section, SectionTitle, CTABlock, ServiceIcons, StatCard } from "@/components/ui";
 import { WindowConfigurator } from "@/components/ProductConfigurator";
 import VideoTabs from "@/components/VideoTabs";
+import ComponentTabs from "@/components/ComponentTabs";
 import GalleryLightbox from "@/components/GalleryLightbox";
 import type { Metadata } from "next";
 
@@ -116,63 +117,61 @@ export default function UPVCWindowsPage() {
       {/* ═══════ CONFIGURATOR ═══════ */}
       <WindowConfigurator />
 
-      {/* ═══════ PROFILE TECHNOLOGY — Components cross-section ═══════ */}
+      {/* ═══════ PROFILE TECHNOLOGY — Interactive component viewer ═══════ */}
       <Section>
         <SectionTitle
           badge="GEALAN Technology"
           title="What Makes Our uPVC Different"
           subtitle="German-engineered GEALAN profiles with multi-chamber design for superior thermal performance."
         />
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h3 className="text-xl font-bold text-text-primary mb-4">Advanced Multi-Chamber Profile</h3>
-            <p className="text-text-secondary leading-relaxed mb-6">
-              Our GEALAN-LINEAR and S&nbsp;8000 profiles feature 5-6 insulating chambers
-              that trap air to create a thermal barrier. Combined with galvanized
-              steel reinforcement, the result is a window that&apos;s structurally
-              rigid yet thermally efficient — outperforming standard vinyl by 40%.
-            </p>
-
-            <div className="space-y-4 mb-6">
-              {[
-                { label: "GEALAN-acrylcolor® surface", desc: "Co-extruded acrylic surface technology (since 1980). Matte, smooth, grained, and RealWood finishes — no painting needed." },
-                { label: "Steel-reinforced core", desc: "Galvanized steel inserts prevent flexing, sagging, and warping across extreme temperature swings (-30°F to 140°F)." },
-                { label: "Triple EPDM gaskets", desc: "Three continuous sealing lines block air, water, and sound infiltration at every point of the frame." },
-              ].map((f) => (
-                <div key={f.label} className="flex gap-3">
-                  <div className="shrink-0 w-6 h-6 rounded-full bg-brand/10 flex items-center justify-center mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-brand" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd"/></svg>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-text-primary">{f.label}</p>
-                    <p className="text-sm text-text-muted leading-relaxed">{f.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Cross-section images */}
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { src: "components-1.webp", label: "Profile cross-section" },
-              { src: "components-2.webp", label: "Chamber structure" },
-              { src: "components-3.webp", label: "Seal detail" },
-              { src: "components-4.webp", label: "Steel reinforcement" },
-            ].map((c) => (
-              <div key={c.src} className="bg-warm-gray rounded-xl overflow-hidden border border-border">
-                <Image
-                  src={`${a}/components/${c.src}`}
-                  alt={`DECA uPVC window ${c.label}`}
-                  width={400}
-                  height={300}
-                  className="w-full h-56 object-contain p-3"
-                />
-                <p className="text-[11px] text-text-muted text-center py-2">{c.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <ComponentTabs
+          items={[
+            {
+              icon: (
+                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25a2.25 2.25 0 0 1-2.25-2.25v-2.25Z" />
+                </svg>
+              ),
+              title: "Profile Cross-Section",
+              description: "Multi-chamber uPVC profile with galvanized steel reinforcement for structural rigidity.",
+              image: `${a}/components/components-1.webp`,
+              alt: "DECA uPVC window — Profile Cross-Section",
+            },
+            {
+              icon: (
+                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+                </svg>
+              ),
+              title: "Chamber Structure",
+              description: "5–6 insulating chambers trap air, creating a thermal barrier that outperforms standard vinyl by 40%.",
+              image: `${a}/components/components-2.webp`,
+              alt: "DECA uPVC window — Chamber Structure",
+            },
+            {
+              icon: (
+                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                </svg>
+              ),
+              title: "Triple Seal System",
+              description: "Three continuous EPDM gaskets block air, water, and sound at every point of the frame.",
+              image: `${a}/components/components-3.webp`,
+              alt: "DECA uPVC window — Triple Seal System",
+            },
+            {
+              icon: (
+                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25" />
+                </svg>
+              ),
+              title: "Steel Reinforcement",
+              description: "Galvanized steel inserts prevent flexing and warping across extreme temperatures (-30°F to 140°F).",
+              image: `${a}/components/components-4.webp`,
+              alt: "DECA uPVC window — Steel Reinforcement",
+            },
+          ]}
+        />
       </Section>
 
       {/* ═══════ GLAZING — Glass type cards ═══════ */}

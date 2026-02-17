@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import anime from "animejs";
 
 interface VideoTab {
   icon: React.ReactNode;
@@ -15,39 +16,68 @@ interface VideoTabsProps {
 
 export default function VideoTabs({ tabs }: VideoTabsProps) {
   const [active, setActive] = useState(0);
-  const [progress, setProgress] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
+  const animeRef = useRef<anime.AnimeInstance | null>(null);
 
   const advance = useCallback(() => {
     setActive((prev) => (prev + 1) % tabs.length);
   }, [tabs.length]);
 
+  /* When active tab changes — load & play video, start anime.js progress */
   useEffect(() => {
     const v = videoRef.current;
-    if (!v) return;
+    const bar = progressRef.current;
+    if (!v || !bar) return;
+
+    // Reset progress bar
+    bar.style.width = "0%";
+    if (animeRef.current) {
+      animeRef.current.pause();
+      animeRef.current = null;
+    }
+
     v.load();
     v.play().catch(() => {});
-    setProgress(0);
-  }, [active]);
 
-  /* progress bar via timeupdate */
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    const onTime = () => {
-      if (v.duration && isFinite(v.duration)) {
-        setProgress((v.currentTime / v.duration) * 100);
-      }
+    const startAnimation = () => {
+      if (!v.duration || !isFinite(v.duration)) return;
+
+      // Kill any previous animation
+      if (animeRef.current) animeRef.current.pause();
+
+      animeRef.current = anime({
+        targets: bar,
+        width: ["0%", "100%"],
+        duration: v.duration * 1000,
+        easing: "linear",
+        complete: () => {
+          advance();
+        },
+      });
     };
+
+    // Wait for video metadata to know duration
+    if (v.readyState >= 1) {
+      startAnimation();
+    } else {
+      v.addEventListener("loadedmetadata", startAnimation, { once: true });
+    }
+
     const onEnd = () => {
-      setProgress(100);
+      if (animeRef.current) animeRef.current.pause();
+      if (bar) bar.style.width = "100%";
       advance();
     };
-    v.addEventListener("timeupdate", onTime);
     v.addEventListener("ended", onEnd);
+
     return () => {
-      v.removeEventListener("timeupdate", onTime);
       v.removeEventListener("ended", onEnd);
+      v.removeEventListener("loadedmetadata", startAnimation);
+      if (animeRef.current) {
+        animeRef.current.pause();
+        animeRef.current = null;
+      }
     };
   }, [active, advance]);
 
@@ -67,12 +97,13 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
                   : "bg-white border-gray-200 hover:border-brand/30 hover:shadow-sm"
               }`}
             >
-              {/* Progress bar inside active tab */}
+              {/* Progress bar inside active tab — driven by anime.js */}
               {isActive && (
                 <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-white/20">
                   <div
-                    className="h-full bg-white/60 transition-[width] duration-200 ease-linear"
-                    style={{ width: `${progress}%` }}
+                    ref={progressRef}
+                    className="h-full bg-white/60"
+                    style={{ width: "0%" }}
                   />
                 </div>
               )}
@@ -112,8 +143,8 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
         })}
       </div>
 
-      {/* Right — Video */}
-      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+      {/* Right — Video on white background */}
+      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white">
         <video
           ref={videoRef}
           key={tabs[active]?.video}
