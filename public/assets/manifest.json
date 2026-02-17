@@ -1,0 +1,55 @@
+{
+  "source": "decawindows.com (Webflow)",
+  "cdn": "https://cdn.prod.website-files.com/653ce36306847de4f1922b81",
+  "extracted": "2026-02-17",
+  "categories": {
+    "logos": ["logo-blue.svg"],
+    "icons": ["stars.svg"],
+    "team": ["miranda.webp", "jordan.webp", "casey.webp"],
+    "components": [
+      "components-1.webp", "components-2.webp", "components-3.webp",
+      "components-4.webp", "components-5.webp"
+    ],
+    "images": [
+      "laminated-double.webp", "double.webp", "triple.webp",
+      "tempered.webp", "laminated.webp", "non-spaces.webp", "low-e-glass.webp",
+      "grill-none.png",
+      "config-frame-1.png", "config-frame-2.png", "config-frame-3.png",
+      "config-frame-4.png", "config-frame-5.png",
+      "config-handle-1.png", "config-handle-2.png", "config-handle-3.png", "config-handle-4.png",
+      "config-hinge-1.png", "config-hinge-2.png", "config-hinge-3.png", "config-hinge-4.png",
+      "two-sections.webp", "three-sections.webp", "curved-type.webp",
+      "basemant-windows.webp", "kitchen-windows.webp", "about-img.webp"
+    ],
+    "backgrounds": ["hero.webp"],
+    "gallery": [
+      "gallery-1.webp", "gallery-2.webp", "gallery-3.webp", "gallery-4.webp",
+      "gallery-5.webp", "gallery-6.webp", "gallery-7.webp", "gallery-8.webp",
+      "gallery-9.webp", "gallery-10.webp", "gallery-11.webp", "gallery-12.webp",
+      "gallery-13.webp", "gallery-14.webp", "gallery-15.webp", "gallery-16.webp",
+      "gallery-2-10-11.webp", "gallery-10-11.webp"
+    ],
+    "videos": [
+      {
+        "file": "Ventilation.mp4",
+        "source": "dropbox",
+        "url": "https://dl.dropbox.com/scl/fi/pl8p06wjj21den45p2ufi/Ventilation.mp4",
+        "description": "Tilt & Turn ventilation demo"
+      },
+      {
+        "file": "Easy_To_Clean.mp4",
+        "source": "dropbox",
+        "url": "https://dl.dropbox.com/scl/fi/iydq7eq3auh1aibpal07m/Easy_To_Clean.mp4",
+        "description": "Easy cleaning demo"
+      },
+      {
+        "file": "Air-tight-_-Secure.mp4",
+        "source": "dropbox",
+        "url": "https://dl.dropbox.com/scl/fi/wgy6ge1z4hy9bknj18wwb/Air-tight-_-Secure.mp4",
+        "description": "Airtight and security demo"
+      }
+    ]
+  },
+  "totalImages": 55,
+  "totalVideos": 3
+}
