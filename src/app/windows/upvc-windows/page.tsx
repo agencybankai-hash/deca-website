@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumb, Section, SectionTitle, CTABlock, ServiceIcons, StatCard } from "@/components/ui";
 import { WindowConfigurator } from "@/components/ProductConfigurator";
-import { img } from "@/lib/cdn";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,6 +10,9 @@ export const metadata: Metadata = {
     "Premium uPVC vinyl windows with exceptional energy efficiency. GEALAN profiles, triple-pane glazing, U-values as low as 0.14, and 50+ year lifespan. Manufactured in Massachusetts.",
   alternates: { canonical: "/windows/upvc-windows" },
 };
+
+/* All images served from public/assets/ */
+const a = "/assets";
 
 export default function UPVCWindowsPage() {
   return (
@@ -55,10 +57,10 @@ export default function UPVCWindowsPage() {
               </div>
             </div>
 
-            {/* Hero image — gallery photo or hero */}
+            {/* Hero image */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src={img("gallery/gallery-1.webp")}
+                src={`${a}/gallery/gallery-10.webp`}
                 alt="DECA uPVC windows installed in a modern home — white profile, triple glazing"
                 width={800}
                 height={600}
@@ -87,20 +89,20 @@ export default function UPVCWindowsPage() {
       <section className="bg-warm-gray py-14">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8">
-            <Image src={img("icons/stars.svg")} alt="5-star reviews" width={108} height={20} className="mx-auto mb-2" />
+            <Image src={`${a}/icons/stars.svg`} alt="5-star reviews" width={108} height={20} className="mx-auto mb-2" />
             <p className="text-sm text-text-muted">Trusted by homeowners across New England</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: "Miranda S.", text: "Our energy bills dropped by 45% after replacing all windows with DECA uPVC. The noise reduction is incredible — we live near a highway and can barely hear traffic now.", img: "miranda.webp" },
-              { name: "Jordan K.", text: "The tilt-and-turn mechanism is a game-changer. Easy cleaning, great ventilation options, and the build quality is noticeably better than our old vinyl windows.", img: "jordan.webp" },
-              { name: "Casey M.", text: "Impressive attention to detail from consultation to installation. The triple-glazed windows keep our 1920s colonial warm even in January without cranking the heat.", img: "casey.webp" },
+              { name: "Miranda S.", text: "Our energy bills dropped by 45% after replacing all windows with DECA uPVC. The noise reduction is incredible — we live near a highway and can barely hear traffic now.", photo: "miranda.webp" },
+              { name: "Jordan K.", text: "The tilt-and-turn mechanism is a game-changer. Easy cleaning, great ventilation options, and the build quality is noticeably better than our old vinyl windows.", photo: "jordan.webp" },
+              { name: "Casey M.", text: "Impressive attention to detail from consultation to installation. The triple-glazed windows keep our 1920s colonial warm even in January without cranking the heat.", photo: "casey.webp" },
             ].map((r) => (
               <div key={r.name} className="bg-white rounded-xl border border-border p-6">
-                <Image src={img("icons/stars.svg")} alt="5 stars" width={100} height={20} className="mb-3" />
+                <Image src={`${a}/icons/stars.svg`} alt="5 stars" width={100} height={20} className="mb-3" />
                 <p className="text-sm text-text-secondary leading-relaxed mb-4">&ldquo;{r.text}&rdquo;</p>
                 <div className="flex items-center gap-3">
-                  <Image src={img(`team/${r.img}`)} alt={r.name} width={40} height={40} className="w-10 h-10 rounded-full object-cover" />
+                  <Image src={`${a}/team/${r.photo}`} alt={r.name} width={40} height={40} className="w-10 h-10 rounded-full object-cover" />
                   <span className="text-sm font-semibold text-text-primary">{r.name}</span>
                 </div>
               </div>
@@ -158,7 +160,7 @@ export default function UPVCWindowsPage() {
             ].map((c) => (
               <div key={c.src} className="bg-warm-gray rounded-xl overflow-hidden border border-border">
                 <Image
-                  src={img(`components/${c.src}`)}
+                  src={`${a}/components/${c.src}`}
                   alt={`DECA uPVC window ${c.label}`}
                   width={400}
                   height={300}
@@ -185,7 +187,7 @@ export default function UPVCWindowsPage() {
           ].map((g) => (
             <div key={g.name} className="bg-white rounded-xl border border-border overflow-hidden text-center">
               <Image
-                src={img(`images/${g.src}`)}
+                src={`${a}/images/${g.src}`}
                 alt={`DECA ${g.name} glazing`}
                 width={300}
                 height={200}
@@ -208,7 +210,7 @@ export default function UPVCWindowsPage() {
           ].map((g) => (
             <div key={g.name} className="text-center">
               <Image
-                src={img(`images/${g.src}`)}
+                src={`${a}/images/${g.src}`}
                 alt={g.name}
                 width={200}
                 height={150}
@@ -282,7 +284,7 @@ export default function UPVCWindowsPage() {
           {/* Component detail image */}
           <div className="space-y-4">
             <Image
-              src={img("components/components-5.webp")}
+              src={`${a}/components/components-5.webp`}
               alt="DECA uPVC window component detail — hardware and seal"
               width={600}
               height={400}
@@ -316,15 +318,14 @@ export default function UPVCWindowsPage() {
         <SectionTitle badge="See It In Action" title="Why Homeowners Love Tilt & Turn" />
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { title: "Easy Ventilation", desc: "Tilt mode provides secure, rain-safe airflow. No need to open the window fully.", video: "https://dl.dropbox.com/scl/fi/pl8p06wjj21den45p2ufi/Ventilation.mp4", poster: img("gallery/gallery-4.webp") },
-            { title: "Effortless Cleaning", desc: "Turn mode swings the sash inward 180° for easy exterior glass cleaning from inside.", video: "https://dl.dropbox.com/scl/fi/iydq7eq3auh1aibpal07m/Easy_To_Clean.mp4", poster: img("gallery/gallery-6.webp") },
-            { title: "Airtight & Secure", desc: "Multi-point locking engages 8–12 points simultaneously. RC2/RC3 certified security.", video: "https://dl.dropbox.com/scl/fi/wgy6ge1z4hy9bknj18wwb/Air-tight-_-Secure.mp4", poster: img("gallery/gallery-7.webp") },
+            { title: "Easy Ventilation", desc: "Tilt mode provides secure, rain-safe airflow. No need to open the window fully.", video: "https://dl.dropbox.com/scl/fi/pl8p06wjj21den45p2ufi/Ventilation.mp4", poster: `${a}/components/components-1.webp` },
+            { title: "Effortless Cleaning", desc: "Turn mode swings the sash inward 180° for easy exterior glass cleaning from inside.", video: "https://dl.dropbox.com/scl/fi/iydq7eq3auh1aibpal07m/Easy_To_Clean.mp4", poster: `${a}/components/components-3.webp` },
+            { title: "Airtight & Secure", desc: "Multi-point locking engages 8–12 points simultaneously. RC2/RC3 certified security.", video: "https://dl.dropbox.com/scl/fi/wgy6ge1z4hy9bknj18wwb/Air-tight-_-Secure.mp4", poster: `${a}/components/components-4.webp` },
           ].map((v) => (
             <div key={v.title} className="bg-white rounded-xl border border-border overflow-hidden">
               <div className="relative aspect-video bg-black">
                 {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
                 <a href={v.video} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
-                  {/* Use poster image as static preview — video plays on click via direct link */}
                   <Image
                     src={v.poster}
                     alt={v.title}
@@ -348,21 +349,27 @@ export default function UPVCWindowsPage() {
         </div>
       </Section>
 
-      {/* ═══════ GALLERY — Real project photos ═══════ */}
+      {/* ═══════ GALLERY — Project photos ═══════ */}
       <Section>
         <SectionTitle badge="Our Work" title="Installed Projects" subtitle="Real DECA uPVC windows in homes across New England." />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
-            "gallery-2.webp", "gallery-3.webp", "gallery-5.webp", "gallery-8.webp",
-            "gallery-10.webp", "gallery-11.webp", "gallery-14.webp", "gallery-15.webp",
-          ].map((src, i) => (
-            <div key={src} className={`rounded-xl overflow-hidden ${i < 2 ? "md:row-span-2" : ""}`}>
+            { src: `${a}/gallery/gallery-9.webp`, tall: true },
+            { src: `${a}/gallery/gallery-10.webp`, tall: true },
+            { src: `${a}/images/two-sections.webp` },
+            { src: `${a}/images/three-sections.webp` },
+            { src: `${a}/images/curved-type.webp` },
+            { src: `${a}/images/kitchen-windows.webp` },
+            { src: `${a}/components/components-4.webp` },
+            { src: `${a}/images/basemant-windows.webp` },
+          ].map((item, i) => (
+            <div key={i} className={`rounded-xl overflow-hidden ${item.tall ? "md:row-span-2" : ""}`}>
               <Image
-                src={img(`gallery/${src}`)}
+                src={item.src}
                 alt={`DECA window installation project ${i + 1}`}
                 width={500}
-                height={i < 2 ? 600 : 300}
-                className={`w-full object-cover hover:scale-105 transition-transform duration-500 ${i < 2 ? "h-full" : "h-48 md:h-52"}`}
+                height={item.tall ? 600 : 300}
+                className={`w-full object-cover hover:scale-105 transition-transform duration-500 ${item.tall ? "h-full" : "h-48 md:h-52"}`}
               />
             </div>
           ))}
@@ -416,7 +423,7 @@ export default function UPVCWindowsPage() {
           ].map((w) => (
             <div key={w.name} className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-all group">
               <Image
-                src={img(`images/${w.src}`)}
+                src={`${a}/images/${w.src}`}
                 alt={`DECA ${w.name}`}
                 width={400}
                 height={300}

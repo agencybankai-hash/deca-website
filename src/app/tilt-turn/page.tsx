@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumb, Section, SectionTitle, CTABlock, ServiceIcons, StatCard } from "@/components/ui";
 import { WindowConfigurator } from "@/components/ProductConfigurator";
-import { img } from "@/lib/cdn";
 
 export const metadata: Metadata = {
   title: "Tilt & Turn Windows | European Style | DECA Windows",
@@ -22,6 +21,9 @@ const faqSchema = {
     { "@type": "Question", "name": "Do they meet US building codes?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All DECA windows are NFRC certified and meet or exceed all US building code requirements." } },
   ],
 };
+
+/* All images served from public/assets/ */
+const a = "/assets";
 
 export default function TiltTurnPage() {
   return (
@@ -66,7 +68,7 @@ export default function TiltTurnPage() {
             {/* Hero image */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src={img("gallery/gallery-3.webp")}
+                src={`${a}/gallery/gallery-9.webp`}
                 alt="DECA tilt & turn window installed in a modern home"
                 width={800}
                 height={600}
@@ -104,19 +106,19 @@ export default function TiltTurnPage() {
               title: "Tilt Mode — Ventilation",
               desc: "Turn handle up — window tilts inward at the top for secure, rain-safe airflow. Perfect for sleep, child safety, and year-round ventilation.",
               video: "https://dl.dropbox.com/scl/fi/pl8p06wjj21den45p2ufi/Ventilation.mp4",
-              poster: img("gallery/gallery-4.webp"),
+              poster: `${a}/components/components-1.webp`,
             },
             {
               title: "Turn Mode — Easy Cleaning",
               desc: "Turn handle to the side — window opens fully inward like a door. Clean exterior glass from inside your home, on any floor.",
               video: "https://dl.dropbox.com/scl/fi/iydq7eq3auh1aibpal07m/Easy_To_Clean.mp4",
-              poster: img("gallery/gallery-6.webp"),
+              poster: `${a}/components/components-3.webp`,
             },
             {
               title: "Closed — Airtight & Secure",
               desc: "Handle down — up to 12 locking points engage simultaneously. Compression seals create an airtight, watertight, burglar-resistant barrier.",
               video: "https://dl.dropbox.com/scl/fi/wgy6ge1z4hy9bknj18wwb/Air-tight-_-Secure.mp4",
-              poster: img("gallery/gallery-7.webp"),
+              poster: `${a}/components/components-4.webp`,
             },
           ].map((v) => (
             <div key={v.title} className="bg-white rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow">
@@ -183,7 +185,7 @@ export default function TiltTurnPage() {
               ].map((c) => (
                 <div key={c.src} className="bg-white rounded-xl overflow-hidden border border-border">
                   <Image
-                    src={img(`components/${c.src}`)}
+                    src={`${a}/components/${c.src}`}
                     alt={`DECA tilt & turn window ${c.label}`}
                     width={400}
                     height={300}
@@ -194,7 +196,7 @@ export default function TiltTurnPage() {
               ))}
             </div>
             <Image
-              src={img("components/components-4.webp")}
+              src={`${a}/components/components-4.webp`}
               alt="DECA window steel reinforcement detail"
               width={600}
               height={300}
@@ -216,7 +218,7 @@ export default function TiltTurnPage() {
             { src: "low-e-glass.webp", name: "Low-E Coating", spec: "UV Block 99.5%" },
           ].map((g) => (
             <div key={g.name} className="bg-white rounded-xl border border-border overflow-hidden text-center">
-              <Image src={img(`images/${g.src}`)} alt={`${g.name} glazing`} width={300} height={200} className="w-full h-36 object-contain bg-gray-50 p-4" />
+              <Image src={`${a}/images/${g.src}`} alt={`${g.name} glazing`} width={300} height={200} className="w-full h-36 object-contain bg-gray-50 p-4" />
               <div className="p-3">
                 <p className="text-sm font-semibold text-text-primary">{g.name}</p>
                 <p className="text-xs text-brand">{g.spec}</p>
@@ -261,16 +263,22 @@ export default function TiltTurnPage() {
         <SectionTitle badge="Our Work" title="Tilt & Turn in Real Homes" subtitle="DECA windows installed across New England." />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
-            "gallery-1.webp", "gallery-2.webp", "gallery-5.webp", "gallery-8.webp",
-            "gallery-9.webp", "gallery-12.webp", "gallery-13.webp", "gallery-16.webp",
-          ].map((src, i) => (
-            <div key={src} className={`rounded-xl overflow-hidden ${i < 2 ? "md:row-span-2" : ""}`}>
+            { src: `${a}/gallery/gallery-10.webp`, tall: true },
+            { src: `${a}/gallery/gallery-9.webp`, tall: true },
+            { src: `${a}/images/two-sections.webp` },
+            { src: `${a}/images/three-sections.webp` },
+            { src: `${a}/images/curved-type.webp` },
+            { src: `${a}/images/basemant-windows.webp` },
+            { src: `${a}/components/components-2.webp` },
+            { src: `${a}/images/kitchen-windows.webp` },
+          ].map((item, i) => (
+            <div key={i} className={`rounded-xl overflow-hidden ${item.tall ? "md:row-span-2" : ""}`}>
               <Image
-                src={img(`gallery/${src}`)}
+                src={item.src}
                 alt={`DECA tilt & turn window installation ${i + 1}`}
                 width={500}
-                height={i < 2 ? 600 : 300}
-                className={`w-full object-cover hover:scale-105 transition-transform duration-500 ${i < 2 ? "h-full" : "h-48 md:h-52"}`}
+                height={item.tall ? 600 : 300}
+                className={`w-full object-cover hover:scale-105 transition-transform duration-500 ${item.tall ? "h-full" : "h-48 md:h-52"}`}
               />
             </div>
           ))}
@@ -280,21 +288,21 @@ export default function TiltTurnPage() {
       {/* ═══════ REVIEWS ═══════ */}
       <Section>
         <div className="text-center mb-8">
-          <Image src={img("icons/stars.svg")} alt="5-star reviews" width={108} height={20} className="mx-auto mb-2" />
+          <Image src={`${a}/icons/stars.svg`} alt="5-star reviews" width={108} height={20} className="mx-auto mb-2" />
           <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-2">What Homeowners Say</h2>
           <p className="text-sm text-text-muted">Trusted by families across New England</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {[
-            { name: "Miranda S.", text: "Our energy bills dropped by 45% after replacing all windows with DECA. The noise reduction is incredible — we live near a highway and can barely hear traffic now.", img: "miranda.webp" },
-            { name: "Jordan K.", text: "The tilt-and-turn mechanism is a game-changer. Easy cleaning, great ventilation options, and the build quality is noticeably better than our old vinyl windows.", img: "jordan.webp" },
-            { name: "Casey M.", text: "Impressive attention to detail from consultation to installation. The triple-glazed windows keep our 1920s colonial warm even in January without cranking the heat.", img: "casey.webp" },
+            { name: "Miranda S.", text: "Our energy bills dropped by 45% after replacing all windows with DECA. The noise reduction is incredible — we live near a highway and can barely hear traffic now.", photo: "miranda.webp" },
+            { name: "Jordan K.", text: "The tilt-and-turn mechanism is a game-changer. Easy cleaning, great ventilation options, and the build quality is noticeably better than our old vinyl windows.", photo: "jordan.webp" },
+            { name: "Casey M.", text: "Impressive attention to detail from consultation to installation. The triple-glazed windows keep our 1920s colonial warm even in January without cranking the heat.", photo: "casey.webp" },
           ].map((r) => (
             <div key={r.name} className="bg-warm-gray rounded-xl border border-border p-6">
-              <Image src={img("icons/stars.svg")} alt="5 stars" width={100} height={20} className="mb-3" />
+              <Image src={`${a}/icons/stars.svg`} alt="5 stars" width={100} height={20} className="mb-3" />
               <p className="text-sm text-text-secondary leading-relaxed mb-4">&ldquo;{r.text}&rdquo;</p>
               <div className="flex items-center gap-3">
-                <Image src={img(`team/${r.img}`)} alt={r.name} width={40} height={40} className="w-10 h-10 rounded-full object-cover" />
+                <Image src={`${a}/team/${r.photo}`} alt={r.name} width={40} height={40} className="w-10 h-10 rounded-full object-cover" />
                 <span className="text-sm font-semibold text-text-primary">{r.name}</span>
               </div>
             </div>
@@ -319,7 +327,7 @@ export default function TiltTurnPage() {
             { src: "basemant-windows.webp", name: "Basement Windows", desc: "Compact tilt-only for below-grade" },
           ].map((w) => (
             <div key={w.name} className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-all group">
-              <Image src={img(`images/${w.src}`)} alt={`DECA ${w.name}`} width={400} height={300} className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <Image src={`${a}/images/${w.src}`} alt={`DECA ${w.name}`} width={400} height={300} className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" />
               <div className="p-4">
                 <h4 className="font-semibold text-text-primary text-sm">{w.name}</h4>
                 <p className="text-xs text-text-muted">{w.desc}</p>
