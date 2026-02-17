@@ -203,11 +203,11 @@ export default function TiltTurnPage() {
         </div>
       </Section>
 
-      {/* ═══════ GLAZING ═══════ */}
+      {/* ═══════ GLAZING — Glass type cards ═══════ */}
       <Section>
-        <SectionTitle badge="Glass Options" title="Glazing Configuration Comparison" subtitle="Choose the right glass package for your climate." />
+        <SectionTitle badge="Glass Options" title="Glazing Configuration" subtitle="Choose the right glass package for your climate." />
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { src: "double.webp", name: "Double Pane", spec: "U-Factor 0.26" },
             { src: "laminated-double.webp", name: "Laminated Double", spec: "U-Factor 0.18" },
@@ -223,7 +223,11 @@ export default function TiltTurnPage() {
             </div>
           ))}
         </div>
+      </Section>
 
+      {/* ═══════ GLAZING COMPARISON TABLE ═══════ */}
+      <Section gray>
+        <SectionTitle badge="Performance" title="Glazing Comparison" subtitle="See how each glass package performs across key metrics." />
         <div className="overflow-x-auto rounded-xl border border-border">
           <table className="w-full text-sm">
             <thead>

@@ -173,12 +173,11 @@ export default function UPVCWindowsPage() {
         </div>
       </Section>
 
-      {/* ═══════ GLAZING — With real glass images ═══════ */}
+      {/* ═══════ GLAZING — Glass type cards ═══════ */}
       <Section gray>
         <SectionTitle badge="Glass Options" title="Energy-Efficient Glass Packages" subtitle="Choose the right glazing for your climate and budget." />
 
-        {/* Glass type cards with real images */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { src: "double.webp", name: "Double Pane", spec: "U-Factor 0.26" },
             { src: "laminated-double.webp", name: "Laminated Double", spec: "U-Factor 0.18" },
@@ -201,8 +200,7 @@ export default function UPVCWindowsPage() {
           ))}
         </div>
 
-        {/* Additional glass types */}
-        <div className="grid grid-cols-3 gap-4 max-w-md mx-auto mb-10">
+        <div className="grid grid-cols-3 gap-4 max-w-md mx-auto mt-8">
           {[
             { src: "tempered.webp", name: "Tempered" },
             { src: "laminated.webp", name: "Laminated Safety" },
@@ -220,8 +218,11 @@ export default function UPVCWindowsPage() {
             </div>
           ))}
         </div>
+      </Section>
 
-        {/* Comparison table */}
+      {/* ═══════ GLAZING COMPARISON TABLE ═══════ */}
+      <Section>
+        <SectionTitle badge="Performance" title="Glazing Comparison" subtitle="See how each glass package performs across key metrics." />
         <div className="overflow-x-auto">
           <table className="w-full max-w-4xl mx-auto text-sm">
             <thead>
