@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Breadcrumb, Section, SectionTitle, CTABlock, ServiceIcons, StatCard } from "@/components/ui";
 import { WindowConfigurator } from "@/components/ProductConfigurator";
 import VideoTabs from "@/components/VideoTabs";
+import GalleryLightbox from "@/components/GalleryLightbox";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -59,7 +60,7 @@ export default function UPVCWindowsPage() {
             </div>
 
             {/* Hero image */}
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5">
               <Image
                 src={`${a}/gallery/gallery-2.webp`}
                 alt="DECA uPVC windows installed in a modern home — white profile, triple glazing"
@@ -103,7 +104,7 @@ export default function UPVCWindowsPage() {
                 <Image src={`${a}/icons/stars.svg`} alt="5 stars" width={100} height={20} className="mb-3" />
                 <p className="text-sm text-text-secondary leading-relaxed mb-4">&ldquo;{r.text}&rdquo;</p>
                 <div className="flex items-center gap-3">
-                  <Image src={`${a}/team/${r.photo}`} alt={r.name} width={40} height={40} className="w-10 h-10 rounded-full object-cover" />
+                  <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand font-bold text-sm">{r.name.split(" ").map(n => n[0]).join("")}</div>
                   <span className="text-sm font-semibold text-text-primary">{r.name}</span>
                 </div>
               </div>
@@ -191,7 +192,7 @@ export default function UPVCWindowsPage() {
                 alt={`DECA ${g.name} glazing`}
                 width={300}
                 height={200}
-                className="w-full h-36 object-contain bg-gray-50 p-4"
+                className="w-full h-44 object-contain bg-gray-50 p-4"
               />
               <div className="p-3">
                 <p className="text-sm font-semibold text-text-primary">{g.name}</p>
@@ -201,21 +202,23 @@ export default function UPVCWindowsPage() {
           ))}
         </div>
 
-        <div className="grid grid-cols-3 gap-4 max-w-md mx-auto mt-8">
+        <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto mt-8">
           {[
             { src: "tempered.webp", name: "Tempered" },
             { src: "laminated.webp", name: "Laminated Safety" },
             { src: "non-spaces.webp", name: "Warm-Edge Spacer" },
           ].map((g) => (
-            <div key={g.name} className="text-center">
+            <div key={g.name} className="bg-white rounded-xl border border-border overflow-hidden text-center">
               <Image
                 src={`${a}/images/${g.src}`}
                 alt={g.name}
                 width={200}
                 height={150}
-                className="w-full h-24 object-contain bg-white rounded-lg border border-border p-2 mb-1"
+                className="w-full h-28 object-contain bg-gray-50 p-3"
               />
-              <p className="text-[10px] text-text-muted">{g.name}</p>
+              <div className="p-2">
+                <p className="text-xs font-medium text-text-muted">{g.name}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -246,7 +249,7 @@ export default function UPVCWindowsPage() {
                 <tr key={label} className={i % 2 === 0 ? "bg-warm-gray" : "bg-white"}>
                   <td className="px-5 py-3.5 font-medium text-text-secondary">{label}</td>
                   {vals.map((v, j) => (
-                    <td key={j} className={`px-5 py-3.5 text-center ${j === 2 ? "font-semibold text-brand" : "text-text-secondary"}`}>{v}</td>
+                    <td key={j} className={`px-5 py-3.5 text-center ${j === 2 ? "font-semibold text-brand bg-brand/[0.04]" : "text-text-secondary"}`}>{v}</td>
                   ))}
                 </tr>
               ))}
@@ -357,8 +360,9 @@ export default function UPVCWindowsPage() {
       {/* ═══════ GALLERY — Project photos ═══════ */}
       <Section>
         <SectionTitle badge="Our Work" title="Installed Projects" subtitle="Real DECA uPVC windows in homes across New England." />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {[
+        <GalleryLightbox
+          alt="DECA window installation project"
+          items={[
             { src: `${a}/gallery/gallery-9.webp`, tall: true },
             { src: `${a}/gallery/gallery-10.webp`, tall: true },
             { src: `${a}/gallery/gallery-11.webp` },
@@ -367,18 +371,8 @@ export default function UPVCWindowsPage() {
             { src: `${a}/gallery/gallery-14.webp` },
             { src: `${a}/gallery/gallery-15.webp` },
             { src: `${a}/gallery/gallery-16.webp` },
-          ].map((item, i) => (
-            <div key={i} className={`rounded-xl overflow-hidden ${item.tall ? "md:row-span-2" : ""}`}>
-              <Image
-                src={item.src}
-                alt={`DECA window installation project ${i + 1}`}
-                width={500}
-                height={item.tall ? 600 : 300}
-                className={`w-full object-cover hover:scale-105 transition-transform duration-500 ${item.tall ? "h-full" : "h-48 md:h-52"}`}
-              />
-            </div>
-          ))}
-        </div>
+          ]}
+        />
       </Section>
 
       {/* ═══════ MATERIAL COMPARISON ═══════ */}
@@ -407,7 +401,7 @@ export default function UPVCWindowsPage() {
                 <tr key={label} className={i % 2 === 0 ? "bg-warm-gray" : "bg-white"}>
                   <td className="px-5 py-3.5 font-medium text-text-secondary">{label}</td>
                   {vals.map((v, j) => (
-                    <td key={j} className={`px-5 py-3.5 text-center ${j === 0 ? "font-semibold text-brand" : "text-text-secondary"}`}>{v}</td>
+                    <td key={j} className={`px-5 py-3.5 text-center ${j === 0 ? "font-semibold text-brand bg-brand/[0.04]" : "text-text-secondary"}`}>{v}</td>
                   ))}
                 </tr>
               ))}

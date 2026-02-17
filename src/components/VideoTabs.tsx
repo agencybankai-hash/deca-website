@@ -113,7 +113,7 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
       </div>
 
       {/* Right — Video */}
-      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white">
+      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
         <video
           ref={videoRef}
           key={tabs[active]?.video}
@@ -121,8 +121,17 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
           autoPlay
           muted
           playsInline
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain relative z-10"
         />
+        {/* Fallback when video not loaded */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-0">
+          <div className="w-16 h-16 rounded-full bg-brand/10 flex items-center justify-center mb-3">
+            <svg className="w-8 h-8 text-brand/40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+          <p className="text-sm text-text-muted font-medium">{tabs[active]?.title}</p>
+        </div>
       </div>
     </div>
   );

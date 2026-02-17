@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Breadcrumb, Section, SectionTitle, CTABlock, ServiceIcons, StatCard } from "@/components/ui";
 import { WindowConfigurator } from "@/components/ProductConfigurator";
 import VideoTabs from "@/components/VideoTabs";
+import GalleryLightbox from "@/components/GalleryLightbox";
 
 export const metadata: Metadata = {
   title: "Tilt & Turn Windows | European Style | DECA Windows",
@@ -67,7 +68,7 @@ export default function TiltTurnPage() {
             </div>
 
             {/* Hero image */}
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5">
               <Image
                 src={`${a}/gallery/gallery-3.webp`}
                 alt="DECA tilt & turn window installed in a modern home"
@@ -216,7 +217,7 @@ export default function TiltTurnPage() {
             { src: "low-e-glass.webp", name: "Low-E Coating", spec: "UV Block 99.5%" },
           ].map((g) => (
             <div key={g.name} className="bg-white rounded-xl border border-border overflow-hidden text-center">
-              <Image src={`${a}/images/${g.src}`} alt={`${g.name} glazing`} width={300} height={200} className="w-full h-36 object-contain bg-gray-50 p-4" />
+              <Image src={`${a}/images/${g.src}`} alt={`${g.name} glazing`} width={300} height={200} className="w-full h-44 object-contain bg-gray-50 p-4" />
               <div className="p-3">
                 <p className="text-sm font-semibold text-text-primary">{g.name}</p>
                 <p className="text-xs text-brand">{g.spec}</p>
@@ -251,7 +252,7 @@ export default function TiltTurnPage() {
                 <tr key={label} className={`border-t border-border ${i % 2 === 0 ? "bg-warm-gray" : "bg-white"}`}>
                   <td className="px-6 py-4 font-semibold text-text-primary">{label}</td>
                   {vals.map((v, j) => (
-                    <td key={j} className={`px-6 py-4 text-center ${j === 2 ? "font-bold text-brand" : "text-text-secondary"}`}>{v}</td>
+                    <td key={j} className={`px-6 py-4 text-center ${j === 2 ? "font-bold text-brand bg-brand/[0.04]" : "text-text-secondary"}`}>{v}</td>
                   ))}
                 </tr>
               ))}
@@ -263,8 +264,9 @@ export default function TiltTurnPage() {
       {/* ═══════ GALLERY ═══════ */}
       <Section gray>
         <SectionTitle badge="Our Work" title="Tilt & Turn in Real Homes" subtitle="DECA windows installed across New England." />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {[
+        <GalleryLightbox
+          alt="DECA tilt & turn window installation"
+          items={[
             { src: `${a}/gallery/gallery-1.webp`, tall: true },
             { src: `${a}/gallery/gallery-2.webp`, tall: true },
             { src: `${a}/gallery/gallery-3.webp` },
@@ -273,18 +275,8 @@ export default function TiltTurnPage() {
             { src: `${a}/gallery/gallery-6.webp` },
             { src: `${a}/gallery/gallery-7.webp` },
             { src: `${a}/gallery/gallery-8.webp` },
-          ].map((item, i) => (
-            <div key={i} className={`rounded-xl overflow-hidden ${item.tall ? "md:row-span-2" : ""}`}>
-              <Image
-                src={item.src}
-                alt={`DECA tilt & turn window installation ${i + 1}`}
-                width={500}
-                height={item.tall ? 600 : 300}
-                className={`w-full object-cover hover:scale-105 transition-transform duration-500 ${item.tall ? "h-full" : "h-48 md:h-52"}`}
-              />
-            </div>
-          ))}
-        </div>
+          ]}
+        />
       </Section>
 
       {/* ═══════ REVIEWS ═══════ */}
@@ -304,7 +296,7 @@ export default function TiltTurnPage() {
               <Image src={`${a}/icons/stars.svg`} alt="5 stars" width={100} height={20} className="mb-3" />
               <p className="text-sm text-text-secondary leading-relaxed mb-4">&ldquo;{r.text}&rdquo;</p>
               <div className="flex items-center gap-3">
-                <Image src={`${a}/team/${r.photo}`} alt={r.name} width={40} height={40} className="w-10 h-10 rounded-full object-cover" />
+                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand font-bold text-sm">{r.name.split(" ").map(n => n[0]).join("")}</div>
                 <span className="text-sm font-semibold text-text-primary">{r.name}</span>
               </div>
             </div>
