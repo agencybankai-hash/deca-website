@@ -16,6 +16,7 @@ interface VideoTabsProps {
 
 export default function VideoTabs({ tabs }: VideoTabsProps) {
   const [active, setActive] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const animeRef = useRef<anime.AnimeInstance | null>(null);
@@ -24,26 +25,35 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
     setActive((prev) => (prev + 1) % tabs.length);
   }, [tabs.length]);
 
-  /* When active tab changes — load & play video, start anime.js progress */
+  /* When active tab changes — load & play video */
   useEffect(() => {
     const v = videoRef.current;
     const bar = progressRef.current;
     if (!v || !bar) return;
 
-    // Reset progress bar
+    // Reset
     bar.style.width = "0%";
     if (animeRef.current) {
       animeRef.current.pause();
       animeRef.current = null;
     }
+    setIsPlaying(false);
 
+    // Set new source
+    v.src = tabs[active].video;
     v.load();
-    v.play().catch(() => {});
+
+    const tryPlay = () => {
+      v.play()
+        .then(() => setIsPlaying(true))
+        .catch(() => {
+          // Autoplay blocked — user needs to interact
+          setIsPlaying(false);
+        });
+    };
 
     const startAnimation = () => {
       if (!v.duration || !isFinite(v.duration)) return;
-
-      // Kill any previous animation
       if (animeRef.current) animeRef.current.pause();
 
       animeRef.current = anime({
@@ -51,35 +61,46 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
         width: ["0%", "100%"],
         duration: v.duration * 1000,
         easing: "linear",
-        complete: () => {
-          advance();
-        },
+        complete: () => advance(),
       });
     };
 
-    // Wait for video metadata to know duration
-    if (v.readyState >= 1) {
+    const onCanPlay = () => {
+      tryPlay();
       startAnimation();
-    } else {
-      v.addEventListener("loadedmetadata", startAnimation, { once: true });
-    }
+    };
 
     const onEnd = () => {
       if (animeRef.current) animeRef.current.pause();
       if (bar) bar.style.width = "100%";
       advance();
     };
+
+    v.addEventListener("canplay", onCanPlay, { once: true });
     v.addEventListener("ended", onEnd);
 
+    // If already loaded
+    if (v.readyState >= 3) {
+      onCanPlay();
+    }
+
     return () => {
+      v.removeEventListener("canplay", onCanPlay);
       v.removeEventListener("ended", onEnd);
-      v.removeEventListener("loadedmetadata", startAnimation);
       if (animeRef.current) {
         animeRef.current.pause();
         animeRef.current = null;
       }
     };
-  }, [active, advance]);
+  }, [active, advance, tabs]);
+
+  const handleManualPlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.play()
+      .then(() => setIsPlaying(true))
+      .catch(() => {});
+  };
 
   return (
     <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] gap-8 lg:gap-10 items-center">
@@ -97,7 +118,7 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
                   : "bg-white border-gray-200 hover:border-brand/30 hover:shadow-sm"
               }`}
             >
-              {/* Progress bar inside active tab — driven by anime.js */}
+              {/* Progress bar inside active tab */}
               {isActive && (
                 <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-white/20">
                   <div
@@ -111,9 +132,7 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
               {/* Icon box */}
               <div
                 className={`shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                  isActive
-                    ? "bg-white/20"
-                    : "bg-brand/[0.06]"
+                  isActive ? "bg-white/20" : "bg-brand/[0.06]"
                 }`}
               >
                 <div className={`transition-colors duration-300 ${isActive ? "text-white" : "text-brand"}`}>
@@ -144,25 +163,30 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
       </div>
 
       {/* Right — Video */}
-      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white">
+      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#f6f6f6]">
+        {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
         <video
           ref={videoRef}
-          key={tabs[active]?.video}
-          src={tabs[active]?.video}
           autoPlay
           muted
           playsInline
+          preload="auto"
           className="w-full h-full object-contain relative z-10"
         />
-        {/* Fallback when video not loaded */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-0">
-          <div className="w-16 h-16 rounded-full bg-brand/10 flex items-center justify-center mb-3">
-            <svg className="w-8 h-8 text-brand/40" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </div>
-          <p className="text-sm text-text-muted font-medium">{tabs[active]?.title}</p>
-        </div>
+        {/* Click-to-play overlay when autoplay is blocked */}
+        {!isPlaying && (
+          <button
+            onClick={handleManualPlay}
+            className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-[#f6f6f6] cursor-pointer"
+          >
+            <div className="w-20 h-20 rounded-full bg-brand/10 hover:bg-brand/20 flex items-center justify-center mb-3 transition-colors">
+              <svg className="w-10 h-10 text-brand ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+            <p className="text-sm text-text-muted font-medium">{tabs[active]?.title}</p>
+          </button>
+        )}
       </div>
     </div>
   );
