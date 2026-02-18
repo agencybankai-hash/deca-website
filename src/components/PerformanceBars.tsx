@@ -65,7 +65,12 @@ export default function PerformanceBars({ metrics }: PerformanceBarsProps) {
           <span className="text-sm font-semibold text-text-primary">DECA Tilt & Turn</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded-sm bg-[#e8873a]" />
+          <div className="w-4 h-4 rounded-sm bg-[#e8873a] relative overflow-hidden">
+            <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.15 }}>
+              <defs><pattern id="legend-grid" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M 4 0 L 0 0 0 4" fill="none" stroke="white" strokeWidth="0.4" /></pattern></defs>
+              <rect width="100%" height="100%" fill="url(#legend-grid)" />
+            </svg>
+          </div>
           <span className="text-sm font-semibold text-text-secondary">Traditional Vinyl</span>
         </div>
       </div>
@@ -98,10 +103,14 @@ export default function PerformanceBars({ metrics }: PerformanceBarsProps) {
             <div className="flex-1 h-8 bg-[#e8873a]/10 rounded-lg overflow-hidden">
               <div
                 id={`perf-trad-${i}`}
-                className="h-full bg-[#e8873a] rounded-lg flex items-center justify-end px-3"
+                className="h-full bg-[#e8873a] rounded-lg flex items-center justify-end px-3 relative overflow-hidden"
                 style={{ width: "0%" }}
               >
-                <span className="text-xs font-bold text-white whitespace-nowrap">{m.traditionalLabel}</span>
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.12 }}>
+                  <defs><pattern id={`trad-grid-${i}`} width="12" height="12" patternUnits="userSpaceOnUse"><path d="M 12 0 L 0 0 0 12" fill="none" stroke="white" strokeWidth="0.5" /></pattern></defs>
+                  <rect width="100%" height="100%" fill={`url(#trad-grid-${i})`} />
+                </svg>
+                <span className="text-xs font-bold text-white whitespace-nowrap relative z-10">{m.traditionalLabel}</span>
               </div>
             </div>
           </div>

@@ -74,7 +74,12 @@ export default function EnergySavingsCard() {
           {/* Before */}
           <div className="flex flex-col items-center h-full" style={{ width: "4.5rem" }}>
             <div className="w-full flex-1 bg-gray-100 rounded-lg relative overflow-hidden">
-              <div ref={beforeRef} className="absolute bottom-0 left-0 right-0 bg-[#e8873a] rounded-b-lg" style={{ height: "0%" }} />
+              <div ref={beforeRef} className="absolute bottom-0 left-0 right-0 bg-[#e8873a] rounded-b-lg overflow-hidden" style={{ height: "0%" }}>
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.12 }}>
+                  <defs><pattern id="energy-grid" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M 12 0 L 0 0 0 12" fill="none" stroke="white" strokeWidth="0.5" /></pattern></defs>
+                  <rect width="100%" height="100%" fill="url(#energy-grid)" />
+                </svg>
+              </div>
             </div>
           </div>
 
