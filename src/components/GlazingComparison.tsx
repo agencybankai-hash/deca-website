@@ -10,12 +10,13 @@ interface GlassType {
   name: string;
   src: string;
   shortDesc: string;
+  bestFor: string;
 }
 
 const glassTypes: GlassType[] = [
-  { id: "double", name: "Double Pane", src: `${a}/double.webp`, shortDesc: "Standard insulated glass" },
-  { id: "laminated", name: "Laminated Double", src: `${a}/laminated-double.webp`, shortDesc: "Safety + sound control" },
-  { id: "triple", name: "Triple Pane", src: `${a}/triple.webp`, shortDesc: "Maximum performance" },
+  { id: "double", name: "Double Pane", src: `${a}/double.webp`, shortDesc: "Standard insulated glass", bestFor: "Mild climates, budget-friendly projects" },
+  { id: "laminated", name: "Laminated Double", src: `${a}/laminated-double.webp`, shortDesc: "Safety + sound control", bestFor: "Safety glass, moderate climates, noise reduction" },
+  { id: "triple", name: "Triple Pane", src: `${a}/triple.webp`, shortDesc: "Maximum performance", bestFor: "New England winters, maximum energy savings" },
 ];
 
 const metrics: { label: string; desc: string; values: Record<string, string> }[] = [
@@ -55,119 +56,119 @@ export default function GlazingComparison() {
   const [activeGlass, setActiveGlass] = useState("triple");
 
   return (
-    <div>
-      {/* ── Glass type selector with images ── */}
-      <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-10">
-        {glassTypes.map((g) => {
-          const isActive = activeGlass === g.id;
-          return (
-            <button
-              key={g.id}
-              onClick={() => setActiveGlass(g.id)}
-              className={`group relative flex flex-col items-center text-center transition-all duration-200 rounded-2xl p-4 md:p-6 ${
-                isActive
-                  ? "bg-white shadow-lg shadow-brand/10 ring-2 ring-brand"
-                  : "bg-white/60 hover:bg-white hover:shadow-md border border-transparent hover:border-gray-200"
-              }`}
-            >
-              {/* Recommended badge */}
-              {g.id === "triple" && (
-                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[9px] font-bold tracking-wider uppercase bg-brand text-white px-3 py-0.5 rounded-full whitespace-nowrap">
-                  Recommended
-                </span>
-              )}
+    <div className="overflow-x-auto">
+      <table className="w-full text-sm border-separate border-spacing-0">
+        {/* ── Glass images row — aligned to table columns ── */}
+        <thead>
+          <tr>
+            <th className="w-[34%]" />
+            {glassTypes.map((g) => {
+              const isActive = activeGlass === g.id;
+              return (
+                <th key={g.id} className="px-2 pb-3 align-bottom w-[22%]">
+                  <button
+                    onClick={() => setActiveGlass(g.id)}
+                    className={`group relative w-full flex flex-col items-center text-center transition-all duration-200 rounded-2xl p-3 md:p-4 ${
+                      isActive
+                        ? "bg-white shadow-lg shadow-brand/10 ring-2 ring-brand"
+                        : "bg-white/60 hover:bg-white hover:shadow-md"
+                    }`}
+                  >
+                    {g.id === "triple" && (
+                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[9px] font-bold tracking-wider uppercase bg-brand text-white px-3 py-0.5 rounded-full whitespace-nowrap">
+                        Recommended
+                      </span>
+                    )}
 
-              {/* Glass cross-section image */}
-              <div className="w-full aspect-[4/3] relative mb-3 flex items-center justify-center">
-                <Image
-                  src={g.src}
-                  alt={`${g.name} cross-section`}
-                  width={240}
-                  height={180}
-                  className={`w-full h-full object-contain transition-transform duration-200 ${
-                    isActive ? "scale-105" : "opacity-70 group-hover:opacity-100"
-                  }`}
-                />
-              </div>
+                    <div className="w-full aspect-[4/3] relative mb-2 flex items-center justify-center">
+                      <Image
+                        src={g.src}
+                        alt={`${g.name} cross-section`}
+                        width={200}
+                        height={150}
+                        className={`w-full h-full object-contain transition-transform duration-200 ${
+                          isActive ? "scale-105" : "opacity-70 group-hover:opacity-100"
+                        }`}
+                      />
+                    </div>
 
-              {/* Label */}
-              <h4 className={`text-sm md:text-base font-bold transition-colors ${
-                isActive ? "text-brand" : "text-text-primary"
-              }`}>{g.name}</h4>
-              <p className="text-[11px] text-text-muted mt-0.5 hidden sm:block">{g.shortDesc}</p>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* ── Comparison table ── */}
-      <div className="overflow-x-auto rounded-xl border border-border bg-white">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="bg-brand text-white">
-              <th className="px-5 py-3.5 text-left font-semibold w-[40%]">Metric</th>
-              {glassTypes.map((g) => (
-                <th
-                  key={g.id}
-                  className={`px-5 py-3.5 text-center font-semibold cursor-pointer transition-colors ${
-                    activeGlass === g.id ? "bg-brand-dark" : "hover:bg-brand-dark/50"
-                  }`}
-                  onClick={() => setActiveGlass(g.id)}
-                >
-                  {g.name}
+                    <span className={`text-xs md:text-sm font-bold transition-colors ${
+                      isActive ? "text-brand" : "text-text-primary"
+                    }`}>{g.name}</span>
+                    <span className="text-[10px] text-text-muted mt-0.5 hidden sm:block">{g.shortDesc}</span>
+                  </button>
                 </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {metrics.map((m, i) => (
-              <tr key={m.label} className={`border-t border-border ${i % 2 === 0 ? "bg-warm-gray/50" : "bg-white"}`}>
-                <td className="px-5 py-3.5">
+              );
+            })}
+          </tr>
+
+          {/* ── Table header ── */}
+          <tr>
+            <th className="px-5 py-3 text-left font-semibold bg-brand text-white rounded-tl-xl">Metric</th>
+            {glassTypes.map((g, i) => (
+              <th
+                key={g.id}
+                className={`px-4 py-3 text-center font-semibold bg-brand text-white cursor-pointer transition-colors ${
+                  activeGlass === g.id ? "bg-brand-dark" : "hover:bg-brand-dark/50"
+                } ${i === glassTypes.length - 1 ? "rounded-tr-xl" : ""}`}
+                onClick={() => setActiveGlass(g.id)}
+              >
+                {g.name}
+              </th>
+            ))}
+          </tr>
+        </thead>
+
+        {/* ── Data rows ── */}
+        <tbody>
+          {metrics.map((m, i) => {
+            const isLast = i === metrics.length - 1;
+            return (
+              <tr key={m.label} className={i % 2 === 0 ? "bg-warm-gray/50" : "bg-white"}>
+                <td className={`px-5 py-3.5 border-t border-border ${isLast ? "rounded-bl-xl" : ""}`}>
                   <span className="font-semibold text-text-primary block">{m.label}</span>
                   <span className="text-[11px] text-text-muted">{m.desc}</span>
                 </td>
-                {glassTypes.map((g) => {
+                {glassTypes.map((g, gi) => {
                   const isHighlighted = activeGlass === g.id;
-                  const val = m.values[g.id];
                   return (
                     <td
                       key={g.id}
-                      className={`px-5 py-3.5 text-center transition-colors ${
+                      className={`px-4 py-3.5 text-center border-t border-border transition-colors ${
                         isHighlighted
                           ? "font-bold text-brand bg-brand/[0.04]"
                           : "text-text-secondary"
-                      }`}
+                      } ${isLast && gi === glassTypes.length - 1 ? "rounded-br-xl" : ""}`}
                     >
-                      {val}
+                      {m.values[g.id]}
                     </td>
                   );
                 })}
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            );
+          })}
 
-      {/* ── Best for summary ── */}
-      <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mt-6">
-        {[
-          { id: "double", text: "Mild climates, budget-friendly projects" },
-          { id: "laminated", text: "Safety glass, moderate climates, noise reduction" },
-          { id: "triple", text: "New England winters, maximum energy savings" },
-        ].map((item) => (
-          <div
-            key={item.id}
-            className={`text-center text-xs px-3 py-2 rounded-lg transition-colors ${
-              activeGlass === item.id
-                ? "bg-brand/10 text-brand font-medium"
-                : "text-text-muted"
-            }`}
-          >
-            <span className="font-semibold block mb-0.5">Best for:</span>
-            {item.text}
-          </div>
-        ))}
-      </div>
+          {/* ── Best for row ── */}
+          <tr>
+            <td className="px-5 py-3 border-t-2 border-brand/20">
+              <span className="font-semibold text-text-primary text-xs uppercase tracking-wide">Best for</span>
+            </td>
+            {glassTypes.map((g) => {
+              const isActive = activeGlass === g.id;
+              return (
+                <td
+                  key={g.id}
+                  className={`px-4 py-3 text-center text-xs border-t-2 border-brand/20 transition-colors ${
+                    isActive ? "text-brand font-medium" : "text-text-muted"
+                  }`}
+                >
+                  {g.bestFor}
+                </td>
+              );
+            })}
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }
