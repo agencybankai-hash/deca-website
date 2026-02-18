@@ -8,6 +8,7 @@ import GalleryLightbox from "@/components/GalleryLightbox";
 import AnimatedStats from "@/components/AnimatedStats";
 import PerformanceBars from "@/components/PerformanceBars";
 import EnergySavingsCard from "@/components/EnergySavingsCard";
+import GlazingComparison from "@/components/GlazingComparison";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -193,87 +194,10 @@ export default function UPVCWindowsPage() {
         />
       </Section>
 
-      {/* ═══════ GLAZING — Glass type cards ═══════ */}
+      {/* ═══════ GLAZING — Interactive comparison ═══════ */}
       <Section gray>
-        <SectionTitle badge="Glass Options" title="Energy-Efficient Glass Packages" subtitle="Choose the right glazing for your climate and budget." />
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            { src: "double.webp", name: "Double Pane", spec: "U-Factor 0.26" },
-            { src: "laminated-double.webp", name: "Laminated Double", spec: "U-Factor 0.18" },
-            { src: "triple.webp", name: "Triple Pane ★", spec: "U-Factor 0.14" },
-            { src: "low-e-glass.webp", name: "Low-E Coating", spec: "UV Block 99.5%" },
-          ].map((g) => (
-            <div key={g.name} className="bg-white rounded-xl border border-border overflow-hidden text-center">
-              <Image
-                src={`${a}/images/${g.src}`}
-                alt={`DECA ${g.name} glazing`}
-                width={300}
-                height={200}
-                className="w-full h-44 object-contain bg-gray-50 p-4"
-              />
-              <div className="p-3">
-                <p className="text-sm font-semibold text-text-primary">{g.name}</p>
-                <p className="text-xs text-brand">{g.spec}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto mt-8">
-          {[
-            { src: "tempered.webp", name: "Tempered" },
-            { src: "laminated.webp", name: "Laminated Safety" },
-            { src: "non-spaces.webp", name: "Warm-Edge Spacer" },
-          ].map((g) => (
-            <div key={g.name} className="bg-white rounded-xl border border-border overflow-hidden text-center">
-              <Image
-                src={`${a}/images/${g.src}`}
-                alt={g.name}
-                width={200}
-                height={150}
-                className="w-full h-28 object-contain bg-gray-50 p-3"
-              />
-              <div className="p-2">
-                <p className="text-xs font-medium text-text-muted">{g.name}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* ═══════ GLAZING COMPARISON TABLE ═══════ */}
-      <Section>
-        <SectionTitle badge="Performance" title="Glazing Comparison" subtitle="See how each glass package performs across key metrics." />
-        <div className="overflow-x-auto">
-          <table className="w-full max-w-4xl mx-auto text-sm">
-            <thead>
-              <tr className="bg-brand text-white">
-                <th className="px-5 py-3.5 text-left font-medium">Metric</th>
-                <th className="px-5 py-3.5 text-center font-medium">Double</th>
-                <th className="px-5 py-3.5 text-center font-medium">Laminated Double</th>
-                <th className="px-5 py-3.5 text-center font-medium bg-brand-dark">Triple ★</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                ["U-Factor", "0.26", "0.18", "0.14"],
-                ["R-Value", "4.0", "5.0", "7.1"],
-                ["SHGC", "0.71", "0.60", "0.28–0.60"],
-                ["Sound (STC)", "32 dB", "40 dB", "42–50 dB"],
-                ["Argon Fill", "No", "No", "Yes (both)"],
-                ["Best For", "Mild climates", "Safety / moderate", "New England ★"],
-              ].map(([label, ...vals], i) => (
-                <tr key={label} className={i % 2 === 0 ? "bg-warm-gray" : "bg-white"}>
-                  <td className="px-5 py-3.5 font-medium text-text-secondary">{label}</td>
-                  {vals.map((v, j) => (
-                    <td key={j} className={`px-5 py-3.5 text-center ${j === 2 ? "font-semibold text-brand bg-brand/[0.04]" : "text-text-secondary"}`}>{v}</td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <SectionTitle badge="Energy-Efficient Glass" title="Glazing Configuration" subtitle="Compare glass packages side by side — click any type to highlight its performance." />
+        <GlazingComparison />
       </Section>
 
       {/* ═══════ TECHNICAL SPECS — GEALAN data ═══════ */}

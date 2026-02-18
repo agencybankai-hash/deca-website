@@ -9,6 +9,7 @@ import GalleryLightbox from "@/components/GalleryLightbox";
 import AnimatedStats from "@/components/AnimatedStats";
 import PerformanceBars from "@/components/PerformanceBars";
 import EnergySavingsCard from "@/components/EnergySavingsCard";
+import GlazingComparison from "@/components/GlazingComparison";
 
 export const metadata: Metadata = {
   title: "Tilt & Turn Windows | European Style | DECA Windows",
@@ -259,60 +260,10 @@ export default function TiltTurnPage() {
         </div>
       </Section>
 
-      {/* ═══════ GLAZING — Glass type cards ═══════ */}
+      {/* ═══════ GLAZING — Interactive comparison ═══════ */}
       <Section>
-        <SectionTitle badge="Glass Options" title="Glazing Configuration" subtitle="Choose the right glass package for your climate." />
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            { src: "double.webp", name: "Double Pane", spec: "U-Factor 0.26" },
-            { src: "laminated-double.webp", name: "Laminated Double", spec: "U-Factor 0.18" },
-            { src: "triple.webp", name: "Triple Pane ★", spec: "U-Factor 0.14" },
-            { src: "low-e-glass.webp", name: "Low-E Coating", spec: "UV Block 99.5%" },
-          ].map((g) => (
-            <div key={g.name} className="bg-white rounded-xl border border-border overflow-hidden text-center">
-              <Image src={`${a}/images/${g.src}`} alt={`${g.name} glazing`} width={300} height={200} className="w-full h-44 object-contain bg-gray-50 p-4" />
-              <div className="p-3">
-                <p className="text-sm font-semibold text-text-primary">{g.name}</p>
-                <p className="text-xs text-brand">{g.spec}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* ═══════ GLAZING COMPARISON TABLE ═══════ */}
-      <Section gray>
-        <SectionTitle badge="Performance" title="Glazing Comparison" subtitle="See how each glass package performs across key metrics." />
-        <div className="overflow-x-auto rounded-xl border border-border">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="bg-brand text-white">
-                <th className="px-6 py-4 text-left font-semibold">Metric</th>
-                <th className="px-6 py-4 text-center font-semibold">Double</th>
-                <th className="px-6 py-4 text-center font-semibold">Laminated Double</th>
-                <th className="px-6 py-4 text-center font-semibold bg-brand-dark">Triple ★</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                ["U-Factor", "0.26", "0.18", "0.14"],
-                ["R-Value", "4.0", "5.0", "7.1"],
-                ["SHGC", "0.71", "0.60", "0.28–0.60"],
-                ["Sound (STC)", "32 dB", "40 dB", "42–50 dB"],
-                ["Argon Fill", "No", "No", "Yes (both)"],
-                ["Best For", "Mild climates", "Safety / moderate", "New England ★"],
-              ].map(([label, ...vals], i) => (
-                <tr key={label} className={`border-t border-border ${i % 2 === 0 ? "bg-warm-gray" : "bg-white"}`}>
-                  <td className="px-6 py-4 font-semibold text-text-primary">{label}</td>
-                  {vals.map((v, j) => (
-                    <td key={j} className={`px-6 py-4 text-center ${j === 2 ? "font-bold text-brand bg-brand/[0.04]" : "text-text-secondary"}`}>{v}</td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <SectionTitle badge="Energy-Efficient Glass" title="Glazing Configuration" subtitle="Compare glass packages side by side — click any type to highlight its performance." />
+        <GlazingComparison />
       </Section>
 
       {/* ═══════ PERFORMANCE — DECA vs Traditional ═══════ */}
