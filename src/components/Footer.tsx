@@ -104,8 +104,19 @@ export default function Footer() {
           <div className="flex items-center gap-4 text-xs text-white/40">
             <span className="hover:text-white/60 cursor-pointer">Privacy Policy</span>
             <span className="hover:text-white/60 cursor-pointer">Terms of Service</span>
-            <span>Design by <a href="https://bankai.agency" target="_blank" rel="noopener noreferrer" className="hover:text-white/60">BANKAI.AGENCY</a></span>
           </div>
+          <a
+            href="https://bankaiagency.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-xs text-white/35 hover:text-white/60 transition-colors"
+          >
+            <span>Design &amp; Development by</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 15 15" fill="none">
+              <path d="M0.530008 4.43966L13.5591 0.442106C13.9327 0.327463 14.2106 0.789407 13.9342 1.06577L7.92691 7.0731C7.73792 7.26208 7.87176 7.58523 8.13904 7.58523H11.1043C11.4395 7.58523 11.6063 7.99129 11.368 8.2269L5.15569 14.3686C4.91884 14.6028 4.51705 14.435 4.51705 14.1019V10.8682C4.51705 10.7025 4.38273 10.5682 4.21705 10.5682H0.75C0.335786 10.5682 0 10.2324 0 9.81818V5.15667C0 4.82719 0.215025 4.5363 0.530008 4.43966Z" fill="#ef4444" />
+            </svg>
+            <span className="font-semibold tracking-wide text-white/50">BANKAI.AGENCY</span>
+          </a>
         </div>
       </div>
     </footer>

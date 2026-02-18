@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 interface StickyCTAProps {
@@ -16,9 +16,25 @@ export default function StickyCTA({
   showAfter = 600,
 }: StickyCTAProps) {
   const [visible, setVisible] = useState(false);
+  const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > showAfter);
+    const onScroll = () => {
+      const scrollY = window.scrollY;
+      const pastThreshold = scrollY > showAfter;
+
+      /* Hide when footer is in view */
+      const footer = document.querySelector("footer");
+      let nearFooter = false;
+      if (footer) {
+        const footerTop = footer.getBoundingClientRect().top;
+        const barH = barRef.current?.offsetHeight ?? 64;
+        nearFooter = footerTop <= window.innerHeight + barH;
+      }
+
+      setVisible(pastThreshold && !nearFooter);
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -26,6 +42,7 @@ export default function StickyCTA({
 
   return (
     <div
+      ref={barRef}
       className={`fixed bottom-0 inset-x-0 z-50 transition-all duration-300 pointer-events-none ${
         visible
           ? "translate-y-0 opacity-100"
