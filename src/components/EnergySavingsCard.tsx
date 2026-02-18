@@ -74,7 +74,7 @@ export default function EnergySavingsCard() {
           {/* Before */}
           <div className="flex flex-col items-center h-full" style={{ width: "4.5rem" }}>
             <div className="w-full flex-1 bg-gray-100 rounded-lg relative overflow-hidden">
-              <div ref={beforeRef} className="absolute bottom-0 left-0 right-0 bg-[#9ca3af] rounded-b-lg" style={{ height: "0%" }} />
+              <div ref={beforeRef} className="absolute bottom-0 left-0 right-0 bg-[#e8873a] rounded-b-lg" style={{ height: "0%" }} />
             </div>
           </div>
 
