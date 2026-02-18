@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 
 const a = "/assets/images";
@@ -53,53 +52,37 @@ const metrics: { label: string; desc: string; values: Record<string, string> }[]
 ];
 
 export default function GlazingComparison() {
-  const [activeGlass, setActiveGlass] = useState("triple");
-
   return (
     <div className="overflow-x-auto">
       <table className="w-full text-sm border-separate border-spacing-0">
-        {/* ── Glass images row — aligned to table columns ── */}
+        {/* ── Glass images row ── */}
         <thead>
           <tr>
             <th className="w-[34%]" />
-            {glassTypes.map((g) => {
-              const isActive = activeGlass === g.id;
-              return (
-                <th key={g.id} className="px-2 pb-3 align-bottom w-[22%]">
-                  <button
-                    onClick={() => setActiveGlass(g.id)}
-                    className={`group relative w-full flex flex-col items-center text-center transition-all duration-200 rounded-2xl p-3 md:p-4 ${
-                      isActive
-                        ? "bg-white shadow-lg shadow-brand/10 ring-2 ring-brand"
-                        : "bg-white/60 hover:bg-white hover:shadow-md"
-                    }`}
-                  >
-                    {g.id === "triple" && (
-                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[9px] font-bold tracking-wider uppercase bg-brand text-white px-3 py-0.5 rounded-full whitespace-nowrap">
-                        Recommended
-                      </span>
-                    )}
+            {glassTypes.map((g) => (
+              <th key={g.id} className="px-2 pb-3 align-bottom w-[22%]">
+                <div className="relative w-full flex flex-col items-center text-center rounded-2xl p-3 md:p-4 bg-white shadow-md">
+                  {g.id === "triple" && (
+                    <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[9px] font-bold tracking-wider uppercase bg-brand text-white px-3 py-0.5 rounded-full whitespace-nowrap">
+                      Recommended
+                    </span>
+                  )}
 
-                    <div className="w-full aspect-[4/3] relative mb-2 flex items-center justify-center">
-                      <Image
-                        src={g.src}
-                        alt={`${g.name} cross-section`}
-                        width={200}
-                        height={150}
-                        className={`w-full h-full object-contain transition-transform duration-200 ${
-                          isActive ? "scale-105" : "opacity-70 group-hover:opacity-100"
-                        }`}
-                      />
-                    </div>
+                  <div className="w-full aspect-[4/3] relative mb-2 flex items-center justify-center">
+                    <Image
+                      src={g.src}
+                      alt={`${g.name} cross-section`}
+                      width={200}
+                      height={150}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
 
-                    <span className={`text-xs md:text-sm font-bold transition-colors ${
-                      isActive ? "text-brand" : "text-text-primary"
-                    }`}>{g.name}</span>
-                    <span className="text-[10px] text-text-muted mt-0.5 hidden sm:block">{g.shortDesc}</span>
-                  </button>
-                </th>
-              );
-            })}
+                  <span className="text-xs md:text-sm font-bold text-text-primary">{g.name}</span>
+                  <span className="text-[10px] text-text-muted mt-0.5 hidden sm:block">{g.shortDesc}</span>
+                </div>
+              </th>
+            ))}
           </tr>
 
           {/* ── Table header ── */}
@@ -108,10 +91,9 @@ export default function GlazingComparison() {
             {glassTypes.map((g, i) => (
               <th
                 key={g.id}
-                className={`px-4 py-3 text-center font-semibold bg-brand text-white cursor-pointer transition-colors ${
-                  activeGlass === g.id ? "bg-brand-dark" : "hover:bg-brand-dark/50"
-                } ${i === glassTypes.length - 1 ? "rounded-tr-xl" : ""}`}
-                onClick={() => setActiveGlass(g.id)}
+                className={`px-4 py-3 text-center font-semibold bg-brand text-white ${
+                  i === glassTypes.length - 1 ? "rounded-tr-xl" : ""
+                }`}
               >
                 {g.name}
               </th>
@@ -130,12 +112,12 @@ export default function GlazingComparison() {
                   <span className="text-[11px] text-text-muted">{m.desc}</span>
                 </td>
                 {glassTypes.map((g, gi) => {
-                  const isHighlighted = activeGlass === g.id;
+                  const isTriple = g.id === "triple";
                   return (
                     <td
                       key={g.id}
-                      className={`px-4 py-3.5 text-center border-t border-border transition-colors ${
-                        isHighlighted
+                      className={`px-4 py-3.5 text-center border-t border-border ${
+                        isTriple
                           ? "font-bold text-brand bg-brand/[0.04]"
                           : "text-text-secondary"
                       } ${isLast && gi === glassTypes.length - 1 ? "rounded-br-xl" : ""}`}
@@ -153,19 +135,16 @@ export default function GlazingComparison() {
             <td className="px-5 py-3 border-t-2 border-brand/20">
               <span className="font-semibold text-text-primary text-xs uppercase tracking-wide">Best for</span>
             </td>
-            {glassTypes.map((g) => {
-              const isActive = activeGlass === g.id;
-              return (
-                <td
-                  key={g.id}
-                  className={`px-4 py-3 text-center text-xs border-t-2 border-brand/20 transition-colors ${
-                    isActive ? "text-brand font-medium" : "text-text-muted"
-                  }`}
-                >
-                  {g.bestFor}
-                </td>
-              );
-            })}
+            {glassTypes.map((g) => (
+              <td
+                key={g.id}
+                className={`px-4 py-3 text-center text-xs border-t-2 border-brand/20 ${
+                  g.id === "triple" ? "text-brand font-medium" : "text-text-muted"
+                }`}
+              >
+                {g.bestFor}
+              </td>
+            ))}
           </tr>
         </tbody>
       </table>

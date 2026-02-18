@@ -163,7 +163,7 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
       </div>
 
       {/* Right — Video */}
-      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white">
+      <div className="relative rounded-2xl overflow-hidden bg-white">
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
         <video
           ref={videoRef}
@@ -171,7 +171,7 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
           muted
           playsInline
           preload="auto"
-          className="w-full h-full object-contain relative z-10"
+          className="w-full h-auto block relative z-10"
         />
         {/* Click-to-play overlay when autoplay is blocked */}
         {!isPlaying && (
