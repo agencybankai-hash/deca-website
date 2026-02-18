@@ -104,7 +104,7 @@ export default function ComponentTabs({ items }: ComponentTabsProps) {
       </div>
 
       {/* Right — Large component image */}
-      <div className="relative rounded-2xl overflow-hidden bg-[#f6f6f6] flex items-center justify-center min-h-[360px]">
+      <div className="relative rounded-2xl overflow-hidden bg-white flex items-center justify-center h-[480px]">
         {/* Skeleton / loading state */}
         <div
           className={`absolute inset-0 flex items-center justify-center transition-opacity duration-200 ${
