@@ -200,6 +200,7 @@ export default function Footer() {
               <p className="text-xs text-white/30">&copy; 2026 DECA Company. All Rights Reserved.</p>
             </div>
 
+            <div className="flex items-center">
             <span className="text-xs text-white/30">Design &amp; Development by</span>
             <a
               href="https://bankaiagency.com"
@@ -223,6 +224,7 @@ export default function Footer() {
               </span>
               <span className="bankai-text">BANKAI.AGENCY</span>
             </a>
+            </div>
           </div>
         </div>
       </div>
