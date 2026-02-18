@@ -101,9 +101,9 @@ const docs = [
 
 /* ── Card positions: back(2) → middle(1) → front(0) ── */
 const cardLayout = [
-  { x: -30, y: -90, rot: -6,  z: 30 }, /* front — overflows top most */
-  { x: 50,  y: -50, rot: 2,   z: 20 }, /* middle */
-  { x: -10, y: -20, rot: 8,   z: 10 }, /* back */
+  { x: -30, y: -130, rot: -6,  z: 30 }, /* front — overflows top most */
+  { x: 55,  y: -80,  rot: 2,   z: 20 }, /* middle */
+  { x: -10, y: -40,  rot: 8,   z: 10 }, /* back */
 ];
 
 export default function CTAWithDocs({
@@ -118,12 +118,41 @@ export default function CTAWithDocs({
   btnHref?: string;
 }) {
   return (
-    <section className="py-20 overflow-visible relative">
+    <section className="pt-28 pb-10 overflow-visible relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div
-          className="rounded-2xl text-white px-8 sm:px-12 lg:px-16 py-14 lg:py-16 overflow-visible relative"
+          className="rounded-2xl text-white px-8 sm:px-12 lg:px-16 py-10 lg:py-12 overflow-visible relative"
           style={{ background: "linear-gradient(135deg, #c85a22 0%, #e0792e 50%, #d46827 100%)" }}
         >
+          {/* Blueprint pattern overlay */}
+          <div
+            className="absolute inset-0 rounded-2xl pointer-events-none overflow-hidden"
+            style={{ opacity: 0.07 }}
+          >
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="cta-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.5" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#cta-grid)" />
+              {/* Window frame schematic */}
+              <rect x="75%" y="15%" width="120" height="160" rx="2" fill="none" stroke="white" strokeWidth="1.2" />
+              <line x1="75%" y1="15%" x2="75%" y2="calc(15% + 160px)" stroke="white" strokeWidth="0.8" transform="translate(60,0)" />
+              <rect x="calc(75% + 4px)" y="calc(15% + 4px)" width="54" height="74" rx="1" fill="none" stroke="white" strokeWidth="0.6" />
+              <rect x="calc(75% + 62px)" y="calc(15% + 4px)" width="54" height="74" rx="1" fill="none" stroke="white" strokeWidth="0.6" />
+              <rect x="calc(75% + 4px)" y="calc(15% + 82px)" width="54" height="74" rx="1" fill="none" stroke="white" strokeWidth="0.6" />
+              <rect x="calc(75% + 62px)" y="calc(15% + 82px)" width="54" height="74" rx="1" fill="none" stroke="white" strokeWidth="0.6" />
+              {/* Dimension lines */}
+              <line x1="calc(75% - 15px)" y1="15%" x2="calc(75% - 15px)" y2="calc(15% + 160px)" stroke="white" strokeWidth="0.5" />
+              <line x1="75%" y1="calc(15% + 175px)" x2="calc(75% + 120px)" y2="calc(15% + 175px)" stroke="white" strokeWidth="0.5" />
+              {/* Circle marks */}
+              <circle cx="20%" cy="70%" r="30" fill="none" stroke="white" strokeWidth="0.5" />
+              <circle cx="20%" cy="70%" r="20" fill="none" stroke="white" strokeWidth="0.3" />
+              <line x1="calc(20% - 30px)" y1="70%" x2="calc(20% + 30px)" y2="70%" stroke="white" strokeWidth="0.3" />
+              <line x1="20%" y1="calc(70% - 30px)" x2="20%" y2="calc(70% + 30px)" stroke="white" strokeWidth="0.3" />
+            </svg>
+          </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left — Text + CTA */}
           <div>
