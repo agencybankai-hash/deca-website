@@ -86,10 +86,10 @@ export default function UPVCWindowsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimatedStats
             stats={[
-              { value: 50, suffix: "+", label: "Year Lifespan", ring: 100 },
-              { value: 0.14, suffix: "", label: "Lowest U-Value", ring: 95, decimals: 2 },
-              { value: 83, suffix: "mm", label: "Profile Depth", ring: 70 },
-              { value: 6, suffix: "", label: "Chamber Design", ring: 85 },
+              { value: 50, suffix: "+", label: "Year Lifespan" },
+              { value: 0.14, label: "Lowest U-Value", decimals: 2 },
+              { value: 83, suffix: "mm", label: "Profile Depth" },
+              { value: 6, label: "Chamber Design" },
             ]}
           />
         </div>

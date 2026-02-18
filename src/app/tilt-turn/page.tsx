@@ -94,10 +94,10 @@ export default function TiltTurnPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimatedStats
             stats={[
-              { value: 0.14, suffix: "", label: "Best U-Value (W/m²K)", ring: 95, decimals: 2 },
-              { value: 50, suffix: " dB", label: "Noise Reduction", ring: 83 },
-              { value: 12, suffix: "", label: "Lock Points", ring: 75 },
-              { value: 50, suffix: "+", label: "Year Lifespan", ring: 100 },
+              { value: 0.14, label: "Best U-Value (W/m²K)", decimals: 2 },
+              { value: 50, suffix: " dB", label: "Noise Reduction" },
+              { value: 12, label: "Lock Points" },
+              { value: 50, suffix: "+", label: "Year Lifespan" },
             ]}
           />
         </div>
