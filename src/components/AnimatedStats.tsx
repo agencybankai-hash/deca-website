@@ -58,21 +58,16 @@ export default function AnimatedStats({ stats }: AnimatedStatsProps) {
   }, [triggered, stats]);
 
   return (
-    <div ref={containerRef} className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
+    <div ref={containerRef} className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 md:gap-x-14">
       {stats.map((stat, i) => (
-        <div key={stat.label} className="flex flex-col items-center text-center">
-          {stat.icon && (
-            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center mb-3">
-              {stat.icon}
-            </div>
-          )}
+        <div key={stat.label} className="flex items-center gap-2.5">
           <span
             id={`stat-num-${i}`}
-            className="text-4xl md:text-5xl font-black text-white leading-none tracking-tight"
+            className="text-2xl md:text-3xl font-extrabold text-white leading-none tracking-tight"
           >
             {stat.prefix || ""}0{stat.suffix || ""}
           </span>
-          <span className="text-sm text-white/60 font-medium mt-2">{stat.label}</span>
+          <span className="text-xs text-white/60 font-medium leading-tight max-w-[7rem]">{stat.label}</span>
         </div>
       ))}
     </div>

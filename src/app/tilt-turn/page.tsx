@@ -92,7 +92,7 @@ export default function TiltTurnPage() {
       </section>
 
       {/* ═══════ STATS BAR — Animated rings + counters ═══════ */}
-      <section className="bg-brand text-white py-10">
+      <section className="bg-brand text-white py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimatedStats
             stats={[
