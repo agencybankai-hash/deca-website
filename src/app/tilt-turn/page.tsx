@@ -312,18 +312,20 @@ export default function TiltTurnPage() {
       {/* ═══════ REVIEWS ═══════ */}
       <Section>
         <div className="text-center mb-8">
-          <Image src={`${a}/icons/stars.svg`} alt="5-star reviews" width={108} height={20} className="mx-auto mb-2" />
           <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-2">What Homeowners Say</h2>
           <p className="text-sm text-text-muted">Trusted by families across New England</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {[
-            { name: "Miranda S.", text: "Our energy bills dropped by 45% after replacing all windows with DECA. The noise reduction is incredible — we live near a highway and can barely hear traffic now.", photo: "miranda.webp" },
-            { name: "Jordan K.", text: "The tilt-and-turn mechanism is a game-changer. Easy cleaning, great ventilation options, and the build quality is noticeably better than our old vinyl windows.", photo: "jordan.webp" },
-            { name: "Casey M.", text: "Impressive attention to detail from consultation to installation. The triple-glazed windows keep our 1920s colonial warm even in January without cranking the heat.", photo: "casey.webp" },
+            { name: "Miranda S.", text: "Our energy bills dropped by 45% after replacing all windows with DECA. The noise reduction is incredible — we live near a highway and can barely hear traffic now.", photo: "miranda.webp", rotate: "-1.2deg" },
+            { name: "Jordan K.", text: "The tilt-and-turn mechanism is a game-changer. Easy cleaning, great ventilation options, and the build quality is noticeably better than our old vinyl windows.", photo: "jordan.webp", rotate: "0.8deg" },
+            { name: "Casey M.", text: "Impressive attention to detail from consultation to installation. The triple-glazed windows keep our 1920s colonial warm even in January without cranking the heat.", photo: "casey.webp", rotate: "-0.6deg" },
           ].map((r) => (
-            <div key={r.name} className="bg-warm-gray rounded-xl border border-border p-6">
-              <Image src={`${a}/icons/stars.svg`} alt="5 stars" width={100} height={20} className="mb-3" />
+            <div key={r.name} className="bg-warm-gray rounded-xl border border-border p-6 relative transition-transform duration-300 hover:rotate-0 hover:scale-[1.02] hover:shadow-lg" style={{ transform: `rotate(${r.rotate})` }}>
+              {/* Quote icon */}
+              <svg className="absolute top-4 right-4 w-8 h-8 text-brand/10" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C9.591 11.69 11 13.166 11 15c0 1.933-1.567 3.5-3.5 3.5-1.171 0-2.277-.566-2.917-1.679zM15.583 17.321C14.553 16.227 14 15 14 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C20.591 11.69 22 13.166 22 15c0 1.933-1.567 3.5-3.5 3.5-1.171 0-2.277-.566-2.917-1.679z" />
+              </svg>
               <p className="text-sm text-text-secondary leading-relaxed mb-4">&ldquo;{r.text}&rdquo;</p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand font-bold text-sm">{r.name.split(" ").map(n => n[0]).join("")}</div>
