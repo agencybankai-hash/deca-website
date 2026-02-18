@@ -42,7 +42,9 @@ export default function TiltTurnPage() {
 
         {/* ═══════ HERO — Title + VideoTabs (like decawindows.com) ═══════ */}
         <section className="bg-white flex-1 flex flex-col">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-10 md:pt-16 pb-10 flex-1 flex flex-col justify-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1 flex flex-col">
+            {/* Top spacer — smaller so content sits slightly above true center */}
+            <div className="flex-[2]" />
           {/* Hero heading */}
           <div className="text-center mb-12 md:mb-16">
             <span className="inline-block text-xs font-semibold tracking-wider uppercase text-brand mb-3">Most Popular in Europe</span>
@@ -89,6 +91,8 @@ export default function TiltTurnPage() {
               },
             ]}
           />
+            {/* Bottom spacer — larger so content shifts slightly upward */}
+            <div className="flex-[3]" />
           </div>
         </section>
       </div>
