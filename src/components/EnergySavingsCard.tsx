@@ -56,7 +56,7 @@ export default function EnergySavingsCard() {
     <div ref={ref} className="grid md:grid-cols-3 gap-6">
 
       {/* ── Card 1: Energy Savings ── */}
-      <div className="rounded-2xl border border-border bg-white p-8 flex flex-col">
+      <div className="rounded-2xl border border-border bg-white p-8 flex flex-col transition-all duration-300 hover:shadow-lg hover:shadow-brand/10 hover:-translate-y-1 hover:border-brand/20">
         <div className="flex items-center gap-3 mb-8">
           <div className="w-10 h-10 rounded-xl bg-[#f0f4ff] flex items-center justify-center shrink-0">
             <svg className="w-5 h-5 text-brand" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -121,7 +121,7 @@ export default function EnergySavingsCard() {
       </div>
 
       {/* ── Card 2: Federal Tax Credit ── */}
-      <div className="rounded-2xl border border-border bg-white p-8 flex flex-col">
+      <div className="rounded-2xl border border-border bg-white p-8 flex flex-col transition-all duration-300 hover:shadow-lg hover:shadow-brand/10 hover:-translate-y-1 hover:border-brand/20">
         <div className="flex items-center gap-3 mb-8">
           <div className="w-10 h-10 rounded-xl bg-[#f0f4ff] flex items-center justify-center shrink-0">
             <svg className="w-5 h-5 text-brand" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -159,7 +159,7 @@ export default function EnergySavingsCard() {
       </div>
 
       {/* ── Card 3: ROI Timeline ── */}
-      <div className="rounded-2xl border border-border bg-white p-8 flex flex-col">
+      <div className="rounded-2xl border border-border bg-white p-8 flex flex-col transition-all duration-300 hover:shadow-lg hover:shadow-brand/10 hover:-translate-y-1 hover:border-brand/20">
         <div className="flex items-center gap-3 mb-8">
           <div className="w-10 h-10 rounded-xl bg-[#f0f4ff] flex items-center justify-center shrink-0">
             <svg className="w-5 h-5 text-brand" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
