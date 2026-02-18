@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 
 const topBarLinks = [
@@ -46,34 +46,74 @@ const navItems = [
   { href: "/quote", label: "Contact" },
 ];
 
+/*
+ * Scroll states:
+ *  "top"      — page at very top, full header visible, no shadow
+ *  "scrolled" — scrolled a bit, top-bar collapses, shadow fades in
+ *  "hidden"   — scrolling down fast, entire header slides up
+ *  "peek"     — scrolling up, compact header peeks back (no top-bar)
+ */
+type ScrollPhase = "top" | "scrolled" | "hidden" | "peek";
+
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [hidden, setHidden] = useState(false);
-  const lastScrollY = useRef(0);
+  const [phase, setPhase] = useState<ScrollPhase>("top");
+  const lastY = useRef(0);
+  const ticking = useRef(false);
+
+  const onScroll = useCallback(() => {
+    if (ticking.current) return;
+    ticking.current = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      const delta = y - lastY.current;
+
+      if (y <= 10) {
+        setPhase("top");
+      } else if (delta > 4 && y > 100) {
+        // Scrolling down — hide
+        setPhase("hidden");
+      } else if (delta < -3) {
+        // Scrolling up — peek (compact, no top-bar)
+        setPhase("peek");
+      } else if (y > 10 && y <= 100) {
+        setPhase("scrolled");
+      }
+
+      lastY.current = y;
+      ticking.current = false;
+    });
+  }, []);
 
   useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      // Only hide after scrolling past 80px
-      if (y > 80) {
-        setHidden(y > lastScrollY.current);
-      } else {
-        setHidden(false);
-      }
-      lastScrollY.current = y;
-    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [onScroll]);
+
+  const isTop = phase === "top";
+  const isHidden = phase === "hidden";
+  const showTopBar = isTop;
+  const hasShadow = phase === "scrolled" || phase === "peek";
 
   return (
     <header
-      className="sticky top-0 z-50 transition-transform duration-300 ease-in-out"
-      style={{ transform: hidden ? "translateY(-100%)" : "translateY(0)" }}
+      className="sticky top-0 z-50"
+      style={{
+        transform: isHidden ? "translateY(-100%)" : "translateY(0)",
+        transition: "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease",
+        boxShadow: hasShadow ? "0 4px 30px rgba(0,0,0,0.12)" : "none",
+      }}
     >
-      {/* Top bar — B2B links */}
-      <div className="bg-brand-darker text-white/50 text-xs hidden lg:block">
+      {/* Top bar — B2B links (collapses on scroll) */}
+      <div
+        className="bg-brand-darker text-white/50 text-xs hidden lg:block overflow-hidden"
+        style={{
+          maxHeight: showTopBar ? "2rem" : "0",
+          opacity: showTopBar ? 1 : 0,
+          transition: "max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease",
+        }}
+      >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-8">
           <div className="flex items-center gap-5">
             {topBarLinks.map((link) => (
@@ -93,7 +133,15 @@ export default function Nav() {
       </div>
 
       {/* Main nav */}
-      <nav className="bg-brand backdrop-blur-md border-b border-white/10">
+      <nav
+        className="border-b border-white/10"
+        style={{
+          backgroundColor: isTop ? "var(--color-brand)" : "rgba(56, 84, 170, 0.95)",
+          backdropFilter: isTop ? "none" : "blur(20px) saturate(1.6)",
+          WebkitBackdropFilter: isTop ? "none" : "blur(20px) saturate(1.6)",
+          transition: "background-color 0.5s ease, backdrop-filter 0.5s ease",
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
@@ -119,25 +167,41 @@ export default function Nav() {
                       : "text-white/60 hover:text-white"
                   }`}>
                     {item.label}
-                    <svg className="w-2.5 h-2.5 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-2.5 h-2.5 opacity-40 transition-transform duration-200"
+                      style={{ transform: openDropdown === item.label ? "rotate(180deg)" : "rotate(0)" }}
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
-                  {openDropdown === item.label && (
-                    <div className="absolute top-full left-0 pt-1">
-                      <div className="bg-white rounded-lg shadow-2xl border border-gray-100 py-1.5 w-52">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className="block px-4 py-2 text-[13px] text-gray-600 hover:bg-blue-light hover:text-brand transition-colors"
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
+                  <div
+                    className="absolute top-full left-0 pt-1"
+                    style={{
+                      opacity: openDropdown === item.label ? 1 : 0,
+                      transform: openDropdown === item.label ? "translateY(0) scale(1)" : "translateY(-8px) scale(0.97)",
+                      pointerEvents: openDropdown === item.label ? "auto" : "none",
+                      transition: "opacity 0.2s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)",
+                      transformOrigin: "top center",
+                    }}
+                  >
+                    <div className="bg-white rounded-lg shadow-2xl border border-gray-100 py-1.5 w-52">
+                      {item.children.map((child, ci) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block px-4 py-2 text-[13px] text-gray-600 hover:bg-blue-light hover:text-brand transition-colors"
+                          style={{
+                            opacity: openDropdown === item.label ? 1 : 0,
+                            transform: openDropdown === item.label ? "translateX(0)" : "translateX(-6px)",
+                            transition: `opacity 0.2s ease ${ci * 0.04}s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1) ${ci * 0.04}s`,
+                          }}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
                     </div>
-                  )}
+                  </div>
                 </div>
               ) : (
                 <Link
