@@ -11,6 +11,7 @@ import PerformanceBars from "@/components/PerformanceBars";
 import EnergySavingsCard from "@/components/EnergySavingsCard";
 import GlazingComparison from "@/components/GlazingComparison";
 import StickyCTA from "@/components/StickyCTA";
+import DeliveryMap from "@/components/DeliveryMap";
 
 export const metadata: Metadata = {
   title: "Tilt & Turn Windows | European Style | DECA Windows",
@@ -334,6 +335,38 @@ export default function TiltTurnPage() {
       <Section gray>
         <SectionTitle title="Exceptional Service in Massachusetts" subtitle="From consultation to installation, we're with you every step." />
         <ServiceIcons />
+      </Section>
+
+      {/* ═══════ DELIVERY MAP ═══════ */}
+      <Section>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          <div>
+            <span className="inline-block text-xs font-semibold tracking-wider uppercase text-brand mb-3">Nationwide Delivery</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">
+              Factory-Direct Shipping Across the U.S.
+            </h2>
+            <p className="text-text-secondary leading-relaxed mb-6">
+              Every DECA window is manufactured in Westfield, Massachusetts and shipped
+              directly to your project site. Northeast states enjoy same-day to 5-day
+              delivery, while we reach the entire continental U.S. within 10 days.
+            </p>
+            <div className="grid grid-cols-3 gap-4">
+              <div className="text-center">
+                <p className="text-2xl font-extrabold text-brand">1–2</p>
+                <p className="text-xs text-text-muted mt-0.5">days to CT, RI</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-extrabold text-brand">3–5</p>
+                <p className="text-xs text-text-muted mt-0.5">days to PA, NJ</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-extrabold text-brand">8–10</p>
+                <p className="text-xs text-text-muted mt-0.5">days to West Coast</p>
+              </div>
+            </div>
+          </div>
+          <DeliveryMap />
+        </div>
       </Section>
 
       {/* ═══════ WINDOW TYPES ═══════ */}
