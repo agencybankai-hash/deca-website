@@ -154,8 +154,8 @@ export default function UPVCWindowsPage() {
               ),
               title: "Profile Cross-Section",
               description: "Multi-chamber uPVC profile with galvanized steel reinforcement for structural rigidity.",
-              image: `${a}/components/components-1.webp`,
-              alt: "DECA uPVC window — Profile Cross-Section",
+              image: `${a}/components/profile-cross-section.png`,
+              alt: "GEALAN profile cross-section — multi-chamber uPVC window profile",
             },
             {
               icon: (
@@ -165,8 +165,8 @@ export default function UPVCWindowsPage() {
               ),
               title: "Chamber Structure",
               description: "5–6 insulating chambers trap air, creating a thermal barrier that outperforms standard vinyl by 40%.",
-              image: `${a}/components/components-2.webp`,
-              alt: "DECA uPVC window — Chamber Structure",
+              image: `${a}/components/chamber-structure.png`,
+              alt: "GEALAN chamber structure — 5-6 insulating chambers highlighted in green",
             },
             {
               icon: (
@@ -176,19 +176,30 @@ export default function UPVCWindowsPage() {
               ),
               title: "Triple Seal System",
               description: "Three continuous EPDM gaskets block air, water, and sound at every point of the frame.",
-              image: `${a}/components/components-3.webp`,
-              alt: "DECA uPVC window — Triple Seal System",
+              image: `${a}/components/triple-seal-system.png`,
+              alt: "GEALAN triple seal system — three EPDM gasket contours visible on profile",
             },
             {
               icon: (
                 <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z" />
                 </svg>
               ),
-              title: "Steel Reinforcement",
-              description: "Galvanized steel inserts prevent flexing and warping across extreme temperatures (-30°F to 140°F).",
-              image: `${a}/components/components-4.webp`,
-              alt: "DECA uPVC window — Steel Reinforcement",
+              title: "Glazing Package",
+              description: "Triple-pane argon-filled glass unit with warm-edge spacer for maximum thermal and acoustic insulation.",
+              image: `${a}/components/glazing-package.png`,
+              alt: "GEALAN triple-pane glazing package with argon fill and warm-edge spacer",
+            },
+            {
+              icon: (
+                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
+                </svg>
+              ),
+              title: "Hardware Detail",
+              description: "Precision Roto/Siegenia hardware with up to 12 locking points for maximum security.",
+              image: `${a}/components/hardware-detail.png`,
+              alt: "Tilt & turn window hardware — Roto/Siegenia multi-point locking system",
             },
           ]}
         />
@@ -231,7 +242,7 @@ export default function UPVCWindowsPage() {
           {/* Component detail image */}
           <div className="space-y-4">
             <Image
-              src={`${a}/components/components-5.webp`}
+              src={`${a}/components/hardware-detail.png`}
               alt="DECA uPVC window component detail — hardware and seal"
               width={600}
               height={400}
