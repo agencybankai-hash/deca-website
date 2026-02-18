@@ -137,7 +137,7 @@ export default function EnergySavingsCard() {
         {/* Big number */}
         <div className="flex-1 flex flex-col items-center justify-center">
           <span className="text-[10px] text-text-muted uppercase tracking-[0.15em] font-medium mb-1">Up to</span>
-          <span ref={taxRef} className="text-5xl font-black text-text-primary leading-none">$0</span>
+          <span ref={taxRef} className="text-5xl font-black text-brand leading-none">$0</span>
           <span className="text-sm text-text-muted mt-2">per household</span>
         </div>
 
