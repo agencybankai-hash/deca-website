@@ -248,10 +248,18 @@ export default function Nav() {
             </a>
             <Link
               href="/quote"
-              className="bg-white hover:bg-gray-100 text-brand px-4 py-2 rounded text-[12px] font-semibold transition-colors flex items-center gap-1.5 uppercase tracking-wider"
+              className="group relative overflow-hidden px-4 py-2 rounded text-[12px] font-semibold flex items-center gap-1.5 uppercase tracking-wider transition-all duration-500 bg-white text-brand hover:text-white hover:shadow-lg hover:shadow-[#e8873a]/30"
             >
-              Request a Quote
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {/* Default white bg */}
+              <span className="absolute inset-0 bg-white transition-opacity duration-500 group-hover:opacity-0" />
+              {/* Orange bg with blueprint grid — reveals on hover */}
+              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "linear-gradient(135deg, #d94e1a 0%, #f47b2b 40%, #e8873a 100%)" }} />
+              <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.12 }}>
+                <defs><pattern id="nav-cta-grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5" /></pattern></defs>
+                <rect width="100%" height="100%" fill="url(#nav-cta-grid)" />
+              </svg>
+              <span className="relative z-10">Request a Quote</span>
+              <svg className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
