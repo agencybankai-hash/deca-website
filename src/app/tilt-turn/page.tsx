@@ -10,6 +10,7 @@ import AnimatedStats from "@/components/AnimatedStats";
 import PerformanceBars from "@/components/PerformanceBars";
 import EnergySavingsCard from "@/components/EnergySavingsCard";
 import GlazingComparison from "@/components/GlazingComparison";
+import StickyCTA from "@/components/StickyCTA";
 
 export const metadata: Metadata = {
   title: "Tilt & Turn Windows | European Style | DECA Windows",
@@ -373,15 +374,18 @@ export default function TiltTurnPage() {
       {/* ═══════ WINDOW TYPES ═══════ */}
       <Section>
         <SectionTitle badge="Configurations" title="Available Styles" subtitle="Every window is custom-made to your specifications." />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {[
-            { src: "two-sections.webp", name: "Double Section", desc: "Side-by-side tilt & turn panels" },
-            { src: "three-sections.webp", name: "Triple Section", desc: "Panoramic three-panel systems" },
-            { src: "curved-type.webp", name: "Arched / Custom", desc: "Any shape — curved, triangular, circular" },
-            { src: "basemant-windows.webp", name: "Basement Windows", desc: "Compact tilt-only for below-grade" },
+            { src: "style-single-casement.png", name: "Single Tilt & Turn", desc: "Classic single-panel operation" },
+            { src: "style-hopper.png", name: "Hopper / Awning", desc: "Top-hinged ventilation window" },
+            { src: "style-double-casement.png", name: "Double Section", desc: "Side-by-side tilt & turn panels" },
+            { src: "style-triple-casement.png", name: "Triple Section", desc: "Panoramic three-panel system" },
+            { src: "style-arched.png", name: "Arched / Custom", desc: "Any shape — curved, round, triangular" },
           ].map((w) => (
             <div key={w.name} className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-all group">
-              <Image src={`${a}/images/${w.src}`} alt={`DECA ${w.name}`} width={400} height={300} className="w-full h-64 object-contain group-hover:scale-105 transition-transform duration-500" />
+              <div className="bg-[#f6f6f6] flex items-center justify-center p-4 h-52">
+                <Image src={`${a}/images/${w.src}`} alt={`DECA ${w.name}`} width={400} height={300} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
+              </div>
               <div className="p-4">
                 <h4 className="font-semibold text-text-primary text-sm">{w.name}</h4>
                 <p className="text-xs text-text-muted">{w.desc}</p>
@@ -421,6 +425,9 @@ export default function TiltTurnPage() {
         btnText="Get Free Quote"
         variant="blue"
       />
+
+      {/* ═══════ STICKY CTA ═══════ */}
+      <StickyCTA />
     </>
   );
 }

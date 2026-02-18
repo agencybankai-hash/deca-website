@@ -9,6 +9,7 @@ import AnimatedStats from "@/components/AnimatedStats";
 import PerformanceBars from "@/components/PerformanceBars";
 import EnergySavingsCard from "@/components/EnergySavingsCard";
 import GlazingComparison from "@/components/GlazingComparison";
+import StickyCTA from "@/components/StickyCTA";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -421,21 +422,24 @@ export default function UPVCWindowsPage() {
       {/* ═══════ WINDOW TYPES — Product images ═══════ */}
       <Section>
         <SectionTitle badge="Window Types" title="Styles for Every Project" subtitle="Custom-made to your exact specifications." />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {[
-            { src: "two-sections.webp", name: "Double Section", desc: "Side-by-side panels for wider openings" },
-            { src: "three-sections.webp", name: "Triple Section", desc: "Three-panel for panoramic views" },
-            { src: "curved-type.webp", name: "Arched / Custom", desc: "Curved, triangular, circular shapes" },
-            { src: "kitchen-windows.webp", name: "Kitchen Windows", desc: "Compact designs with tilt ventilation" },
+            { src: "style-single-casement.png", name: "Single Tilt & Turn", desc: "Classic single-panel operation" },
+            { src: "style-hopper.png", name: "Hopper / Awning", desc: "Top-hinged ventilation window" },
+            { src: "style-double-casement.png", name: "Double Section", desc: "Side-by-side panels for wider openings" },
+            { src: "style-triple-casement.png", name: "Triple Section", desc: "Three-panel for panoramic views" },
+            { src: "style-arched.png", name: "Arched / Custom", desc: "Curved, triangular, circular shapes" },
           ].map((w) => (
             <div key={w.name} className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-all group">
-              <Image
-                src={`${a}/images/${w.src}`}
-                alt={`DECA ${w.name}`}
-                width={400}
-                height={300}
-                className="w-full h-64 object-contain group-hover:scale-105 transition-transform duration-500"
-              />
+              <div className="bg-[#f6f6f6] flex items-center justify-center p-4 h-52">
+                <Image
+                  src={`${a}/images/${w.src}`}
+                  alt={`DECA ${w.name}`}
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
               <div className="p-4">
                 <h4 className="font-semibold text-text-primary text-sm">{w.name}</h4>
                 <p className="text-xs text-text-muted">{w.desc}</p>
@@ -481,6 +485,9 @@ export default function UPVCWindowsPage() {
         btnText="Get Free Custom Quote"
         variant="blue"
       />
+
+      {/* ═══════ STICKY CTA ═══════ */}
+      <StickyCTA />
     </>
   );
 }
