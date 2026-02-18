@@ -96,7 +96,7 @@ export default function Footer() {
             fontWeight: 900,
             color: "rgba(255,255,255,0.03)",
             letterSpacing: "-0.02em",
-            animation: "footer-marquee 240s linear infinite",
+            animation: "footer-marquee 720s linear infinite",
           }}
         >
           {decaRepeat}{decaRepeat}
