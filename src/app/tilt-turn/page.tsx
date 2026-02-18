@@ -12,6 +12,7 @@ import EnergySavingsCard from "@/components/EnergySavingsCard";
 import GlazingComparison from "@/components/GlazingComparison";
 import StickyCTA from "@/components/StickyCTA";
 import DeliveryMap from "@/components/DeliveryMap";
+import CTAWithDocs from "@/components/CTAWithDocs";
 
 export const metadata: Metadata = {
   title: "Tilt & Turn Windows | European Style | DECA Windows",
@@ -430,11 +431,10 @@ export default function TiltTurnPage() {
       </Section>
 
       {/* ═══════ CTA ═══════ */}
-      <CTABlock
+      <CTAWithDocs
         title="Ready for Tilt & Turn?"
-        subtitle="Any size, color, or configuration. Factory-direct pricing with GEALAN quality."
+        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
         btnText="Get Free Quote"
-        variant="blue"
       />
 
       {/* ═══════ STICKY CTA ═══════ */}
