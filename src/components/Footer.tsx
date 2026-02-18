@@ -95,7 +95,7 @@ export default function Footer() {
             fontSize: "clamp(200px, 25vw, 400px)",
             fontWeight: 900,
             color: "rgba(255,255,255,0.03)",
-            letterSpacing: "0.25em",
+            letterSpacing: "-0.02em",
             animation: "footer-marquee 240s linear infinite",
           }}
         >
