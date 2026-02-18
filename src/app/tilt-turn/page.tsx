@@ -280,9 +280,11 @@ export default function TiltTurnPage() {
       </Section>
 
       {/* ═══════ GALLERY ═══════ */}
-      <Section gray>
-        <SectionTitle badge="Our Work" title="Tilt & Turn in Real Homes" subtitle="DECA windows installed across New England." />
+      <section className="bg-warm-gray py-16 md:py-24">
         <GalleryLightbox
+          badge="Our Work"
+          title="Tilt & Turn in Real Homes"
+          subtitle="DECA windows installed across New England."
           alt="DECA tilt & turn window installation"
           items={[
             { src: `${a}/gallery/gallery-1.webp`, tall: true },
@@ -295,7 +297,7 @@ export default function TiltTurnPage() {
             { src: `${a}/gallery/gallery-8.webp` },
           ]}
         />
-      </Section>
+      </section>
 
       {/* ═══════ REVIEWS ═══════ */}
       <Section>

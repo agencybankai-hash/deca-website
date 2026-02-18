@@ -8,7 +8,15 @@ interface GalleryItem {
   tall?: boolean;
 }
 
-export default function GalleryLightbox({ items, alt }: { items: GalleryItem[]; alt: string }) {
+interface GalleryLightboxProps {
+  items: GalleryItem[];
+  alt: string;
+  badge?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+export default function GalleryLightbox({ items, alt, badge, title, subtitle }: GalleryLightboxProps) {
   const [open, setOpen] = useState<number | null>(null);
   const [current, setCurrent] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -16,19 +24,14 @@ export default function GalleryLightbox({ items, alt }: { items: GalleryItem[]; 
   const dragStartX = useRef(0);
   const scrollStartX = useRef(0);
 
-  // Scroll to the current slide (+1 for left spacer)
   const scrollToSlide = useCallback((index: number, smooth = true) => {
     const track = trackRef.current;
     if (!track) return;
-    const slide = track.children[index + 1] as HTMLElement | undefined;
+    const slide = track.children[index] as HTMLElement | undefined;
     if (!slide) return;
-    const trackRect = track.getBoundingClientRect();
-    const slideRect = slide.getBoundingClientRect();
-    const offset = slideRect.left - trackRect.left + track.scrollLeft - (trackRect.width - slideRect.width) / 2;
-    track.scrollTo({ left: offset, behavior: smooth ? "smooth" : "instant" });
+    track.scrollTo({ left: slide.offsetLeft, behavior: smooth ? "smooth" : "instant" });
   }, []);
 
-  // Navigate
   const goTo = useCallback((index: number) => {
     const clamped = Math.max(0, Math.min(items.length - 1, index));
     setCurrent(clamped);
@@ -38,7 +41,7 @@ export default function GalleryLightbox({ items, alt }: { items: GalleryItem[]; 
   const prev = () => goTo(current - 1);
   const next = () => goTo(current + 1);
 
-  // Detect current slide on scroll end
+  // Detect current slide on scroll
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
@@ -46,34 +49,28 @@ export default function GalleryLightbox({ items, alt }: { items: GalleryItem[]; 
     const onScroll = () => {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
-        const trackRect = track.getBoundingClientRect();
-        const center = trackRect.left + trackRect.width / 2;
+        const slides = Array.from(track.children) as HTMLElement[];
         let closestIdx = 0;
         let closestDist = Infinity;
-        // Skip first and last spacers
-        const slides = Array.from(track.children).slice(1, -1);
         slides.forEach((child, i) => {
-          const rect = child.getBoundingClientRect();
-          const childCenter = rect.left + rect.width / 2;
-          const dist = Math.abs(center - childCenter);
+          const dist = Math.abs(child.offsetLeft - track.scrollLeft);
           if (dist < closestDist) {
             closestDist = dist;
             closestIdx = i;
           }
         });
         setCurrent(closestIdx);
-      }, 100);
+      }, 80);
     };
     track.addEventListener("scroll", onScroll, { passive: true });
     return () => { track.removeEventListener("scroll", onScroll); clearTimeout(timeout); };
   }, []);
 
-  // Init position
   useEffect(() => {
     scrollToSlide(0, false);
   }, [scrollToSlide]);
 
-  // Mouse drag support
+  // Mouse drag
   const onMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
     dragStartX.current = e.clientX;
@@ -81,24 +78,18 @@ export default function GalleryLightbox({ items, alt }: { items: GalleryItem[]; 
   };
   const onMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !trackRef.current) return;
-    const dx = e.clientX - dragStartX.current;
-    trackRef.current.scrollLeft = scrollStartX.current - dx;
+    trackRef.current.scrollLeft = scrollStartX.current - (e.clientX - dragStartX.current);
   };
   const onMouseUp = () => {
     if (!isDragging) return;
     setIsDragging(false);
-    // Snap to nearest
     const track = trackRef.current;
     if (!track) return;
-    const trackRect = track.getBoundingClientRect();
-    const center = trackRect.left + trackRect.width / 2;
+    const slides = Array.from(track.children) as HTMLElement[];
     let closestIdx = 0;
     let closestDist = Infinity;
-    const slides = Array.from(track.children).slice(1, -1);
     slides.forEach((child, i) => {
-      const rect = child.getBoundingClientRect();
-      const childCenter = rect.left + rect.width / 2;
-      const dist = Math.abs(center - childCenter);
+      const dist = Math.abs(child.offsetLeft - track.scrollLeft);
       if (dist < closestDist) {
         closestDist = dist;
         closestIdx = i;
@@ -109,78 +100,106 @@ export default function GalleryLightbox({ items, alt }: { items: GalleryItem[]; 
 
   return (
     <>
-      {/* Slider container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* ── Header: left-aligned ── */}
+        {(badge || title) && (
+          <div className="mb-8">
+            {badge && (
+              <span className="text-xs font-semibold tracking-wider uppercase text-brand">{badge}</span>
+            )}
+            {title && (
+              <h2 className="text-3xl md:text-4xl font-bold text-text-primary mt-1">{title}</h2>
+            )}
+            {subtitle && (
+              <p className="text-text-secondary mt-2 max-w-xl">{subtitle}</p>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* ── Carousel: full-bleed with left-aligned start ── */}
       <div className="relative">
-        {/* Track */}
         <div
           ref={trackRef}
-          className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2"
+          className="flex gap-5 overflow-x-auto pb-2 cursor-grab active:cursor-grabbing"
           style={{
             scrollSnapType: "x mandatory",
             WebkitOverflowScrolling: "touch",
             scrollbarWidth: "none",
             msOverflowStyle: "none",
+            paddingLeft: "max(1rem, calc((100vw - 80rem) / 2 + 1rem))",
+            paddingRight: "max(1rem, calc((100vw - 80rem) / 2 + 1rem))",
           }}
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
           onMouseUp={onMouseUp}
           onMouseLeave={onMouseUp}
         >
-          {/* Spacer left */}
-          <div className="shrink-0 w-[calc((100vw-min(1280px,100vw-4rem))/2+1rem)]" />
-
           {items.map((item, i) => (
             <button
               key={i}
               onClick={() => { if (!isDragging) setOpen(i); }}
-              className="shrink-0 snap-center rounded-2xl overflow-hidden cursor-pointer group"
-              style={{ width: "min(70vw, 900px)" }}
+              className="shrink-0 snap-start rounded-2xl overflow-hidden cursor-pointer group relative"
+              style={{ width: "min(80vw, 960px)" }}
             >
-              <div className="relative aspect-[16/10] w-full overflow-hidden">
+              <div className="relative aspect-[3/2] w-full overflow-hidden">
                 <Image
                   src={item.src}
                   alt={`${alt} ${i + 1}`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 85vw, 900px"
+                  sizes="(max-width: 768px) 85vw, 960px"
                 />
+                {/* Subtle gradient overlay for better button visibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </button>
           ))}
-
-          {/* Spacer right */}
-          <div className="shrink-0 w-[calc((100vw-min(1280px,100vw-4rem))/2+1rem)]" />
         </div>
 
-        {/* Navigation arrows */}
-        <button
-          onClick={prev}
-          disabled={current === 0}
-          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/90 hover:bg-white shadow-lg flex items-center justify-center text-text-primary transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
+        {/* Navigation arrows — inside the active image area */}
+        <div
+          className="absolute top-0 left-0 right-0 bottom-2 pointer-events-none flex items-center"
+          style={{
+            paddingLeft: "max(1rem, calc((100vw - 80rem) / 2 + 1rem))",
+          }}
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-        </button>
-        <button
-          onClick={next}
-          disabled={current === items.length - 1}
-          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/90 hover:bg-white shadow-lg flex items-center justify-center text-text-primary transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-        </button>
-
-        {/* Dot indicators */}
-        <div className="flex items-center justify-center gap-1.5 mt-6">
-          {items.map((_, i) => (
+          <div className="relative pointer-events-auto" style={{ width: "min(80vw, 960px)" }}>
             <button
-              key={i}
-              onClick={() => goTo(i)}
-              className={`rounded-full transition-all duration-300 ${
-                i === current
-                  ? "w-6 h-2 bg-brand"
-                  : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
-              }`}
-            />
-          ))}
+              onClick={prev}
+              disabled={current === 0}
+              className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-11 md:h-11 rounded-full bg-white/90 hover:bg-white shadow-lg flex items-center justify-center text-text-primary transition-all disabled:opacity-0 disabled:pointer-events-none z-10 backdrop-blur-sm"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            <button
+              onClick={next}
+              disabled={current === items.length - 1}
+              className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-11 md:h-11 rounded-full bg-white/90 hover:bg-white shadow-lg flex items-center justify-center text-text-primary transition-all disabled:opacity-0 disabled:pointer-events-none z-10 backdrop-blur-sm"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Counter + dots — left-aligned */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-5 flex items-center gap-4">
+          <span className="text-sm font-semibold text-text-primary tabular-nums">
+            {String(current + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}
+          </span>
+          <div className="flex items-center gap-1.5">
+            {items.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className={`rounded-full transition-all duration-300 ${
+                  i === current
+                    ? "w-6 h-2 bg-brand"
+                    : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
@@ -213,9 +232,9 @@ export default function GalleryLightbox({ items, alt }: { items: GalleryItem[]; 
           <Image
             src={items[open].src}
             alt={`${alt} ${open + 1}`}
-            width={1200}
-            height={800}
-            className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg"
+            width={1400}
+            height={900}
+            className="max-h-[85vh] max-w-[92vw] object-contain rounded-lg"
             onClick={(e) => e.stopPropagation()}
           />
 
