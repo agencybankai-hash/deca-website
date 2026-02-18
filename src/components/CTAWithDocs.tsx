@@ -118,17 +118,17 @@ export default function CTAWithDocs({
   btnHref?: string;
 }) {
   return (
-    <section className="bg-brand text-white pt-20 pb-20 overflow-visible relative">
+    <section className="text-white pt-20 pb-20 overflow-visible relative" style={{ background: "linear-gradient(135deg, #c85a22 0%, #e0792e 50%, #d46827 100%)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left — Text + CTA */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">{title}</h2>
-            <p className="text-white/55 text-lg leading-relaxed mb-8 max-w-lg">{subtitle}</p>
+            <p className="text-white/60 text-lg leading-relaxed mb-8 max-w-lg">{subtitle}</p>
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <Link
                 href={btnHref}
-                className="inline-block bg-white text-brand hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-colors"
+                className="inline-block bg-white text-[#c85a22] hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-colors"
               >
                 {btnText}
               </Link>
