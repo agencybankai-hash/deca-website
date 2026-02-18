@@ -41,7 +41,7 @@ export function VideoPlaceholder({ description }: { description: string }) {
 export function Section({ children, className = "", dark = false, gray = false, id }: { children: React.ReactNode; className?: string; dark?: boolean; gray?: boolean; id?: string }) {
   const bg = dark ? "bg-brand text-white" : gray ? "bg-warm-gray" : "bg-white";
   return (
-    <section id={id} className={`py-20 ${bg} ${className}`}>
+    <section id={id} className={`py-28 ${bg} ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">{children}</div>
     </section>
   );
