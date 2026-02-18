@@ -315,14 +315,22 @@ export default function TiltTurnPage() {
           <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-2">What Homeowners Say</h2>
           <p className="text-sm text-text-muted">Trusted by families across New England</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {/* Horizontal scrolling reviews — full-bleed feel */}
+        <div
+          className="flex gap-5 overflow-x-auto pb-4 -mx-4 sm:-mx-6 px-4 sm:px-6 cursor-grab active:cursor-grabbing select-none"
+          style={{ scrollSnapType: "x proximity", scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
           {[
-            { name: "Miranda S.", text: "Our energy bills dropped by 45% after replacing all windows with DECA. The noise reduction is incredible — we live near a highway and can barely hear traffic now.", photo: "miranda.webp", rotate: "-1.2deg" },
-            { name: "Jordan K.", text: "The tilt-and-turn mechanism is a game-changer. Easy cleaning, great ventilation options, and the build quality is noticeably better than our old vinyl windows.", photo: "jordan.webp", rotate: "0.8deg" },
-            { name: "Casey M.", text: "Impressive attention to detail from consultation to installation. The triple-glazed windows keep our 1920s colonial warm even in January without cranking the heat.", photo: "casey.webp", rotate: "-0.6deg" },
-          ].map((r) => (
-            <div key={r.name} className="bg-warm-gray rounded-xl border border-border p-6 relative transition-transform duration-300 hover:rotate-0 hover:scale-[1.02] hover:shadow-lg" style={{ transform: `rotate(${r.rotate})` }}>
-              {/* Quote icon */}
+            { name: "Miranda S.", loc: "Northampton, MA", text: "Our energy bills dropped by 45% after replacing all windows with DECA. The noise reduction is incredible — we live near a highway and can barely hear traffic now.", rotate: "-1.2deg" },
+            { name: "Jordan K.", loc: "West Springfield, MA", text: "The tilt-and-turn mechanism is a game-changer. Easy cleaning, great ventilation options, and the build quality is noticeably better than our old vinyl windows.", rotate: "0.8deg" },
+            { name: "Casey M.", loc: "Boston, MA", text: "Impressive attention to detail from consultation to installation. The triple-glazed windows keep our 1920s colonial warm even in January without cranking the heat.", rotate: "-0.6deg" },
+            { name: "David L.", loc: "Cambridge, MA", text: "We renovated a 1960s ranch and put DECA in every opening. The house feels like new — warmer, quieter, and our HVAC barely runs now. Incredible difference.", rotate: "1deg" },
+            { name: "Sarah T.", loc: "Hartford, CT", text: "I was skeptical about European windows in the US, but DECA changed my mind. The tilt function is perfect for ventilation without letting bugs in. Love them.", rotate: "-0.5deg" },
+            { name: "Mike R.", loc: "Providence, RI", text: "As a contractor, I've installed hundreds of window brands. DECA's quality and factory-direct support are unmatched. My clients love the tilt & turn function.", rotate: "0.7deg" },
+            { name: "Elena K.", loc: "Newton, MA", text: "We replaced all 24 windows in our Victorian. The energy savings are remarkable, and the European design perfectly complements our home's character.", rotate: "-0.8deg" },
+            { name: "James P.", loc: "Amherst, MA", text: "The installation team was professional and fast. Three months in, our heating costs are down significantly. Best home investment we've ever made.", rotate: "0.4deg" },
+          ].map((r, idx) => (
+            <div key={r.name} className="shrink-0 w-[320px] snap-start bg-warm-gray rounded-xl border border-border p-6 relative transition-transform duration-300 hover:rotate-0 hover:scale-[1.02] hover:shadow-lg" style={{ transform: `rotate(${r.rotate})` }}>
               {/* Quote icon */}
               <svg className="absolute top-4 right-4 w-8 h-8 text-brand/10" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C9.591 11.69 11 13.166 11 15c0 1.933-1.567 3.5-3.5 3.5-1.171 0-2.277-.566-2.917-1.679zM15.583 17.321C14.553 16.227 14 15 14 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C20.591 11.69 22 13.166 22 15c0 1.933-1.567 3.5-3.5 3.5-1.171 0-2.277-.566-2.917-1.679z" />
@@ -332,20 +340,23 @@ export default function TiltTurnPage() {
                 {[0, 1, 2, 3, 4].map((n) => (
                   <svg key={n} className="w-5 h-5" viewBox="0 0 20 20" fill="none" style={{ filter: "drop-shadow(0 0 4px rgba(250,190,50,0.6)) drop-shadow(0 0 10px rgba(250,190,50,0.3))" }}>
                     <defs>
-                      <linearGradient id={`star-glow-${n}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <linearGradient id={`star-tt-${idx}-${n}`} x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="#fcd34d" />
                         <stop offset="50%" stopColor="#fbbf24" />
                         <stop offset="100%" stopColor="#f59e0b" />
                       </linearGradient>
                     </defs>
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" fill={`url(#star-glow-${n})`} />
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" fill={`url(#star-tt-${idx}-${n})`} />
                   </svg>
                 ))}
               </div>
               <p className="text-sm text-text-secondary leading-relaxed mb-4">&ldquo;{r.text}&rdquo;</p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand font-bold text-sm">{r.name.split(" ").map(n => n[0]).join("")}</div>
-                <span className="text-sm font-semibold text-text-primary">{r.name}</span>
+                <div>
+                  <span className="text-sm font-semibold text-text-primary block">{r.name}</span>
+                  <span className="text-[11px] text-text-muted">{r.loc}</span>
+                </div>
               </div>
             </div>
           ))}
