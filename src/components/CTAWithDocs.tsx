@@ -122,12 +122,20 @@ export default function CTAWithDocs({
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div
           className="rounded-2xl text-white px-8 sm:px-10 lg:px-14 py-0 overflow-visible relative"
-          style={{ background: "linear-gradient(135deg, #e8763a 0%, #f59e4f 50%, #ee8b42 100%)" }}
+          style={{ background: "linear-gradient(135deg, #d94e1a 0%, #f47b2b 30%, #ff9a44 60%, #f0751e 100%)" }}
         >
+          {/* Radial glow — top-right warm spot */}
+          <div
+            className="absolute inset-0 rounded-2xl pointer-events-none overflow-hidden"
+            style={{
+              background: "radial-gradient(ellipse 60% 80% at 80% 20%, rgba(255,200,100,0.25) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 15% 85%, rgba(180,50,0,0.3) 0%, transparent 60%)",
+            }}
+          />
+
           {/* Blueprint pattern overlay */}
           <div
             className="absolute inset-0 rounded-2xl pointer-events-none overflow-hidden"
-            style={{ opacity: 0.07 }}
+            style={{ opacity: 0.1 }}
           >
             <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -137,31 +145,46 @@ export default function CTAWithDocs({
               </defs>
               <rect width="100%" height="100%" fill="url(#cta-grid)" />
               {/* Window frame schematic */}
-              <rect x="75%" y="15%" width="120" height="160" rx="2" fill="none" stroke="white" strokeWidth="1.2" />
-              <line x1="75%" y1="15%" x2="75%" y2="calc(15% + 160px)" stroke="white" strokeWidth="0.8" transform="translate(60,0)" />
-              <rect x="calc(75% + 4px)" y="calc(15% + 4px)" width="54" height="74" rx="1" fill="none" stroke="white" strokeWidth="0.6" />
-              <rect x="calc(75% + 62px)" y="calc(15% + 4px)" width="54" height="74" rx="1" fill="none" stroke="white" strokeWidth="0.6" />
-              <rect x="calc(75% + 4px)" y="calc(15% + 82px)" width="54" height="74" rx="1" fill="none" stroke="white" strokeWidth="0.6" />
-              <rect x="calc(75% + 62px)" y="calc(15% + 82px)" width="54" height="74" rx="1" fill="none" stroke="white" strokeWidth="0.6" />
+              <rect x="75%" y="10%" width="130" height="180" rx="2" fill="none" stroke="white" strokeWidth="1.4" />
+              <line x1="75%" y1="10%" x2="75%" y2="calc(10% + 180px)" stroke="white" strokeWidth="1" transform="translate(65,0)" />
+              <line x1="75%" y1="calc(10% + 90px)" x2="calc(75% + 130px)" y2="calc(10% + 90px)" stroke="white" strokeWidth="0.7" />
+              <rect x="calc(75% + 5px)" y="calc(10% + 5px)" width="57" height="80" rx="1" fill="none" stroke="white" strokeWidth="0.6" />
+              <rect x="calc(75% + 68px)" y="calc(10% + 5px)" width="57" height="80" rx="1" fill="none" stroke="white" strokeWidth="0.6" />
+              <rect x="calc(75% + 5px)" y="calc(10% + 95px)" width="57" height="80" rx="1" fill="none" stroke="white" strokeWidth="0.6" />
+              <rect x="calc(75% + 68px)" y="calc(10% + 95px)" width="57" height="80" rx="1" fill="none" stroke="white" strokeWidth="0.6" />
+              {/* Handle details */}
+              <circle cx="calc(75% + 60px)" cy="calc(10% + 45px)" r="3" fill="white" fillOpacity="0.3" />
+              <circle cx="calc(75% + 72px)" cy="calc(10% + 135px)" r="3" fill="white" fillOpacity="0.3" />
               {/* Dimension lines */}
-              <line x1="calc(75% - 15px)" y1="15%" x2="calc(75% - 15px)" y2="calc(15% + 160px)" stroke="white" strokeWidth="0.5" />
-              <line x1="75%" y1="calc(15% + 175px)" x2="calc(75% + 120px)" y2="calc(15% + 175px)" stroke="white" strokeWidth="0.5" />
-              {/* Circle marks */}
-              <circle cx="20%" cy="70%" r="30" fill="none" stroke="white" strokeWidth="0.5" />
-              <circle cx="20%" cy="70%" r="20" fill="none" stroke="white" strokeWidth="0.3" />
-              <line x1="calc(20% - 30px)" y1="70%" x2="calc(20% + 30px)" y2="70%" stroke="white" strokeWidth="0.3" />
-              <line x1="20%" y1="calc(70% - 30px)" x2="20%" y2="calc(70% + 30px)" stroke="white" strokeWidth="0.3" />
+              <line x1="calc(75% - 18px)" y1="10%" x2="calc(75% - 18px)" y2="calc(10% + 180px)" stroke="white" strokeWidth="0.6" />
+              <line x1="calc(75% - 23px)" y1="10%" x2="calc(75% - 13px)" y2="10%" stroke="white" strokeWidth="0.6" />
+              <line x1="calc(75% - 23px)" y1="calc(10% + 180px)" x2="calc(75% - 13px)" y2="calc(10% + 180px)" stroke="white" strokeWidth="0.6" />
+              <line x1="75%" y1="calc(10% + 198px)" x2="calc(75% + 130px)" y2="calc(10% + 198px)" stroke="white" strokeWidth="0.6" />
+              {/* Circle / section marks */}
+              <circle cx="18%" cy="65%" r="35" fill="none" stroke="white" strokeWidth="0.5" />
+              <circle cx="18%" cy="65%" r="22" fill="none" stroke="white" strokeWidth="0.3" />
+              <line x1="calc(18% - 35px)" y1="65%" x2="calc(18% + 35px)" y2="65%" stroke="white" strokeWidth="0.3" />
+              <line x1="18%" y1="calc(65% - 35px)" x2="18%" y2="calc(65% + 35px)" stroke="white" strokeWidth="0.3" />
+              {/* Diagonal detail */}
+              <line x1="5%" y1="15%" x2="15%" y2="5%" stroke="white" strokeWidth="0.4" />
+              <line x1="6%" y1="15%" x2="16%" y2="5%" stroke="white" strokeWidth="0.4" />
             </svg>
           </div>
+
+          {/* Bottom edge shine */}
+          <div
+            className="absolute bottom-0 left-0 right-0 h-px rounded-b-2xl pointer-events-none"
+            style={{ background: "linear-gradient(90deg, transparent 10%, rgba(255,255,255,0.15) 50%, transparent 90%)" }}
+          />
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
           {/* Left — Text + CTA */}
           <div className="py-6 lg:py-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">{title}</h2>
-            <p className="text-white/60 text-lg leading-relaxed mb-5 max-w-lg">{subtitle}</p>
+            <p className="text-white/75 text-lg leading-relaxed mb-5 max-w-lg">{subtitle}</p>
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <Link
                 href={btnHref}
-                className="inline-block bg-white text-[#e8763a] hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-colors"
+                className="inline-block bg-white text-[#d94e1a] hover:bg-orange-50 px-8 py-3.5 rounded-lg font-semibold transition-all shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/15"
               >
                 {btnText}
               </Link>
