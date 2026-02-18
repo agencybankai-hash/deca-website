@@ -92,7 +92,7 @@ export default function Footer() {
         <div
           className="whitespace-nowrap"
           style={{
-            fontSize: "clamp(500px, 60vw, 1000px)",
+            fontSize: "clamp(385px, 46vw, 770px)",
             fontWeight: 900,
             color: "rgba(255,255,255,0.03)",
             letterSpacing: "-0.02em",
