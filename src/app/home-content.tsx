@@ -184,11 +184,15 @@ export default function HomeContent() {
         <SectionTitle badge="Testimonials" title="Our Customers About DECA" />
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { name: "Sarah M.", location: "Northampton, MA", text: "Our heating bill dropped 68% the first winter after installing DECA tilt & turn windows. The noise from Route 9 is practically gone. Best home improvement we've ever made." },
-            { name: "Michael R.", location: "West Springfield, MA", text: "As a contractor, I've installed hundreds of window brands. DECA's quality and factory-direct support are unmatched. My clients love the tilt & turn function." },
-            { name: "Elena K.", location: "Boston, MA", text: "We replaced all 24 windows in our Victorian with DECA. The energy savings are remarkable, and the European design perfectly complements our home's character." },
+            { name: "Sarah M.", location: "Northampton, MA", text: "Our heating bill dropped 68% the first winter after installing DECA tilt & turn windows. The noise from Route 9 is practically gone. Best home improvement we've ever made.", rotate: "-1.5deg" },
+            { name: "Michael R.", location: "West Springfield, MA", text: "As a contractor, I've installed hundreds of window brands. DECA's quality and factory-direct support are unmatched. My clients love the tilt & turn function.", rotate: "0.8deg" },
+            { name: "Elena K.", location: "Boston, MA", text: "We replaced all 24 windows in our Victorian with DECA. The energy savings are remarkable, and the European design perfectly complements our home's character.", rotate: "-1deg" },
           ].map((t) => (
-            <div key={t.name} className="bg-white rounded-xl border border-border p-6">
+            <div key={t.name} className="bg-white rounded-xl border border-border p-6 relative transition-transform duration-300 hover:rotate-0 hover:scale-[1.02] hover:shadow-lg" style={{ transform: `rotate(${t.rotate})` }}>
+              {/* Quote icon */}
+              <svg className="absolute top-4 right-4 w-8 h-8 text-brand/10" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C9.591 11.69 11 13.166 11 15c0 1.933-1.567 3.5-3.5 3.5-1.171 0-2.277-.566-2.917-1.679zM15.583 17.321C14.553 16.227 14 15 14 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C20.591 11.69 22 13.166 22 15c0 1.933-1.567 3.5-3.5 3.5-1.171 0-2.277-.566-2.917-1.679z" />
+              </svg>
               <div className="flex gap-1 mb-4">
                 {[1, 2, 3, 4, 5].map((n) => (
                   <svg key={n} className="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
