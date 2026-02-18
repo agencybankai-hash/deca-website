@@ -54,36 +54,48 @@ const metrics: { label: string; desc: string; values: Record<string, string> }[]
 export default function GlazingComparison() {
   return (
     <div className="overflow-x-auto">
+      {/* ── Glass photos row — white background, above the table ── */}
+      <div className="grid grid-cols-[34%_22%_22%_22%] mb-0">
+        {/* Empty cell aligned with Metric column */}
+        <div />
+        {glassTypes.map((g) => (
+          <div key={g.id} className="flex flex-col items-center text-center px-3 pb-4 relative">
+            {g.id === "triple" && (
+              <span className="text-[9px] font-bold tracking-wider uppercase bg-brand text-white px-3 py-0.5 rounded-full whitespace-nowrap mb-2">
+                Recommended
+              </span>
+            )}
+            <div className="w-20 h-16 md:w-28 md:h-22 relative mb-2.5 flex items-center justify-center">
+              <Image
+                src={g.src}
+                alt={`${g.name} cross-section`}
+                width={120}
+                height={90}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <span className="text-sm font-semibold text-text-primary">{g.name}</span>
+            <span className="text-[11px] text-text-muted mt-0.5 hidden sm:block">{g.shortDesc}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* ── Data table ── */}
       <table className="w-full text-sm border-separate border-spacing-0">
+        {/* ── Thin brand-colored header ── */}
         <thead>
-          {/* ── Glass images inside table ── */}
           <tr>
-            <th className="w-[34%] bg-brand rounded-tl-xl px-5 py-3 text-left align-bottom">
-              <span className="font-semibold text-white">Metric</span>
+            <th className="w-[34%] bg-brand/8 border-b-2 border-brand/20 px-5 py-2.5 text-left">
+              <span className="font-semibold text-text-primary text-xs uppercase tracking-wide">Metric</span>
             </th>
-            {glassTypes.map((g, i) => (
+            {glassTypes.map((g) => (
               <th
                 key={g.id}
-                className={`w-[22%] bg-brand px-3 py-3 align-bottom ${i === glassTypes.length - 1 ? "rounded-tr-xl" : ""}`}
+                className={`w-[22%] border-b-2 border-brand/20 px-3 py-2.5 text-center text-xs uppercase tracking-wide font-semibold ${
+                  g.id === "triple" ? "text-brand bg-brand/[0.06]" : "text-text-secondary bg-brand/8"
+                }`}
               >
-                <div className="flex flex-col items-center text-center relative">
-                  {g.id === "triple" && (
-                    <span className="text-[9px] font-bold tracking-wider uppercase bg-white text-brand px-3 py-0.5 rounded-full whitespace-nowrap mb-2">
-                      Recommended
-                    </span>
-                  )}
-                  <div className="w-20 h-16 md:w-24 md:h-20 relative mb-2 flex items-center justify-center">
-                    <Image
-                      src={g.src}
-                      alt={`${g.name} cross-section`}
-                      width={120}
-                      height={90}
-                      className="w-full h-full object-contain drop-shadow-md"
-                    />
-                  </div>
-                  <span className="text-xs md:text-sm font-bold text-white">{g.name}</span>
-                  <span className="text-[10px] text-white/50 mt-0.5 hidden sm:block">{g.shortDesc}</span>
-                </div>
+                {g.name}
               </th>
             ))}
           </tr>
@@ -91,42 +103,39 @@ export default function GlazingComparison() {
 
         {/* ── Data rows ── */}
         <tbody>
-          {metrics.map((m, i) => {
-            const isLast = i === metrics.length - 1;
-            return (
-              <tr key={m.label} className={i % 2 === 0 ? "bg-warm-gray/50" : "bg-white"}>
-                <td className={`px-5 py-3.5 border-t border-border ${isLast ? "rounded-bl-xl" : ""}`}>
-                  <span className="font-semibold text-text-primary block">{m.label}</span>
-                  <span className="text-[11px] text-text-muted">{m.desc}</span>
-                </td>
-                {glassTypes.map((g, gi) => {
-                  const isTriple = g.id === "triple";
-                  return (
-                    <td
-                      key={g.id}
-                      className={`px-4 py-3.5 text-center border-t border-border ${
-                        isTriple
-                          ? "font-bold text-brand bg-brand/[0.04]"
-                          : "text-text-secondary"
-                      } ${isLast && gi === glassTypes.length - 1 ? "rounded-br-xl" : ""}`}
-                    >
-                      {m.values[g.id]}
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
+          {metrics.map((m, i) => (
+            <tr key={m.label} className={i % 2 === 0 ? "bg-warm-gray/40" : "bg-white"}>
+              <td className="px-5 py-3.5 border-b border-border/60">
+                <span className="font-medium text-text-primary block text-[13px]">{m.label}</span>
+                <span className="text-[11px] text-text-muted leading-tight">{m.desc}</span>
+              </td>
+              {glassTypes.map((g) => {
+                const isTriple = g.id === "triple";
+                return (
+                  <td
+                    key={g.id}
+                    className={`px-4 py-3.5 text-center border-b border-border/60 ${
+                      isTriple
+                        ? "font-bold text-brand bg-brand/[0.03]"
+                        : "text-text-secondary"
+                    }`}
+                  >
+                    {m.values[g.id]}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
 
           {/* ── Best for row ── */}
           <tr>
-            <td className="px-5 py-3 border-t-2 border-brand/20">
+            <td className="px-5 py-3 border-t border-brand/15">
               <span className="font-semibold text-text-primary text-xs uppercase tracking-wide">Best for</span>
             </td>
             {glassTypes.map((g) => (
               <td
                 key={g.id}
-                className={`px-4 py-3 text-center text-xs border-t-2 border-brand/20 ${
+                className={`px-4 py-3 text-center text-xs border-t border-brand/15 ${
                   g.id === "triple" ? "text-brand font-medium" : "text-text-muted"
                 }`}
               >
