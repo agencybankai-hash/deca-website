@@ -153,9 +153,9 @@ export default function CTAWithDocs({
               <line x1="20%" y1="calc(70% - 30px)" x2="20%" y2="calc(70% + 30px)" stroke="white" strokeWidth="0.3" />
             </svg>
           </div>
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
           {/* Left — Text + CTA */}
-          <div className="py-8 lg:py-10">
+          <div className="py-6 lg:py-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">{title}</h2>
             <p className="text-white/60 text-lg leading-relaxed mb-5 max-w-lg">{subtitle}</p>
             <div className="flex flex-col sm:flex-row items-start gap-4">
@@ -178,7 +178,7 @@ export default function CTAWithDocs({
           </div>
 
           {/* Right — Stacked document cards, overflow above section */}
-          <div className="relative h-[340px] hidden lg:flex items-center justify-center">
+          <div className="relative h-[280px] hidden lg:flex items-center justify-center">
             {docs.map((doc, i) => {
               const layout = cardLayout[i];
               return (
