@@ -20,6 +20,21 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
   const [open, setOpen] = useState<number | null>(null);
   const [current, setCurrent] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [padLeft, setPadLeft] = useState(24);
+
+  /* Measure header left offset to perfectly align carousel with content */
+  useEffect(() => {
+    const measure = () => {
+      if (headerRef.current) {
+        const rect = headerRef.current.getBoundingClientRect();
+        setPadLeft(rect.left);
+      }
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
 
   /* ── Drag state ── */
   const isDragging = useRef(false);
@@ -149,7 +164,7 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
 
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div ref={headerRef} className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* ── Header: left-aligned ── */}
         {(badge || title) && (
           <div className="mb-8">
@@ -176,8 +191,8 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
             WebkitOverflowScrolling: "touch",
             scrollbarWidth: "none",
             msOverflowStyle: "none",
-            paddingLeft: "max(1rem, calc((100vw - 80rem) / 2 + 1.5rem))",
-            paddingRight: "max(1rem, calc((100vw - 80rem) / 2 + 1.5rem))",
+            paddingLeft: `${padLeft}px`,
+            paddingRight: `${padLeft}px`,
           }}
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
@@ -214,7 +229,7 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
         <div
           className="absolute top-0 left-0 right-0 bottom-2 pointer-events-none flex items-center"
           style={{
-            paddingLeft: "max(1rem, calc((100vw - 80rem) / 2 + 1.5rem))",
+            paddingLeft: `${padLeft}px`,
           }}
         >
           <div className="relative pointer-events-auto" style={{ width: "min(80vw, 960px)" }}>
