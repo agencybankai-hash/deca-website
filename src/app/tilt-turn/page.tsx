@@ -334,12 +334,12 @@ export default function TiltTurnPage() {
             </div>
           ))}
         </div>
-      </Section>
 
-      {/* ═══════ SERVICE ═══════ */}
-      <Section gray>
-        <SectionTitle title="Exceptional Service in Massachusetts" subtitle="From consultation to installation, we're with you every step." />
-        <ServiceIcons />
+        {/* ── Service — merged into same section ── */}
+        <div className="mt-16">
+          <SectionTitle title="Exceptional Service in Massachusetts" subtitle="From consultation to installation, we're with you every step." />
+          <ServiceIcons />
+        </div>
       </Section>
 
       {/* ═══════ DELIVERY MAP ═══════ */}
