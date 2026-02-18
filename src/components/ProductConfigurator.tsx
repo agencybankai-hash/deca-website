@@ -763,9 +763,9 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
             </div>
 
             {/* ── Content area — fills remaining height ── */}
-            <div className="flex-1 flex flex-col bg-white rounded-2xl border border-border p-5 sm:p-6">
+            <div className="flex flex-col bg-white rounded-2xl border border-border p-4 sm:p-5">
             {/* ── Current step header ── */}
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center gap-3 mb-3">
               <div className="w-8 h-8 rounded-lg bg-brand/10 flex items-center justify-center text-brand">
                 <StepIcon stepId={step.id} className="w-4.5 h-4.5" />
               </div>
@@ -822,14 +822,14 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
               </div>
             ) : (
               /* ── Card options ── */
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {step.options.map((opt) => {
                   const isSelected = selections[step.id] === opt.id;
                   return (
                     <button
                       key={opt.id}
                       onClick={() => select(opt.id)}
-                      className={`group relative text-left p-4 rounded-xl border-2 transition-all duration-200 ${
+                      className={`group relative text-left p-3 rounded-xl border-2 transition-all duration-200 ${
                         isSelected
                           ? "border-brand bg-brand/[0.03] shadow-lg shadow-brand/10"
                           : "border-gray-100 bg-white hover:border-gray-200 hover:shadow-sm"
@@ -880,7 +880,7 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
             </div>
 
             {/* ── Navigation ── */}
-            <div className="flex items-center gap-3 mt-auto pt-4 border-t border-border">
+            <div className="flex items-center gap-3 mt-auto pt-3 border-t border-border">
               {!isFirst && (
                 <button
                   onClick={goBack}
