@@ -7,6 +7,7 @@ interface Option {
   id: string;
   label: string;
   desc?: string;
+  benefit?: string;     // human-friendly "what this gives you"
   color?: string;       // for color swatches
   icon?: string;        // emoji or short label
   tag?: string;         // e.g. "Most Popular"
@@ -276,8 +277,8 @@ export function WindowConfigurator() {
       title: "Profile System",
       type: "card",
       options: [
-        { id: "linear", label: "GEALAN-LINEAR", desc: "Modern angular design, aluminum-look aesthetic", tag: "Premium", specs: "U-Factor 0.14–0.25" },
-        { id: "s8000", label: "GEALAN S 8000", desc: "Classic 5–6 chamber system, 3\" depth", tag: "Popular", specs: "U-Factor 0.16–0.27" },
+        { id: "linear", label: "GEALAN-LINEAR", desc: "Modern angular design, aluminum-look aesthetic", benefit: "Sleek, modern look that matches contemporary homes — thinnest frames for maximum glass area", tag: "Premium", specs: "U-Factor 0.14–0.25" },
+        { id: "s8000", label: "GEALAN S 8000", desc: "Classic 5–6 chamber system, 3\" depth", benefit: "Proven reliability at a great price — perfect balance of performance and value", tag: "Popular", specs: "U-Factor 0.16–0.27" },
       ],
     },
     {
@@ -285,10 +286,10 @@ export function WindowConfigurator() {
       title: "Window Type",
       type: "card",
       options: [
-        { id: "single-casement", label: "Single Tilt & Turn", desc: "One operable sash", icon: "◫" },
-        { id: "double-casement", label: "Double Tilt & Turn", desc: "Two operable sashes", icon: "◫◫", tag: "Most Popular" },
-        { id: "triple-casement", label: "Triple Casement", desc: "Three-sash configuration", icon: "◫◫◫" },
-        { id: "fixed", label: "Fixed Window", desc: "Maximum light, no opening", icon: "▢" },
+        { id: "single-casement", label: "Single Tilt & Turn", desc: "One operable sash", benefit: "Simple and efficient — opens two ways for easy cleaning and safe ventilation" },
+        { id: "double-casement", label: "Double Tilt & Turn", desc: "Two operable sashes", benefit: "Twice the airflow — both sides open independently for flexible ventilation", tag: "Most Popular" },
+        { id: "triple-casement", label: "Triple Casement", desc: "Three-sash configuration", benefit: "Ideal for wide openings — fills large spaces with light and air" },
+        { id: "fixed", label: "Fixed Window", desc: "Maximum light, no opening", benefit: "Unobstructed views with best insulation — no moving parts, no drafts" },
       ],
     },
     {
@@ -296,9 +297,9 @@ export function WindowConfigurator() {
       title: "Glazing",
       type: "card",
       options: [
-        { id: "double", label: "Double Glazing", desc: "IGU 0.8\"–1.2\"", specs: "U-Factor 0.25" },
-        { id: "triple", label: "Triple Glazing", desc: "IGU 1.2\"–2.0\"", specs: "U-Factor 0.14", tag: "Best Performance" },
-        { id: "solar", label: "Solar Control", desc: "Triple + solar coating", specs: "Reduces heat gain 40%" },
+        { id: "double", label: "Double Glazing", desc: "IGU 0.8\"–1.2\"", benefit: "Solid energy savings over single-pane — keeps your home comfortable year-round", specs: "U-Factor 0.25" },
+        { id: "triple", label: "Triple Glazing", desc: "IGU 1.2\"–2.0\"", benefit: "Maximum insulation — noticeably warmer in winter, quieter from outside noise", specs: "U-Factor 0.14", tag: "Best Performance" },
+        { id: "solar", label: "Solar Control", desc: "Triple + solar coating", benefit: "Blocks summer heat while keeping winter warmth — lower AC bills in hot climates", specs: "Reduces heat gain 40%" },
       ],
     },
     {
@@ -319,8 +320,8 @@ export function WindowConfigurator() {
       title: "Insect Screen",
       type: "card",
       options: [
-        { id: "none", label: "No Screen", desc: "Add later if needed" },
-        { id: "flexscreen", label: "FlexScreen", desc: "Virtually invisible, spring-steel frame, no hardware", tag: "Recommended" },
+        { id: "none", label: "No Screen", desc: "Add later if needed", benefit: "You can always add one later — no commitment needed now" },
+        { id: "flexscreen", label: "FlexScreen", desc: "Virtually invisible, spring-steel frame, no hardware", benefit: "Enjoy fresh air bug-free — pops in and out in seconds, barely visible from outside", tag: "Recommended" },
       ],
     },
   ];
@@ -343,10 +344,10 @@ export function SlidingDoorConfigurator() {
       title: "Sliding System",
       type: "card",
       options: [
-        { id: "psk", label: "PSk Parallel Slide", desc: "Space-efficient, standard openings", specs: "U-Factor 0.18" },
-        { id: "lift-slide", label: "GEALAN S 9000 Lift & Slide", desc: "Openings up to 21 ft, threshold-free", tag: "Premium", specs: "U-Factor 0.15–0.23" },
-        { id: "smoovio", label: "GEALAN-SMOOVIO", desc: "Next-gen sliding, impermeable closure", specs: "U-Factor 0.16–0.23" },
-        { id: "multi-slide", label: "GEALAN Multi-Slide", desc: "2–6 panel configurations", specs: "U-Factor 0.27–0.35" },
+        { id: "psk", label: "PSk Parallel Slide", desc: "Space-efficient, standard openings", benefit: "Slides parallel to the wall — saves space in smaller rooms while letting in lots of light", specs: "U-Factor 0.18" },
+        { id: "lift-slide", label: "GEALAN S 9000 Lift & Slide", desc: "Openings up to 21 ft, threshold-free", benefit: "Walk-through without a threshold — massive openings connect your indoor and outdoor spaces", tag: "Premium", specs: "U-Factor 0.15–0.23" },
+        { id: "smoovio", label: "GEALAN-SMOOVIO", desc: "Next-gen sliding, impermeable closure", benefit: "Glides effortlessly with one finger — sealed so tight, not a whisper of air gets through", specs: "U-Factor 0.16–0.23" },
+        { id: "multi-slide", label: "GEALAN Multi-Slide", desc: "2–6 panel configurations", benefit: "Open up an entire wall — panels stack neatly to one side for unobstructed views", specs: "U-Factor 0.27–0.35" },
       ],
     },
     {
@@ -354,8 +355,8 @@ export function SlidingDoorConfigurator() {
       title: "Glazing",
       type: "card",
       options: [
-        { id: "double", label: "Double Glazing", specs: "Standard performance" },
-        { id: "triple", label: "Triple Glazing", specs: "Best thermal & acoustic", tag: "Recommended" },
+        { id: "double", label: "Double Glazing", benefit: "Good insulation for most climates — keeps your home warm without breaking the budget", specs: "Standard performance" },
+        { id: "triple", label: "Triple Glazing", benefit: "Noticeably quieter and warmer — you'll feel the difference on cold mornings", specs: "Best thermal & acoustic", tag: "Recommended" },
       ],
     },
     {
@@ -374,8 +375,8 @@ export function SlidingDoorConfigurator() {
       title: "Insect Screen",
       type: "card",
       options: [
-        { id: "none", label: "No Screen", desc: "Add later if needed" },
-        { id: "plisse", label: "Plissé Screen", desc: "Retractable pleated mesh, ideal for large openings", tag: "Recommended" },
+        { id: "none", label: "No Screen", desc: "Add later if needed", benefit: "Skip for now — you can always add one later" },
+        { id: "plisse", label: "Plissé Screen", desc: "Retractable pleated mesh, ideal for large openings", benefit: "Folds away when you don't need it — keeps bugs out without blocking your view", tag: "Recommended" },
       ],
     },
   ];
@@ -398,9 +399,9 @@ export function EntryDoorConfigurator() {
       title: "Material",
       type: "card",
       options: [
-        { id: "upvc", label: "uPVC", desc: "Best thermal insulation, low maintenance", tag: "Popular" },
-        { id: "aluminum", label: "Aluminum", desc: "Slim profiles, modern aesthetic" },
-        { id: "composite", label: "Composite", desc: "Strongest, premium look & feel", tag: "Premium" },
+        { id: "upvc", label: "uPVC", desc: "Best thermal insulation, low maintenance", benefit: "Never needs painting — stays looking great for decades with zero upkeep", tag: "Popular" },
+        { id: "aluminum", label: "Aluminum", desc: "Slim profiles, modern aesthetic", benefit: "Ultra-thin frames for a clean, contemporary look — strong yet lightweight" },
+        { id: "composite", label: "Composite", desc: "Strongest, premium look & feel", benefit: "Looks and feels like real wood but won't warp, crack, or rot — the premium choice", tag: "Premium" },
       ],
     },
     {
@@ -408,10 +409,10 @@ export function EntryDoorConfigurator() {
       title: "Configuration",
       type: "card",
       options: [
-        { id: "single", label: "Single Door", desc: "Standard entry" },
-        { id: "with-sidelights", label: "With Sidelights", desc: "Glass panels on both sides", tag: "Popular" },
-        { id: "with-transom", label: "With Transom", desc: "Glass panel above the door" },
-        { id: "full-surround", label: "Full Surround", desc: "Sidelights + transom for maximum light" },
+        { id: "single", label: "Single Door", desc: "Standard entry", benefit: "Clean and simple — a solid, secure entrance that fits any opening" },
+        { id: "with-sidelights", label: "With Sidelights", desc: "Glass panels on both sides", benefit: "Brightens your entryway — natural light floods in even when the door is closed", tag: "Popular" },
+        { id: "with-transom", label: "With Transom", desc: "Glass panel above the door", benefit: "Makes your entrance feel taller and grander — extra light from above" },
+        { id: "full-surround", label: "Full Surround", desc: "Sidelights + transom for maximum light", benefit: "The wow factor — your entrance becomes a bright, welcoming focal point" },
       ],
     },
     {
@@ -419,10 +420,10 @@ export function EntryDoorConfigurator() {
       title: "Glass Style",
       type: "card",
       options: [
-        { id: "solid", label: "Solid Panel", desc: "Maximum privacy & security" },
-        { id: "clear", label: "Clear Glass", desc: "Tempered safety glass" },
-        { id: "frosted", label: "Frosted Glass", desc: "Light with privacy" },
-        { id: "decorative", label: "Decorative Glass", desc: "Architectural patterns" },
+        { id: "solid", label: "Solid Panel", desc: "Maximum privacy & security", benefit: "Complete privacy — no one sees in, and it's the most secure option" },
+        { id: "clear", label: "Clear Glass", desc: "Tempered safety glass", benefit: "See who's at the door before opening — tempered glass for safety" },
+        { id: "frosted", label: "Frosted Glass", desc: "Light with privacy", benefit: "Best of both worlds — lets daylight in while keeping your privacy" },
+        { id: "decorative", label: "Decorative Glass", desc: "Architectural patterns", benefit: "Adds character and curb appeal — unique patterns make your home stand out" },
       ],
     },
     {
@@ -443,8 +444,8 @@ export function EntryDoorConfigurator() {
       title: "Security Level",
       type: "card",
       options: [
-        { id: "rc2", label: "RC2", desc: "3–5 min attack resistance, 5-point locking", tag: "Standard" },
-        { id: "rc3", label: "RC3", desc: "10+ min attack resistance, 7-point locking", tag: "Premium" },
+        { id: "rc2", label: "RC2", desc: "3–5 min attack resistance, 5-point locking", benefit: "European-certified protection — withstands break-in attempts with 5 locking points", tag: "Standard" },
+        { id: "rc3", label: "RC3", desc: "10+ min attack resistance, 7-point locking", benefit: "Maximum security — 7 locking points make forced entry nearly impossible", tag: "Premium" },
       ],
     },
   ];
@@ -543,10 +544,10 @@ export function FrenchDoorConfigurator() {
       title: "Configuration",
       type: "card",
       options: [
-        { id: "single", label: "Single French Door", desc: "One-panel swing, 32–42\" width" },
-        { id: "double", label: "Double French Doors", desc: "Two matching doors, 60–72\" total", tag: "Classic" },
-        { id: "with-sidelights", label: "Double + Sidelights", desc: "Flanked by fixed glass panels for maximum light", tag: "Popular" },
-        { id: "with-transom", label: "Double + Transom", desc: "Fixed transom above extends height" },
+        { id: "single", label: "Single French Door", desc: "One-panel swing, 32–42\" width", benefit: "Elegant glass door for patios or side entries — lets light flow between rooms" },
+        { id: "double", label: "Double French Doors", desc: "Two matching doors, 60–72\" total", benefit: "Wide-open access to your patio or garden — both doors swing open for a grand feel", tag: "Classic" },
+        { id: "with-sidelights", label: "Double + Sidelights", desc: "Flanked by fixed glass panels for maximum light", benefit: "Panoramic light — fixed glass panels beside the doors make the space feel twice as wide", tag: "Popular" },
+        { id: "with-transom", label: "Double + Transom", desc: "Fixed transom above extends height", benefit: "Adds height and drama — the glass above makes ceilings feel taller" },
       ],
     },
     {
@@ -554,9 +555,9 @@ export function FrenchDoorConfigurator() {
       title: "Frame Material",
       type: "card",
       options: [
-        { id: "upvc", label: "uPVC", desc: "Best thermal insulation, low maintenance", tag: "Popular" },
-        { id: "aluminum", label: "Aluminum", desc: "Slim profiles, modern aesthetic" },
-        { id: "composite", label: "Composite", desc: "Premium look & feel" },
+        { id: "upvc", label: "uPVC", desc: "Best thermal insulation, low maintenance", benefit: "Zero maintenance — keeps heat in and noise out for decades", tag: "Popular" },
+        { id: "aluminum", label: "Aluminum", desc: "Slim profiles, modern aesthetic", benefit: "Thinnest possible frames — maximizes your glass area for the best views" },
+        { id: "composite", label: "Composite", desc: "Premium look & feel", benefit: "The beauty of wood without the headaches — won't warp or need refinishing" },
       ],
     },
     {
@@ -564,9 +565,9 @@ export function FrenchDoorConfigurator() {
       title: "Glazing",
       type: "card",
       options: [
-        { id: "double", label: "Double Glazing", desc: "Insulated, argon fill", specs: "U-Value 0.9–1.3" },
-        { id: "triple", label: "Triple Glazing", desc: "Maximum thermal performance", specs: "U-Value 0.9", tag: "Best Performance" },
-        { id: "frosted", label: "Frosted Glass", desc: "Light with privacy" },
+        { id: "double", label: "Double Glazing", desc: "Insulated, argon fill", benefit: "Keeps your home cozy — argon gas between panes adds extra insulation", specs: "U-Value 0.9–1.3" },
+        { id: "triple", label: "Triple Glazing", desc: "Maximum thermal performance", benefit: "The warmest option — three layers of glass mean your energy bills drop noticeably", specs: "U-Value 0.9", tag: "Best Performance" },
+        { id: "frosted", label: "Frosted Glass", desc: "Light with privacy", benefit: "Perfect for bedrooms or bathrooms — bright natural light without anyone seeing in" },
       ],
     },
     {
@@ -586,8 +587,8 @@ export function FrenchDoorConfigurator() {
       title: "Insect Screen",
       type: "card",
       options: [
-        { id: "none", label: "No Screen", desc: "Add later if needed" },
-        { id: "plisse", label: "Plissé Screen", desc: "Retractable pleated mesh", tag: "Recommended" },
+        { id: "none", label: "No Screen", desc: "Add later if needed", benefit: "No worries — you can always add one down the road" },
+        { id: "plisse", label: "Plissé Screen", desc: "Retractable pleated mesh", benefit: "Folds neatly out of sight — enjoy fresh air without the bugs", tag: "Recommended" },
       ],
     },
   ];
@@ -828,6 +829,10 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
                             isSelected ? "text-brand" : "text-text-primary"
                           }`}>{opt.label}</h4>
                           {opt.desc && <p className="text-xs text-text-muted mt-1 leading-relaxed">{opt.desc}</p>}
+                          {/* Benefit — human-friendly explanation */}
+                          {opt.benefit && isSelected && (
+                            <p className="text-xs text-brand/80 mt-1.5 leading-relaxed italic">{opt.benefit}</p>
+                          )}
                           {opt.specs && (
                             <span className={`inline-block mt-1.5 text-[10px] font-semibold px-2 py-0.5 rounded-full ${
                               isSelected ? "bg-brand/10 text-brand" : "bg-gray-100 text-text-secondary"
