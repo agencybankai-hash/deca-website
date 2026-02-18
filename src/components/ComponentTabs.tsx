@@ -19,7 +19,7 @@ export default function ComponentTabs({ items }: ComponentTabsProps) {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] gap-8 lg:gap-10 items-center">
+    <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-8 lg:gap-10 items-stretch">
       {/* Left — Tab list */}
       <div className="flex flex-col gap-3">
         {items.map((item, i) => {
@@ -68,7 +68,7 @@ export default function ComponentTabs({ items }: ComponentTabsProps) {
       </div>
 
       {/* Right — Large component image */}
-      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#f6f6f6] flex items-center justify-center">
+      <div className="relative rounded-2xl overflow-hidden bg-[#f6f6f6] flex items-center justify-center min-h-[360px]">
         <Image
           key={items[active]?.image}
           src={items[active]?.image}
