@@ -202,6 +202,92 @@ export default function CTAWithDocs({
 
           {/* Right — Stacked document cards, overflow above section */}
           <div className="relative h-[280px] hidden lg:flex items-center justify-center">
+
+            {/* ── Decorative desk objects ── */}
+
+            {/* Pencil — top-right, angled */}
+            <div className="absolute" style={{ right: -18, top: -50, zIndex: 5, transform: "rotate(35deg)" }}>
+              <svg width="110" height="18" viewBox="0 0 110 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="18" y="3" width="90" height="12" rx="1" fill="#f5c542" />
+                <rect x="18" y="3" width="90" height="4" rx="0" fill="#e8b730" />
+                {/* Metal ferrule */}
+                <rect x="10" y="2.5" width="10" height="13" rx="1" fill="#c9c9c9" />
+                <line x1="13" y1="2.5" x2="13" y2="15.5" stroke="#b0b0b0" strokeWidth="0.5" />
+                <line x1="17" y1="2.5" x2="17" y2="15.5" stroke="#b0b0b0" strokeWidth="0.5" />
+                {/* Eraser */}
+                <rect x="108" y="3.5" width="0" height="11" rx="1" fill="#e8a0a0" />
+                {/* Tip */}
+                <polygon points="10,9 0,6 0,12" fill="#f5d6a0" />
+                <polygon points="3,9 0,7 0,11" fill="#333" />
+                {/* Brand stripe */}
+                <rect x="50" y="5" width="20" height="8" rx="0.5" fill="#d4a017" />
+                <text x="60" y="11.5" textAnchor="middle" fontSize="4" fill="white" fontFamily="Arial" fontWeight="700">HB</text>
+              </svg>
+            </div>
+
+            {/* Paper clip — bottom-left */}
+            <div className="absolute" style={{ left: -10, bottom: 20, zIndex: 35, transform: "rotate(-15deg)" }}>
+              <svg width="28" height="56" viewBox="0 0 28 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 4 C8 2, 20 2, 20 4 L20 42 C20 48, 8 48, 8 42 L8 14 C8 10, 16 10, 16 14 L16 36 C16 39, 12 39, 12 36 L12 14" stroke="white" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.7" />
+              </svg>
+            </div>
+
+            {/* Stamp / Seal — bottom-right */}
+            <div className="absolute" style={{ right: 15, bottom: -25, zIndex: 35, transform: "rotate(12deg)" }}>
+              <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="36" cy="36" r="32" stroke="white" strokeWidth="2" opacity="0.25" />
+                <circle cx="36" cy="36" r="26" stroke="white" strokeWidth="1" opacity="0.2" />
+                <circle cx="36" cy="36" r="22" stroke="white" strokeWidth="0.5" opacity="0.15" strokeDasharray="3 2" />
+                <text x="36" y="33" textAnchor="middle" fontSize="5.5" fill="white" fillOpacity="0.3" fontFamily="Arial" fontWeight="700" letterSpacing="1.5">APPROVED</text>
+                <text x="36" y="42" textAnchor="middle" fontSize="4" fill="white" fillOpacity="0.2" fontFamily="Arial">DECA WINDOWS</text>
+                {/* Star in center-bottom */}
+                <path d="M36 46 L37.5 49 L41 49.5 L38.5 52 L39 55.5 L36 54 L33 55.5 L33.5 52 L31 49.5 L34.5 49 Z" fill="white" fillOpacity="0.2" />
+              </svg>
+            </div>
+
+            {/* Ruler — left edge, vertical */}
+            <div className="absolute" style={{ left: -30, top: -30, zIndex: 4, transform: "rotate(-4deg)" }}>
+              <svg width="22" height="160" viewBox="0 0 22 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="0" width="22" height="160" rx="1.5" fill="white" fillOpacity="0.12" />
+                <rect x="0" y="0" width="22" height="160" rx="1.5" stroke="white" strokeWidth="0.5" strokeOpacity="0.15" />
+                {/* Tick marks */}
+                {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map((n) => (
+                  <g key={n}>
+                    <line x1="0" y1={8 + n * 10} x2={n % 5 === 0 ? 12 : n % 2 === 0 ? 8 : 5} y2={8 + n * 10} stroke="white" strokeWidth={n % 5 === 0 ? "0.8" : "0.4"} strokeOpacity="0.25" />
+                    {n % 5 === 0 && <text x="16" y={10 + n * 10} fontSize="4" fill="white" fillOpacity="0.2" fontFamily="Arial">{n}</text>}
+                  </g>
+                ))}
+              </svg>
+            </div>
+
+            {/* Small sticky note — top-left */}
+            <div className="absolute" style={{ left: 15, top: -65, zIndex: 6, transform: "rotate(-8deg)" }}>
+              <div className="relative" style={{ width: 64, height: 58 }}>
+                <div className="absolute inset-0 rounded-sm" style={{ background: "linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)", boxShadow: "0 2px 8px rgba(0,0,0,0.15)" }} />
+                <div className="absolute inset-0 p-2 flex flex-col gap-1">
+                  <div className="rounded-[0.5px] bg-amber-400/30" style={{ width: "80%", height: 1.5 }} />
+                  <div className="rounded-[0.5px] bg-amber-400/25" style={{ width: "60%", height: 1.5 }} />
+                  <div className="rounded-[0.5px] bg-amber-400/20" style={{ width: "70%", height: 1.5 }} />
+                  {/* Checkmark */}
+                  <svg className="mt-auto ml-auto" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M3 7.5 L5.5 10 L11 4" stroke="#d97706" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Binder clip — top, peeking above front card */}
+            <div className="absolute" style={{ left: "calc(50% - 70px)", top: -72, zIndex: 40, transform: "rotate(-6deg)" }}>
+              <svg width="32" height="28" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Clip body */}
+                <rect x="4" y="12" width="24" height="16" rx="2" fill="#333" fillOpacity="0.8" />
+                <rect x="6" y="14" width="20" height="12" rx="1" fill="#444" fillOpacity="0.6" />
+                {/* Wire handles */}
+                <path d="M8 12 C8 6, 16 3, 16 3" stroke="#888" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+                <path d="M24 12 C24 6, 16 3, 16 3" stroke="#888" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+              </svg>
+            </div>
+
             {docs.map((doc, i) => {
               const layout = cardLayout[i];
               return (
