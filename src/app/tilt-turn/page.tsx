@@ -37,11 +37,12 @@ export default function TiltTurnPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <Breadcrumb items={[{ label: "Windows", href: "/windows" }, { label: "Tilt & Turn Windows" }]} />
+      <div className="hero-fullscreen flex flex-col">
+        <Breadcrumb items={[{ label: "Windows", href: "/windows" }, { label: "Tilt & Turn Windows" }]} />
 
-      {/* ═══════ HERO — Title + VideoTabs (like decawindows.com) ═══════ */}
-      <section className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-12 md:pt-20 pb-12">
+        {/* ═══════ HERO — Title + VideoTabs (like decawindows.com) ═══════ */}
+        <section className="bg-white flex-1 flex flex-col">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-10 md:pt-16 pb-10 flex-1 flex flex-col justify-center">
           {/* Hero heading */}
           <div className="text-center mb-12 md:mb-16">
             <span className="inline-block text-xs font-semibold tracking-wider uppercase text-brand mb-3">Most Popular in Europe</span>
@@ -88,8 +89,9 @@ export default function TiltTurnPage() {
               },
             ]}
           />
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
 
       {/* ═══════ STATS BAR — Animated rings + counters ═══════ */}
       <section className="bg-brand text-white py-5">

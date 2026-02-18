@@ -61,6 +61,19 @@ export default function Nav() {
   const [phase, setPhase] = useState<ScrollPhase>("top");
   const lastY = useRef(0);
   const ticking = useRef(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  // Publish header height as CSS custom property so hero can use calc(100svh - var(--header-h))
+  useEffect(() => {
+    const measure = () => {
+      if (headerRef.current) {
+        document.documentElement.style.setProperty("--header-h", `${headerRef.current.offsetHeight}px`);
+      }
+    };
+    measure();
+    window.addEventListener("resize", measure, { passive: true });
+    return () => window.removeEventListener("resize", measure);
+  }, []);
 
   const onScroll = useCallback(() => {
     if (ticking.current) return;
@@ -98,6 +111,7 @@ export default function Nav() {
 
   return (
     <header
+      ref={headerRef}
       className="sticky top-0 z-50"
       style={{
         transform: isHidden ? "translateY(-100%)" : "translateY(0)",
