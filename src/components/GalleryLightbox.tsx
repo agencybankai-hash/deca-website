@@ -27,9 +27,16 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
   const scrollToSlide = useCallback((index: number, smooth = true) => {
     const track = trackRef.current;
     if (!track) return;
+    if (index === 0) {
+      // First slide: scroll to start so container padding is visible
+      track.scrollTo({ left: 0, behavior: smooth ? "smooth" : "instant" });
+      return;
+    }
     const slide = track.children[index] as HTMLElement | undefined;
     if (!slide) return;
-    track.scrollTo({ left: slide.offsetLeft, behavior: smooth ? "smooth" : "instant" });
+    // Align slide's left edge with the track's padding-left
+    const paddingLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+    track.scrollTo({ left: slide.offsetLeft - paddingLeft, behavior: smooth ? "smooth" : "instant" });
   }, []);
 
   const goTo = useCallback((index: number) => {
@@ -49,11 +56,13 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
     const onScroll = () => {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
+        const paddingLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+        const scrollPos = track.scrollLeft + paddingLeft;
         const slides = Array.from(track.children) as HTMLElement[];
         let closestIdx = 0;
         let closestDist = Infinity;
         slides.forEach((child, i) => {
-          const dist = Math.abs(child.offsetLeft - track.scrollLeft);
+          const dist = Math.abs(child.offsetLeft - scrollPos);
           if (dist < closestDist) {
             closestDist = dist;
             closestIdx = i;
@@ -85,11 +94,13 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
     setIsDragging(false);
     const track = trackRef.current;
     if (!track) return;
+    const paddingLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+    const scrollPos = track.scrollLeft + paddingLeft;
     const slides = Array.from(track.children) as HTMLElement[];
     let closestIdx = 0;
     let closestDist = Infinity;
     slides.forEach((child, i) => {
-      const dist = Math.abs(child.offsetLeft - track.scrollLeft);
+      const dist = Math.abs(child.offsetLeft - scrollPos);
       if (dist < closestDist) {
         closestDist = dist;
         closestIdx = i;
@@ -127,8 +138,8 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
             WebkitOverflowScrolling: "touch",
             scrollbarWidth: "none",
             msOverflowStyle: "none",
-            paddingLeft: "max(1rem, calc((100vw - 80rem) / 2 + 1rem))",
-            paddingRight: "max(1rem, calc((100vw - 80rem) / 2 + 1rem))",
+            paddingLeft: "max(1rem, calc((100vw - 80rem) / 2 + 1.5rem))",
+            paddingRight: "max(1rem, calc((100vw - 80rem) / 2 + 1.5rem))",
           }}
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
@@ -161,7 +172,7 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
         <div
           className="absolute top-0 left-0 right-0 bottom-2 pointer-events-none flex items-center"
           style={{
-            paddingLeft: "max(1rem, calc((100vw - 80rem) / 2 + 1rem))",
+            paddingLeft: "max(1rem, calc((100vw - 80rem) / 2 + 1.5rem))",
           }}
         >
           <div className="relative pointer-events-auto" style={{ width: "min(80vw, 960px)" }}>
