@@ -118,8 +118,12 @@ export default function CTAWithDocs({
   btnHref?: string;
 }) {
   return (
-    <section className="text-white pt-20 pb-20 overflow-visible relative" style={{ background: "linear-gradient(135deg, #c85a22 0%, #e0792e 50%, #d46827 100%)" }}>
+    <section className="py-20 overflow-visible relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div
+          className="rounded-2xl text-white px-8 sm:px-12 lg:px-16 py-14 lg:py-16 overflow-visible relative"
+          style={{ background: "linear-gradient(135deg, #c85a22 0%, #e0792e 50%, #d46827 100%)" }}
+        >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left — Text + CTA */}
           <div>
@@ -256,6 +260,7 @@ export default function CTAWithDocs({
               );
             })}
           </div>
+        </div>
         </div>
       </div>
     </section>
