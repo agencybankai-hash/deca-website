@@ -39,55 +39,55 @@ export default function TiltTurnPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Breadcrumb items={[{ label: "Windows", href: "/windows" }, { label: "Tilt & Turn Windows" }]} />
 
-      {/* ═══════ HERO ═══════ */}
-      <section className="bg-white py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="inline-block text-xs font-semibold tracking-wider uppercase text-brand mb-3">Most Popular in Europe</span>
-              <h1 className="text-4xl md:text-5xl font-bold text-text-primary leading-tight mb-5">Tilt & Turn Windows</h1>
-              <p className="text-lg text-text-secondary leading-relaxed mb-6">
-                The most versatile window system in the world. Two opening modes,
-                exceptional performance, and German GEALAN engineering —
-                manufactured in Massachusetts.
-              </p>
-
-              {/* Trust micro-badges */}
-              <div className="flex flex-wrap gap-3 mb-8">
-                {["ENERGY STAR®", "NFRC Certified", "Made in MA", "RC2 Security"].map((t) => (
-                  <span key={t} className="inline-flex items-center gap-1.5 text-xs font-medium text-text-secondary bg-warm-gray border border-border rounded-full px-3 py-1.5">
-                    <svg className="w-3.5 h-3.5 text-brand" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd"/></svg>
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex gap-3 flex-wrap">
-                <Link href="/quote" className="bg-brand hover:bg-brand-dark text-white px-8 py-4 rounded-lg font-semibold transition-colors shadow-sm">
-                  Get a Quote
-                </Link>
-                <a href="tel:+14137714457" className="border border-border text-text-primary hover:border-brand/30 px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center gap-2">
-                  <svg className="w-4 h-4 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-                  (413) 771-4457
-                </a>
-              </div>
-            </div>
-
-            {/* Hero image */}
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5">
-              <Image
-                src={`${a}/gallery/gallery-3.webp`}
-                alt="DECA tilt & turn window installed in a modern home"
-                width={800}
-                height={600}
-                className="w-full h-[450px] object-cover"
-                priority
-              />
-              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-                <p className="text-white text-sm font-medium">European tilt & turn uPVC window — Westfield, MA</p>
-              </div>
-            </div>
+      {/* ═══════ HERO — Title + VideoTabs (like decawindows.com) ═══════ */}
+      <section className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-12 md:pt-20 pb-12">
+          {/* Hero heading */}
+          <div className="text-center mb-12 md:mb-16">
+            <h1 className="text-3xl md:text-5xl lg:text-[56px] font-bold text-text-primary leading-[1.1] mb-5 tracking-tight uppercase">
+              Tilt and Turn European Windows:<br />
+              Unmatched Silence and Energy Efficiency.
+            </h1>
+            <p className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
+              Premium windows and doors manufactured in Massachusetts with industry-leading performance
+            </p>
           </div>
+
+          {/* VideoTabs as hero content */}
+          <VideoTabs
+            tabs={[
+              {
+                icon: (
+                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                ),
+                title: "Tilt to Vent",
+                description: "Just turn handle up to air out your home. Secure, rain-safe airflow perfect for sleep and child safety.",
+                video: `${a}/videos/ventilation.mp4`,
+              },
+              {
+                icon: (
+                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                  </svg>
+                ),
+                title: "Easy to Clean",
+                description: "Opens inward, making cleaning more convenient. Clean exterior glass from inside your home, on any floor.",
+                video: `${a}/videos/easy-to-clean.mp4`,
+              },
+              {
+                icon: (
+                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                  </svg>
+                ),
+                title: "Air-Tight & Secure",
+                description: "Up to 12 locking points engage with a single handle turn. Compression seals create an airtight, watertight barrier.",
+                video: `${a}/videos/airtight-secure.mp4`,
+              },
+            ]}
+          />
         </div>
       </section>
 
@@ -116,49 +116,6 @@ export default function TiltTurnPage() {
           />
         </div>
       </section>
-
-      {/* ═══════ VIDEO — Interactive Tabs (like decawindows.com) ═══════ */}
-      <Section>
-        <SectionTitle
-          badge="See It In Action"
-          title="Two Modes, One Window"
-          subtitle="The tilt & turn mechanism gives you complete control over ventilation, cleaning, and security."
-        />
-        <VideoTabs
-          tabs={[
-            {
-              icon: (
-                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-              ),
-              title: "Tilt to Vent",
-              description: "Just turn handle up to air out your home. Secure, rain-safe airflow perfect for sleep and child safety.",
-              video: `${a}/videos/ventilation.mp4`,
-            },
-            {
-              icon: (
-                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
-                </svg>
-              ),
-              title: "Easy to Clean",
-              description: "Opens inward, making cleaning more convenient. Clean exterior glass from inside your home, on any floor.",
-              video: `${a}/videos/easy-to-clean.mp4`,
-            },
-            {
-              icon: (
-                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
-                </svg>
-              ),
-              title: "Air-Tight & Secure",
-              description: "Up to 12 locking points engage with a single handle turn. Compression seals create an airtight, watertight barrier.",
-              video: `${a}/videos/airtight-secure.mp4`,
-            },
-          ]}
-        />
-      </Section>
 
       {/* ═══════ CONFIGURATOR ═══════ */}
       <WindowConfigurator />

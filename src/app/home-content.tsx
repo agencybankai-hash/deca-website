@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Section, SectionTitle, PhotoPlaceholder, ProductCard, StatCard, ServiceIcons, GuideCard } from "@/components/ui";
-import VideoTabs from "@/components/VideoTabs";
 
 /* ===== Feature Tabs Data (Figma: Silence, Warmth, Convenience, Lifespan, Safety) ===== */
 const featureTabs = [
@@ -49,55 +48,44 @@ export default function HomeContent() {
 
   return (
     <>
-      {/* ===== HERO — Title + VideoTabs ===== */}
-      <section className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-16 md:pt-24 pb-12">
-          {/* Hero heading */}
-          <div className="text-center mb-12 md:mb-16">
-            <h1 className="text-3xl md:text-5xl lg:text-[56px] font-bold text-text-primary leading-[1.1] mb-5 tracking-tight uppercase">
-              Tilt and Turn European Windows:<br />
-              Unmatched Silence and Energy Efficiency.
-            </h1>
-            <p className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
-              Premium windows and doors manufactured in Massachusetts with industry-leading performance
-            </p>
-          </div>
-
-          {/* VideoTabs as hero content */}
-          <VideoTabs
-            tabs={[
-              {
-                icon: (
-                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                  </svg>
-                ),
-                title: "Tilt to Vent",
-                description: "Just turn handle up to air out your home. Secure, rain-safe airflow perfect for sleep and child safety.",
-                video: "/assets/videos/ventilation.mp4",
-              },
-              {
-                icon: (
-                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
-                  </svg>
-                ),
-                title: "Easy to Clean",
-                description: "Opens inward, making cleaning more convenient. Clean exterior glass from inside your home, on any floor.",
-                video: "/assets/videos/easy-to-clean.mp4",
-              },
-              {
-                icon: (
-                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
-                  </svg>
-                ),
-                title: "Air-Tight & Secure",
-                description: "Up to 12 locking points engage with a single handle turn. Compression seals create an airtight, watertight barrier.",
-                video: "/assets/videos/airtight-secure.mp4",
-              },
-            ]}
+      {/* ===== HERO with YouTube Video Background ===== */}
+      <section className="bg-brand-dark relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <iframe
+            src="https://www.youtube.com/embed/noGgLNCpZGM?autoplay=1&mute=1&loop=1&playlist=noGgLNCpZGM&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1&start=0&cc_load_policy=0&fs=0"
+            allow="autoplay; encrypted-media"
+            className="absolute top-1/2 left-1/2 border-0"
+            title="DECA Windows & Doors"
+            style={{
+              transform: "translate(-50%, -50%) scale(1.25)",
+              width: "max(100%, 177.78vh)",
+              height: "max(100%, 56.25vw)",
+            }}
           />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/70 to-brand-dark/30" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-32 min-h-[540px] flex items-center">
+          <div className="max-w-xl">
+            <span className="inline-flex items-center gap-1.5 text-white/50 text-[11px] font-medium tracking-widest uppercase mb-5">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+              Westfield, Massachusetts
+            </span>
+            <h1 className="text-3xl md:text-[44px] font-bold text-white leading-[1.15] mb-4 tracking-tight">
+              European Energy-Efficient Windows & Doors Built in USA
+            </h1>
+            <p className="text-sm md:text-base text-white/50 mb-8 leading-relaxed max-w-md">
+              Factory-direct PVC & Aluminum systems. 15-year warranty, U-value&nbsp;0.10, noise reduction up to&nbsp;50&nbsp;dB.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/windows" className="bg-white hover:bg-gray-100 text-slate-dark px-6 py-3 rounded text-sm font-semibold transition-colors flex items-center gap-2">
+                Explore Products
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              </Link>
+              <Link href="/quote" className="border border-white/20 hover:border-white/40 hover:bg-white/5 text-white/80 px-6 py-3 rounded text-sm font-medium transition-colors">
+                Request a Quote
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
