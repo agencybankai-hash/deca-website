@@ -18,6 +18,7 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
   const [active, setActive] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const animeRef = useRef<anime.AnimeInstance | null>(null);
 
@@ -30,6 +31,12 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
     const v = videoRef.current;
     const bar = progressRef.current;
     if (!v || !bar) return;
+
+    // Lock container height before switching to prevent layout jump
+    const container = containerRef.current;
+    if (container && v.videoHeight > 0) {
+      container.style.minHeight = `${container.offsetHeight}px`;
+    }
 
     // Reset
     bar.style.width = "0%";
@@ -68,6 +75,8 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
     const onCanPlay = () => {
       tryPlay();
       startAnimation();
+      // Release locked height once new video is ready
+      if (container) container.style.minHeight = "";
     };
 
     const onEnd = () => {
@@ -163,7 +172,7 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
       </div>
 
       {/* Right — Video */}
-      <div className="relative rounded-2xl overflow-hidden bg-white">
+      <div ref={containerRef} className="relative rounded-2xl overflow-hidden bg-white">
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
         <video
           ref={videoRef}

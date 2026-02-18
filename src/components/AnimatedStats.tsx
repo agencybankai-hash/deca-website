@@ -58,9 +58,9 @@ export default function AnimatedStats({ stats }: AnimatedStatsProps) {
   }, [triggered, stats]);
 
   return (
-    <div ref={containerRef} className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 md:gap-x-14">
+    <div ref={containerRef} className="grid grid-cols-2 md:grid-cols-4 gap-y-4">
       {stats.map((stat, i) => (
-        <div key={stat.label} className="flex items-center gap-2.5">
+        <div key={stat.label} className="flex items-center gap-2.5 justify-center">
           <span
             id={`stat-num-${i}`}
             className="text-2xl md:text-3xl font-extrabold text-white leading-none tracking-tight"

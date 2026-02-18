@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 const topBarLinks = [
@@ -49,9 +49,29 @@ const navItems = [
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      // Only hide after scrolling past 80px
+      if (y > 80) {
+        setHidden(y > lastScrollY.current);
+      } else {
+        setHidden(false);
+      }
+      lastScrollY.current = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50">
+    <header
+      className="sticky top-0 z-50 transition-transform duration-300 ease-in-out"
+      style={{ transform: hidden ? "translateY(-100%)" : "translateY(0)" }}
+    >
       {/* Top bar — B2B links */}
       <div className="bg-brand-darker text-white/50 text-xs hidden lg:block">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-8">
