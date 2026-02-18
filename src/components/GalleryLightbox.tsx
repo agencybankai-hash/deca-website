@@ -207,15 +207,15 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
               key={i}
               onClick={() => handleSlideClick(i)}
               className="shrink-0 snap-start rounded-2xl overflow-hidden cursor-pointer group relative"
-              style={{ width: "min(80vw, 960px)" }}
+              style={{ width: "min(75vw, 720px)" }}
             >
-              <div className="relative aspect-[3/2] w-full overflow-hidden">
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: "3 / 2" }}>
                 <Image
                   src={item.src}
                   alt={`${alt} ${i + 1}`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 85vw, 960px"
+                  sizes="(max-width: 768px) 75vw, 720px"
                   draggable={false}
                 />
                 {/* Subtle gradient overlay for better button visibility */}
@@ -232,7 +232,7 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
             paddingLeft: `${padLeft}px`,
           }}
         >
-          <div className="relative pointer-events-auto" style={{ width: "min(80vw, 960px)" }}>
+          <div className="relative pointer-events-auto" style={{ width: "min(75vw, 720px)" }}>
             <button
               onClick={prev}
               disabled={current === 0}
