@@ -427,6 +427,13 @@ export default function TiltTurnPage() {
         </div>
       </Section>
 
+      {/* ═══════ CTA ═══════ */}
+      <CTAWithDocs
+        title="Ready for Tilt & Turn?"
+        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
+        btnText="Get Free Quote"
+      />
+
       {/* ═══════ FAQ ═══════ */}
       <Section gray>
         <SectionTitle badge="FAQ" title="Frequently Asked Questions" />
@@ -449,13 +456,6 @@ export default function TiltTurnPage() {
           ))}
         </div>
       </Section>
-
-      {/* ═══════ CTA ═══════ */}
-      <CTAWithDocs
-        title="Ready for Tilt & Turn?"
-        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
-        btnText="Get Free Quote"
-      />
 
       {/* ═══════ STICKY CTA ═══════ */}
       <StickyCTA />
