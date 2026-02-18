@@ -102,10 +102,10 @@ export default function EnergySavingsCard() {
         {/* Content area */}
         <div className="px-6 py-6">
           {/* Bar chart with labels */}
-          <div className="flex items-end justify-center gap-6 h-44 mb-5">
+          <div className="flex justify-center gap-6 h-48 mb-5">
             {/* Before bar */}
-            <div className="flex flex-col items-center gap-2 w-20">
-              <div className="w-full h-full bg-red-50 rounded-xl relative overflow-hidden border border-red-100">
+            <div className="flex flex-col items-center w-20 h-full">
+              <div className="w-full flex-1 bg-red-50 rounded-xl relative overflow-hidden border border-red-100">
                 <div
                   ref={beforeRef}
                   className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-red-500 to-red-400 rounded-b-xl"
@@ -117,14 +117,14 @@ export default function EnergySavingsCard() {
                   <p className="text-[9px] text-red-600/50 font-medium">/year</p>
                 </div>
               </div>
-              <div className="text-center">
+              <div className="text-center mt-2">
                 <span className="text-xs font-bold text-red-600">Before</span>
                 <p className="text-[10px] text-text-muted leading-tight">Standard<br/>windows</p>
               </div>
             </div>
 
             {/* Arrow indicator */}
-            <div className="flex flex-col items-center gap-1 pb-10">
+            <div className="flex flex-col items-center justify-center gap-1">
               <div className="w-10 h-10 rounded-full bg-green-50 border-2 border-green-200 flex items-center justify-center">
                 <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
@@ -135,8 +135,8 @@ export default function EnergySavingsCard() {
             </div>
 
             {/* After bar */}
-            <div className="flex flex-col items-center gap-2 w-20">
-              <div className="w-full h-full bg-green-50 rounded-xl relative overflow-hidden border border-green-100">
+            <div className="flex flex-col items-center w-20 h-full">
+              <div className="w-full flex-1 bg-green-50 rounded-xl relative overflow-hidden border border-green-100">
                 <div
                   ref={afterRef}
                   className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-green-600 to-green-500 rounded-b-xl"
@@ -147,7 +147,7 @@ export default function EnergySavingsCard() {
                   <p className="text-[9px] text-green-600/50 font-medium">/year</p>
                 </div>
               </div>
-              <div className="text-center">
+              <div className="text-center mt-2">
                 <span className="text-xs font-bold text-green-600">After</span>
                 <p className="text-[10px] text-text-muted leading-tight">DECA<br/>windows</p>
               </div>
