@@ -675,9 +675,9 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
           <p className="text-[15px] text-text-secondary max-w-xl mx-auto">{subtitle}</p>
         </div>
 
-        <div className="grid md:grid-cols-12 gap-6 lg:gap-10 items-start">
+        <div className="grid md:grid-cols-12 gap-6 lg:gap-10 items-stretch">
           {/* ── Left: SVG Preview ── */}
-          <div className="md:col-span-5 sticky top-24">
+          <div className="md:col-span-5 md:sticky md:top-24 md:self-start">
             <div className="bg-white rounded-2xl border border-border overflow-hidden">
               {/* Preview area with subtle gradient bg */}
               <div className="p-8 flex items-center justify-center min-h-[320px] bg-gradient-to-br from-gray-50 to-white">
@@ -712,7 +712,7 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
           </div>
 
           {/* ── Right: Steps ── */}
-          <div className="md:col-span-7">
+          <div className="md:col-span-7 flex flex-col">
             {/* ── Step progress bar ── */}
             <div className="mb-8">
               <div className="flex items-center justify-between mb-3 relative">
@@ -762,6 +762,8 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
               </div>
             </div>
 
+            {/* ── Content area — fills remaining height ── */}
+            <div className="flex-1 flex flex-col bg-white rounded-2xl border border-border p-5 sm:p-6">
             {/* ── Current step header ── */}
             <div className="flex items-center gap-3 mb-5">
               <div className="w-8 h-8 rounded-lg bg-brand/10 flex items-center justify-center text-brand">
@@ -774,9 +776,10 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
             </div>
 
             {/* ── Options ── */}
+            <div className="flex-1">
             {step.type === "swatch" ? (
               /* ── Color swatches ── */
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 mb-8">
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
                 {step.options.map((opt) => {
                   const isSelected = selections[step.id] === opt.id;
                   const isLight = opt.color === "#FFFFFF" || opt.color === "#F5F0E1";
@@ -819,7 +822,7 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
               </div>
             ) : (
               /* ── Card options ── */
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {step.options.map((opt) => {
                   const isSelected = selections[step.id] === opt.id;
                   return (
@@ -874,13 +877,14 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
                 })}
               </div>
             )}
+            </div>
 
             {/* ── Navigation ── */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mt-auto pt-4 border-t border-border">
               {!isFirst && (
                 <button
                   onClick={goBack}
-                  className="flex items-center gap-1.5 text-sm font-medium px-5 py-2.5 rounded-lg border border-border text-text-secondary hover:text-text-primary hover:bg-white transition-all"
+                  className="flex items-center gap-1.5 text-sm font-medium px-5 py-2.5 rounded-lg border border-border text-text-secondary hover:text-text-primary hover:bg-gray-50 transition-all"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
                   Back
@@ -906,6 +910,7 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
                 </button>
               )}
+            </div>
             </div>
           </div>
         </div>
