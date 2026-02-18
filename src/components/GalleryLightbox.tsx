@@ -185,14 +185,14 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
       <div className="relative">
         <div
           ref={trackRef}
-          className="flex gap-5 overflow-x-auto pb-2 cursor-grab active:cursor-grabbing select-none"
+          className="flex gap-5 overflow-x-auto pb-2 cursor-grab active:cursor-grabbing select-none px-4 sm:px-6"
           style={{
             scrollSnapType: "x mandatory",
             WebkitOverflowScrolling: "touch",
             scrollbarWidth: "none",
             msOverflowStyle: "none",
-            paddingLeft: `${padLeft}px`,
-            paddingRight: `${padLeft}px`,
+            paddingLeft: `max(1rem, calc((100vw - 80rem) / 2 + 1.5rem))`,
+            paddingRight: `max(1rem, calc((100vw - 80rem) / 2 + 1.5rem))`,
           }}
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
@@ -229,7 +229,7 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
         <div
           className="absolute top-0 left-0 right-0 bottom-2 pointer-events-none flex items-center"
           style={{
-            paddingLeft: `${padLeft}px`,
+            paddingLeft: `max(1rem, calc((100vw - 80rem) / 2 + 1.5rem))`,
           }}
         >
           <div className="relative pointer-events-auto" style={{ width: "min(75vw, 720px)" }}>
