@@ -1,4 +1,5 @@
-import { Breadcrumb, PageHero, Section, SectionTitle, StatCard, CTABlock, ImagePlaceholder } from "@/components/ui";
+import { Breadcrumb, PageHero, Section, StatCard, CTABlock } from "@/components/ui";
+import DeliveryMap from "@/components/DeliveryMap";
 
 export const metadata = {
   title: "Service Areas | Massachusetts & Northeast | DECA Windows",
@@ -16,22 +17,36 @@ export default function LocationsPage() {
       />
 
       <Section>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <ImagePlaceholder label="Interactive Map — Clickable Regions" height="h-96" />
-          <div className="space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 items-start">
+          {/* Map */}
+          <DeliveryMap />
+
+          {/* Sidebar — state list */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-text-primary uppercase tracking-wider mb-4">Delivery Regions</h3>
             {[
-              { state: "Massachusetts", cities: ["Boston", "Springfield", "Worcester", "Cambridge", "Westfield"], primary: true },
-              { state: "Connecticut", cities: ["Hartford", "New Haven", "Stamford"] },
-              { state: "Rhode Island", cities: ["Providence", "Newport"] },
-              { state: "New Hampshire", cities: ["Manchester", "Nashua"] },
-              { state: "New York", cities: ["NYC Metro", "Albany", "Long Island"] },
+              { state: "Massachusetts", abbr: "MA", cities: ["Westfield (HQ)", "Boston", "Springfield", "Worcester", "Cambridge"], primary: true },
+              { state: "Connecticut", abbr: "CT", cities: ["Hartford", "New Haven", "Stamford"] },
+              { state: "Rhode Island", abbr: "RI", cities: ["Providence", "Newport"] },
+              { state: "New Hampshire", abbr: "NH", cities: ["Manchester", "Nashua"] },
+              { state: "New York", abbr: "NY", cities: ["NYC Metro", "Albany", "Long Island"] },
+              { state: "Vermont", abbr: "VT", cities: ["Burlington"] },
+              { state: "Maine", abbr: "ME", cities: ["Portland"] },
+              { state: "New Jersey", abbr: "NJ", cities: ["Statewide"] },
+              { state: "Pennsylvania", abbr: "PA", cities: ["Statewide"] },
             ].map((area) => (
-              <div key={area.state} className="bg-white rounded-lg border border-border p-4 hover:border-blue-accent/30 transition-colors">
+              <div
+                key={area.state}
+                className="bg-white rounded-xl border border-border p-4 hover:border-brand/30 hover:shadow-sm transition-all"
+              >
                 <div className="flex items-center gap-2 mb-1">
-                  {area.primary && <span className="bg-blue-light text-blue-accent text-xs font-semibold px-2 py-0.5 rounded">HQ</span>}
-                  <h3 className="font-semibold text-text-primary">{area.state}</h3>
+                  {area.primary && (
+                    <span className="bg-brand/10 text-brand text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">HQ</span>
+                  )}
+                  <h4 className="font-semibold text-text-primary text-sm">{area.state}</h4>
+                  <span className="text-[10px] text-text-muted font-medium ml-auto">{area.abbr}</span>
                 </div>
-                <p className="text-sm text-text-secondary">{area.cities.join(" \u00b7 ")}</p>
+                <p className="text-xs text-text-secondary leading-relaxed">{area.cities.join(" · ")}</p>
               </div>
             ))}
           </div>
@@ -42,7 +57,7 @@ export default function LocationsPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-text-primary mb-4">Why Local Manufacturing Matters</h2>
           <p className="text-text-secondary leading-relaxed mb-8">
-            Unlike imported European windows that take 8-12 weeks to arrive, DECA manufactures in Westfield, MA — giving you 4-week turnaround, local warranty support, and no import headaches.
+            Unlike imported European windows that take 8–12 weeks to arrive, DECA manufactures in Westfield, MA — giving you 4-week turnaround, local warranty support, and no import headaches.
           </p>
           <div className="grid grid-cols-3 gap-4">
             <StatCard value="4 wks" label="Production Time" />
