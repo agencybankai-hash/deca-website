@@ -121,7 +121,7 @@ export default function CTAWithDocs({
     <section className="pt-20 pb-4 overflow-visible relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div
-          className="rounded-2xl text-white px-8 sm:px-12 lg:px-16 py-10 lg:py-12 overflow-visible relative"
+          className="rounded-2xl text-white px-8 sm:px-12 lg:px-16 py-6 lg:py-8 overflow-visible relative"
           style={{ background: "linear-gradient(135deg, #c85a22 0%, #e0792e 50%, #d46827 100%)" }}
         >
           {/* Blueprint pattern overlay */}
