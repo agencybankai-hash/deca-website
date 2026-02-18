@@ -20,21 +20,23 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
   const [open, setOpen] = useState<number | null>(null);
   const [current, setCurrent] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
+
+  /* ── Drag state ── */
+  const isDragging = useRef(false);
+  const didDrag = useRef(false);
   const dragStartX = useRef(0);
   const scrollStartX = useRef(0);
+  const DRAG_THRESHOLD = 6; // px — only count as drag if moved beyond this
 
   const scrollToSlide = useCallback((index: number, smooth = true) => {
     const track = trackRef.current;
     if (!track) return;
     if (index === 0) {
-      // First slide: scroll to start so container padding is visible
       track.scrollTo({ left: 0, behavior: smooth ? "smooth" : "instant" });
       return;
     }
     const slide = track.children[index] as HTMLElement | undefined;
     if (!slide) return;
-    // Align slide's left edge with the track's padding-left
     const paddingLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0;
     track.scrollTo({ left: slide.offsetLeft - paddingLeft, behavior: smooth ? "smooth" : "instant" });
   }, []);
@@ -48,7 +50,7 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
   const prev = () => goTo(current - 1);
   const next = () => goTo(current + 1);
 
-  // Detect current slide on scroll
+  /* ── Detect current slide on scroll ── */
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
@@ -79,19 +81,28 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
     scrollToSlide(0, false);
   }, [scrollToSlide]);
 
-  // Mouse drag
+  /* ── Mouse drag handlers ── */
   const onMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
+    isDragging.current = true;
+    didDrag.current = false;
     dragStartX.current = e.clientX;
     scrollStartX.current = trackRef.current?.scrollLeft ?? 0;
   };
+
   const onMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !trackRef.current) return;
-    trackRef.current.scrollLeft = scrollStartX.current - (e.clientX - dragStartX.current);
+    if (!isDragging.current || !trackRef.current) return;
+    const dx = e.clientX - dragStartX.current;
+    if (Math.abs(dx) > DRAG_THRESHOLD) {
+      didDrag.current = true;
+    }
+    trackRef.current.scrollLeft = scrollStartX.current - dx;
   };
+
   const onMouseUp = () => {
-    if (!isDragging) return;
-    setIsDragging(false);
+    if (!isDragging.current) return;
+    isDragging.current = false;
+
+    // Snap to nearest slide
     const track = trackRef.current;
     if (!track) return;
     const paddingLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0;
@@ -107,6 +118,33 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
       }
     });
     goTo(closestIdx);
+  };
+
+  /* ── Touch drag handlers ── */
+  const onTouchStart = (e: React.TouchEvent) => {
+    isDragging.current = true;
+    didDrag.current = false;
+    dragStartX.current = e.touches[0].clientX;
+    scrollStartX.current = trackRef.current?.scrollLeft ?? 0;
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging.current || !trackRef.current) return;
+    const dx = e.touches[0].clientX - dragStartX.current;
+    if (Math.abs(dx) > DRAG_THRESHOLD) {
+      didDrag.current = true;
+    }
+  };
+
+  const onTouchEnd = () => {
+    isDragging.current = false;
+  };
+
+  const handleSlideClick = (i: number) => {
+    // Only open lightbox if it wasn't a drag
+    if (!didDrag.current) {
+      setOpen(i);
+    }
   };
 
   return (
@@ -132,7 +170,7 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
       <div className="relative">
         <div
           ref={trackRef}
-          className="flex gap-5 overflow-x-auto pb-2 cursor-grab active:cursor-grabbing"
+          className="flex gap-5 overflow-x-auto pb-2 cursor-grab active:cursor-grabbing select-none"
           style={{
             scrollSnapType: "x mandatory",
             WebkitOverflowScrolling: "touch",
@@ -145,11 +183,14 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
           onMouseMove={onMouseMove}
           onMouseUp={onMouseUp}
           onMouseLeave={onMouseUp}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
           {items.map((item, i) => (
             <button
               key={i}
-              onClick={() => { if (!isDragging) setOpen(i); }}
+              onClick={() => handleSlideClick(i)}
               className="shrink-0 snap-start rounded-2xl overflow-hidden cursor-pointer group relative"
               style={{ width: "min(80vw, 960px)" }}
             >
@@ -160,6 +201,7 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 768px) 85vw, 960px"
+                  draggable={false}
                 />
                 {/* Subtle gradient overlay for better button visibility */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -190,26 +232,6 @@ export default function GalleryLightbox({ items, alt, badge, title, subtitle }: 
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </button>
-          </div>
-        </div>
-
-        {/* Counter + dots — left-aligned */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-5 flex items-center gap-4">
-          <span className="text-sm font-semibold text-text-primary tabular-nums">
-            {String(current + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}
-          </span>
-          <div className="flex items-center gap-1.5">
-            {items.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                className={`rounded-full transition-all duration-300 ${
-                  i === current
-                    ? "w-6 h-2 bg-brand"
-                    : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
-                }`}
-              />
-            ))}
           </div>
         </div>
       </div>
