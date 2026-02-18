@@ -248,7 +248,7 @@ export default function Nav() {
             </a>
             <Link
               href="/quote"
-              className="group relative overflow-hidden px-4 py-2 rounded text-[12px] font-semibold flex items-center gap-1.5 uppercase tracking-wider transition-all duration-500 bg-white text-brand hover:text-white hover:shadow-lg hover:shadow-[#e8873a]/30"
+              className="group relative overflow-hidden px-4 py-2 rounded text-[12px] font-extrabold flex items-center gap-1.5 uppercase tracking-wider transition-all duration-500 bg-white text-brand hover:text-white hover:shadow-lg hover:shadow-[#e8873a]/30"
             >
               {/* Default white bg */}
               <span className="absolute inset-0 bg-white transition-opacity duration-500 group-hover:opacity-0" />
