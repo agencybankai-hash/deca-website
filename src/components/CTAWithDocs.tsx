@@ -118,7 +118,7 @@ export default function CTAWithDocs({
   btnHref?: string;
 }) {
   return (
-    <section className="pt-28 pb-10 overflow-visible relative">
+    <section className="pt-20 pb-4 overflow-visible relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div
           className="rounded-2xl text-white px-8 sm:px-12 lg:px-16 py-10 lg:py-12 overflow-visible relative"
