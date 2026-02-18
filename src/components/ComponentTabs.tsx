@@ -103,29 +103,27 @@ export default function ComponentTabs({ items }: ComponentTabsProps) {
         })}
       </div>
 
-      {/* Right — Large component image */}
-      <div className="relative rounded-2xl overflow-hidden bg-white flex items-center justify-center h-full">
+      {/* Right — Large component image (height driven by left column via items-stretch) */}
+      <div className="relative rounded-2xl overflow-hidden bg-white">
         {/* Skeleton / loading state */}
         <div
-          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-200 ${
+          className={`absolute inset-0 z-10 flex items-center justify-center transition-opacity duration-200 ${
             showSkeleton ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         >
-          {/* Pulse skeleton */}
           <div className="flex flex-col items-center gap-4">
             <div className="w-16 h-16 rounded-full border-[3px] border-brand/20 border-t-brand animate-spin" />
             <span className="text-xs font-medium text-text-muted tracking-wide">Loading view…</span>
           </div>
         </div>
 
-        {/* Actual image with fade */}
+        {/* Image fills container absolutely — no layout shift */}
         <Image
           key={items[displayIdx]?.image}
           src={items[displayIdx]?.image}
           alt={items[displayIdx]?.alt}
-          width={800}
-          height={600}
-          className={`w-full h-full object-contain p-6 transition-opacity duration-200 ${imgOpacity}`}
+          fill
+          className={`object-contain p-6 transition-opacity duration-200 ${imgOpacity}`}
           onLoad={onImageLoad}
           priority
         />
