@@ -319,8 +319,14 @@ export default function TiltTurnPage() {
         </div>
         {/* Horizontal scrolling reviews — full-bleed, breaks out of max-w */}
         <div
-          className="flex gap-5 overflow-x-auto py-4 px-4 sm:px-6 lg:px-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] cursor-grab active:cursor-grabbing select-none"
-          style={{ scrollSnapType: "x proximity", scrollbarWidth: "none", msOverflowStyle: "none" }}
+          className="flex gap-5 overflow-x-auto py-4 cursor-grab active:cursor-grabbing select-none"
+          style={{
+            scrollSnapType: "x proximity",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            paddingLeft: "max(1rem, calc((100vw - 80rem) / 2 + 1.5rem))",
+            paddingRight: "max(1rem, calc((100vw - 80rem) / 2 + 1.5rem))",
+          }}
         >
           {[
             { name: "Miranda S.", loc: "Northampton, MA", text: "Our energy bills dropped by 45% after replacing all windows with DECA. The noise reduction is incredible — we live near a highway and can barely hear traffic now.", avatar: "https://i.pravatar.cc/80?img=1" },
