@@ -317,20 +317,26 @@ export default function TiltTurnPage() {
         </div>
         {/* Horizontal scrolling reviews — full-bleed feel */}
         <div
-          className="flex gap-5 overflow-x-auto pb-4 -mx-4 sm:-mx-6 px-4 sm:px-6 cursor-grab active:cursor-grabbing select-none"
+          className="flex gap-5 overflow-x-auto pt-3 pb-6 -mx-4 sm:-mx-6 px-4 sm:px-6 cursor-grab active:cursor-grabbing select-none"
           style={{ scrollSnapType: "x proximity", scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {[
-            { name: "Miranda S.", loc: "Northampton, MA", text: "Our energy bills dropped by 45% after replacing all windows with DECA. The noise reduction is incredible — we live near a highway and can barely hear traffic now.", rotate: "-1.2deg" },
-            { name: "Jordan K.", loc: "West Springfield, MA", text: "The tilt-and-turn mechanism is a game-changer. Easy cleaning, great ventilation options, and the build quality is noticeably better than our old vinyl windows.", rotate: "0.8deg" },
-            { name: "Casey M.", loc: "Boston, MA", text: "Impressive attention to detail from consultation to installation. The triple-glazed windows keep our 1920s colonial warm even in January without cranking the heat.", rotate: "-0.6deg" },
-            { name: "David L.", loc: "Cambridge, MA", text: "We renovated a 1960s ranch and put DECA in every opening. The house feels like new — warmer, quieter, and our HVAC barely runs now. Incredible difference.", rotate: "1deg" },
-            { name: "Sarah T.", loc: "Hartford, CT", text: "I was skeptical about European windows in the US, but DECA changed my mind. The tilt function is perfect for ventilation without letting bugs in. Love them.", rotate: "-0.5deg" },
-            { name: "Mike R.", loc: "Providence, RI", text: "As a contractor, I've installed hundreds of window brands. DECA's quality and factory-direct support are unmatched. My clients love the tilt & turn function.", rotate: "0.7deg" },
-            { name: "Elena K.", loc: "Newton, MA", text: "We replaced all 24 windows in our Victorian. The energy savings are remarkable, and the European design perfectly complements our home's character.", rotate: "-0.8deg" },
-            { name: "James P.", loc: "Amherst, MA", text: "The installation team was professional and fast. Three months in, our heating costs are down significantly. Best home investment we've ever made.", rotate: "0.4deg" },
+            { name: "Miranda S.", loc: "Northampton, MA", text: "Our energy bills dropped by 45% after replacing all windows with DECA. The noise reduction is incredible — we live near a highway and can barely hear traffic now.", rotate: "-1.2deg", avatar: "https://i.pravatar.cc/80?img=1" },
+            { name: "Jordan K.", loc: "West Springfield, MA", text: "The tilt-and-turn mechanism is a game-changer. Easy cleaning, great ventilation options, and the build quality is noticeably better than our old vinyl windows.", rotate: "0.8deg", avatar: "https://i.pravatar.cc/80?img=11" },
+            { name: "Casey M.", loc: "Boston, MA", text: "Impressive attention to detail from consultation to installation. The triple-glazed windows keep our 1920s colonial warm even in January without cranking the heat.", rotate: "-0.6deg", avatar: "https://i.pravatar.cc/80?img=32" },
+            { name: "David L.", loc: "Cambridge, MA", text: "We renovated a 1960s ranch and put DECA in every opening. The house feels like new — warmer, quieter, and our HVAC barely runs now. Incredible difference.", rotate: "1deg", avatar: "https://i.pravatar.cc/80?img=12" },
+            { name: "Sarah T.", loc: "Hartford, CT", text: "I was skeptical about European windows in the US, but DECA changed my mind. The tilt function is perfect for ventilation without letting bugs in. Love them.", rotate: "-0.5deg", avatar: "https://i.pravatar.cc/80?img=5" },
+            { name: "Mike R.", loc: "Providence, RI", text: "As a contractor, I've installed hundreds of window brands. DECA's quality and factory-direct support are unmatched. My clients love the tilt & turn function.", rotate: "0.7deg", avatar: "https://i.pravatar.cc/80?img=8" },
+            { name: "Elena K.", loc: "Newton, MA", text: "We replaced all 24 windows in our Victorian. The energy savings are remarkable, and the European design perfectly complements our home's character.", rotate: "-0.8deg", avatar: "https://i.pravatar.cc/80?img=9" },
+            { name: "James P.", loc: "Amherst, MA", text: "The installation team was professional and fast. Three months in, our heating costs are down significantly. Best home investment we've ever made.", rotate: "0.4deg", avatar: "https://i.pravatar.cc/80?img=14" },
+            { name: "Linda W.", loc: "New Haven, CT", text: "We chose DECA for our passive house project. The U-values are outstanding and they passed the blower door test with flying colors. Exactly what we needed.", rotate: "-0.9deg", avatar: "https://i.pravatar.cc/80?img=23" },
+            { name: "Robert H.", loc: "Worcester, MA", text: "After 30 years with drafty double-hung windows, upgrading to DECA tilt & turn was life-changing. Our home is comfortable year-round for the first time ever.", rotate: "0.6deg", avatar: "https://i.pravatar.cc/80?img=15" },
+            { name: "Anna B.", loc: "Stamford, CT", text: "The sound insulation is phenomenal. We live on a busy street and the difference is night and day. Plus the cleaning from inside feature saves us hiring window washers.", rotate: "-0.4deg", avatar: "https://i.pravatar.cc/80?img=25" },
+            { name: "Thomas G.", loc: "Brookline, MA", text: "I'm an architect and now specify DECA for all my residential projects. German engineering, made locally, with real customer support — not a call center overseas.", rotate: "1.1deg", avatar: "https://i.pravatar.cc/80?img=53" },
+            { name: "Patricia D.", loc: "Manchester, NH", text: "We were nervous about the investment but the tax credits and energy savings made it worthwhile within two years. Should have done it sooner!", rotate: "-0.7deg", avatar: "https://i.pravatar.cc/80?img=44" },
+            { name: "Kevin O.", loc: "Warwick, RI", text: "Replaced 16 windows and 2 sliding doors. The crew was done in two days and left the place spotless. Performance is exactly as promised — no more condensation.", rotate: "0.5deg", avatar: "https://i.pravatar.cc/80?img=57" },
           ].map((r, idx) => (
-            <div key={r.name} className="shrink-0 w-[320px] snap-start bg-warm-gray rounded-xl border border-border p-6 relative transition-transform duration-300 hover:rotate-0 hover:scale-[1.02] hover:shadow-lg" style={{ transform: `rotate(${r.rotate})` }}>
+            <div key={r.name} className="shrink-0 w-[320px] snap-start bg-warm-gray rounded-xl border border-border p-6 relative transition-all duration-300 hover:rotate-0 hover:scale-[1.02] hover:shadow-lg" style={{ transform: `rotate(${r.rotate})` }}>
               {/* Quote icon */}
               <svg className="absolute top-4 right-4 w-8 h-8 text-brand/10" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C9.591 11.69 11 13.166 11 15c0 1.933-1.567 3.5-3.5 3.5-1.171 0-2.277-.566-2.917-1.679zM15.583 17.321C14.553 16.227 14 15 14 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C20.591 11.69 22 13.166 22 15c0 1.933-1.567 3.5-3.5 3.5-1.171 0-2.277-.566-2.917-1.679z" />
@@ -352,7 +358,7 @@ export default function TiltTurnPage() {
               </div>
               <p className="text-sm text-text-secondary leading-relaxed mb-4">&ldquo;{r.text}&rdquo;</p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand font-bold text-sm">{r.name.split(" ").map(n => n[0]).join("")}</div>
+                <Image src={r.avatar} alt={r.name} width={40} height={40} className="w-10 h-10 rounded-full object-cover ring-2 ring-white shadow-sm" />
                 <div>
                   <span className="text-sm font-semibold text-text-primary block">{r.name}</span>
                   <span className="text-[11px] text-text-muted">{r.loc}</span>
