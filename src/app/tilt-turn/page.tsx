@@ -323,9 +323,25 @@ export default function TiltTurnPage() {
           ].map((r) => (
             <div key={r.name} className="bg-warm-gray rounded-xl border border-border p-6 relative transition-transform duration-300 hover:rotate-0 hover:scale-[1.02] hover:shadow-lg" style={{ transform: `rotate(${r.rotate})` }}>
               {/* Quote icon */}
+              {/* Quote icon */}
               <svg className="absolute top-4 right-4 w-8 h-8 text-brand/10" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C9.591 11.69 11 13.166 11 15c0 1.933-1.567 3.5-3.5 3.5-1.171 0-2.277-.566-2.917-1.679zM15.583 17.321C14.553 16.227 14 15 14 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311C20.591 11.69 22 13.166 22 15c0 1.933-1.567 3.5-3.5 3.5-1.171 0-2.277-.566-2.917-1.679z" />
               </svg>
+              {/* 5 glowing stars */}
+              <div className="flex gap-1 mb-3">
+                {[0, 1, 2, 3, 4].map((n) => (
+                  <svg key={n} className="w-5 h-5" viewBox="0 0 20 20" fill="none" style={{ filter: "drop-shadow(0 0 4px rgba(250,190,50,0.6)) drop-shadow(0 0 10px rgba(250,190,50,0.3))" }}>
+                    <defs>
+                      <linearGradient id={`star-glow-${n}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#fcd34d" />
+                        <stop offset="50%" stopColor="#fbbf24" />
+                        <stop offset="100%" stopColor="#f59e0b" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" fill={`url(#star-glow-${n})`} />
+                  </svg>
+                ))}
+              </div>
               <p className="text-sm text-text-secondary leading-relaxed mb-4">&ldquo;{r.text}&rdquo;</p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand font-bold text-sm">{r.name.split(" ").map(n => n[0]).join("")}</div>
