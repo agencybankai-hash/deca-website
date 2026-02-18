@@ -55,47 +55,35 @@ export default function GlazingComparison() {
   return (
     <div className="overflow-x-auto">
       <table className="w-full text-sm border-separate border-spacing-0">
-        {/* ── Glass images row ── */}
         <thead>
+          {/* ── Glass images inside table ── */}
           <tr>
-            <th className="w-[34%]" />
-            {glassTypes.map((g) => (
-              <th key={g.id} className="px-2 pb-3 align-bottom w-[22%]">
-                <div className="relative w-full flex flex-col items-center text-center rounded-2xl p-3 md:p-4 bg-white shadow-md">
-                  {g.id === "triple" && (
-                    <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[9px] font-bold tracking-wider uppercase bg-brand text-white px-3 py-0.5 rounded-full whitespace-nowrap">
-                      Recommended
-                    </span>
-                  )}
-
-                  <div className="w-full aspect-[4/3] relative mb-2 flex items-center justify-center">
-                    <Image
-                      src={g.src}
-                      alt={`${g.name} cross-section`}
-                      width={200}
-                      height={150}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-
-                  <span className="text-xs md:text-sm font-bold text-text-primary">{g.name}</span>
-                  <span className="text-[10px] text-text-muted mt-0.5 hidden sm:block">{g.shortDesc}</span>
-                </div>
-              </th>
-            ))}
-          </tr>
-
-          {/* ── Table header ── */}
-          <tr>
-            <th className="px-5 py-3 text-left font-semibold bg-brand text-white rounded-tl-xl">Metric</th>
+            <th className="w-[34%] bg-brand rounded-tl-xl px-5 py-3 text-left align-bottom">
+              <span className="font-semibold text-white">Metric</span>
+            </th>
             {glassTypes.map((g, i) => (
               <th
                 key={g.id}
-                className={`px-4 py-3 text-center font-semibold bg-brand text-white ${
-                  i === glassTypes.length - 1 ? "rounded-tr-xl" : ""
-                }`}
+                className={`w-[22%] bg-brand px-3 py-3 align-bottom ${i === glassTypes.length - 1 ? "rounded-tr-xl" : ""}`}
               >
-                {g.name}
+                <div className="flex flex-col items-center text-center relative">
+                  {g.id === "triple" && (
+                    <span className="text-[9px] font-bold tracking-wider uppercase bg-white text-brand px-3 py-0.5 rounded-full whitespace-nowrap mb-2">
+                      Recommended
+                    </span>
+                  )}
+                  <div className="w-20 h-16 md:w-24 md:h-20 relative mb-2 flex items-center justify-center">
+                    <Image
+                      src={g.src}
+                      alt={`${g.name} cross-section`}
+                      width={120}
+                      height={90}
+                      className="w-full h-full object-contain drop-shadow-md"
+                    />
+                  </div>
+                  <span className="text-xs md:text-sm font-bold text-white">{g.name}</span>
+                  <span className="text-[10px] text-white/50 mt-0.5 hidden sm:block">{g.shortDesc}</span>
+                </div>
               </th>
             ))}
           </tr>
