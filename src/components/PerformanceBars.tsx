@@ -61,7 +61,12 @@ export default function PerformanceBars({ metrics }: PerformanceBarsProps) {
       {/* Legend */}
       <div className="flex items-center justify-center gap-8 mb-2">
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded-sm bg-brand" />
+          <div className="w-4 h-4 rounded-sm bg-brand relative overflow-hidden">
+            <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.15 }}>
+              <defs><pattern id="legend-deca-grid" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M 4 0 L 0 0 0 4" fill="none" stroke="white" strokeWidth="0.4" /></pattern></defs>
+              <rect width="100%" height="100%" fill="url(#legend-deca-grid)" />
+            </svg>
+          </div>
           <span className="text-sm font-semibold text-text-primary">DECA Tilt & Turn</span>
         </div>
         <div className="flex items-center gap-2">
@@ -90,10 +95,17 @@ export default function PerformanceBars({ metrics }: PerformanceBarsProps) {
             <div className="flex-1 h-8 bg-brand/[0.06] rounded-lg overflow-hidden">
               <div
                 id={`perf-deca-${i}`}
-                className="h-full bg-brand rounded-lg flex items-center justify-end px-3"
+                className="h-full bg-brand rounded-lg flex items-center justify-end px-3 relative overflow-hidden"
                 style={{ width: "0%" }}
               >
-                <span className="text-xs font-bold text-white whitespace-nowrap">{m.decaLabel}</span>
+                {/* Inner glow */}
+                <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 120% at 30% 50%, rgba(120,180,255,0.35) 0%, transparent 70%), radial-gradient(ellipse 40% 100% at 85% 50%, rgba(255,255,255,0.15) 0%, transparent 60%)" }} />
+                {/* Grid texture */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.1 }}>
+                  <defs><pattern id={`deca-grid-${i}`} width="12" height="12" patternUnits="userSpaceOnUse"><path d="M 12 0 L 0 0 0 12" fill="none" stroke="white" strokeWidth="0.5" /></pattern></defs>
+                  <rect width="100%" height="100%" fill={`url(#deca-grid-${i})`} />
+                </svg>
+                <span className="text-xs font-bold text-white whitespace-nowrap relative z-10">{m.decaLabel}</span>
               </div>
             </div>
           </div>
@@ -106,6 +118,9 @@ export default function PerformanceBars({ metrics }: PerformanceBarsProps) {
                 className="h-full bg-[#e8873a] rounded-lg flex items-center justify-end px-3 relative overflow-hidden"
                 style={{ width: "0%" }}
               >
+                {/* Inner glow */}
+                <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 120% at 30% 50%, rgba(255,200,100,0.3) 0%, transparent 70%), radial-gradient(ellipse 40% 100% at 85% 50%, rgba(255,255,255,0.15) 0%, transparent 60%)" }} />
+                {/* Grid texture */}
                 <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.12 }}>
                   <defs><pattern id={`trad-grid-${i}`} width="12" height="12" patternUnits="userSpaceOnUse"><path d="M 12 0 L 0 0 0 12" fill="none" stroke="white" strokeWidth="0.5" /></pattern></defs>
                   <rect width="100%" height="100%" fill={`url(#trad-grid-${i})`} />
