@@ -65,7 +65,7 @@ export default function PerformanceBars({ metrics }: PerformanceBarsProps) {
           <span className="text-sm font-semibold text-text-primary">DECA Tilt & Turn</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded-sm bg-gray-300" />
+          <div className="w-4 h-4 rounded-sm bg-[#b0b8c4]" />
           <span className="text-sm font-semibold text-text-secondary">Traditional Vinyl</span>
         </div>
       </div>
@@ -95,10 +95,10 @@ export default function PerformanceBars({ metrics }: PerformanceBarsProps) {
 
           {/* Traditional bar */}
           <div className="flex items-center gap-3">
-            <div className="flex-1 h-8 bg-gray-100 rounded-lg overflow-hidden">
+            <div className="flex-1 h-8 bg-[#eef0f3] rounded-lg overflow-hidden">
               <div
                 id={`perf-trad-${i}`}
-                className="h-full bg-gray-300 rounded-lg flex items-center justify-end px-3"
+                className="h-full bg-[#b0b8c4] rounded-lg flex items-center justify-end px-3"
                 style={{ width: "0%" }}
               >
                 <span className="text-xs font-bold text-gray-600 whitespace-nowrap">{m.traditionalLabel}</span>
