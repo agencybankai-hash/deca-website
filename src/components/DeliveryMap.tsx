@@ -69,7 +69,7 @@ function DeliveryMap() {
     >
       {/* SVG Map */}
       <svg
-        viewBox="60 0 910 610"
+        viewBox="-70 5 1040 615"
         className="w-full h-auto block"
         xmlns="http://www.w3.org/2000/svg"
       >
