@@ -170,9 +170,9 @@ export default function EnergySavingsCard() {
       </div>
 
       {/* ── Card 2: Federal Tax Credit ── */}
-      <div className="rounded-2xl overflow-hidden border border-border bg-white shadow-sm">
+      <div className="rounded-2xl overflow-hidden border border-border bg-white shadow-sm flex flex-col">
         {/* Colored header strip */}
-        <div className="bg-gradient-to-br from-brand to-brand-dark px-6 pt-6 pb-5">
+        <div className="bg-gradient-to-br from-brand to-brand-dark px-6 pt-6 pb-5 shrink-0">
           <div className="flex items-center gap-3 mb-1">
             <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-sm">
               <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -187,21 +187,21 @@ export default function EnergySavingsCard() {
         </div>
 
         {/* Content area */}
-        <div className="px-6 py-6 flex flex-col h-full">
+        <div className="px-6 py-6 flex flex-col flex-1">
           {/* Big number with visual context */}
-          <div className="flex-1 flex flex-col items-center justify-center py-4">
-            <span className="text-xs font-bold text-brand/50 uppercase tracking-[0.2em] mb-3">Up to</span>
+          <div className="flex-1 flex flex-col items-center justify-center py-2">
+            <span className="text-xs font-bold text-brand/50 uppercase tracking-[0.2em] mb-2">Up to</span>
             <div className="relative">
-              <span ref={taxRef} className="text-6xl font-black text-brand">$0</span>
+              <span ref={taxRef} className="text-5xl font-black text-brand">$0</span>
               {/* Decorative ring behind number */}
               <div className="absolute -inset-4 -z-10 bg-brand/[0.04] rounded-full" />
             </div>
-            <span className="text-sm font-semibold text-text-muted mt-3">per household</span>
+            <span className="text-sm font-semibold text-text-muted mt-2">per household</span>
           </div>
 
           {/* Info badges */}
-          <div className="space-y-2.5 mt-auto">
-            <div className="bg-brand/[0.04] border border-brand/10 rounded-xl px-4 py-3 flex items-center gap-3">
+          <div className="space-y-2.5">
+            <div className="bg-brand/[0.04] border border-brand/10 rounded-xl px-4 py-2.5 flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg bg-brand/10 flex items-center justify-center shrink-0">
                 <svg className="w-4 h-4 text-brand" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -212,7 +212,7 @@ export default function EnergySavingsCard() {
                 <p className="text-[10px] text-text-muted">Sec. 25C — through 2032</p>
               </div>
             </div>
-            <div className="bg-brand/[0.04] border border-brand/10 rounded-xl px-4 py-3 flex items-center gap-3">
+            <div className="bg-brand/[0.04] border border-brand/10 rounded-xl px-4 py-2.5 flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg bg-brand/10 flex items-center justify-center shrink-0">
                 <svg className="w-4 h-4 text-brand" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
