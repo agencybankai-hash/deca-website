@@ -100,8 +100,10 @@ export default function TiltTurnPage() {
       </div>
 
       {/* ═══════ STATS BAR — Animated rings + counters ═══════ */}
-      <section className="bg-brand text-white py-5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="bg-brand text-white py-5 relative overflow-hidden">
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.06, backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <AnimatedStats
             stats={[
               {
