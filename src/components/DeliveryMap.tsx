@@ -61,108 +61,169 @@ function DeliveryMap() {
   }, []);
 
   return (
-    <div
-      ref={wrapRef}
-      className="relative w-full bg-white rounded-2xl border border-gray-200 overflow-hidden"
-      onMouseMove={onMouseMove}
-      onMouseLeave={() => { setHovered(null); setMouse(null); }}
-    >
-      {/* SVG Map */}
-      <svg
-        viewBox="-70 5 1040 615"
-        className="w-full h-auto block"
-        xmlns="http://www.w3.org/2000/svg"
+    <div className="relative">
+      {/* Wooden frame */}
+      <div
+        className="rounded-xl overflow-hidden"
+        style={{
+          padding: "10px",
+          background: "linear-gradient(145deg, #8B6914 0%, #a47e1b 15%, #6b4f10 50%, #8B6914 85%, #a47e1b 100%)",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15), inset 0 -1px 0 rgba(0,0,0,0.3)",
+        }}
       >
-        {/* State shapes */}
-        {states.map((s) => {
-          const isCore = CORE.has(s.abbr);
-          const isHov = hovered === s.abbr;
-
-          return (
-            <path
-              key={s.abbr}
-              d={s.d}
-              fill={
-                isHov
-                  ? isCore ? "rgba(56,84,170,0.28)" : "rgba(56,84,170,0.14)"
-                  : isCore ? "rgba(56,84,170,0.08)" : "#f3f4f6"
-              }
-              stroke={isHov ? "#3854AA" : isCore ? "rgba(56,84,170,0.18)" : "#dfe1e6"}
-              strokeWidth={isHov ? 1.6 : 0.5}
-              strokeLinejoin="round"
-              style={{ cursor: "pointer", transition: "fill .15s,stroke .15s,stroke-width .15s" }}
-              onMouseEnter={() => setHovered(s.abbr)}
-            />
-          );
-        })}
-
-        {/* Dashed route line from HQ to hovered state centroid */}
-        {hovered && info && (
-          <line
-            x1={HQ.x}
-            y1={HQ.y}
-            x2={info.cx}
-            y2={info.cy}
-            stroke="#3854AA"
-            strokeWidth={1.4}
-            strokeDasharray="6 4"
-            strokeLinecap="round"
-            opacity={0.45}
-          />
-        )}
-
-        {/* HQ pulsing marker */}
-        <circle cx={HQ.x} cy={HQ.y} r={5} fill="none" stroke="#3854AA" strokeWidth={1} opacity={0.3}>
-          <animate attributeName="r" from="5" to="14" dur="2s" repeatCount="indefinite" />
-          <animate attributeName="opacity" from="0.5" to="0" dur="2s" repeatCount="indefinite" />
-        </circle>
-        <circle cx={HQ.x} cy={HQ.y} r={3.5} fill="#3854AA" stroke="white" strokeWidth={1.5} />
-        <rect x={HQ.x - 11} y={HQ.y - 17} width={22} height={11} rx={3} fill="#3854AA" />
-        <text
-          x={HQ.x}
-          y={HQ.y - 10}
-          textAnchor="middle"
-          dominantBaseline="middle"
-          fill="white"
-          fontSize="7"
-          fontWeight="700"
-          fontFamily="Inter, system-ui, sans-serif"
-        >
-          HQ
-        </text>
-      </svg>
-
-      {/* Tooltip */}
-      {hovered && mouse && info && (
+        {/* Inner wood groove */}
         <div
-          className="absolute z-10 pointer-events-none"
-          style={{ left: mouse.x + 14, top: mouse.y - 6 }}
+          className="rounded-lg overflow-hidden"
+          style={{
+            padding: "3px",
+            background: "linear-gradient(145deg, #6b4f10 0%, #5a4210 50%, #7a5c12 100%)",
+            boxShadow: "inset 0 2px 4px rgba(0,0,0,0.4)",
+          }}
         >
-          <div className="bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg rounded-lg px-3.5 py-2 whitespace-nowrap">
-            <p className="text-sm font-bold text-gray-900 leading-tight">{info.name}</p>
-            <p className="text-xs font-semibold text-[#3854AA] leading-tight mt-0.5">
-              Delivery: {DELIVERY[hovered] ?? "Contact us"}
-            </p>
-          </div>
-        </div>
-      )}
+          {/* Chalkboard surface */}
+          <div
+            ref={wrapRef}
+            className="relative rounded-md overflow-hidden"
+            style={{
+              background: "linear-gradient(160deg, #2a4a2a 0%, #1e3a1e 30%, #243d24 60%, #1a351a 100%)",
+            }}
+            onMouseMove={onMouseMove}
+            onMouseLeave={() => { setHovered(null); setMouse(null); }}
+          >
+            {/* Chalk dust texture overlay */}
+            <div
+              className="absolute inset-0 pointer-events-none opacity-[0.04]"
+              style={{
+                backgroundImage: `radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 0%, transparent 1px),
+                  radial-gradient(circle at 60% 70%, rgba(255,255,255,0.6) 0%, transparent 1px),
+                  radial-gradient(circle at 80% 20%, rgba(255,255,255,0.7) 0%, transparent 1px),
+                  radial-gradient(circle at 40% 80%, rgba(255,255,255,0.5) 0%, transparent 1px),
+                  radial-gradient(circle at 10% 60%, rgba(255,255,255,0.6) 0%, transparent 1px),
+                  radial-gradient(circle at 90% 50%, rgba(255,255,255,0.4) 0%, transparent 1px)`,
+                backgroundSize: "120px 100px, 80px 120px, 100px 90px, 90px 110px, 110px 80px, 70px 130px",
+              }}
+            />
 
-      {/* Legend */}
-      <div className="px-4 py-2.5 border-t border-gray-100 bg-gray-50/60 rounded-b-2xl">
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-[11px] text-gray-400">
-          <div className="flex items-center gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: "rgba(56,84,170,0.08)", border: "1px solid rgba(56,84,170,0.18)" }} />
-            <span>Core delivery region</span>
+            {/* Subtle chalk smudge marks */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: "radial-gradient(ellipse 30% 15% at 70% 40%, rgba(255,255,255,0.03) 0%, transparent 70%), radial-gradient(ellipse 20% 25% at 25% 65%, rgba(255,255,255,0.02) 0%, transparent 70%)",
+              }}
+            />
+
+            {/* Map with generous padding */}
+            <div className="p-6 sm:p-8">
+              <svg
+                viewBox="-70 5 1040 615"
+                className="w-full h-auto block"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {/* State shapes — chalk-style */}
+                {states.map((s) => {
+                  const isCore = CORE.has(s.abbr);
+                  const isHov = hovered === s.abbr;
+
+                  return (
+                    <path
+                      key={s.abbr}
+                      d={s.d}
+                      fill={
+                        isHov
+                          ? isCore ? "rgba(255,255,255,0.18)" : "rgba(255,255,255,0.1)"
+                          : isCore ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.02)"
+                      }
+                      stroke={isHov ? "rgba(255,255,255,0.8)" : isCore ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.1)"}
+                      strokeWidth={isHov ? 1.8 : 0.6}
+                      strokeLinejoin="round"
+                      style={{ cursor: "pointer", transition: "fill .15s,stroke .15s,stroke-width .15s" }}
+                      onMouseEnter={() => setHovered(s.abbr)}
+                    />
+                  );
+                })}
+
+                {/* Dashed route line — chalk-like */}
+                {hovered && info && (
+                  <line
+                    x1={HQ.x}
+                    y1={HQ.y}
+                    x2={info.cx}
+                    y2={info.cy}
+                    stroke="rgba(255,255,255,0.5)"
+                    strokeWidth={1.6}
+                    strokeDasharray="8 5"
+                    strokeLinecap="round"
+                  />
+                )}
+
+                {/* HQ pulsing marker — chalk white */}
+                <circle cx={HQ.x} cy={HQ.y} r={5} fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth={1}>
+                  <animate attributeName="r" from="5" to="16" dur="2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" from="0.6" to="0" dur="2s" repeatCount="indefinite" />
+                </circle>
+                <circle cx={HQ.x} cy={HQ.y} r={4} fill="rgba(255,255,255,0.9)" stroke="#1e3a1e" strokeWidth={1.5} />
+                <rect x={HQ.x - 12} y={HQ.y - 19} width={24} height={12} rx={3} fill="rgba(255,255,255,0.85)" />
+                <text
+                  x={HQ.x}
+                  y={HQ.y - 11.5}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fill="#1e3a1e"
+                  fontSize="7.5"
+                  fontWeight="800"
+                  fontFamily="Inter, system-ui, sans-serif"
+                >
+                  HQ
+                </text>
+              </svg>
+            </div>
+
+            {/* Tooltip — chalk style */}
+            {hovered && mouse && info && (
+              <div
+                className="absolute z-10 pointer-events-none"
+                style={{ left: mouse.x + 14, top: mouse.y - 6 }}
+              >
+                <div
+                  className="border border-white/20 shadow-xl rounded-lg px-3.5 py-2 whitespace-nowrap"
+                  style={{ background: "rgba(30,58,30,0.92)", backdropFilter: "blur(8px)" }}
+                >
+                  <p className="text-sm font-bold text-white/90 leading-tight">{info.name}</p>
+                  <p className="text-xs font-semibold text-white/60 leading-tight mt-0.5">
+                    Delivery: {DELIVERY[hovered] ?? "Contact us"}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Legend — bottom chalk tray area */}
+            <div className="px-6 sm:px-8 pb-4 -mt-2">
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-[11px] text-white/35">
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.25)" }} />
+                  <span>Core delivery region</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <svg width="16" height="8" viewBox="0 0 16 8" className="flex-shrink-0">
+                    <line x1="1" y1="4" x2="15" y2="4" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeDasharray="3 2" />
+                  </svg>
+                  <span>Route from Westfield, MA</span>
+                </div>
+                <span className="ml-auto">Hover any state for delivery estimate</span>
+              </div>
+            </div>
           </div>
-          <div className="flex items-center gap-1.5">
-            <svg width="16" height="8" viewBox="0 0 16 8" className="flex-shrink-0">
-              <line x1="1" y1="4" x2="15" y2="4" stroke="#3854AA" strokeWidth="1.5" strokeDasharray="3 2" />
-            </svg>
-            <span>Route from Westfield, MA</span>
-          </div>
-          <span className="ml-auto">Hover any state for delivery estimate</span>
         </div>
       </div>
+
+      {/* Chalk ledge / tray at the bottom */}
+      <div
+        className="relative mx-1 h-3 rounded-b-md -mt-0.5"
+        style={{
+          background: "linear-gradient(180deg, #6b4f10 0%, #8B6914 40%, #a47e1b 100%)",
+          boxShadow: "0 3px 6px rgba(0,0,0,0.2)",
+        }}
+      />
     </div>
   );
 }
