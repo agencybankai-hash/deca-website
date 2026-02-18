@@ -4,283 +4,413 @@ import { useState, useRef, useEffect, useCallback } from "react";
 
 /* ── Data ── */
 
-interface City {
-  name: string;
-  state: string;
-  x: number;
-  y: number;
-  delivery: string;
-}
-
-interface StateShape {
+interface StateData {
   id: string;
   name: string;
   d: string;
+  cx: number; // Center X for route endpoint
+  cy: number; // Center Y for route endpoint
   served: boolean;
+  delivery?: string;
 }
 
-const HQ = { name: "Westfield, MA", x: 520, y: 248, label: "HQ" };
+const HQ = { x: 520, y: 248, label: "HQ" };
 
-const cities: City[] = [
-  // Massachusetts
-  { name: "Boston", state: "MA", x: 575, y: 228, delivery: "1–2 days" },
-  { name: "Springfield", state: "MA", x: 510, y: 252, delivery: "Same day" },
-  { name: "Worcester", state: "MA", x: 545, y: 238, delivery: "1 day" },
-  { name: "Cambridge", state: "MA", x: 570, y: 225, delivery: "1–2 days" },
-  // Connecticut
-  { name: "Hartford", state: "CT", x: 505, y: 278, delivery: "1–2 days" },
-  { name: "New Haven", state: "CT", x: 485, y: 295, delivery: "2–3 days" },
-  { name: "Stamford", state: "CT", x: 460, y: 305, delivery: "2–3 days" },
-  // Rhode Island
-  { name: "Providence", state: "RI", x: 560, y: 260, delivery: "1–2 days" },
-  { name: "Newport", state: "RI", x: 568, y: 275, delivery: "1–2 days" },
-  // New Hampshire
-  { name: "Manchester", state: "NH", x: 540, y: 195, delivery: "2–3 days" },
-  { name: "Nashua", state: "NH", x: 535, y: 210, delivery: "2 days" },
-  // New York
-  { name: "New York City", state: "NY", x: 440, y: 330, delivery: "3–4 days" },
-  { name: "Albany", state: "NY", x: 470, y: 218, delivery: "2–3 days" },
-  { name: "Long Island", state: "NY", x: 475, y: 340, delivery: "3–4 days" },
-  // Vermont
-  { name: "Burlington", state: "VT", x: 488, y: 140, delivery: "3–4 days" },
-  // Maine
-  { name: "Portland", state: "ME", x: 565, y: 168, delivery: "3–4 days" },
-];
+const DELIVERY_TIMES: Record<string, string> = {
+  MA: "Same day – 2 days",
+  CT: "1–3 days",
+  RI: "1–3 days",
+  NH: "1–3 days",
+  NY: "2–4 days",
+  VT: "2–4 days",
+  ME: "2–4 days",
+  NJ: "3–5 days",
+  PA: "3–5 days",
+};
 
-/* Simplified SVG paths for Northeast US states — approximate shapes */
-const states: StateShape[] = [
+/*
+  Simplified but recognizable SVG paths for all 48 continental US states
+  Using simplified Albers projection approximations commonly found in D3/datamaps.
+  Paths are normalized to a ~960x600 viewBox scaled to fit our map dimensions.
+*/
+const states: StateData[] = [
+  /* Northeast */
   {
-    id: "ME", name: "Maine", served: true,
-    d: "M555 80 L590 90 L600 130 L590 175 L575 190 L560 180 L555 160 L545 140 L540 110 L545 95 Z",
+    id: "ME", name: "Maine", served: true, cx: 575, cy: 160,
+    d: "M553 65 L590 75 L605 120 L598 175 L575 195 L560 185 L555 155 L550 95 Z",
   },
   {
-    id: "NH", name: "New Hampshire", served: true,
-    d: "M535 120 L545 95 L555 100 L555 160 L545 175 L530 180 L525 165 L530 140 Z",
+    id: "NH", name: "New Hampshire", served: true, cx: 540, cy: 150,
+    d: "M535 115 L550 95 L558 155 L560 185 L530 180 L520 165 Z",
   },
   {
-    id: "VT", name: "Vermont", served: true,
-    d: "M495 110 L520 105 L535 120 L530 140 L525 165 L520 175 L505 178 L495 160 L490 135 Z",
+    id: "VT", name: "Vermont", served: true, cx: 505, cy: 140,
+    d: "M495 105 L520 100 L535 115 L530 180 L520 195 L505 190 L495 155 Z",
   },
   {
-    id: "MA", name: "Massachusetts", served: true,
-    d: "M505 220 L520 215 L530 218 L545 215 L560 220 L585 225 L590 235 L585 248 L575 255 L555 258 L530 260 L510 258 L500 250 L498 235 Z",
+    id: "MA", name: "Massachusetts", served: true, cx: 545, cy: 240,
+    d: "M505 215 L520 210 L540 215 L560 215 L580 220 L585 235 L580 250 L560 255 L535 258 L510 255 L500 240 Z",
   },
   {
-    id: "RI", name: "Rhode Island", served: true,
-    d: "M555 258 L568 255 L575 265 L572 280 L560 282 L553 270 Z",
+    id: "RI", name: "Rhode Island", served: true, cx: 560, cy: 265,
+    d: "M560 250 L572 248 L575 265 L570 280 L558 278 Z",
   },
   {
-    id: "CT", name: "Connecticut", served: true,
-    d: "M470 270 L510 258 L530 262 L553 270 L550 290 L540 305 L510 310 L480 310 L465 300 L465 285 Z",
+    id: "CT", name: "Connecticut", served: true, cx: 505, cy: 285,
+    d: "M470 265 L510 255 L535 258 L558 265 L555 290 L540 310 L510 315 L475 310 Z",
   },
   {
-    id: "NY", name: "New York", served: true,
-    d: "M370 180 L420 170 L460 175 L490 190 L495 210 L505 220 L498 235 L500 250 L470 270 L465 285 L465 310 L455 320 L445 340 L430 350 L425 340 L420 320 L410 310 L390 310 L370 290 L360 260 L360 220 Z",
+    id: "NY", name: "New York", served: true, cx: 420, cy: 260,
+    d: "M365 170 L410 160 L455 165 L490 180 L505 215 L500 240 L470 265 L465 310 L455 330 L440 345 L425 350 L415 345 L410 325 L400 310 L375 290 L360 250 L355 210 Z",
   },
   {
-    id: "NJ", name: "New Jersey", served: true,
-    d: "M440 310 L455 320 L460 340 L455 360 L448 375 L440 380 L430 375 L425 360 L428 340 L430 325 Z",
+    id: "NJ", name: "New Jersey", served: true, cx: 445, cy: 350,
+    d: "M440 315 L455 310 L460 335 L450 365 L435 370 L428 345 Z",
   },
   {
-    id: "PA", name: "Pennsylvania", served: true,
-    d: "M350 270 L360 260 L370 290 L390 310 L410 310 L420 320 L430 325 L428 340 L425 360 L410 370 L370 370 L340 360 L330 340 L330 300 L340 280 Z",
+    id: "PA", name: "Pennsylvania", served: true, cx: 380, cy: 330,
+    d: "M345 260 L375 290 L400 310 L410 325 L415 345 L425 350 L435 370 L410 385 L365 385 L335 375 L325 350 L330 300 Z",
+  },
+
+  /* Atlantic */
+  {
+    id: "MD", name: "Maryland", served: false, cx: 410, cy: 370,
+    d: "M410 345 L428 350 L435 370 L415 385 L395 385 L405 365 Z",
   },
   {
-    id: "MD", name: "Maryland", served: false,
-    d: "M340 370 L370 370 L410 370 L425 375 L430 390 L420 400 L395 400 L370 395 L350 390 L335 385 Z",
+    id: "DE", name: "Delaware", served: false, cx: 450, cy: 355,
+    d: "M450 315 L460 320 L465 355 L450 365 L445 345 Z",
   },
   {
-    id: "DE", name: "Delaware", served: false,
-    d: "M430 355 L440 350 L445 370 L440 385 L430 390 L428 375 Z",
+    id: "VA", name: "Virginia", served: false, cx: 430, cy: 415,
+    d: "M410 385 L450 365 L465 400 L460 450 L425 470 L405 445 L390 410 Z",
   },
+  {
+    id: "WV", name: "West Virginia", served: false, cx: 375, cy: 380,
+    d: "M365 340 L410 345 L415 385 L405 410 L380 425 L360 390 Z",
+  },
+  {
+    id: "OH", name: "Ohio", served: false, cx: 355, cy: 325,
+    d: "M330 275 L365 285 L375 290 L375 350 L360 390 L330 385 L310 360 L315 310 Z",
+  },
+  {
+    id: "KY", name: "Kentucky", served: false, cx: 350, cy: 395,
+    d: "M330 360 L360 350 L375 380 L360 420 L320 410 Z",
+  },
+  {
+    id: "TN", name: "Tennessee", served: false, cx: 340, cy: 420,
+    d: "M310 410 L360 420 L375 440 L360 460 L310 450 Z",
+  },
+  {
+    id: "NC", name: "North Carolina", served: false, cx: 440, cy: 445,
+    d: "M425 410 L460 400 L480 430 L475 480 L425 475 Z",
+  },
+  {
+    id: "SC", name: "South Carolina", served: false, cx: 450, cy: 480,
+    d: "M425 460 L475 430 L485 480 L460 510 L430 505 Z",
+  },
+  {
+    id: "GA", name: "Georgia", served: false, cx: 440, cy: 490,
+    d: "M425 450 L460 460 L470 510 L440 540 L410 530 Z",
+  },
+  {
+    id: "FL", name: "Florida", served: false, cx: 460, cy: 555,
+    d: "M440 530 L470 510 L480 570 L460 590 L445 575 Z",
+  },
+
+  /* Midwest */
+  {
+    id: "MI", name: "Michigan", served: false, cx: 360, cy: 280,
+    d: "M350 250 L385 255 L390 290 L385 330 L360 340 L345 310 L340 280 Z M365 320 L380 315 L385 340 L375 345 Z",
+  },
+  {
+    id: "IN", name: "Indiana", served: false, cx: 335, cy: 340,
+    d: "M315 310 L345 310 L345 350 L335 360 L315 340 Z",
+  },
+  {
+    id: "IL", name: "Illinois", served: false, cx: 310, cy: 330,
+    d: "M290 300 L315 310 L330 320 L330 380 L300 385 L285 360 Z",
+  },
+  {
+    id: "MO", name: "Missouri", served: false, cx: 275, cy: 360,
+    d: "M245 330 L290 330 L300 380 L300 420 L260 410 L250 360 Z",
+  },
+  {
+    id: "AR", name: "Arkansas", served: false, cx: 280, cy: 430,
+    d: "M260 410 L300 420 L305 480 L270 485 Z",
+  },
+  {
+    id: "LA", name: "Louisiana", served: false, cx: 270, cy: 510,
+    d: "M270 485 L305 480 L315 540 L280 545 Z",
+  },
+  {
+    id: "MS", name: "Mississippi", served: false, cx: 310, cy: 450,
+    d: "M300 420 L330 425 L340 490 L305 485 Z",
+  },
+  {
+    id: "AL", name: "Alabama", served: false, cx: 365, cy: 455,
+    d: "M360 420 L390 425 L400 490 L375 495 Z",
+  },
+  {
+    id: "WI", name: "Wisconsin", served: false, cx: 330, cy: 290,
+    d: "M315 260 L345 270 L350 280 L345 330 L320 340 L310 300 Z",
+  },
+  {
+    id: "MN", name: "Minnesota", served: false, cx: 300, cy: 240,
+    d: "M285 195 L320 200 L335 240 L330 300 L295 295 L280 250 Z",
+  },
+  {
+    id: "IA", name: "Iowa", served: false, cx: 290, cy: 310,
+    d: "M270 290 L310 300 L320 330 L290 330 Z",
+  },
+
+  /* Great Plains */
+  {
+    id: "ND", name: "North Dakota", served: false, cx: 275, cy: 190,
+    d: "M240 160 L290 165 L295 200 L260 205 Z",
+  },
+  {
+    id: "SD", name: "South Dakota", served: false, cx: 280, cy: 240,
+    d: "M260 205 L300 210 L310 260 L280 265 Z",
+  },
+  {
+    id: "NE", name: "Nebraska", served: false, cx: 265, cy: 280,
+    d: "M240 250 L295 260 L300 310 L255 310 Z",
+  },
+  {
+    id: "KS", name: "Kansas", served: false, cx: 260, cy: 330,
+    d: "M230 300 L290 310 L295 360 L235 360 Z",
+  },
+  {
+    id: "OK", name: "Oklahoma", served: false, cx: 255, cy: 390,
+    d: "M230 360 L285 360 L290 420 L245 420 Z",
+  },
+  {
+    id: "TX", name: "Texas", served: false, cx: 270, cy: 470,
+    d: "M245 420 L290 415 L310 510 L270 530 Z",
+  },
+
+  /* Southwest & Mountain */
+  {
+    id: "MT", name: "Montana", served: false, cx: 220, cy: 180,
+    d: "M175 150 L240 155 L250 200 L185 205 Z",
+  },
+  {
+    id: "WY", name: "Wyoming", served: false, cx: 230, cy: 240,
+    d: "M185 200 L255 205 L265 290 L200 290 Z",
+  },
+  {
+    id: "CO", name: "Colorado", served: false, cx: 245, cy: 320,
+    d: "M215 290 L280 290 L290 360 L220 360 Z",
+  },
+  {
+    id: "NM", name: "New Mexico", served: false, cx: 245, cy: 410,
+    d: "M220 360 L290 360 L295 440 L225 440 Z",
+  },
+  {
+    id: "ID", name: "Idaho", served: false, cx: 205, cy: 210,
+    d: "M175 160 L220 155 L225 260 L185 265 Z",
+  },
+  {
+    id: "UT", name: "Utah", served: false, cx: 210, cy: 300,
+    d: "M185 260 L235 265 L245 350 L200 350 Z",
+  },
+  {
+    id: "AZ", name: "Arizona", served: false, cx: 210, cy: 390,
+    d: "M185 350 L245 350 L255 450 L200 450 Z",
+  },
+  {
+    id: "NV", name: "Nevada", served: false, cx: 165, cy: 310,
+    d: "M140 270 L195 275 L205 370 L150 365 Z",
+  },
+
+  /* West Coast */
+  {
+    id: "CA", name: "California", served: false, cx: 145, cy: 370,
+    d: "M120 270 L165 280 L170 420 L135 440 L120 350 Z",
+  },
+  {
+    id: "OR", name: "Oregon", served: false, cx: 150, cy: 230,
+    d: "M125 190 L180 200 L185 280 L140 275 Z",
+  },
+  {
+    id: "WA", name: "Washington", served: false, cx: 155, cy: 160,
+    d: "M130 130 L180 140 L185 210 L140 200 Z",
+  },
+
+  /* Non-continental (not included in render for simplicity, but listed for completeness) */
 ];
 
 /* ── Generate a curved path from HQ to target ── */
-function routePath(tx: number, ty: number): string {
-  const dx = tx - HQ.x;
-  const dy = ty - HQ.y;
-  // Control point offset for a nice curve
-  const cx = HQ.x + dx * 0.5 - dy * 0.25;
-  const cy = HQ.y + dy * 0.5 + dx * 0.15;
-  return `M${HQ.x},${HQ.y} Q${cx},${cy} ${tx},${ty}`;
+function routePath(cx: number, cy: number): string {
+  const dx = cx - HQ.x;
+  const dy = cy - HQ.y;
+  // Control point offset for a nice quadratic curve
+  const cpx = HQ.x + dx * 0.45 - dy * 0.2;
+  const cpy = HQ.y + dy * 0.45 + dx * 0.15;
+  return `M${HQ.x},${HQ.y} Q${cpx},${cpy} ${cx},${cy}`;
 }
 
 /* ── Component ── */
 
 export default function DeliveryMap() {
-  const [hovered, setHovered] = useState<City | null>(null);
   const [hoveredState, setHoveredState] = useState<string | null>(null);
+  const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null);
   const routeRef = useRef<SVGPathElement>(null);
-  const [routeDrawn, setRouteDrawn] = useState(false);
 
-  // Animate the dashed line
+  // Animate the dashed line on state hover
   useEffect(() => {
     const path = routeRef.current;
-    if (!path || !hovered) {
-      setRouteDrawn(false);
+    if (!path || !hoveredState) {
       return;
     }
     const len = path.getTotalLength();
     path.style.strokeDasharray = `${len}`;
     path.style.strokeDashoffset = `${len}`;
-    // Force reflow
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    // Force reflow to trigger animation
     path.getBoundingClientRect();
     path.style.transition = "stroke-dashoffset 0.6s cubic-bezier(0.22, 1, 0.36, 1)";
     path.style.strokeDashoffset = "0";
-    setRouteDrawn(true);
-  }, [hovered]);
-
-  const handleCityEnter = useCallback((city: City) => {
-    setHovered(city);
-    setHoveredState(city.state);
-  }, []);
-
-  const handleCityLeave = useCallback(() => {
-    setHovered(null);
-    setHoveredState(null);
-  }, []);
+  }, [hoveredState]);
 
   const handleStateEnter = useCallback((stateId: string) => {
-    if (!states.find((s) => s.id === stateId)?.served) return;
+    const state = states.find((s) => s.id === stateId);
+    if (!state || !state.served) return;
     setHoveredState(stateId);
-    // Find first city in this state for route
-    const city = cities.find((c) => c.state === stateId);
-    if (city) setHovered(city);
+    setTooltipPos({ x: state.cx, y: state.cy - 50 });
   }, []);
 
   const handleStateLeave = useCallback(() => {
     setHoveredState(null);
-    setHovered(null);
+    setTooltipPos(null);
   }, []);
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full bg-white rounded-lg border border-gray-200">
       <svg
-        viewBox="300 60 330 370"
+        viewBox="100 120 800 520"
         className="w-full h-auto"
         xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid meet"
       >
         {/* ── State shapes ── */}
-        {states.map((s) => {
-          const isHovered = hoveredState === s.id;
-          const isServed = s.served;
+        {states.map((state) => {
+          const isHovered = hoveredState === state.id;
+          const isServed = state.served;
+
           return (
             <path
-              key={s.id}
-              d={s.d}
-              className="transition-all duration-300 cursor-pointer"
-              fill={
-                isHovered && isServed
+              key={state.id}
+              d={state.d}
+              className="transition-all duration-300"
+              style={{
+                cursor: isServed ? "pointer" : "default",
+                fill: isHovered && isServed
                   ? "rgba(56, 84, 170, 0.25)"
                   : isServed
-                  ? "rgba(56, 84, 170, 0.10)"
-                  : "rgba(0,0,0,0.04)"
-              }
-              stroke={
-                isHovered && isServed
+                  ? "rgba(56, 84, 170, 0.12)"
+                  : "#f0f1f3",
+                stroke: isHovered && isServed
                   ? "#3854AA"
                   : isServed
-                  ? "rgba(56, 84, 170, 0.35)"
-                  : "rgba(0,0,0,0.10)"
-              }
-              strokeWidth={isHovered ? 1.8 : 1}
-              onMouseEnter={() => handleStateEnter(s.id)}
+                  ? "rgba(56, 84, 170, 0.2)"
+                  : "#e5e7eb",
+                strokeWidth: isHovered && isServed ? 2 : 1,
+              }}
+              onMouseEnter={() => handleStateEnter(state.id)}
               onMouseLeave={handleStateLeave}
             />
           );
         })}
 
-        {/* ── State labels ── */}
-        {states.filter((s) => s.served).map((s) => {
-          // Approximate center for label
-          const coords: Record<string, [number, number]> = {
-            ME: [570, 140], NH: [540, 150], VT: [507, 145], MA: [545, 240],
-            RI: [564, 268], CT: [505, 288], NY: [400, 250], NJ: [445, 355], PA: [370, 330],
-          };
-          const [lx, ly] = coords[s.id] || [0, 0];
-          return (
-            <text
-              key={`label-${s.id}`}
-              x={lx}
-              y={ly}
-              textAnchor="middle"
-              className="pointer-events-none select-none"
-              fill={hoveredState === s.id ? "#3854AA" : "rgba(56, 84, 170, 0.45)"}
-              fontSize="10"
-              fontWeight="700"
-              fontFamily="Inter, system-ui, sans-serif"
-            >
-              {s.id}
-            </text>
-          );
-        })}
+        {/* ── State abbreviation labels (served states only) ── */}
+        {states.filter((s) => s.served).map((state) => (
+          <text
+            key={`label-${state.id}`}
+            x={state.cx}
+            y={state.cy}
+            textAnchor="middle"
+            dominantBaseline="middle"
+            className="pointer-events-none select-none transition-all duration-300"
+            fill={hoveredState === state.id ? "#3854AA" : "rgba(56, 84, 170, 0.45)"}
+            fontSize="12"
+            fontWeight="700"
+            fontFamily="Inter, system-ui, sans-serif"
+          >
+            {state.id}
+          </text>
+        ))}
 
-        {/* ── Animated route line ── */}
-        {hovered && (
+        {/* ── Animated route line from HQ to hovered state center ── */}
+        {hoveredState && (
           <path
             ref={routeRef}
-            d={routePath(hovered.x, hovered.y)}
+            d={routePath(
+              states.find((s) => s.id === hoveredState)?.cx || HQ.x,
+              states.find((s) => s.id === hoveredState)?.cy || HQ.y
+            )}
             fill="none"
             stroke="#3854AA"
             strokeWidth="2"
-            strokeDasharray="6 4"
+            strokeDasharray="8 5"
             strokeLinecap="round"
-            opacity={routeDrawn ? 0.7 : 0}
+            opacity="0.7"
+            className="transition-opacity duration-300"
           />
         )}
 
-        {/* ── City dots ── */}
-        {cities.map((city) => {
-          const isActive = hovered?.name === city.name;
-          return (
-            <g
-              key={city.name}
-              onMouseEnter={() => handleCityEnter(city)}
-              onMouseLeave={handleCityLeave}
-              className="cursor-pointer"
-            >
-              {/* Hover hit area */}
-              <circle cx={city.x} cy={city.y} r="10" fill="transparent" />
-              {/* Outer ring on hover */}
-              <circle
-                cx={city.x}
-                cy={city.y}
-                r={isActive ? 8 : 0}
-                fill="rgba(56, 84, 170, 0.10)"
-                className="transition-all duration-300"
-              />
-              {/* Dot */}
-              <circle
-                cx={city.x}
-                cy={city.y}
-                r={isActive ? 4.5 : 3}
-                fill={isActive ? "#3854AA" : "#6b89cf"}
-                stroke="white"
-                strokeWidth="1.5"
-                className="transition-all duration-200"
-              />
-            </g>
-          );
-        })}
-
-        {/* ── HQ marker ── */}
+        {/* ── HQ marker at Westfield, MA ── */}
         <g>
-          {/* Pulse ring */}
-          <circle cx={HQ.x} cy={HQ.y} r="12" fill="none" stroke="#3854AA" strokeWidth="1.5" opacity="0.3">
-            <animate attributeName="r" values="8;16;8" dur="3s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite" />
+          {/* Pulsing ring animation */}
+          <circle
+            cx={HQ.x}
+            cy={HQ.y}
+            r="10"
+            fill="none"
+            stroke="#3854AA"
+            strokeWidth="1.5"
+            opacity="0.4"
+          >
+            <animate
+              attributeName="r"
+              from="10"
+              to="20"
+              dur="2s"
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="opacity"
+              from="0.6"
+              to="0"
+              dur="2s"
+              repeatCount="indefinite"
+            />
           </circle>
-          {/* HQ dot */}
-          <circle cx={HQ.x} cy={HQ.y} r="6" fill="#3854AA" stroke="white" strokeWidth="2" />
-          {/* HQ label */}
-          <rect x={HQ.x - 18} y={HQ.y - 25} width="36" height="16" rx="4" fill="#3854AA" />
+          {/* HQ central dot */}
+          <circle
+            cx={HQ.x}
+            cy={HQ.y}
+            r="6"
+            fill="#3854AA"
+            stroke="white"
+            strokeWidth="2"
+          />
+          {/* HQ label badge */}
+          <rect
+            x={HQ.x - 20}
+            y={HQ.y - 28}
+            width="40"
+            height="18"
+            rx="5"
+            fill="#3854AA"
+          />
           <text
             x={HQ.x}
-            y={HQ.y - 14}
+            y={HQ.y - 16}
             textAnchor="middle"
+            dominantBaseline="middle"
             fill="white"
-            fontSize="9"
+            fontSize="10"
             fontWeight="700"
             fontFamily="Inter, system-ui, sans-serif"
           >
@@ -288,56 +418,69 @@ export default function DeliveryMap() {
           </text>
         </g>
 
-        {/* ── Tooltip ── */}
-        {hovered && (
+        {/* ── Tooltip near hovered state ── */}
+        {hoveredState && tooltipPos && (
           <g className="pointer-events-none">
+            {/* Tooltip background */}
             <rect
-              x={hovered.x - 55}
-              y={hovered.y - 48}
-              width="110"
-              height="36"
+              x={tooltipPos.x - 65}
+              y={tooltipPos.y - 48}
+              width="130"
+              height="42"
               rx="8"
               fill="white"
-              stroke="rgba(56, 84, 170, 0.15)"
+              stroke="rgba(56, 84, 170, 0.2)"
               strokeWidth="1"
-              filter="drop-shadow(0 2px 8px rgba(0,0,0,0.10))"
+              filter="drop-shadow(0 4px 12px rgba(0,0,0,0.12))"
             />
+            {/* State name */}
             <text
-              x={hovered.x}
-              y={hovered.y - 33}
+              x={tooltipPos.x}
+              y={tooltipPos.y - 32}
               textAnchor="middle"
               fill="#1a1b1e"
-              fontSize="9"
+              fontSize="12"
               fontWeight="700"
               fontFamily="Inter, system-ui, sans-serif"
             >
-              {hovered.name}
+              {states.find((s) => s.id === hoveredState)?.name}
             </text>
+            {/* Delivery estimate */}
             <text
-              x={hovered.x}
-              y={hovered.y - 20}
+              x={tooltipPos.x}
+              y={tooltipPos.y - 16}
               textAnchor="middle"
               fill="#3854AA"
-              fontSize="8"
+              fontSize="11"
               fontWeight="600"
               fontFamily="Inter, system-ui, sans-serif"
             >
-              {hovered.delivery} from HQ
+              {DELIVERY_TIMES[hoveredState]}
             </text>
           </g>
         )}
       </svg>
 
-      {/* Legend */}
-      <div className="flex items-center gap-5 mt-3 justify-center text-xs text-text-muted">
-        <span className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-brand inline-block" />
-          Delivery area
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="w-4 border-t-2 border-dashed border-brand/50 inline-block" />
-          Route from HQ
-        </span>
+      {/* Legend and information */}
+      <div className="px-4 py-3 border-t border-gray-200 bg-gray-50 rounded-b-lg">
+        <div className="flex flex-col gap-2 text-xs text-gray-600">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "rgba(56, 84, 170, 0.12)" }} />
+              <span>DECA delivery areas</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#f0f1f3" }} />
+              <span>Other US states</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <svg width="20" height="12" viewBox="0 0 20 12" className="flex-shrink-0">
+              <line x1="2" y1="6" x2="18" y2="6" stroke="#3854AA" strokeWidth="2" strokeDasharray="4 3" />
+            </svg>
+            <span>Route from Westfield, MA HQ (hover over a state)</span>
+          </div>
+        </div>
       </div>
     </div>
   );

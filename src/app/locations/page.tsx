@@ -17,40 +17,7 @@ export default function LocationsPage() {
       />
 
       <Section>
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 items-start">
-          {/* Map */}
-          <DeliveryMap />
-
-          {/* Sidebar — state list */}
-          <div className="space-y-3">
-            <h3 className="text-sm font-bold text-text-primary uppercase tracking-wider mb-4">Delivery Regions</h3>
-            {[
-              { state: "Massachusetts", abbr: "MA", cities: ["Westfield (HQ)", "Boston", "Springfield", "Worcester", "Cambridge"], primary: true },
-              { state: "Connecticut", abbr: "CT", cities: ["Hartford", "New Haven", "Stamford"] },
-              { state: "Rhode Island", abbr: "RI", cities: ["Providence", "Newport"] },
-              { state: "New Hampshire", abbr: "NH", cities: ["Manchester", "Nashua"] },
-              { state: "New York", abbr: "NY", cities: ["NYC Metro", "Albany", "Long Island"] },
-              { state: "Vermont", abbr: "VT", cities: ["Burlington"] },
-              { state: "Maine", abbr: "ME", cities: ["Portland"] },
-              { state: "New Jersey", abbr: "NJ", cities: ["Statewide"] },
-              { state: "Pennsylvania", abbr: "PA", cities: ["Statewide"] },
-            ].map((area) => (
-              <div
-                key={area.state}
-                className="bg-white rounded-xl border border-border p-4 hover:border-brand/30 hover:shadow-sm transition-all"
-              >
-                <div className="flex items-center gap-2 mb-1">
-                  {area.primary && (
-                    <span className="bg-brand/10 text-brand text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">HQ</span>
-                  )}
-                  <h4 className="font-semibold text-text-primary text-sm">{area.state}</h4>
-                  <span className="text-[10px] text-text-muted font-medium ml-auto">{area.abbr}</span>
-                </div>
-                <p className="text-xs text-text-secondary leading-relaxed">{area.cities.join(" · ")}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <DeliveryMap />
       </Section>
 
       <Section gray>
