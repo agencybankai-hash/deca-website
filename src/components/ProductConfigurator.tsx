@@ -715,21 +715,22 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
           <div className="md:col-span-7">
             {/* ── Step progress bar ── */}
             <div className="mb-8">
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center justify-between mb-3 relative">
+                {/* Background track line */}
+                <div className="absolute top-4 left-0 right-0 h-[2px] bg-gray-200" style={{ marginLeft: `${100 / steps.length / 2}%`, marginRight: `${100 / steps.length / 2}%` }} />
+                {/* Filled progress line */}
+                <div
+                  className="absolute top-4 left-0 h-[2px] bg-brand transition-all duration-300"
+                  style={{
+                    marginLeft: `${100 / steps.length / 2}%`,
+                    width: currentStep === 0 ? "0%" : `${(currentStep / (steps.length - 1)) * (100 - 100 / steps.length)}%`,
+                  }}
+                />
                 {steps.map((s, i) => {
                   const isCompleted = i < currentStep;
                   const isCurrent = i === currentStep;
                   return (
-                    <div key={s.id} className="flex flex-col items-center flex-1 relative">
-                      {/* Connector line */}
-                      {i > 0 && (
-                        <div
-                          className={`absolute top-3 right-1/2 h-[2px] w-full -z-0 ${
-                            i <= currentStep ? "bg-brand" : "bg-gray-200"
-                          }`}
-                          style={{ transform: "translateX(-50%)" }}
-                        />
-                      )}
+                    <div key={s.id} className="flex flex-col items-center flex-1 relative z-10">
                       {/* Circle with icon */}
                       <button
                         onClick={() => setCurrentStep(i)}
