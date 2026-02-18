@@ -101,9 +101,9 @@ const docs = [
 
 /* ── Card positions: back(2) → middle(1) → front(0) ── */
 const cardLayout = [
-  { x: -30, y: -130, rot: -6,  z: 30 }, /* front — overflows top most */
-  { x: 55,  y: -80,  rot: 2,   z: 20 }, /* middle */
-  { x: -10, y: -40,  rot: 8,   z: 10 }, /* back */
+  { x: -30, y: -30, rot: -6,  z: 30 }, /* front */
+  { x: 55,  y: 10,  rot: 2,   z: 20 }, /* middle */
+  { x: -10, y: 40,  rot: 8,   z: 10 }, /* back */
 ];
 
 export default function CTAWithDocs({
@@ -209,10 +209,10 @@ export default function CTAWithDocs({
                   key={doc.title}
                   className="absolute bg-white rounded-[3px] overflow-hidden"
                   style={{
-                    width: 220,
-                    height: 310,
-                    left: `calc(50% + ${layout.x - 110}px)`,
-                    top: `calc(50% + ${layout.y - 155}px)`,
+                    width: 240,
+                    height: 330,
+                    left: `calc(50% + ${layout.x - 120}px)`,
+                    top: `calc(50% + ${layout.y - 165}px)`,
                     zIndex: layout.z,
                     transform: `rotate(${layout.rot}deg)`,
                     boxShadow: "0 4px 20px rgba(0,0,0,0.12), 0 12px 48px rgba(0,0,0,0.18)",

@@ -370,14 +370,14 @@ export default function TiltTurnPage() {
       </Section>
 
       {/* ═══════ DELIVERY MAP ═══════ */}
-      <Section>
+      <Section dark>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <div>
-            <span className="inline-block text-xs font-semibold tracking-wider uppercase text-brand mb-3">Nationwide Delivery</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">
+            <span className="inline-block text-xs font-semibold tracking-wider uppercase text-white/60 mb-3">Nationwide Delivery</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Factory-Direct Shipping Across the U.S.
             </h2>
-            <p className="text-text-secondary leading-relaxed mb-6">
+            <p className="text-white/70 leading-relaxed mb-6">
               Every DECA window is manufactured in Westfield, Massachusetts and shipped
               directly to your project site. Northeast states enjoy same-day to 5-day
               delivery, while we reach the entire continental U.S. within 10 days.
@@ -400,12 +400,12 @@ export default function TiltTurnPage() {
                   icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 0 1 6.69 14.036m0 0-.177-.529A2.25 2.25 0 0 0 17.128 15H16.5l-.324-.324a1.453 1.453 0 0 0-2.328.377l-.036.073a1.586 1.586 0 0 1-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m-3.414 1.082A9 9 0 0 1 3.75 12c0-1.18.227-2.306.641-3.34" /></svg>,
                 },
               ].map((item) => (
-                <div key={item.value} className="bg-warm-gray rounded-xl border border-border p-4 flex flex-col items-center text-center">
-                  <div className="w-9 h-9 rounded-full bg-brand/10 flex items-center justify-center text-brand mb-2">
+                <div key={item.value} className="bg-white/10 rounded-xl border border-white/15 p-4 flex flex-col items-center text-center">
+                  <div className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white mb-2">
                     {item.icon}
                   </div>
-                  <p className="text-xl font-extrabold text-brand leading-tight">{item.value}</p>
-                  <p className="text-[11px] text-text-muted mt-0.5 leading-snug">{item.label}</p>
+                  <p className="text-xl font-extrabold text-white leading-tight">{item.value}</p>
+                  <p className="text-[11px] text-white/50 mt-0.5 leading-snug">{item.label}</p>
                 </div>
               ))}
             </div>

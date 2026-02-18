@@ -200,17 +200,28 @@ export default function Footer() {
               <p className="text-xs text-white/30">&copy; 2026 DECA Company. All Rights Reserved.</p>
             </div>
 
+            <span className="text-xs text-white/30">Design &amp; Development by</span>
             <a
               href="https://bankaiagency.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-white/30 hover:text-white/60 transition-colors"
+              className="bankai-link"
             >
-              <span>Design &amp; Development by</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 15 15" fill="none">
-                <path d="M0.530008 4.43966L13.5591 0.442106C13.9327 0.327463 14.2106 0.789407 13.9342 1.06577L7.92691 7.0731C7.73792 7.26208 7.87176 7.58523 8.13904 7.58523H11.1043C11.4395 7.58523 11.6063 7.99129 11.368 8.2269L5.15569 14.3686C4.91884 14.6028 4.51705 14.435 4.51705 14.1019V10.8682C4.51705 10.7025 4.38273 10.5682 4.21705 10.5682H0.75C0.335786 10.5682 0 10.2324 0 9.81818V5.15667C0 4.82719 0.215025 4.5363 0.530008 4.43966Z" fill="#ef4444" />
-              </svg>
-              <span className="font-semibold tracking-wide text-white/45">BANKAI.AGENCY</span>
+              <span className="bankai-icon">
+                {/* Mini lightning bolts */}
+                <span className="mini-bolts">
+                  <svg className="mini-bolt" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 15 15" fill="none"><path d="M0.530008 4.43966L13.5591 0.442106C13.9327 0.327463 14.2106 0.789407 13.9342 1.06577L7.92691 7.0731C7.73792 7.26208 7.87176 7.58523 8.13904 7.58523H11.1043C11.4395 7.58523 11.6063 7.99129 11.368 8.2269L5.15569 14.3686C4.91884 14.6028 4.51705 14.435 4.51705 14.1019V10.8682C4.51705 10.7025 4.38273 10.5682 4.21705 10.5682H0.75C0.335786 10.5682 0 10.2324 0 9.81818V5.15667C0 4.82719 0.215025 4.5363 0.530008 4.43966Z" fill="#ef4444"/></svg>
+                  <svg className="mini-bolt" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 15 15" fill="none"><path d="M0.530008 4.43966L13.5591 0.442106C13.9327 0.327463 14.2106 0.789407 13.9342 1.06577L7.92691 7.0731C7.73792 7.26208 7.87176 7.58523 8.13904 7.58523H11.1043C11.4395 7.58523 11.6063 7.99129 11.368 8.2269L5.15569 14.3686C4.91884 14.6028 4.51705 14.435 4.51705 14.1019V10.8682C4.51705 10.7025 4.38273 10.5682 4.21705 10.5682H0.75C0.335786 10.5682 0 10.2324 0 9.81818V5.15667C0 4.82719 0.215025 4.5363 0.530008 4.43966Z" fill="#f87171"/></svg>
+                  <svg className="mini-bolt" xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 15 15" fill="none"><path d="M0.530008 4.43966L13.5591 0.442106C13.9327 0.327463 14.2106 0.789407 13.9342 1.06577L7.92691 7.0731C7.73792 7.26208 7.87176 7.58523 8.13904 7.58523H11.1043C11.4395 7.58523 11.6063 7.99129 11.368 8.2269L5.15569 14.3686C4.91884 14.6028 4.51705 14.435 4.51705 14.1019V10.8682C4.51705 10.7025 4.38273 10.5682 4.21705 10.5682H0.75C0.335786 10.5682 0 10.2324 0 9.81818V5.15667C0 4.82719 0.215025 4.5363 0.530008 4.43966Z" fill="#fca5a5"/></svg>
+                  <svg className="mini-bolt" xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 15 15" fill="none"><path d="M0.530008 4.43966L13.5591 0.442106C13.9327 0.327463 14.2106 0.789407 13.9342 1.06577L7.92691 7.0731C7.73792 7.26208 7.87176 7.58523 8.13904 7.58523H11.1043C11.4395 7.58523 11.6063 7.99129 11.368 8.2269L5.15569 14.3686C4.91884 14.6028 4.51705 14.435 4.51705 14.1019V10.8682C4.51705 10.7025 4.38273 10.5682 4.21705 10.5682H0.75C0.335786 10.5682 0 10.2324 0 9.81818V5.15667C0 4.82719 0.215025 4.5363 0.530008 4.43966Z" fill="#ef4444"/></svg>
+                  <svg className="mini-bolt" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 15 15" fill="none"><path d="M0.530008 4.43966L13.5591 0.442106C13.9327 0.327463 14.2106 0.789407 13.9342 1.06577L7.92691 7.0731C7.73792 7.26208 7.87176 7.58523 8.13904 7.58523H11.1043C11.4395 7.58523 11.6063 7.99129 11.368 8.2269L5.15569 14.3686C4.91884 14.6028 4.51705 14.435 4.51705 14.1019V10.8682C4.51705 10.7025 4.38273 10.5682 4.21705 10.5682H0.75C0.335786 10.5682 0 10.2324 0 9.81818V5.15667C0 4.82719 0.215025 4.5363 0.530008 4.43966Z" fill="#f87171"/></svg>
+                </span>
+                {/* Main lightning bolt */}
+                <svg className="main-bolt" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <path d="M0.530008 4.43966L13.5591 0.442106C13.9327 0.327463 14.2106 0.789407 13.9342 1.06577L7.92691 7.0731C7.73792 7.26208 7.87176 7.58523 8.13904 7.58523H11.1043C11.4395 7.58523 11.6063 7.99129 11.368 8.2269L5.15569 14.3686C4.91884 14.6028 4.51705 14.435 4.51705 14.1019V10.8682C4.51705 10.7025 4.38273 10.5682 4.21705 10.5682H0.75C0.335786 10.5682 0 10.2324 0 9.81818V5.15667C0 4.82719 0.215025 4.5363 0.530008 4.43966Z" fill="white" fillOpacity="0.6"/>
+                </svg>
+              </span>
+              <span className="bankai-text">BANKAI.AGENCY</span>
             </a>
           </div>
         </div>
@@ -224,6 +235,121 @@ export default function Footer() {
         @keyframes footer-spin {
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
+        }
+
+        /* ===== BANKAI LIGHTNING ANIMATION ===== */
+        .bankai-link {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.25rem;
+          margin-left: 0.25rem;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        .bankai-link .bankai-icon {
+          position: relative;
+          transition: filter 0.1s ease;
+        }
+        .bankai-link .bankai-icon svg.main-bolt {
+          position: relative;
+          z-index: 2;
+          transition: filter 0.1s ease, transform 0.2s ease, opacity 0.15s ease;
+        }
+        .bankai-link .bankai-icon::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 2.1875rem;
+          height: 2.1875rem;
+          background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(239,68,68,0.9) 25%, rgba(220,38,38,0.5) 50%, transparent 70%);
+          border-radius: 50%;
+          transform: translate(-50%, -50%) scale(0);
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+        }
+        .bankai-link .mini-bolts {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 2.5rem;
+          height: 2.5rem;
+          pointer-events: none;
+          z-index: 0;
+        }
+        .bankai-link .mini-bolt {
+          position: absolute;
+          opacity: 0;
+          pointer-events: none;
+        }
+        .bankai-link .mini-bolt:nth-child(1) { top: 0.125rem; left: 50%; transform: translateX(-50%) scale(0.35) rotate(-15deg); }
+        .bankai-link .mini-bolt:nth-child(2) { top: 0.5rem; right: 0; transform: scale(0.3) rotate(25deg); }
+        .bankai-link .mini-bolt:nth-child(3) { bottom: 0.3125rem; right: 0.125rem; transform: scale(0.28) rotate(45deg); }
+        .bankai-link .mini-bolt:nth-child(4) { bottom: 0.125rem; left: 50%; transform: translateX(-50%) scale(0.32) rotate(10deg); }
+        .bankai-link .mini-bolt:nth-child(5) { top: 0.625rem; left: 0; transform: scale(0.3) rotate(-30deg); }
+        .bankai-link .bankai-text {
+          position: relative;
+          font-size: 0.875rem;
+          font-style: normal;
+          font-weight: 600;
+          color: rgba(255,255,255,0.6);
+          background: linear-gradient(90deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 35%, #fff 45%, #ff6b6b 50%, #fff 55%, rgba(255,255,255,0.6) 65%, rgba(255,255,255,0.6) 100%);
+          background-size: 300% 100%;
+          background-position: 100% 0;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .bankai-link:hover .bankai-icon::before {
+          animation: bankai-lightning-flash 0.5s ease-out forwards;
+        }
+        .bankai-link:hover .bankai-icon svg.main-bolt {
+          animation: bankai-lightning-strike-main 0.4s ease-out forwards;
+          filter: drop-shadow(0 0 10px rgba(239,68,68,1));
+        }
+        .bankai-link:hover .bankai-icon svg.main-bolt path {
+          fill: #fff;
+          fill-opacity: 1;
+        }
+        .bankai-link:hover .mini-bolt:nth-child(1) { animation: bankai-mini-bolt-flicker 0.6s ease-out 0s forwards; }
+        .bankai-link:hover .mini-bolt:nth-child(2) { animation: bankai-mini-bolt-flicker 0.5s ease-out 0.08s forwards; }
+        .bankai-link:hover .mini-bolt:nth-child(3) { animation: bankai-mini-bolt-flicker 0.55s ease-out 0.15s forwards; }
+        .bankai-link:hover .mini-bolt:nth-child(4) { animation: bankai-mini-bolt-flicker 0.5s ease-out 0.05s forwards; }
+        .bankai-link:hover .mini-bolt:nth-child(5) { animation: bankai-mini-bolt-flicker 0.6s ease-out 0.12s forwards; }
+        .bankai-link:hover .bankai-text {
+          animation: bankai-text-shimmer 1s ease-out 0.1s forwards;
+        }
+        @keyframes bankai-lightning-flash {
+          0%   { transform: translate(-50%, -50%) scale(0);   opacity: 0; }
+          20%  { transform: translate(-50%, -50%) scale(2);   opacity: 1; }
+          40%  { transform: translate(-50%, -50%) scale(1.5); opacity: 0.7; }
+          60%  { transform: translate(-50%, -50%) scale(2);   opacity: 0.9; }
+          100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+        }
+        @keyframes bankai-lightning-strike-main {
+          0%   { transform: translate(15px, -15px) scale(0.5) rotate(-10deg); opacity: 0; }
+          10%  { transform: translate(10px, -10px) scale(0.7) rotate(-5deg);  opacity: 0.4; }
+          25%  { transform: translate(3px, -3px) scale(0.9) rotate(-2deg);    opacity: 0.8; }
+          40%  { transform: translate(0, 0) scale(1.15) rotate(0deg);         opacity: 1; }
+          60%  { transform: translate(0, 0) scale(1) rotate(0deg);            opacity: 1; }
+          100% { transform: translate(0, 0) scale(1) rotate(0deg);            opacity: 1; }
+        }
+        @keyframes bankai-mini-bolt-flicker {
+          0%   { opacity: 0; }
+          10%  { opacity: 0.9; }
+          20%  { opacity: 0.3; }
+          35%  { opacity: 1; }
+          50%  { opacity: 0.4; }
+          65%  { opacity: 0.8; }
+          80%  { opacity: 0.2; }
+          100% { opacity: 0; }
+        }
+        @keyframes bankai-text-shimmer {
+          0%   { background-position: 100% 0; }
+          100% { background-position: -150% 0; }
         }
       `}} />
     </footer>
