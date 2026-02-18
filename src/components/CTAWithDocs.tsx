@@ -16,31 +16,54 @@ const docs = [
     ),
     content: "lines" as const,
     lines: [
-      { w: "60%", h: 2 }, { w: "80%", h: 2 }, { w: "45%", h: 2 }, { w: "70%", h: 2 }, { w: "55%", h: 2 },
+      { w: "45%", h: 2.5 }, { w: "80%", h: 1.5 }, { w: "65%", h: 1.5 }, { w: "90%", h: 1.5 }, { w: "50%", h: 1.5 },
     ],
     extras: (
       <>
-        {/* Table mockup */}
-        <div className="mt-2.5 border border-gray-100 rounded-sm overflow-hidden">
+        {/* Section heading */}
+        <div className="mt-2 mb-1">
+          <div className="rounded-sm bg-gray-200" style={{ width: "55%", height: 2.5 }} />
+        </div>
+        {/* Specs table */}
+        <div className="border border-gray-100 rounded-sm overflow-hidden">
+          {/* Table header */}
+          <div className="grid grid-cols-3 gap-px bg-gray-50">
+            <div className="bg-gray-100/80 px-1.5 py-0.5"><div className="rounded-sm bg-gray-300/50" style={{ width: "70%", height: 1.5 }} /></div>
+            <div className="bg-gray-100/80 px-1.5 py-0.5"><div className="rounded-sm bg-gray-300/50" style={{ width: "55%", height: 1.5 }} /></div>
+            <div className="bg-gray-100/80 px-1.5 py-0.5"><div className="rounded-sm bg-gray-300/50" style={{ width: "60%", height: 1.5 }} /></div>
+          </div>
           <div className="grid grid-cols-3 gap-px bg-gray-100">
-            {[...Array(9)].map((_, j) => (
-              <div key={j} className="bg-white px-1.5 py-1">
-                <div className="rounded-sm bg-gray-100" style={{ width: `${40 + (j % 3) * 25}%`, height: 1.5 }} />
+            {[...Array(12)].map((_, j) => (
+              <div key={j} className="bg-white px-1.5 py-0.5">
+                <div className="rounded-sm bg-gray-100" style={{ width: `${35 + (j % 3) * 22}%`, height: 1.5 }} />
               </div>
             ))}
           </div>
         </div>
-        {/* More lines */}
-        <div className="space-y-1.5 mt-2.5">
-          <div className="rounded-sm bg-gray-100" style={{ width: "75%", height: 1.5 }} />
-          <div className="rounded-sm bg-gray-100" style={{ width: "50%", height: 1.5 }} />
+        {/* Performance metrics */}
+        <div className="mt-2 space-y-1">
+          <div className="rounded-sm bg-gray-200" style={{ width: "48%", height: 2 }} />
+          {[75, 60, 85, 45].map((w, j) => (
+            <div key={j} className="flex items-center gap-1.5">
+              <div className="rounded-sm bg-gray-100" style={{ width: "35%", height: 1.5 }} />
+              <div className="flex-1 h-1.5 rounded-full bg-gray-100 overflow-hidden">
+                <div className="h-full rounded-full" style={{ width: `${w}%`, backgroundColor: j < 2 ? "#3854AA30" : "#ef444420" }} />
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* More text lines */}
+        <div className="space-y-1 mt-2">
+          <div className="rounded-sm bg-gray-100" style={{ width: "85%", height: 1.5 }} />
+          <div className="rounded-sm bg-gray-100" style={{ width: "70%", height: 1.5 }} />
+          <div className="rounded-sm bg-gray-100" style={{ width: "60%", height: 1.5 }} />
         </div>
         {/* Signature line */}
-        <div className="mt-2 pt-1.5 border-t border-dashed border-gray-200 flex items-end gap-2">
+        <div className="mt-1.5 pt-1.5 border-t border-dashed border-gray-200 flex items-end gap-2">
           <div className="rounded-sm bg-gray-100" style={{ width: "45%", height: 1.5 }} />
-          <span className="text-[6px] text-gray-300">Date</span>
+          <span className="text-[5px] text-gray-300">Date</span>
           <div className="rounded-sm bg-gray-100 ml-auto" style={{ width: "30%", height: 1.5 }} />
-          <span className="text-[6px] text-gray-300">Sign</span>
+          <span className="text-[5px] text-gray-300">Sign</span>
         </div>
       </>
     ),
@@ -56,30 +79,57 @@ const docs = [
     ),
     content: "lines" as const,
     lines: [
-      { w: "70%", h: 2 }, { w: "50%", h: 2 }, { w: "85%", h: 2 }, { w: "40%", h: 2 }, { w: "65%", h: 2 },
+      { w: "50%", h: 2.5 }, { w: "70%", h: 1.5 }, { w: "85%", h: 1.5 }, { w: "40%", h: 1.5 },
     ],
     extras: (
       <>
-        {/* Checkbox items */}
-        <div className="space-y-1 mt-2.5">
-          {["Profile: GEALAN S8000", "Glass: Triple Argon", "Color: RAL 7016", "Hardware: Roto NT", "Sill: Aluminum"].map((text, j) => (
-            <div key={j} className="flex items-center gap-1.5">
-              <div className="w-2 h-2 rounded-[1px] border border-gray-200 flex items-center justify-center flex-shrink-0">
-                {j < 4 && <div className="w-1 h-1 rounded-[0.5px] bg-blue-500" />}
-              </div>
-              <span className="text-[6px] text-gray-400 truncate">{text}</span>
+        {/* Customer info fields */}
+        <div className="mt-1.5 grid grid-cols-2 gap-x-2 gap-y-1">
+          {["Name", "Phone", "Address", "Email"].map((label, j) => (
+            <div key={j}>
+              <span className="text-[5px] text-gray-300 uppercase">{label}</span>
+              <div className="rounded-sm bg-gray-50 border border-gray-100 mt-0.5" style={{ height: 6 }} />
             </div>
           ))}
         </div>
-        {/* Separator + more lines */}
-        <div className="mt-2 pt-1.5 border-t border-gray-100 space-y-1">
-          <div className="rounded-sm bg-gray-100" style={{ width: "60%", height: 1.5 }} />
-          <div className="rounded-sm bg-gray-100" style={{ width: "45%", height: 1.5 }} />
+        {/* Section heading */}
+        <div className="mt-2 mb-1">
+          <div className="rounded-sm bg-gray-200" style={{ width: "40%", height: 2 }} />
+        </div>
+        {/* Checkbox items */}
+        <div className="space-y-0.5">
+          {["Profile: GEALAN S8000", "Glass: Triple Argon Low-E", "Color: RAL 7016 Anthracite", "Hardware: Roto NT", "Sill: Aluminum 40mm", "Mosquito Net: Roll-type", "Handle: White Secustik"].map((text, j) => (
+            <div key={j} className="flex items-center gap-1">
+              <div className="w-1.5 h-1.5 rounded-[1px] border border-gray-200 flex items-center justify-center flex-shrink-0">
+                {j < 5 && <div className="w-0.5 h-0.5 rounded-[0.5px] bg-blue-500" />}
+              </div>
+              <span className="text-[5px] text-gray-400 truncate">{text}</span>
+            </div>
+          ))}
+        </div>
+        {/* Dimensions table */}
+        <div className="mt-1.5 border border-gray-100 rounded-sm overflow-hidden">
+          <div className="grid grid-cols-4 gap-px bg-gray-100 text-[4.5px] text-gray-400">
+            {["Window", "W (mm)", "H (mm)", "Qty"].map((h) => (
+              <div key={h} className="bg-gray-50 px-1 py-0.5 font-medium text-gray-500">{h}</div>
+            ))}
+            {["W-01", "1200", "1400", "3", "W-02", "900", "1200", "2", "D-01", "2100", "2200", "1"].map((cell, j) => (
+              <div key={j} className="bg-white px-1 py-0.5">{cell}</div>
+            ))}
+          </div>
+        </div>
+        {/* Separator + notes */}
+        <div className="mt-1.5 pt-1 border-t border-gray-100 space-y-0.5">
+          <span className="text-[5px] text-gray-300 uppercase">Notes</span>
+          <div className="rounded-sm bg-gray-100" style={{ width: "80%", height: 1.5 }} />
+          <div className="rounded-sm bg-gray-100" style={{ width: "55%", height: 1.5 }} />
         </div>
         {/* Total */}
-        <div className="mt-1.5 pt-1 border-t border-gray-100 flex items-center justify-between">
-          <span className="text-[6px] text-gray-300 font-medium">Total</span>
-          <div className="rounded-sm bg-gray-100" style={{ width: 35, height: 2 }} />
+        <div className="mt-1 pt-1 border-t border-gray-200 flex items-center justify-between">
+          <span className="text-[6px] text-gray-400 font-bold">Total</span>
+          <div className="rounded-sm bg-blue-50 border border-blue-100 px-1.5 py-0.5">
+            <span className="text-[6px] text-blue-500 font-bold">$12,480.00</span>
+          </div>
         </div>
       </>
     ),
