@@ -75,6 +75,8 @@ export default function EnergySavingsCard() {
           <div className="flex flex-col items-center h-full" style={{ width: "4.5rem" }}>
             <div className="w-full flex-1 bg-gray-100 rounded-lg relative overflow-hidden">
               <div ref={beforeRef} className="absolute bottom-0 left-0 right-0 bg-[#e8873a] rounded-b-lg overflow-hidden" style={{ height: "0%" }}>
+                {/* Inner glow */}
+                <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 20%, rgba(255,200,100,0.35) 0%, transparent 70%), radial-gradient(ellipse 60% 40% at 50% 80%, rgba(255,255,255,0.12) 0%, transparent 60%)" }} />
                 <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.12 }}>
                   <defs><pattern id="energy-grid" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M 12 0 L 0 0 0 12" fill="none" stroke="white" strokeWidth="0.5" /></pattern></defs>
                   <rect width="100%" height="100%" fill="url(#energy-grid)" />
@@ -92,7 +94,13 @@ export default function EnergySavingsCard() {
           {/* After */}
           <div className="flex flex-col items-center h-full" style={{ width: "4.5rem" }}>
             <div className="w-full flex-1 bg-gray-100 rounded-lg relative overflow-hidden">
-              <div ref={afterRef} className="absolute bottom-0 left-0 right-0 bg-brand rounded-b-lg" style={{ height: "0%" }} />
+              <div ref={afterRef} className="absolute bottom-0 left-0 right-0 bg-brand rounded-b-lg overflow-hidden" style={{ height: "0%" }}>
+                <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 20%, rgba(120,180,255,0.35) 0%, transparent 70%), radial-gradient(ellipse 60% 40% at 50% 80%, rgba(255,255,255,0.12) 0%, transparent 60%)" }} />
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.1 }}>
+                  <defs><pattern id="energy-grid-after" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M 12 0 L 0 0 0 12" fill="none" stroke="white" strokeWidth="0.5" /></pattern></defs>
+                  <rect width="100%" height="100%" fill="url(#energy-grid-after)" />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
@@ -101,7 +109,7 @@ export default function EnergySavingsCard() {
         <div className="flex justify-center gap-6 mb-6">
           <div className="text-center" style={{ width: "4.5rem" }}>
             <p className="text-[11px] font-semibold text-text-muted">Before</p>
-            <p className="text-[11px] font-bold text-text-primary">$3,200/yr</p>
+            <p className="text-[11px] font-bold text-brand">$3,200/yr</p>
           </div>
           <div style={{ width: "3.5rem" }} />
           <div className="text-center" style={{ width: "4.5rem" }}>
@@ -114,7 +122,7 @@ export default function EnergySavingsCard() {
         <div className="border-t border-border pt-4 mt-auto flex items-center justify-between">
           <div>
             <p className="text-[10px] text-text-muted uppercase tracking-wider font-medium">Annual savings</p>
-            <span ref={savingsRef} className="text-lg font-black text-text-primary">$0</span>
+            <span ref={savingsRef} className="text-lg font-black text-brand">$0</span>
           </div>
           <span className="text-[10px] text-text-muted">per household avg.</span>
         </div>
@@ -201,7 +209,7 @@ export default function EnergySavingsCard() {
         <div className="border-t border-border pt-4 mt-auto flex items-center justify-between">
           <div>
             <p className="text-[10px] text-text-muted uppercase tracking-wider font-medium">Average savings</p>
-            <span className="text-lg font-black text-text-primary">$1,500–2,500</span>
+            <span className="text-lg font-black text-brand">$1,500–2,500</span>
           </div>
           <span className="text-[10px] text-text-muted">per year</span>
         </div>
