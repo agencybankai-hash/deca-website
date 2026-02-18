@@ -163,7 +163,7 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
       </div>
 
       {/* Right — Video */}
-      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#f6f6f6]">
+      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white">
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
         <video
           ref={videoRef}
@@ -177,7 +177,7 @@ export default function VideoTabs({ tabs }: VideoTabsProps) {
         {!isPlaying && (
           <button
             onClick={handleManualPlay}
-            className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-[#f6f6f6] cursor-pointer"
+            className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-white cursor-pointer"
           >
             <div className="w-20 h-20 rounded-full bg-brand/10 hover:bg-brand/20 flex items-center justify-center mb-3 transition-colors">
               <svg className="w-10 h-10 text-brand ml-1" fill="currentColor" viewBox="0 0 24 24">

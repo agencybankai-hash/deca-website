@@ -44,12 +44,12 @@ export default function TiltTurnPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-12 md:pt-20 pb-12">
           {/* Hero heading */}
           <div className="text-center mb-12 md:mb-16">
-            <h1 className="text-3xl md:text-5xl lg:text-[56px] font-bold text-text-primary leading-[1.1] mb-5 tracking-tight uppercase">
-              Tilt and Turn European Windows:<br />
-              Unmatched Silence and Energy Efficiency.
-            </h1>
-            <p className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
-              Premium windows and doors manufactured in Massachusetts with industry-leading performance
+            <span className="inline-block text-xs font-semibold tracking-wider uppercase text-brand mb-3">Most Popular in Europe</span>
+            <h1 className="text-4xl md:text-5xl font-bold text-text-primary leading-tight mb-5">Tilt & Turn Windows</h1>
+            <p className="text-lg text-text-secondary leading-relaxed max-w-2xl mx-auto">
+              The most versatile window system in the world. Two opening modes,
+              exceptional performance, and German GEALAN engineering —
+              manufactured in Massachusetts.
             </p>
           </div>
 
