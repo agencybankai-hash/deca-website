@@ -9,6 +9,7 @@ interface Stat {
   prefix?: string;
   label: string;
   decimals?: number;
+  icon?: React.ReactNode;
 }
 
 interface AnimatedStatsProps {
@@ -60,14 +61,18 @@ export default function AnimatedStats({ stats }: AnimatedStatsProps) {
     <div ref={containerRef} className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
       {stats.map((stat, i) => (
         <div key={stat.label} className="flex flex-col items-center text-center">
+          {stat.icon && (
+            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center mb-3">
+              {stat.icon}
+            </div>
+          )}
           <span
             id={`stat-num-${i}`}
             className="text-4xl md:text-5xl font-black text-white leading-none tracking-tight"
           >
             {stat.prefix || ""}0{stat.suffix || ""}
           </span>
-          <div className="w-8 h-0.5 bg-white/20 rounded-full mt-3 mb-2" />
-          <span className="text-sm text-white/60 font-medium">{stat.label}</span>
+          <span className="text-sm text-white/60 font-medium mt-2">{stat.label}</span>
         </div>
       ))}
     </div>
