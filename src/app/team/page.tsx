@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Breadcrumb, PageHero, Section, SectionTitle, CTABlock, ImagePlaceholder } from "@/components/ui";
+import CTAWithDocs from "@/components/CTAWithDocs";
+import StickyCTA from "@/components/StickyCTA";
 
 export const metadata = {
   title: "Our Team | Window & Door Experts | DECA Windows",
@@ -410,12 +412,13 @@ export default function TeamPage() {
         </div>
       </Section>
 
-      <CTABlock
+      <CTAWithDocs
         title="Meet the DECA Team"
-        subtitle="Schedule a consultation with our experts. We're here to help."
-        btnText="Contact Us"
-        btnHref="/quote"
+        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
+        btnText="Schedule Consultation"
       />
+
+      <StickyCTA />
     </>
   );
 }

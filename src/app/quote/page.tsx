@@ -1,4 +1,5 @@
 import { Breadcrumb, Section } from "@/components/ui";
+import StickyCTA from "@/components/StickyCTA";
 import QuoteForm from "./QuoteForm";
 
 export const metadata = {
@@ -13,6 +14,7 @@ export default function QuotePage() {
       <Section>
         <QuoteForm />
       </Section>
+      <StickyCTA />
     </>
   );
 }

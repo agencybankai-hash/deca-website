@@ -2,6 +2,10 @@ import Link from "next/link";
 import { Breadcrumb, Section, SectionTitle, CTABlock, PhotoPlaceholder, ServiceIcons, GuideCard, StatCard } from "@/components/ui";
 import { SlidingDoorConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
+import ReviewsSection from "@/components/ReviewsSection";
+import DeliveryMapSection from "@/components/DeliveryMapSection";
+import CTAWithDocs from "@/components/CTAWithDocs";
+import StickyCTA from "@/components/StickyCTA";
 
 export const metadata: Metadata = {
   title: "Sliding Door Systems | PSk, Lift & Slide | DECA Windows",
@@ -164,11 +168,13 @@ export default function SlidingDoorsPage() {
         </div>
       </Section>
 
-      {/* Service Icons - Figma Pattern: Features with Icons */}
-      <Section gray>
-        <SectionTitle title="Exceptional Service in Massachusetts" />
-        <ServiceIcons />
-      </Section>
+
+
+      {/* ═══════ REVIEWS ═══════ */}
+      <ReviewsSection />
+
+      {/* ═══════ DELIVERY MAP ═══════ */}
+      <DeliveryMapSection />
 
       {/* Expert Guides - Figma Pattern: 3-Column Card Grid */}
       <Section>
@@ -231,12 +237,13 @@ export default function SlidingDoorsPage() {
       </Section>
 
       {/* CTA Block - Figma Pattern: Call-to-Action Section */}
-      <CTABlock
+      <CTAWithDocs
         title="Which Sliding System Is Right for You?"
-        subtitle="We'll help you choose the perfect system for your project."
+        subtitle="Get your custom order form, door blueprints, and detailed specification — all prepared for your project."
         btnText="Get Expert Advice"
-        variant="blue"
       />
+
+      <StickyCTA />
     </>
   );
 }

@@ -2,6 +2,10 @@ import Link from "next/link";
 import { Breadcrumb, Section, SectionTitle, CTABlock, PhotoPlaceholder, ServiceIcons, GuideCard } from "@/components/ui";
 import { WindowConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
+import ReviewsSection from "@/components/ReviewsSection";
+import DeliveryMapSection from "@/components/DeliveryMapSection";
+import CTAWithDocs from "@/components/CTAWithDocs";
+import StickyCTA from "@/components/StickyCTA";
 
 export const metadata: Metadata = {
   title: "European-Style Windows | uPVC & Aluminum | DECA Windows",
@@ -179,11 +183,13 @@ export default function WindowsPage() {
         </div>
       </Section>
 
-      {/* Service Icons */}
-      <Section gray>
-        <SectionTitle title="Exceptional Service in Massachusetts" />
-        <ServiceIcons />
-      </Section>
+
+
+      {/* ═══════ REVIEWS ═══════ */}
+      <ReviewsSection />
+
+      {/* ═══════ DELIVERY MAP ═══════ */}
+      <DeliveryMapSection />
 
       {/* Expert Guides */}
       <Section>
@@ -216,7 +222,13 @@ export default function WindowsPage() {
         </div>
       </Section>
 
-      <CTABlock title="Find Your Perfect Window" subtitle="Use our configurator or get a free consultation from our experts." btnText="Get a Quote" variant="blue" />
+      <CTAWithDocs
+        title="Find Your Perfect Window"
+        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
+        btnText="Get a Quote"
+      />
+
+      <StickyCTA />
     </>
   );
 }

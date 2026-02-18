@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { Breadcrumb, Section, SectionTitle, CTABlock, PhotoPlaceholder, ServiceIcons, GuideCard } from "@/components/ui";
 import type { Metadata } from "next";
+import ReviewsSection from "@/components/ReviewsSection";
+import DeliveryMapSection from "@/components/DeliveryMapSection";
+import CTAWithDocs from "@/components/CTAWithDocs";
+import StickyCTA from "@/components/StickyCTA";
 
 export const metadata: Metadata = {
   title: "European-Style Doors | Entry, French & Sliding | DECA Doors",
@@ -177,11 +181,13 @@ export default function DoorsPage() {
         </div>
       </Section>
 
-      {/* Service Icons */}
-      <Section>
-        <SectionTitle title="Exceptional Service in Massachusetts" />
-        <ServiceIcons />
-      </Section>
+
+
+      {/* ═══════ REVIEWS ═══════ */}
+      <ReviewsSection />
+
+      {/* ═══════ DELIVERY MAP ═══════ */}
+      <DeliveryMapSection />
 
       {/* Expert Guides */}
       <Section gray>
@@ -214,7 +220,13 @@ export default function DoorsPage() {
         </div>
       </Section>
 
-      <CTABlock title="Let's Work Together to Build Better Spaces" subtitle="Whether residential or commercial — we're here to help you find the perfect door solution." btnText="Get a Quote" />
+      <CTAWithDocs
+        title="Let's Work Together to Build Better Spaces"
+        subtitle="Get your custom order form, door blueprints, and detailed specification — all prepared for your project."
+        btnText="Get a Quote"
+      />
+
+      <StickyCTA />
     </>
   );
 }

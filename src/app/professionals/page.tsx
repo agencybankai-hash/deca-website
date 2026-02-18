@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { Breadcrumb, Section, SectionTitle, CTABlock, PhotoPlaceholder, ServiceIcons, StatCard } from "@/components/ui";
 import type { Metadata } from "next";
+import ReviewsSection from "@/components/ReviewsSection";
+import DeliveryMapSection from "@/components/DeliveryMapSection";
+import StickyCTA from "@/components/StickyCTA";
 
 export const metadata: Metadata = {
   title: "For Professionals | Contractors, Architects, Dealers | DECA Windows",
@@ -104,11 +107,13 @@ export default function ProfessionalsPage() {
         </div>
       </Section>
 
-      {/* Service Icons */}
-      <Section gray>
-        <SectionTitle title="Exceptional Service" />
-        <ServiceIcons />
-      </Section>
+
+
+      {/* ═══════ REVIEWS ═══════ */}
+      <ReviewsSection />
+
+      {/* ═══════ DELIVERY MAP ═══════ */}
+      <DeliveryMapSection />
 
       {/* B2B Contact Form */}
       <section id="contact-form" className="bg-brand text-white py-20">
@@ -138,6 +143,7 @@ export default function ProfessionalsPage() {
           </button>
         </div>
       </section>
+      <StickyCTA />
     </>
   );
 }

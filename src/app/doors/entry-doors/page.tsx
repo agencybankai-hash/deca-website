@@ -2,6 +2,10 @@ import Link from "next/link";
 import { Breadcrumb, Section, SectionTitle, CTABlock, PhotoPlaceholder, ServiceIcons, GuideCard, StatCard } from "@/components/ui";
 import { EntryDoorConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
+import ReviewsSection from "@/components/ReviewsSection";
+import DeliveryMapSection from "@/components/DeliveryMapSection";
+import CTAWithDocs from "@/components/CTAWithDocs";
+import StickyCTA from "@/components/StickyCTA";
 
 export const metadata: Metadata = {
   title: "Entry Doors & Front Doors | Secure European Design | DECA Windows",
@@ -163,11 +167,13 @@ export default function EntryDoorsPage() {
         </div>
       </Section>
 
-      {/* Service Icons */}
-      <Section>
-        <SectionTitle title="Exceptional Service in Massachusetts" />
-        <ServiceIcons />
-      </Section>
+
+
+      {/* ═══════ REVIEWS ═══════ */}
+      <ReviewsSection />
+
+      {/* ═══════ DELIVERY MAP ═══════ */}
+      <DeliveryMapSection />
 
       {/* Expert Guides */}
       <Section gray>
@@ -216,7 +222,13 @@ export default function EntryDoorsPage() {
         </div>
       </Section>
 
-      <CTABlock title="Ready to Upgrade Your Entry?" subtitle="Premium security, energy efficiency, and design." btnText="Get Custom Quote" variant="blue" />
+      <CTAWithDocs
+        title="Ready to Upgrade Your Entry?"
+        subtitle="Get your custom order form, door blueprints, and detailed specification — all prepared for your project."
+        btnText="Get Custom Quote"
+      />
+
+      <StickyCTA />
     </>
   );
 }

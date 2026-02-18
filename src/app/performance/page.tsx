@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { Breadcrumb, Section, SectionTitle, CTABlock, PhotoPlaceholder, ServiceIcons, GuideCard, StatCard } from "@/components/ui";
 import type { Metadata } from "next";
+import ReviewsSection from "@/components/ReviewsSection";
+import CTAWithDocs from "@/components/CTAWithDocs";
+import StickyCTA from "@/components/StickyCTA";
 
 export const metadata: Metadata = {
   title: "Performance & Testing Data | DECA Windows",
@@ -202,12 +205,6 @@ export default function PerformancePage() {
         </div>
       </Section>
 
-      {/* Service Icons - Design Pattern: Feature Grid */}
-      <Section>
-        <SectionTitle title="Exceptional Service in Massachusetts" />
-        <ServiceIcons />
-      </Section>
-
       {/* Expert Guides - Design Pattern: Content Cards */}
       <Section gray>
         <SectionTitle badge="Resources" title="Expert Guides" />
@@ -233,13 +230,17 @@ export default function PerformancePage() {
         </div>
       </Section>
 
+      {/* ═══════ REVIEWS ═══════ */}
+      <ReviewsSection />
+
       {/* CTA Block - Design Pattern: Call to Action */}
-      <CTABlock 
-        title="Want the Full Performance Report?" 
-        subtitle="Download our comprehensive test data or schedule a consultation." 
-        btnText="Get a Quote" 
-        variant="blue" 
+      <CTAWithDocs
+        title="Want the Full Performance Report?"
+        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
+        btnText="Download Report"
       />
+
+      <StickyCTA />
     </>
   );
 }

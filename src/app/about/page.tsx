@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { Breadcrumb, Section, SectionTitle, CTABlock, PhotoPlaceholder, ServiceIcons, StatCard } from "@/components/ui";
 import type { Metadata } from "next";
+import ReviewsSection from "@/components/ReviewsSection";
+import DeliveryMapSection from "@/components/DeliveryMapSection";
+import CTAWithDocs from "@/components/CTAWithDocs";
+import StickyCTA from "@/components/StickyCTA";
 
 export const metadata: Metadata = {
   title: "About DECA | European Technology, American Craftsmanship",
@@ -131,13 +135,21 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Service Icons */}
-      <Section>
-        <SectionTitle title="Exceptional Service" />
-        <ServiceIcons />
-      </Section>
 
-      <CTABlock title="Ready to Work with Us?" subtitle="Whether homeowner or professional, we're here to help." btnText="Contact Us" variant="blue" />
+
+      {/* ═══════ REVIEWS ═══════ */}
+      <ReviewsSection />
+
+      {/* ═══════ DELIVERY MAP ═══════ */}
+      <DeliveryMapSection />
+
+      <CTAWithDocs
+        title="Ready to Work with Us?"
+        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
+        btnText="Contact Us"
+      />
+
+      <StickyCTA />
     </>
   );
 }

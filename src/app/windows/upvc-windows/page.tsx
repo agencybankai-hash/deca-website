@@ -10,6 +10,9 @@ import PerformanceBars from "@/components/PerformanceBars";
 import EnergySavingsCard from "@/components/EnergySavingsCard";
 import GlazingComparison from "@/components/GlazingComparison";
 import StickyCTA from "@/components/StickyCTA";
+import ReviewsSection from "@/components/ReviewsSection";
+import DeliveryMapSection from "@/components/DeliveryMapSection";
+import CTAWithDocs from "@/components/CTAWithDocs";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -109,31 +112,8 @@ export default function UPVCWindowsPage() {
         </div>
       </section>
 
-      {/* ═══════ SOCIAL PROOF — Reviews ═══════ */}
-      <section className="bg-warm-gray py-14">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-8">
-            <Image src={`${a}/icons/stars.svg`} alt="5-star reviews" width={108} height={20} className="mx-auto mb-2" />
-            <p className="text-sm text-text-muted">Trusted by homeowners across New England</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { name: "Miranda S.", text: "Our energy bills dropped by 45% after replacing all windows with DECA uPVC. The noise reduction is incredible — we live near a highway and can barely hear traffic now.", photo: "miranda.webp" },
-              { name: "Jordan K.", text: "The tilt-and-turn mechanism is a game-changer. Easy cleaning, great ventilation options, and the build quality is noticeably better than our old vinyl windows.", photo: "jordan.webp" },
-              { name: "Casey M.", text: "Impressive attention to detail from consultation to installation. The triple-glazed windows keep our 1920s colonial warm even in January without cranking the heat.", photo: "casey.webp" },
-            ].map((r) => (
-              <div key={r.name} className="bg-white rounded-xl border border-border p-6">
-                <Image src={`${a}/icons/stars.svg`} alt="5 stars" width={100} height={20} className="mb-3" />
-                <p className="text-sm text-text-secondary leading-relaxed mb-4">&ldquo;{r.text}&rdquo;</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand font-bold text-sm">{r.name.split(" ").map(n => n[0]).join("")}</div>
-                  <span className="text-sm font-semibold text-text-primary">{r.name}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ═══════ REVIEWS ═══════ */}
+      <ReviewsSection />
 
       {/* ═══════ CONFIGURATOR ═══════ */}
       <WindowConfigurator />
@@ -449,11 +429,9 @@ export default function UPVCWindowsPage() {
         </div>
       </Section>
 
-      {/* ═══════ SERVICE ═══════ */}
-      <Section gray>
-        <SectionTitle title="Exceptional Service in Massachusetts" />
-        <ServiceIcons />
-      </Section>
+
+      {/* ═══════ DELIVERY MAP ═══════ */}
+      <DeliveryMapSection />
 
       {/* ═══════ FAQ ═══════ */}
       <Section>
@@ -479,11 +457,10 @@ export default function UPVCWindowsPage() {
       </Section>
 
       {/* ═══════ FINAL CTA ═══════ */}
-      <CTABlock
+      <CTAWithDocs
         title="Ready for Premium uPVC Windows?"
-        subtitle="Any size, color, or configuration. Factory-direct pricing with GEALAN quality."
-        btnText="Get Free Custom Quote"
-        variant="blue"
+        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
+        btnText="Get Free Quote"
       />
 
       {/* ═══════ STICKY CTA ═══════ */}

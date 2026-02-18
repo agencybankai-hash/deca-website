@@ -2,6 +2,10 @@ import Link from "next/link";
 import { Breadcrumb, Section, SectionTitle, CTABlock, PhotoPlaceholder, ServiceIcons, GuideCard, StatCard } from "@/components/ui";
 import { WindowConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
+import ReviewsSection from "@/components/ReviewsSection";
+import DeliveryMapSection from "@/components/DeliveryMapSection";
+import CTAWithDocs from "@/components/CTAWithDocs";
+import StickyCTA from "@/components/StickyCTA";
 
 export const metadata: Metadata = {
   title: "Aluminum Windows | Modern European Design | DECA Windows",
@@ -166,11 +170,13 @@ export default function AluminumWindowsPage() {
         </div>
       </Section>
 
-      {/* Service Icons */}
-      <Section gray>
-        <SectionTitle title="Exceptional Service in Massachusetts" />
-        <ServiceIcons />
-      </Section>
+
+
+      {/* ═══════ REVIEWS ═══════ */}
+      <ReviewsSection />
+
+      {/* ═══════ DELIVERY MAP ═══════ */}
+      <DeliveryMapSection />
 
       {/* Expert Guides */}
       <Section>
@@ -204,7 +210,13 @@ export default function AluminumWindowsPage() {
         </div>
       </Section>
 
-      <CTABlock title="Ready for Contemporary Aluminum Windows?" subtitle="Custom profiles, unlimited colors, architectural flexibility." btnText="Get Custom Quote" variant="blue" />
+      <CTAWithDocs
+        title="Ready for Contemporary Aluminum Windows?"
+        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
+        btnText="Get Custom Quote"
+      />
+
+      <StickyCTA />
     </>
   );
 }

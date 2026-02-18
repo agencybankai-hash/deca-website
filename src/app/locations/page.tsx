@@ -1,5 +1,8 @@
-import { Breadcrumb, PageHero, Section, StatCard, CTABlock } from "@/components/ui";
-import DeliveryMap from "@/components/DeliveryMap";
+import { Breadcrumb, PageHero, Section, StatCard } from "@/components/ui";
+import ReviewsSection from "@/components/ReviewsSection";
+import DeliveryMapSection from "@/components/DeliveryMapSection";
+import CTAWithDocs from "@/components/CTAWithDocs";
+import StickyCTA from "@/components/StickyCTA";
 
 export const metadata = {
   title: "Service Areas | Massachusetts & Northeast | DECA Windows",
@@ -16,9 +19,8 @@ export default function LocationsPage() {
         badge="Service Areas"
       />
 
-      <Section>
-        <DeliveryMap />
-      </Section>
+      {/* ═══════ DELIVERY MAP ═══════ */}
+      <DeliveryMapSection />
 
       <Section gray>
         <div className="max-w-3xl mx-auto text-center">
@@ -34,7 +36,16 @@ export default function LocationsPage() {
         </div>
       </Section>
 
-      <CTABlock title="Serving Your Area?" subtitle="Get a free quote with delivery estimate for your location." btnText="Get Your Free Quote" />
+      {/* ═══════ REVIEWS ═══════ */}
+      <ReviewsSection />
+
+      <CTAWithDocs
+        title="Serving Your Area?"
+        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
+        btnText="Get Your Free Quote"
+      />
+
+      <StickyCTA />
     </>
   );
 }

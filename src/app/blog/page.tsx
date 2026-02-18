@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb, PageHero, Section } from "@/components/ui";
+import StickyCTA from "@/components/StickyCTA";
 import BlogContent from "./blog-content";
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function BlogPage() {
       <Section>
         <BlogContent />
       </Section>
+      <StickyCTA />
     </>
   );
 }
