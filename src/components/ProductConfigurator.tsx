@@ -621,6 +621,14 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
     setSelections((prev) => ({ ...prev, [step.id]: optionId }));
   }
 
+  function goNext() {
+    if (!isLast) setCurrentStep((p) => p + 1);
+  }
+
+  function goBack() {
+    if (!isFirst) setCurrentStep((p) => p - 1);
+  }
+
   /* Build summary string for quote link */
   const summaryParts = steps.map((s) => {
     const opt = s.options.find((o) => o.id === selections[s.id]);
@@ -632,150 +640,238 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
     <section id="configurator" className="bg-warm-gray py-16 md:py-20 border-y border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-12">
           <span className="inline-block text-[10px] font-semibold tracking-widest uppercase text-brand mb-2">Configurator</span>
           <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-2">{title}</h2>
           <p className="text-[15px] text-text-secondary max-w-xl mx-auto">{subtitle}</p>
         </div>
 
-        <div className="grid md:grid-cols-5 gap-8 items-start">
-          {/* Left: SVG Preview (2 cols) */}
-          <div className="md:col-span-2 bg-white rounded-xl border border-border p-6 flex items-center justify-center min-h-[360px] sticky top-24">
-            <div className="w-full max-w-[260px]">
-              {svgPreview(selections)}
+        <div className="grid md:grid-cols-12 gap-6 lg:gap-10 items-start">
+          {/* ── Left: SVG Preview ── */}
+          <div className="md:col-span-5 sticky top-24">
+            <div className="bg-white rounded-2xl border border-border overflow-hidden">
+              {/* Preview area with subtle gradient bg */}
+              <div className="p-8 flex items-center justify-center min-h-[320px] bg-gradient-to-br from-gray-50 to-white">
+                <div className="w-full max-w-[240px] transition-all duration-300">
+                  {svgPreview(selections)}
+                </div>
+              </div>
+              {/* Summary bar — below preview */}
+              <div className="border-t border-border px-5 py-4 bg-white">
+                <p className="text-[10px] font-semibold tracking-wider uppercase text-text-muted mb-2.5">Your Configuration</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {steps.map((s, i) => {
+                    const opt = s.options.find((o) => o.id === selections[s.id]);
+                    return (
+                      <button
+                        key={s.id}
+                        onClick={() => setCurrentStep(i)}
+                        className={`inline-flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-full transition-all ${
+                          i === currentStep
+                            ? "bg-brand/10 text-brand ring-1 ring-brand/20"
+                            : "bg-gray-100 text-text-secondary hover:bg-gray-200"
+                        }`}
+                      >
+                        <span className="font-medium">{s.title}:</span>
+                        <span className={i === currentStep ? "text-brand font-semibold" : "text-text-primary"}>{opt?.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right: Steps (3 cols) */}
-          <div className="md:col-span-3">
-            {/* Step indicators */}
-            <div className="flex items-center gap-1 mb-6 overflow-x-auto pb-2">
-              {steps.map((s, i) => (
-                <button
-                  key={s.id}
-                  onClick={() => setCurrentStep(i)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
-                    i === currentStep
-                      ? "bg-brand text-white"
-                      : selections[s.id]
-                      ? "bg-brand/10 text-brand"
-                      : "bg-white text-text-muted border border-border"
-                  }`}
-                >
-                  <span className="w-4 h-4 rounded-full bg-white/20 flex items-center justify-center text-[10px]">
-                    {i < currentStep ? "✓" : i + 1}
-                  </span>
-                  {s.title}
-                </button>
-              ))}
+          {/* ── Right: Steps ── */}
+          <div className="md:col-span-7">
+            {/* ── Step progress bar ── */}
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-3">
+                {steps.map((s, i) => {
+                  const isCompleted = i < currentStep;
+                  const isCurrent = i === currentStep;
+                  return (
+                    <div key={s.id} className="flex flex-col items-center flex-1 relative">
+                      {/* Connector line */}
+                      {i > 0 && (
+                        <div
+                          className={`absolute top-3 right-1/2 h-[2px] w-full -z-0 ${
+                            i <= currentStep ? "bg-brand" : "bg-gray-200"
+                          }`}
+                          style={{ transform: "translateX(-50%)" }}
+                        />
+                      )}
+                      {/* Circle */}
+                      <button
+                        onClick={() => setCurrentStep(i)}
+                        className={`relative z-10 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-200 ${
+                          isCurrent
+                            ? "bg-brand text-white shadow-md shadow-brand/30 scale-110"
+                            : isCompleted
+                            ? "bg-brand text-white"
+                            : "bg-white text-text-muted border-2 border-gray-200"
+                        }`}
+                      >
+                        {isCompleted ? (
+                          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        ) : (
+                          i + 1
+                        )}
+                      </button>
+                      {/* Label */}
+                      <span className={`mt-1.5 text-[10px] font-medium text-center leading-tight hidden sm:block ${
+                        isCurrent ? "text-brand" : isCompleted ? "text-text-secondary" : "text-text-muted"
+                      }`}>
+                        {s.title}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
 
-            {/* Current step title */}
-            <h3 className="text-lg font-bold text-text-primary mb-4">
-              Step {currentStep + 1}: {step.title}
-            </h3>
+            {/* ── Current step header ── */}
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-8 h-8 rounded-lg bg-brand/10 flex items-center justify-center">
+                <span className="text-sm font-bold text-brand">{currentStep + 1}</span>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-text-primary leading-tight">{step.title}</h3>
+                <p className="text-xs text-text-muted">Select an option below</p>
+              </div>
+            </div>
 
-            {/* Options */}
+            {/* ── Options ── */}
             {step.type === "swatch" ? (
-              /* Color swatches */
+              /* ── Color swatches ── */
               <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 mb-8">
-                {step.options.map((opt) => (
-                  <button
-                    key={opt.id}
-                    onClick={() => select(opt.id)}
-                    className={`group text-center p-3 rounded-xl border-2 transition-all ${
-                      selections[step.id] === opt.id
-                        ? "border-brand bg-white shadow-md"
-                        : "border-transparent bg-white hover:border-border"
-                    }`}
-                  >
-                    <div
-                      className="w-10 h-10 rounded-full mx-auto mb-2 border border-gray-200"
-                      style={{ backgroundColor: opt.color }}
-                    />
-                    <span className="text-xs font-medium text-text-secondary">{opt.label}</span>
-                  </button>
-                ))}
+                {step.options.map((opt) => {
+                  const isSelected = selections[step.id] === opt.id;
+                  const isLight = opt.color === "#FFFFFF" || opt.color === "#F5F0E1";
+                  return (
+                    <button
+                      key={opt.id}
+                      onClick={() => select(opt.id)}
+                      className={`group flex flex-col items-center p-3 rounded-xl border-2 transition-all duration-200 ${
+                        isSelected
+                          ? "border-brand bg-white shadow-lg shadow-brand/10 scale-[1.02]"
+                          : "border-transparent bg-white hover:border-gray-200 hover:shadow-sm"
+                      }`}
+                    >
+                      <div className="relative">
+                        <div
+                          className={`w-12 h-12 rounded-full mb-2 transition-transform duration-200 group-hover:scale-105 ${
+                            isLight ? "border border-gray-200" : ""
+                          } ${isSelected ? "ring-2 ring-brand ring-offset-2" : ""}`}
+                          style={{ backgroundColor: opt.color }}
+                        />
+                        {/* Checkmark overlay */}
+                        {isSelected && (
+                          <div className="absolute inset-0 flex items-center justify-center mb-2">
+                            <div className={`w-5 h-5 rounded-full flex items-center justify-center ${
+                              isLight ? "bg-brand" : "bg-white/90"
+                            }`}>
+                              <svg className={`w-3 h-3 ${isLight ? "text-white" : "text-gray-800"}`} fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              </svg>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      <span className={`text-[11px] font-medium transition-colors ${
+                        isSelected ? "text-brand" : "text-text-secondary"
+                      }`}>{opt.label}</span>
+                    </button>
+                  );
+                })}
               </div>
             ) : (
-              /* Card options */
-              <div className={`grid ${step.options.length <= 2 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1 sm:grid-cols-2"} gap-3 mb-8`}>
-                {step.options.map((opt) => (
-                  <button
-                    key={opt.id}
-                    onClick={() => select(opt.id)}
-                    className={`group text-left p-4 rounded-xl border-2 transition-all ${
-                      selections[step.id] === opt.id
-                        ? "border-brand bg-white shadow-md"
-                        : "border-transparent bg-white hover:border-border"
-                    }`}
-                  >
-                    <div className="flex items-start justify-between mb-1">
-                      <h4 className="font-semibold text-sm text-text-primary">{opt.label}</h4>
-                      <div className="flex items-center gap-1.5">
-                        {opt.tag && (
-                          <span className="text-[9px] font-semibold text-brand bg-brand/10 px-1.5 py-0.5 rounded">{opt.tag}</span>
-                        )}
-                        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
-                          selections[step.id] === opt.id ? "border-brand bg-brand" : "border-gray-300"
+              /* ── Card options ── */
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                {step.options.map((opt) => {
+                  const isSelected = selections[step.id] === opt.id;
+                  return (
+                    <button
+                      key={opt.id}
+                      onClick={() => select(opt.id)}
+                      className={`group relative text-left p-4 rounded-xl border-2 transition-all duration-200 ${
+                        isSelected
+                          ? "border-brand bg-brand/[0.03] shadow-lg shadow-brand/10"
+                          : "border-gray-100 bg-white hover:border-gray-200 hover:shadow-sm"
+                      }`}
+                    >
+                      {/* Tag — top-right absolute */}
+                      {opt.tag && (
+                        <span className={`absolute -top-2 right-3 text-[9px] font-bold tracking-wide uppercase px-2 py-0.5 rounded-full ${
+                          opt.tag.includes("Popular") || opt.tag.includes("Recommended")
+                            ? "bg-brand text-white"
+                            : "bg-amber-100 text-amber-700"
+                        }`}>{opt.tag}</span>
+                      )}
+
+                      <div className="flex items-start gap-3">
+                        {/* Radio indicator */}
+                        <div className={`mt-0.5 w-[18px] h-[18px] rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-all duration-200 ${
+                          isSelected ? "border-brand bg-brand" : "border-gray-300 group-hover:border-gray-400"
                         }`}>
-                          {selections[step.id] === opt.id && (
+                          {isSelected && (
                             <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
                               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                             </svg>
                           )}
                         </div>
+
+                        <div className="flex-1 min-w-0">
+                          <h4 className={`font-semibold text-sm leading-tight transition-colors ${
+                            isSelected ? "text-brand" : "text-text-primary"
+                          }`}>{opt.label}</h4>
+                          {opt.desc && <p className="text-xs text-text-muted mt-1 leading-relaxed">{opt.desc}</p>}
+                          {opt.specs && (
+                            <span className={`inline-block mt-1.5 text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                              isSelected ? "bg-brand/10 text-brand" : "bg-gray-100 text-text-secondary"
+                            }`}>{opt.specs}</span>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                    {opt.desc && <p className="text-xs text-text-muted mb-1">{opt.desc}</p>}
-                    {opt.specs && <p className="text-[10px] font-medium text-brand">{opt.specs}</p>}
-                  </button>
-                ))}
+                    </button>
+                  );
+                })}
               </div>
             )}
 
-            {/* Navigation */}
-            <div className="flex items-center justify-between">
-              <button
-                onClick={() => setCurrentStep((p) => Math.max(0, p - 1))}
-                className={`text-sm font-medium px-4 py-2 rounded transition-colors ${
-                  isFirst ? "invisible" : "text-text-secondary hover:text-text-primary"
-                }`}
-              >
-                ← Back
-              </button>
+            {/* ── Navigation ── */}
+            <div className="flex items-center gap-3">
+              {!isFirst && (
+                <button
+                  onClick={goBack}
+                  className="flex items-center gap-1.5 text-sm font-medium px-5 py-2.5 rounded-lg border border-border text-text-secondary hover:text-text-primary hover:bg-white transition-all"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
+                  Back
+                </button>
+              )}
+
+              <div className="flex-1" />
 
               {isLast ? (
                 <Link
                   href={`/quote?config=${quoteParam}`}
-                  className="bg-brand hover:bg-brand-dark text-white px-8 py-3 rounded font-semibold text-sm transition-colors"
+                  className="flex items-center gap-2 bg-brand hover:bg-brand-dark text-white px-8 py-3 rounded-lg font-semibold text-sm transition-all hover:shadow-lg hover:shadow-brand/20"
                 >
-                  Get Free Quote →
+                  Get Free Quote
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" /></svg>
                 </Link>
               ) : (
                 <button
-                  onClick={() => setCurrentStep((p) => Math.min(steps.length - 1, p + 1))}
-                  className="bg-brand hover:bg-brand-dark text-white px-6 py-2.5 rounded font-semibold text-sm transition-colors"
+                  onClick={goNext}
+                  className="flex items-center gap-1.5 bg-brand hover:bg-brand-dark text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-all hover:shadow-lg hover:shadow-brand/20"
                 >
-                  Next Step →
+                  Next Step
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
                 </button>
               )}
-            </div>
-
-            {/* Summary bar */}
-            <div className="mt-6 bg-white rounded-lg border border-border p-3">
-              <p className="text-[10px] font-semibold tracking-wider uppercase text-text-muted mb-2">Your Configuration</p>
-              <div className="flex flex-wrap gap-2">
-                {steps.map((s) => {
-                  const opt = s.options.find((o) => o.id === selections[s.id]);
-                  return (
-                    <span key={s.id} className="inline-flex items-center gap-1 text-xs bg-warm-gray px-2 py-1 rounded">
-                      <span className="font-medium text-text-secondary">{s.title}:</span>
-                      <span className="text-text-primary">{opt?.label}</span>
-                    </span>
-                  );
-                })}
-              </div>
             </div>
           </div>
         </div>
