@@ -763,20 +763,20 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
             </div>
 
             {/* ── Content area — fills remaining height ── */}
-            <div className="flex flex-col bg-white rounded-2xl border border-border p-4 sm:p-5">
+            <div className="bg-white rounded-2xl border border-border p-3 sm:p-4">
             {/* ── Current step header ── */}
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-8 h-8 rounded-lg bg-brand/10 flex items-center justify-center text-brand">
-                <StepIcon stepId={step.id} className="w-4.5 h-4.5" />
+            <div className="flex items-center gap-2.5 mb-2.5">
+              <div className="w-7 h-7 rounded-lg bg-brand/10 flex items-center justify-center text-brand">
+                <StepIcon stepId={step.id} className="w-4 h-4" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-text-primary leading-tight">{step.title}</h3>
-                <p className="text-xs text-text-muted">Select an option below</p>
+                <h3 className="text-base font-bold text-text-primary leading-tight">{step.title}</h3>
+                <p className="text-[11px] text-text-muted">Select an option below</p>
               </div>
             </div>
 
             {/* ── Options ── */}
-            <div className="flex-1">
+            <div>
             {step.type === "swatch" ? (
               /* ── Color swatches ── */
               <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
@@ -880,7 +880,7 @@ function Configurator({ title, subtitle, steps, svgPreview, productType }: Confi
             </div>
 
             {/* ── Navigation ── */}
-            <div className="flex items-center gap-3 mt-auto pt-3 border-t border-border">
+            <div className="flex items-center gap-3 pt-2.5 mt-2.5 border-t border-border">
               {!isFirst && (
                 <button
                   onClick={goBack}
