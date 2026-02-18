@@ -92,11 +92,11 @@ export default function Footer() {
         <div
           className="whitespace-nowrap"
           style={{
-            fontSize: "clamp(120px, 14vw, 220px)",
+            fontSize: "clamp(200px, 25vw, 400px)",
             fontWeight: 900,
             color: "rgba(255,255,255,0.03)",
-            letterSpacing: "0.2em",
-            animation: "footer-marquee 80s linear infinite",
+            letterSpacing: "0.25em",
+            animation: "footer-marquee 240s linear infinite",
           }}
         >
           {decaRepeat}{decaRepeat}
