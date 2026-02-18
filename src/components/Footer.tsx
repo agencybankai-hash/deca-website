@@ -87,6 +87,22 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* ── DECA marquee on background ── */}
+      <div className="absolute inset-0 pointer-events-none hidden md:flex items-center overflow-hidden">
+        <div
+          className="whitespace-nowrap"
+          style={{
+            fontSize: "clamp(120px, 14vw, 220px)",
+            fontWeight: 900,
+            color: "rgba(255,255,255,0.03)",
+            letterSpacing: "0.2em",
+            animation: "footer-marquee 80s linear infinite",
+          }}
+        >
+          {decaRepeat}{decaRepeat}
+        </div>
+      </div>
+
       <div className="relative z-10 px-4 sm:px-6 pt-16 md:pt-24 pb-8 md:pb-12">
         {/* ── Top: Brand + Contact ── */}
         <div className="max-w-7xl mx-auto mb-16">
@@ -173,25 +189,6 @@ export default function Footer() {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* ── DECA marquee ── */}
-        <div
-          className="hidden md:block overflow-hidden"
-          style={{ position: "relative", width: "100vw", left: "50%", transform: "translateX(-50%)" }}
-        >
-          <div
-            className="whitespace-nowrap"
-            style={{
-              fontSize: "clamp(80px, 9vw, 140px)",
-              fontWeight: 800,
-              color: "rgba(255,255,255,0.04)",
-              letterSpacing: "0.15em",
-              animation: "footer-marquee 60s linear infinite",
-            }}
-          >
-            {decaRepeat}{decaRepeat}
           </div>
         </div>
 
