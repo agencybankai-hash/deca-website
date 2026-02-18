@@ -5,6 +5,10 @@ import anime from "animejs";
 
 export default function EnergySavingsCard() {
   const ref = useRef<HTMLDivElement>(null);
+  const beforeRef = useRef<HTMLDivElement>(null);
+  const afterRef = useRef<HTMLDivElement>(null);
+  const pctRef = useRef<HTMLSpanElement>(null);
+  const taxRef = useRef<HTMLSpanElement>(null);
   const [triggered, setTriggered] = useState(false);
 
   useEffect(() => {
@@ -12,7 +16,7 @@ export default function EnergySavingsCard() {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting && !triggered) setTriggered(true); },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -29,16 +33,19 @@ export default function EnergySavingsCard() {
       duration: 2000,
       easing: "easeOutExpo",
       update: () => {
-        const el = document.getElementById("savings-pct");
-        if (el) el.textContent = `${Math.round(obj.val)}%`;
+        if (pctRef.current) pctRef.current.textContent = `${Math.round(obj.val)}%`;
       },
     });
 
-    // Animate the cost bars
-    anime({ targets: "#cost-before", height: ["0%", "85%"], duration: 1200, easing: "easeOutExpo", delay: 200 });
-    anime({ targets: "#cost-after", height: ["0%", "40%"], duration: 1200, easing: "easeOutExpo", delay: 400 });
+    // Animate the cost bars via refs
+    if (beforeRef.current) {
+      anime({ targets: beforeRef.current, height: ["0%", "85%"], duration: 1400, easing: "easeOutExpo", delay: 200 });
+    }
+    if (afterRef.current) {
+      anime({ targets: afterRef.current, height: ["0%", "40%"], duration: 1400, easing: "easeOutExpo", delay: 400 });
+    }
 
-    // Animate the tax credit
+    // Animate the tax credit — format with comma explicitly
     const taxObj = { val: 0 };
     anime({
       targets: taxObj,
@@ -47,8 +54,10 @@ export default function EnergySavingsCard() {
       easing: "easeOutExpo",
       delay: 300,
       update: () => {
-        const el = document.getElementById("tax-credit");
-        if (el) el.textContent = `$${Math.round(taxObj.val).toLocaleString()}`;
+        if (taxRef.current) {
+          const v = Math.round(taxObj.val);
+          taxRef.current.textContent = `$${v.toLocaleString("en-US")}`;
+        }
       },
     });
   }, [triggered]);
@@ -66,23 +75,31 @@ export default function EnergySavingsCard() {
         <p className="text-sm text-text-muted mb-6">Average heating & cooling reduction</p>
 
         {/* Bar chart */}
-        <div className="flex items-end justify-center gap-6 h-36 w-full">
-          <div className="flex flex-col items-center gap-2 flex-1">
-            <div className="w-full max-w-[60px] h-full bg-gray-100 rounded-lg relative overflow-hidden">
-              <div id="cost-before" className="absolute bottom-0 left-0 right-0 bg-red-400/80 rounded-lg" style={{ height: "0%" }} />
+        <div className="flex items-end justify-center gap-8 h-40 w-full px-4">
+          <div className="flex flex-col items-center gap-2 w-16">
+            <div className="w-full h-full bg-gray-200 rounded-lg relative overflow-hidden">
+              <div
+                ref={beforeRef}
+                className="absolute bottom-0 left-0 right-0 bg-red-400 rounded-lg"
+                style={{ height: "0%" }}
+              />
             </div>
             <span className="text-xs font-semibold text-text-muted">Before</span>
           </div>
-          <div className="flex flex-col items-center gap-2 flex-1">
-            <div className="w-full max-w-[60px] h-full bg-gray-100 rounded-lg relative overflow-hidden">
-              <div id="cost-after" className="absolute bottom-0 left-0 right-0 bg-green-500 rounded-lg" style={{ height: "0%" }} />
+          <div className="flex flex-col items-center gap-2 w-16">
+            <div className="w-full h-full bg-gray-200 rounded-lg relative overflow-hidden">
+              <div
+                ref={afterRef}
+                className="absolute bottom-0 left-0 right-0 bg-green-500 rounded-lg"
+                style={{ height: "0%" }}
+              />
             </div>
             <span className="text-xs font-semibold text-text-muted">After</span>
           </div>
         </div>
 
         <div className="mt-4">
-          <span id="savings-pct" className="text-4xl font-bold text-green-600">0%</span>
+          <span ref={pctRef} className="text-4xl font-bold text-green-600">0%</span>
           <p className="text-xs text-text-muted mt-1">lower energy bills</p>
         </div>
       </div>
@@ -99,7 +116,7 @@ export default function EnergySavingsCard() {
 
         <div className="flex-1 flex flex-col items-center justify-center">
           <span className="text-xs font-semibold text-brand uppercase tracking-wider mb-2">Up to</span>
-          <span id="tax-credit" className="text-5xl font-bold text-brand">$0</span>
+          <span ref={taxRef} className="text-5xl font-bold text-brand">$0</span>
           <p className="text-sm text-text-muted mt-3 leading-relaxed">
             per household under the<br />Inflation Reduction Act
           </p>
