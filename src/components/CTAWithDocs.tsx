@@ -121,7 +121,7 @@ export default function CTAWithDocs({
     <section className="pt-20 pb-4 overflow-visible relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div
-          className="rounded-2xl text-white px-8 sm:px-10 lg:px-14 py-5 lg:py-6 overflow-visible relative"
+          className="rounded-2xl text-white px-8 sm:px-10 lg:px-14 py-0 overflow-visible relative"
           style={{ background: "linear-gradient(135deg, #c85a22 0%, #e0792e 50%, #d46827 100%)" }}
         >
           {/* Blueprint pattern overlay */}
@@ -153,9 +153,9 @@ export default function CTAWithDocs({
               <line x1="20%" y1="calc(70% - 30px)" x2="20%" y2="calc(70% + 30px)" stroke="white" strokeWidth="0.3" />
             </svg>
           </div>
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
           {/* Left — Text + CTA */}
-          <div>
+          <div className="py-8 lg:py-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">{title}</h2>
             <p className="text-white/60 text-lg leading-relaxed mb-5 max-w-lg">{subtitle}</p>
             <div className="flex flex-col sm:flex-row items-start gap-4">
