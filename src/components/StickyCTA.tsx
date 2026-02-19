@@ -19,20 +19,26 @@ export default function StickyCTA({
   const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let ticking = false;
     const onScroll = () => {
-      const scrollY = window.scrollY;
-      const pastThreshold = scrollY > showAfter;
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        const pastThreshold = scrollY > showAfter;
 
-      /* Hide when footer is in view */
-      const footer = document.querySelector("footer");
-      let nearFooter = false;
-      if (footer) {
-        const footerTop = footer.getBoundingClientRect().top;
-        const barH = barRef.current?.offsetHeight ?? 64;
-        nearFooter = footerTop <= window.innerHeight + barH;
-      }
+        /* Hide when footer is in view */
+        const footer = document.querySelector("footer");
+        let nearFooter = false;
+        if (footer) {
+          const footerTop = footer.getBoundingClientRect().top;
+          const barH = barRef.current?.offsetHeight ?? 64;
+          nearFooter = footerTop <= window.innerHeight + barH;
+        }
 
-      setVisible(pastThreshold && !nearFooter);
+        setVisible(pastThreshold && !nearFooter);
+        ticking = false;
+      });
     };
 
     onScroll();

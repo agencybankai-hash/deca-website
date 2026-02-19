@@ -84,6 +84,8 @@ export default function Nav() {
     return () => window.removeEventListener("resize", measure);
   }, []);
 
+  const accumulated = useRef(0);
+
   const onScroll = useCallback(() => {
     if (ticking.current) return;
     ticking.current = true;
@@ -91,15 +93,20 @@ export default function Nav() {
       const y = window.scrollY;
       const delta = y - lastY.current;
 
+      // Accumulate scroll direction; reset on direction change
+      if ((delta > 0 && accumulated.current < 0) || (delta < 0 && accumulated.current > 0)) {
+        accumulated.current = 0;
+      }
+      accumulated.current += delta;
+
       if (y <= 10) {
         setPhase("top");
-      } else if (delta > 4 && y > 100) {
-        // Scrolling down — hide
+        accumulated.current = 0;
+      } else if (accumulated.current > 30 && y > 120) {
         setPhase("hidden");
-      } else if (delta < -3) {
-        // Scrolling up — peek (compact, no top-bar)
+      } else if (accumulated.current < -20) {
         setPhase("peek");
-      } else if (y > 10 && y <= 100) {
+      } else if (y > 10 && y <= 120 && Math.abs(delta) < 2) {
         setPhase("scrolled");
       }
 
