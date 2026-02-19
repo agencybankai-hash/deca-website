@@ -230,21 +230,36 @@ export default function HomeContent() {
         </div>
       </Section>
 
-      {/* ===== About DECA (Figma: text + stats) ===== */}
+      {/* ===== About DECA — Founder story ===== */}
       <Section dark>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <SectionTitle align="left" light badge="About Us" title="About DECA" subtitle="Founded by European window professionals, DECA brings decades of manufacturing expertise to Westfield, Massachusetts. We combine German engineering principles with American manufacturing standards to deliver windows that outperform industry benchmarks." />
+        <div className="grid md:grid-cols-5 gap-10 lg:gap-16 items-center">
+          {/* Photo column */}
+          <div className="md:col-span-2 relative">
+            <div className="relative rounded-2xl overflow-hidden aspect-[3/4] max-w-sm mx-auto md:mx-0">
+              <PhotoPlaceholder description="Фото: Владимир, основатель DECA — портрет на фоне производства или шоурума" height="h-full" className="rounded-2xl border-0 absolute inset-0" />
+              {/* Gradient overlay at bottom for name */}
+              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent" />
+              <div className="absolute bottom-0 inset-x-0 p-6">
+                <p className="text-white font-bold text-lg">Vladimir</p>
+                <p className="text-white/60 text-sm">Founder & CEO, DECA Windows</p>
+              </div>
+            </div>
+          </div>
+          {/* Text column */}
+          <div className="md:col-span-3">
+            <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-accent/80 mb-4">Our Story</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">&ldquo;We didn&rsquo;t come to America to sell windows. We came to change what American homeowners expect from a window.&rdquo;</h2>
+            <p className="text-white/60 leading-relaxed mb-8 max-w-xl">Born and raised in Europe, Vladimir spent 20+ years in the window industry before founding DECA in Westfield, Massachusetts. His mission: bring true European engineering — triple-pane glass, multi-point locks, thermal-break frames — to every home in New England, at a fair price, with a personal touch.</p>
+            <div className="grid grid-cols-4 gap-4 mb-8">
+              <StatCard value="500+" label="Homes Fitted" light />
+              <StatCard value="0.10" label="Best U-Value" light />
+              <StatCard value="15 yr" label="Full Warranty" light />
+              <StatCard value="50+" label="Years Lifespan" light />
+            </div>
             <Link href="/about" className="inline-flex items-center gap-2 text-blue-accent hover:text-blue-accent/80 font-medium transition-colors">
               Learn about our story
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
-          </div>
-          <div className="grid grid-cols-2 gap-6">
-            <StatCard value="500+" label="Homes Fitted" light />
-            <StatCard value="0.10" label="Best U-Value" light />
-            <StatCard value="15 yr" label="Full Warranty" light />
-            <StatCard value="50+" label="Years Lifespan" light />
           </div>
         </div>
       </Section>
