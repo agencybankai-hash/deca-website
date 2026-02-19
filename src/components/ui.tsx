@@ -1,16 +1,22 @@
 import Link from "next/link";
 
 /* ===== Animated CTA Button (white → orange gradient + blueprint grid on hover) ===== */
-export function AnimatedCTA({ href, children, className = "", size = "md", id }: { href: string; children: React.ReactNode; className?: string; size?: "sm" | "md" | "lg"; id?: string }) {
+export function AnimatedCTA({ href, children, className = "", size = "md", id, variant = "orange" }: { href: string; children: React.ReactNode; className?: string; size?: "sm" | "md" | "lg"; id?: string; variant?: "orange" | "blue" }) {
   const patternId = id ? `cta-grid-${id}` : `cta-grid-${Math.random().toString(36).slice(2, 8)}`;
   const pad = size === "sm" ? "px-5 py-2.5 text-sm" : size === "lg" ? "px-8 py-3.5 text-base" : "px-6 py-3 text-sm";
+  const isBlue = variant === "blue";
+  const textColor = isBlue ? "text-[#e8873a]" : "text-brand";
+  const hoverGradient = isBlue
+    ? "linear-gradient(135deg, #2a3f7a 0%, #3854AA 40%, #4a6abf 100%)"
+    : "linear-gradient(135deg, #d94e1a 0%, #f47b2b 40%, #e8873a 100%)";
+  const hoverShadow = isBlue ? "hover:shadow-[#3854AA]/30" : "hover:shadow-[#e8873a]/30";
   return (
     <Link
       href={href}
-      className={`group relative overflow-hidden rounded font-semibold inline-flex items-center gap-2 transition-all duration-500 bg-white text-brand hover:text-white hover:shadow-lg hover:shadow-[#e8873a]/30 ${pad} ${className}`}
+      className={`group relative overflow-hidden rounded font-semibold inline-flex items-center gap-2 transition-all duration-500 bg-white ${textColor} hover:text-white hover:shadow-lg ${hoverShadow} ${pad} ${className}`}
     >
       <span className="absolute inset-0 bg-white transition-opacity duration-500 group-hover:opacity-0" />
-      <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "linear-gradient(135deg, #d94e1a 0%, #f47b2b 40%, #e8873a 100%)" }} />
+      <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: hoverGradient }} />
       <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.12 }}>
         <defs><pattern id={patternId} width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5" /></pattern></defs>
         <rect width="100%" height="100%" fill={`url(#${patternId})`} />

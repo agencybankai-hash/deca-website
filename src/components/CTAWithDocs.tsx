@@ -233,7 +233,7 @@ export default function CTAWithDocs({
             <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">{title}</h2>
             <p className="text-white/75 text-lg leading-relaxed mb-5 max-w-lg">{subtitle}</p>
             <div className="flex flex-col sm:flex-row items-start gap-4">
-              <AnimatedCTA href={btnHref} size="lg" id="ctawithdocs">{btnText}</AnimatedCTA>
+              <AnimatedCTA href={btnHref} size="lg" id="ctawithdocs" variant="blue">{btnText}</AnimatedCTA>
               <a
                 href="tel:+14137714457"
                 className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors py-3.5"
