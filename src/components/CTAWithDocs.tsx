@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { AnimatedCTA } from "@/components/ui";
 
 /* ── Document card data ── */
 
@@ -232,12 +233,7 @@ export default function CTAWithDocs({
             <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">{title}</h2>
             <p className="text-white/75 text-lg leading-relaxed mb-5 max-w-lg">{subtitle}</p>
             <div className="flex flex-col sm:flex-row items-start gap-4">
-              <Link
-                href={btnHref}
-                className="inline-block bg-white text-[#d94e1a] hover:bg-orange-50 px-8 py-3.5 rounded-lg font-semibold transition-all shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/15"
-              >
-                {btnText}
-              </Link>
+              <AnimatedCTA href={btnHref} size="lg" id="ctawithdocs">{btnText}</AnimatedCTA>
               <a
                 href="tel:+14137714457"
                 className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors py-3.5"

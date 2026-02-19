@@ -1,5 +1,28 @@
 import Link from "next/link";
 
+/* ===== Animated CTA Button (white → orange gradient + blueprint grid on hover) ===== */
+export function AnimatedCTA({ href, children, className = "", size = "md", id }: { href: string; children: React.ReactNode; className?: string; size?: "sm" | "md" | "lg"; id?: string }) {
+  const patternId = id ? `cta-grid-${id}` : `cta-grid-${Math.random().toString(36).slice(2, 8)}`;
+  const pad = size === "sm" ? "px-5 py-2.5 text-sm" : size === "lg" ? "px-8 py-3.5 text-base" : "px-6 py-3 text-sm";
+  return (
+    <Link
+      href={href}
+      className={`group relative overflow-hidden rounded font-semibold inline-flex items-center gap-2 transition-all duration-500 bg-white text-brand hover:text-white hover:shadow-lg hover:shadow-[#e8873a]/30 ${pad} ${className}`}
+    >
+      <span className="absolute inset-0 bg-white transition-opacity duration-500 group-hover:opacity-0" />
+      <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "linear-gradient(135deg, #d94e1a 0%, #f47b2b 40%, #e8873a 100%)" }} />
+      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.12 }}>
+        <defs><pattern id={patternId} width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5" /></pattern></defs>
+        <rect width="100%" height="100%" fill={`url(#${patternId})`} />
+      </svg>
+      <span className="relative z-10">{children}</span>
+      <svg className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </Link>
+  );
+}
+
 /* ===== Photo Placeholder (Russian description) ===== */
 export function PhotoPlaceholder({
   description,
@@ -113,7 +136,7 @@ export function CTABlock({ title, subtitle, btnText, btnHref = "/quote", variant
         <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
         <p className="text-white/60 text-lg mb-8">{subtitle}</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href={btnHref} className="inline-block bg-white text-brand hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-colors">{btnText}</Link>
+          <AnimatedCTA href={btnHref} size="lg" id="ctablock">{btnText}</AnimatedCTA>
           <a href="tel:+14137714457" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
             (413) 771-4457

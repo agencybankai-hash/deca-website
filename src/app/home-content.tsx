@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Section, SectionTitle, PhotoPlaceholder, ProductCard, StatCard, ServiceIcons, GuideCard } from "@/components/ui";
+import { Section, SectionTitle, PhotoPlaceholder, ProductCard, StatCard, ServiceIcons, GuideCard, AnimatedCTA } from "@/components/ui";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
 import CTAWithDocs from "@/components/CTAWithDocs";
@@ -81,10 +81,7 @@ export default function HomeContent() {
               Factory-direct PVC & Aluminum systems. 15-year warranty, U-value&nbsp;0.10, noise reduction up to&nbsp;50&nbsp;dB.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/windows" className="bg-white hover:bg-gray-100 text-slate-dark px-6 py-3 rounded text-sm font-semibold transition-colors flex items-center gap-2">
-                Explore Products
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-              </Link>
+              <AnimatedCTA href="/windows" id="hero">Explore Products</AnimatedCTA>
               <Link href="/quote" className="border border-white/20 hover:border-white/40 hover:bg-white/5 text-white/80 px-6 py-3 rounded text-sm font-medium transition-colors">
                 Request a Quote
               </Link>
@@ -156,9 +153,7 @@ export default function HomeContent() {
           <h2 className="text-2xl md:text-3xl font-bold mb-3">Got Questions? We&apos;re Here to Help!</h2>
           <p className="text-white/60 text-[15px] mb-6">Call us directly or request a callback — our team responds within 24 hours.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/quote" className="inline-block bg-white text-brand hover:bg-gray-100 px-8 py-3.5 rounded font-semibold transition-colors">
-              Request a Quote
-            </Link>
+            <AnimatedCTA href="/quote" size="lg" id="warranty">Request a Quote</AnimatedCTA>
             <a href="tel:+14137714457" className="inline-flex items-center gap-2 text-white/90 hover:text-white transition-colors font-medium">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
               (413) 771-4457
