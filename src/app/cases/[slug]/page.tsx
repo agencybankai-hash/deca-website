@@ -10,8 +10,9 @@ export function generateStaticParams() {
   return cases.map((c) => ({ slug: c.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const c = cases.find((c) => c.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const c = cases.find((cs) => cs.slug === slug);
   if (!c) return {};
   return {
     title: `${c.title} | Customer Story | DECA Windows`,
@@ -19,8 +20,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function CaseStudyPage({ params }: { params: { slug: string } }) {
-  const c = cases.find((cs) => cs.slug === params.slug);
+export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const c = cases.find((cs) => cs.slug === slug);
   if (!c) notFound();
 
   const otherCases = cases.filter((cs) => cs.slug !== c.slug);
