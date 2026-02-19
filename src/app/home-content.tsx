@@ -96,7 +96,7 @@ export default function HomeContent() {
       {/* ===== Product Cards (Figma: 2x2 grid) ===== */}
       <Section>
         <SectionTitle badge="Our Products" title="Windows and Doors for Every Project" subtitle="European engineering manufactured in Massachusetts. Tilt & turn, sliding, swing, and entry systems." />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <ProductCard title="Tilt & Turn European Windows" subtitle="Premium tilt & turn system with triple glazing" href="/tilt-turn" photoDesc="Фото: поворотно-откидное окно в интерьере, вид на открытое окно в режиме поворота" />
           <ProductCard title="Sliding Doors" subtitle="PSk, Lift & Slide, and DECA Roto systems" href="/sliding-doors" photoDesc="Фото: панорамная раздвижная дверь с видом на сад/террасу" />
           <ProductCard title="Swing (French) Doors" subtitle="Classic elegance with European hardware" href="/doors/french-doors" photoDesc="Фото: распашные французские двери в светлом интерьере" />
