@@ -106,12 +106,12 @@ export default function HomeContent() {
 
       {/* ===== FEATURE TABS (Figma: Silence, Warmth, Convenience, Lifespan, Safety) ===== */}
       <Section gray>
-        <div className="flex justify-center gap-1 mb-12 border-b border-border overflow-x-auto">
+        <div className="flex justify-center gap-1 mb-12 border-b border-border overflow-x-auto" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
           {featureTabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-6 py-4 text-sm font-medium whitespace-nowrap transition-colors border-b-2 -mb-px ${
+              className={`flex items-center gap-2 px-5 py-4 text-sm font-medium whitespace-nowrap transition-colors border-b-2 -mb-px ${
                 activeTab === tab.id ? "border-blue-accent text-blue-accent" : "border-transparent text-text-muted hover:text-text-primary"
               }`}
             >
@@ -120,8 +120,8 @@ export default function HomeContent() {
             </button>
           ))}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+          <div className="py-2">
             <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">{activeFeature.title}</h2>
             <p className="text-text-secondary leading-relaxed text-[15px] mb-5">{activeFeature.description}</p>
             <Link href="/performance" className="inline-flex items-center gap-2 text-blue-accent font-medium hover:text-blue-hover transition-colors">
@@ -129,7 +129,7 @@ export default function HomeContent() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
           </div>
-          <PhotoPlaceholder description={activeFeature.photoDesc} height="h-80" />
+          <PhotoPlaceholder description={activeFeature.photoDesc} height="h-72" />
         </div>
       </Section>
 
