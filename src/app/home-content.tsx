@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Section, SectionTitle, PhotoPlaceholder, ProductCard, StatCard, ServiceIcons, GuideCard, AnimatedCTA } from "@/components/ui";
+import { cases } from "@/data/cases";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
 import CTAWithDocs from "@/components/CTAWithDocs";
@@ -129,14 +130,41 @@ export default function HomeContent() {
         </div>
       </Section>
 
-      {/* ===== Gallery / Cases (Figma: full-width photo row) ===== */}
+      {/* ===== Customer Stories / Use Cases ===== */}
       <Section>
-        <SectionTitle badge="Gallery" title="Our Recent Projects" subtitle="See how DECA windows and doors transform homes across Massachusetts." />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <PhotoPlaceholder description="Фото: современный дом с панорамными окнами DECA" height="h-48" />
-          <PhotoPlaceholder description="Фото: кухня с большим окном Tilt&Turn, вид на природу" height="h-48" />
-          <PhotoPlaceholder description="Фото: офисное здание с алюминиевым фасадным остеклением" height="h-48" />
-          <PhotoPlaceholder description="Фото: спальня с французскими дверями на балкон" height="h-48" />
+        <SectionTitle badge="Customer Stories" title="Real Homes. Real Results." subtitle="See how DECA windows transform comfort, energy bills, and everyday living." />
+        <div className="grid sm:grid-cols-2 gap-6">
+          {cases.slice(0, 4).map((c) => (
+            <Link key={c.slug} href={`/cases/${c.slug}`} className="group block bg-warm-gray rounded-xl border border-border overflow-hidden transition-all hover:shadow-xl hover:border-blue-accent/20">
+              <PhotoPlaceholder description={c.photoDesc} height="h-48" className="rounded-none border-0" />
+              <div className="p-6">
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="text-[10px] font-semibold tracking-wider uppercase text-brand bg-brand/10 px-2 py-0.5 rounded-full">{c.type}</span>
+                  <span className="text-[10px] font-semibold tracking-wider uppercase text-text-muted bg-white px-2 py-0.5 rounded-full">{c.location}</span>
+                </div>
+                <h3 className="font-bold text-text-primary mb-2 group-hover:text-blue-accent transition-colors">{c.title}</h3>
+                <p className="text-sm text-text-secondary leading-relaxed mb-4 line-clamp-2">{c.summary}</p>
+                <div className="flex gap-3 mb-4">
+                  {c.results.slice(0, 3).map((r) => (
+                    <div key={r.label} className="text-center bg-white rounded-lg px-3 py-2 border border-border">
+                      <span className="block text-sm font-bold text-brand">{r.value}</span>
+                      <span className="text-[9px] text-text-muted uppercase">{r.label}</span>
+                    </div>
+                  ))}
+                </div>
+                <span className="text-blue-accent text-sm font-medium inline-flex items-center gap-1">
+                  Read story
+                  <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+        <div className="text-center mt-10">
+          <Link href="/cases" className="text-blue-accent font-medium hover:text-blue-hover transition-colors inline-flex items-center gap-2">
+            View all customer stories
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+          </Link>
         </div>
       </Section>
 

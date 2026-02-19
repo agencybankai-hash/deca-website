@@ -38,6 +38,7 @@ const navItems = [
     highlight: true,
     children: [
       { href: "/performance", label: "Technology & Performance" },
+      { href: "/cases", label: "Customer Stories" },
       { href: "/blog", label: "Expert Guides" },
       { href: "/about", label: "About DECA" },
       { href: "/team", label: "Our Team" },
