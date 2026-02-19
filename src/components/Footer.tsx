@@ -194,20 +194,19 @@ export default function Footer() {
 
         {/* ── Bottom bar ── */}
         <div className="max-w-7xl mx-auto mt-10">
-          <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
               <span className="text-white font-bold text-sm tracking-tight">DECA Windows</span>
               <p className="text-xs text-white/30">&copy; 2026 DECA Company. All Rights Reserved.</p>
             </div>
 
-            <div className="flex items-center">
-            <span className="text-xs text-white/30">Design &amp; Development by</span>
             <a
               href="https://bankaiagency.com"
               target="_blank"
               rel="noopener noreferrer"
               className="bankai-link"
             >
+              <span className="text-xs text-white/30 mr-1.5">Design &amp; Development by</span>
               <span className="bankai-icon">
                 {/* Mini lightning bolts */}
                 <span className="mini-bolts">
@@ -224,7 +223,6 @@ export default function Footer() {
               </span>
               <span className="bankai-text">BANKAI.AGENCY</span>
             </a>
-            </div>
           </div>
         </div>
       </div>
