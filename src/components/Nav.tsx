@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const topBarLinks = [
@@ -58,7 +59,12 @@ const navItems = [
  */
 type ScrollPhase = "top" | "scrolled" | "hidden" | "peek";
 
+// Pages with full-bleed hero backgrounds where header should be transparent
+const transparentHeroPages = ["/"];
+
 export default function Nav() {
+  const pathname = usePathname();
+  const hasHeroBg = transparentHeroPages.includes(pathname);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [phase, setPhase] = useState<ScrollPhase>("top");
@@ -108,6 +114,7 @@ export default function Nav() {
   }, [onScroll]);
 
   const isTop = phase === "top";
+  const isTransparent = isTop && hasHeroBg; // transparent only on hero pages at top
   const isHidden = phase === "hidden";
   const showTopBar = isTop;
   const hasShadow = phase === "scrolled" || phase === "peek";
@@ -128,7 +135,7 @@ export default function Nav() {
         style={{
           maxHeight: showTopBar ? "2rem" : "0",
           opacity: showTopBar ? 1 : 0,
-          backgroundColor: isTop ? "transparent" : "var(--color-brand-darker, #2a3f7a)",
+          backgroundColor: isTransparent ? "transparent" : "var(--color-brand-darker, #2a3f7a)",
           transition: "max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease, background-color 0.5s ease",
         }}
       >
@@ -152,11 +159,11 @@ export default function Nav() {
 
       {/* Main nav */}
       <nav
-        className={`border-b ${isTop ? "border-white/5" : "border-white/10"}`}
+        className={`border-b ${isTransparent ? "border-white/5" : "border-white/10"}`}
         style={{
-          backgroundColor: isTop ? "transparent" : "rgba(56, 84, 170, 0.95)",
-          backdropFilter: isTop ? "none" : "blur(20px) saturate(1.6)",
-          WebkitBackdropFilter: isTop ? "none" : "blur(20px) saturate(1.6)",
+          backgroundColor: isTransparent ? "transparent" : "rgba(56, 84, 170, 0.95)",
+          backdropFilter: isTransparent ? "none" : "blur(20px) saturate(1.6)",
+          WebkitBackdropFilter: isTransparent ? "none" : "blur(20px) saturate(1.6)",
           transition: "background-color 0.5s ease, backdrop-filter 0.5s ease",
         }}
       >
