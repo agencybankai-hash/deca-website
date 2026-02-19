@@ -7,6 +7,8 @@ import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
 import CTAWithDocs from "@/components/CTAWithDocs";
 import StickyCTA from "@/components/StickyCTA";
+import ProcessSection from "@/components/ProcessSection";
+import LeadMagnet from "@/components/LeadMagnet";
 
 /* ===== Feature Tabs Data (Figma: Silence, Warmth, Convenience, Lifespan, Safety) ===== */
 const featureTabs = [
@@ -81,11 +83,49 @@ export default function HomeContent() {
             <p className="text-sm md:text-base text-white/50 mb-8 leading-relaxed max-w-md">
               Factory-direct PVC & Aluminum systems. 15-year warranty, U-value&nbsp;0.10, noise reduction up to&nbsp;50&nbsp;dB.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 mb-8">
               <AnimatedCTA href="/windows" id="hero">Explore Products</AnimatedCTA>
               <Link href="/quote" className="border border-white/20 hover:border-white/40 hover:bg-white/5 text-white/80 px-6 py-3 rounded text-sm font-medium transition-colors">
                 Request a Quote
               </Link>
+            </div>
+            {/* Trust badges */}
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-3.5 py-1.5">
+                <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <span className="text-white/80 text-xs font-medium">Energy Star Certified</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-3.5 py-1.5">
+                <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                <span className="text-white/80 text-xs font-medium">NFRC Rated</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-3.5 py-1.5">
+                <svg className="w-4 h-4 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                <span className="text-white/80 text-xs font-medium">Passive House Ready</span>
+              </div>
+            </div>
+          </div>
+          {/* Hero quick-quote form */}
+          <div className="hidden lg:block absolute right-6 xl:right-12 top-1/2 -translate-y-1/2 w-80">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
+              <h3 className="text-white font-bold text-lg mb-1">Get a Free Quote</h3>
+              <p className="text-white/50 text-xs mb-4">Tell us about your project</p>
+              <form className="space-y-3" onSubmit={(e) => { e.preventDefault(); window.location.href = "/quote"; }}>
+                <input type="text" placeholder="Your name" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-white/40" />
+                <input type="email" placeholder="Email address" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-white/40" />
+                <input type="tel" placeholder="Phone number" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-white/40" />
+                <select className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white/60 text-sm focus:outline-none focus:border-white/40 appearance-none">
+                  <option value="">Project type</option>
+                  <option value="new">New Construction</option>
+                  <option value="replacement">Window Replacement</option>
+                  <option value="renovation">Full Renovation</option>
+                  <option value="commercial">Commercial Project</option>
+                </select>
+                <button type="submit" className="w-full bg-[#e8873a] hover:bg-[#d4792f] text-white font-semibold py-3 rounded-lg text-sm transition-colors">
+                  Get Free Estimate
+                </button>
+              </form>
+              <p className="text-white/30 text-[10px] mt-3 text-center">Response within 24 hours • No obligation</p>
             </div>
           </div>
         </div>
@@ -305,6 +345,12 @@ export default function HomeContent() {
           ))}
         </div>
       </Section>
+
+      {/* ═══════ PROCESS ═══════ */}
+      <ProcessSection />
+
+      {/* ═══════ LEAD MAGNET ═══════ */}
+      <LeadMagnet />
 
       {/* ═══════ CTA WITH DOCS ═══════ */}
       <CTAWithDocs

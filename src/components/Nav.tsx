@@ -46,6 +46,7 @@ const navItems = [
       { href: "/locations", label: "Service Areas" },
     ],
   },
+  { href: "/calculator", label: "Calculator", highlight: true },
   { href: "/professionals", label: "For Pros" },
   { href: "/quote", label: "Contact" },
 ];
