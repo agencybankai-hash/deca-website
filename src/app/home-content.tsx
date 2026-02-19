@@ -231,7 +231,13 @@ export default function HomeContent() {
       </Section>
 
       {/* ===== About DECA — Founder story ===== */}
-      <Section dark>
+      <section className="py-28 bg-brand text-white relative overflow-hidden">
+        {/* Blueprint grid texture */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.04 }}>
+          <defs><pattern id="about-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.5" /></pattern></defs>
+          <rect width="100%" height="100%" fill="url(#about-grid)" />
+        </svg>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid md:grid-cols-5 gap-10 lg:gap-16 items-center">
           {/* Photo column */}
           <div className="md:col-span-2 relative">
@@ -262,7 +268,8 @@ export default function HomeContent() {
             </Link>
           </div>
         </div>
-      </Section>
+        </div>
+      </section>
 
       {/* ===== Expert Guides (Figma: 3 cards) ===== */}
       <Section gray>
