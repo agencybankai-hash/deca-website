@@ -106,7 +106,7 @@ export default function HomeContent() {
 
       {/* ===== FEATURE TABS (Figma: Silence, Warmth, Convenience, Lifespan, Safety) ===== */}
       <Section gray>
-        <div className="flex justify-center gap-1 mb-12 border-b border-border overflow-x-auto" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+        <div className="flex justify-center gap-1 mb-12 border-b border-border flex-wrap">
           {featureTabs.map((tab) => (
             <button
               key={tab.id}
