@@ -3,10 +3,10 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 
 const topBarLinks = [
-  { href: "/professionals#builders", label: "For Builders" },
-  { href: "/professionals#contractors", label: "For Contractors" },
-  { href: "/professionals#dealers", label: "For Dealers" },
-  { href: "/professionals#architects", label: "For Architects" },
+  { href: "/professionals/contractors", label: "For Contractors" },
+  { href: "/professionals/architects", label: "For Architects" },
+  { href: "/professionals/dealers", label: "For Dealers" },
+  { href: "/professionals/commercial", label: "Commercial" },
 ];
 
 const topBarRight = [
@@ -40,6 +40,8 @@ const navItems = [
       { href: "/performance", label: "Technology & Performance" },
       { href: "/blog", label: "Expert Guides" },
       { href: "/about", label: "About DECA" },
+      { href: "/team", label: "Our Team" },
+      { href: "/locations", label: "Service Areas" },
     ],
   },
   { href: "/professionals", label: "For Pros" },

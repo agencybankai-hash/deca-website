@@ -68,23 +68,30 @@ export default function ProfessionalsPage() {
         </div>
       </Section>
 
-      {/* Segments */}
-      <Section gray id="builders">
-        <SectionTitle badge="Segments" title="Solutions for Your Business" />
+      {/* Segments — linked to dedicated pages */}
+      <Section gray>
+        <SectionTitle badge="Segments" title="Solutions for Your Business" subtitle="Explore dedicated resources for your industry." />
         <div className="grid md:grid-cols-2 gap-8">
           {[
-            { title: "Contractors & Builders", id: "contractors", desc: "Bulk orders, consistent quality, on-time delivery. Volume pricing for new construction and renovation projects.", photoDesc: "Фото: подрядчик на строительной площадке с чертежами окон DECA" },
-            { title: "Architects & Designers", id: "architects", desc: "Detailed specifications, custom designs, BIM data. Products that match any architectural vision.", photoDesc: "Фото: архитектор за рабочим столом с образцами профилей DECA" },
-            { title: "Dealers & Installers", id: "dealers", desc: "Become a DECA partner. Training, marketing materials, priority pricing, and territory exclusivity.", photoDesc: "Фото: шоурум дилера DECA с образцами окон и дверей" },
-            { title: "Commercial Projects", desc: "Multi-family, office, retail, historic renovation. LEED-eligible products with commercial-grade performance.", photoDesc: "Фото: многоквартирный дом с окнами DECA — коммерческий проект" },
+            { title: "Contractors & Builders", href: "/professionals/contractors", desc: "Volume pricing, on-time delivery, dedicated project manager. Built for your construction schedule.", photoDesc: "Фото: подрядчик на строительной площадке с чертежами окон DECA" },
+            { title: "Architects & Designers", href: "/professionals/architects", desc: "Custom specs, CAD/BIM data, NFRC reports, and 200+ RAL colors. Design without compromise.", photoDesc: "Фото: архитектор за рабочим столом с образцами профилей DECA" },
+            { title: "Dealers & Installers", href: "/professionals/dealers", desc: "Territory exclusivity, dealer pricing, training, and marketing support. Grow your business with DECA.", photoDesc: "Фото: шоурум дилера DECA с образцами окон и дверей" },
+            { title: "Commercial Projects", href: "/professionals/commercial", desc: "Multi-family, office, retail, historic renovation. Engineering support and phased delivery at scale.", photoDesc: "Фото: многоквартирный дом с окнами DECA — коммерческий проект" },
           ].map((s) => (
-            <div key={s.title} id={s.id} className="bg-white rounded-xl border border-border overflow-hidden">
+            <Link key={s.title} href={s.href} className="group block bg-white rounded-xl border border-border overflow-hidden transition-all hover:shadow-xl hover:border-blue-accent/20">
               <PhotoPlaceholder description={s.photoDesc} height="h-48" className="rounded-none border-0" />
-              <div className="p-6">
-                <h3 className="font-bold text-text-primary text-lg mb-2">{s.title}</h3>
-                <p className="text-sm text-text-secondary leading-relaxed">{s.desc}</p>
+              <div className="p-6 flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="font-bold text-text-primary text-lg mb-2 group-hover:text-blue-accent transition-colors">{s.title}</h3>
+                  <p className="text-sm text-text-secondary leading-relaxed">{s.desc}</p>
+                </div>
+                <div className="shrink-0 w-10 h-10 rounded-full bg-blue-accent/10 flex items-center justify-center group-hover:bg-blue-accent transition-colors mt-1">
+                  <svg className="w-5 h-5 text-blue-accent group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </Section>
