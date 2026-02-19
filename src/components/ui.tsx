@@ -126,7 +126,7 @@ export function ProductCard({ title, subtitle, href, photoDesc }: { title: strin
 /* ===== Stat Card ===== */
 export function StatCard({ value, label, light = false }: { value: string; label: string; light?: boolean }) {
   return (
-    <div className="text-center py-4">
+    <div className={`text-center py-6 px-4 rounded-xl ${light ? "bg-white/5 border border-white/10" : "bg-gray-50 border border-border"}`}>
       <div className={`text-3xl md:text-4xl font-bold mb-1 ${light ? "text-white" : "text-blue-accent"}`}>{value}</div>
       <div className={`text-sm ${light ? "text-white/60" : "text-text-secondary"}`}>{label}</div>
     </div>
