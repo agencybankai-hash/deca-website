@@ -1,10 +1,10 @@
 "use client";
-import { Section } from "@/components/ui";
 import DeliveryMap from "@/components/DeliveryMap";
 
 export default function DeliveryMapSection() {
   return (
-    <Section dark>
+    <section className="py-16 md:py-20 bg-brand text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
         <div>
           <span className="inline-block text-xs font-semibold tracking-wider uppercase text-white/60 mb-3">Nationwide Delivery</span>
@@ -46,6 +46,7 @@ export default function DeliveryMapSection() {
         </div>
         <DeliveryMap />
       </div>
-    </Section>
+      </div>
+    </section>
   );
 }

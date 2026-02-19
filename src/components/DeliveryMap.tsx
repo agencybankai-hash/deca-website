@@ -224,6 +224,20 @@ function DeliveryMap() {
           boxShadow: "0 3px 6px rgba(0,0,0,0.2)",
         }}
       />
+
+      {/* Board legs */}
+      <div className="flex justify-between px-12 -mt-0.5">
+        {/* Left leg */}
+        <div className="flex flex-col items-center">
+          <div className="w-4 h-16 rounded-b-sm" style={{ background: "linear-gradient(180deg, #7a5c12 0%, #5a4210 40%, #4a3610 100%)", boxShadow: "2px 4px 8px rgba(0,0,0,0.25)" }} />
+          <div className="w-6 h-1.5 rounded-b-sm -mt-px" style={{ background: "linear-gradient(180deg, #4a3610 0%, #3d2d0e 100%)", boxShadow: "0 2px 4px rgba(0,0,0,0.2)" }} />
+        </div>
+        {/* Right leg */}
+        <div className="flex flex-col items-center">
+          <div className="w-4 h-16 rounded-b-sm" style={{ background: "linear-gradient(180deg, #7a5c12 0%, #5a4210 40%, #4a3610 100%)", boxShadow: "-2px 4px 8px rgba(0,0,0,0.25)" }} />
+          <div className="w-6 h-1.5 rounded-b-sm -mt-px" style={{ background: "linear-gradient(180deg, #4a3610 0%, #3d2d0e 100%)", boxShadow: "0 2px 4px rgba(0,0,0,0.2)" }} />
+        </div>
+      </div>
     </div>
   );
 }
