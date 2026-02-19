@@ -112,7 +112,7 @@ export default function Nav() {
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-50"
+      className="fixed top-0 left-0 right-0 z-50"
       style={{
         transform: isHidden ? "translateY(-100%)" : "translateY(0)",
         transition: "transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease",
@@ -121,11 +121,12 @@ export default function Nav() {
     >
       {/* Top bar — B2B links (collapses on scroll) */}
       <div
-        className="bg-brand-darker text-white/50 text-xs hidden lg:block overflow-hidden"
+        className="text-white/50 text-xs hidden lg:block overflow-hidden"
         style={{
           maxHeight: showTopBar ? "2rem" : "0",
           opacity: showTopBar ? 1 : 0,
-          transition: "max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease",
+          backgroundColor: isTop ? "transparent" : "var(--color-brand-darker, #2a3f7a)",
+          transition: "max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease, background-color 0.5s ease",
         }}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-8">
@@ -148,9 +149,9 @@ export default function Nav() {
 
       {/* Main nav */}
       <nav
-        className="border-b border-white/10"
+        className={`border-b ${isTop ? "border-white/5" : "border-white/10"}`}
         style={{
-          backgroundColor: isTop ? "var(--color-brand)" : "rgba(56, 84, 170, 0.95)",
+          backgroundColor: isTop ? "transparent" : "rgba(56, 84, 170, 0.95)",
           backdropFilter: isTop ? "none" : "blur(20px) saturate(1.6)",
           WebkitBackdropFilter: isTop ? "none" : "blur(20px) saturate(1.6)",
           transition: "background-color 0.5s ease, backdrop-filter 0.5s ease",
