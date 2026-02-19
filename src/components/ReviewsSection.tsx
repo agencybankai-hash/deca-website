@@ -15,8 +15,8 @@ export default function ReviewsSection({ showServiceIcons = true }: { showServic
       {/* Horizontal scrolling reviews — full-bleed */}
       <div className="relative">
         {/* Fade edges */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-32 sm:w-48 lg:w-72" style={{ background: "linear-gradient(to right, rgb(255,255,255) 0%, rgba(255,255,255,0.7) 40%, transparent 100%)" }} />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-32 sm:w-48 lg:w-72" style={{ background: "linear-gradient(to left, rgb(255,255,255) 0%, rgba(255,255,255,0.7) 40%, transparent 100%)" }} />
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-40 sm:w-64 lg:w-[420px]" style={{ background: "linear-gradient(to right, rgb(255,255,255) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.3) 80%, transparent 100%)" }} />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-40 sm:w-64 lg:w-[420px]" style={{ background: "linear-gradient(to left, rgb(255,255,255) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.3) 80%, transparent 100%)" }} />
       <div
         className="flex gap-5 overflow-x-auto py-4 cursor-grab active:cursor-grabbing select-none"
         style={{
