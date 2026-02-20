@@ -3,6 +3,7 @@ import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, StatCard } from "@
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
+import B2BContactForm from "@/components/B2BContactForm";
 import StickyCTA from "@/components/StickyCTA";
 
 export const metadata: Metadata = {
@@ -96,23 +97,7 @@ export default function ProfessionalsPage() {
         </div>
       </Section>
 
-      {/* Testimonials */}
-      <Section>
-        <SectionTitle badge="Testimonials" title="Trusted by Professionals" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {[
-            { name: "Michael Rodriguez", role: "General Contractor, Cambridge", text: "As a contractor, I've worked with many window suppliers, but DECA's quality and customer service stands out. Reliable delivery, consistent quality." },
-            { name: "Robert Williams", role: "Architect, Springfield", text: "We specified DECA for a luxury apartment complex. Both we and our client are extremely satisfied with the performance and aesthetics." },
-          ].map((t) => (
-            <div key={t.name} className="bg-warm-gray rounded-xl p-6 border border-border">
-              <div className="flex gap-1 mb-3">{[...Array(5)].map((_, i) => <svg key={i} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>)}</div>
-              <p className="text-sm text-text-secondary italic leading-relaxed mb-4">&ldquo;{t.text}&rdquo;</p>
-              <p className="font-semibold text-sm text-text-primary">{t.name}</p>
-              <p className="text-xs text-text-muted">{t.role}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
+      {/* Testimonials — hidden until real B2B testimonials are collected from contractors/architects */}
 
 
 
@@ -122,34 +107,7 @@ export default function ProfessionalsPage() {
       {/* ═══════ DELIVERY MAP ═══════ */}
       <DeliveryMapSection />
 
-      {/* B2B Contact Form */}
-      <section id="contact-form" className="bg-brand text-white py-20">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get Professional Pricing</h2>
-          <p className="text-white/60 text-lg mb-10">Tell us about your project and we'll prepare a detailed quote.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-            {[["Company Name", "text"], ["Your Name", "text"], ["Email", "email"], ["Phone", "tel"]].map(([label, type]) => (
-              <div key={label}>
-                <label className="text-xs text-white/50 block mb-1.5">{label}</label>
-                <input type={type} className="w-full bg-navy-800 border border-white/10 rounded-md px-4 py-2.5 text-sm text-white placeholder-white/30 focus:border-blue-accent focus:outline-none" />
-              </div>
-            ))}
-            <div className="md:col-span-2">
-              <label className="text-xs text-white/50 block mb-1.5">Project Type</label>
-              <select className="w-full bg-navy-800 border border-white/10 rounded-md px-4 py-2.5 text-sm text-white focus:border-blue-accent focus:outline-none">
-                <option>New Construction</option><option>Renovation</option><option>Commercial</option><option>Multi-family</option><option>Dealer Partnership</option>
-              </select>
-            </div>
-            <div className="md:col-span-2">
-              <label className="text-xs text-white/50 block mb-1.5">Project Details</label>
-              <textarea rows={3} className="w-full bg-navy-800 border border-white/10 rounded-md px-4 py-2.5 text-sm text-white placeholder-white/30 focus:border-blue-accent focus:outline-none" />
-            </div>
-          </div>
-          <button className="bg-blue-accent hover:bg-blue-hover text-white px-8 py-3.5 rounded-md font-semibold mt-8 transition-colors">
-            Submit Request
-          </button>
-        </div>
-      </section>
+      <B2BContactForm title="Get Professional Pricing" subtitle="Tell us about your project and we'll prepare a detailed quote." buttonText="Submit Request" segment="general" projectTypes={["New Construction", "Renovation", "Commercial", "Multi-family", "Dealer Partnership"]} />
       <StickyCTA />
     </>
   );

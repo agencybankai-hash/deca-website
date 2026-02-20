@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
 import StickyCTA from "@/components/StickyCTA";
+import B2BContactForm from "@/components/B2BContactForm";
 
 export const metadata: Metadata = {
   title: "Commercial Projects | Multi-Family, Office & Retail | DECA Windows",
@@ -102,35 +103,7 @@ export default function CommercialPage() {
 
       <ReviewsSection />
       <DeliveryMapSection />
-
-      {/* B2B Contact Form */}
-      <section id="contact-form" className="bg-brand text-white py-20">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Start Your Commercial Project</h2>
-          <p className="text-white/60 text-lg mb-10">Share project details for a commercial assessment and pricing proposal.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-            {[["Company Name", "text"], ["Your Name", "text"], ["Email", "email"], ["Phone", "tel"]].map(([label, type]) => (
-              <div key={label}>
-                <label className="text-xs text-white/50 block mb-1.5">{label}</label>
-                <input type={type} className="w-full bg-navy-800 border border-white/10 rounded-md px-4 py-2.5 text-sm text-white placeholder-white/30 focus:border-blue-accent focus:outline-none" />
-              </div>
-            ))}
-            <div className="md:col-span-2">
-              <label className="text-xs text-white/50 block mb-1.5">Project Type</label>
-              <select className="w-full bg-navy-800 border border-white/10 rounded-md px-4 py-2.5 text-sm text-white focus:border-blue-accent focus:outline-none">
-                <option>Multi-Family Residential</option><option>Office / Corporate</option><option>Retail / Hospitality</option><option>Historic Renovation</option><option>Mixed-Use</option><option>Institutional</option>
-              </select>
-            </div>
-            <div className="md:col-span-2">
-              <label className="text-xs text-white/50 block mb-1.5">Project Scope (units, timeline, special requirements)</label>
-              <textarea rows={3} className="w-full bg-navy-800 border border-white/10 rounded-md px-4 py-2.5 text-sm text-white placeholder-white/30 focus:border-blue-accent focus:outline-none" />
-            </div>
-          </div>
-          <button className="bg-blue-accent hover:bg-blue-hover text-white px-8 py-3.5 rounded-md font-semibold mt-8 transition-colors">
-            Request Commercial Quote
-          </button>
-        </div>
-      </section>
+      <B2BContactForm title="Get a Commercial Quote" subtitle="Engineering support, phased delivery, and competitive pricing for projects at scale." buttonText="Request Commercial Quote" segment="commercial" projectTypes={["Multi-family Housing", "Office / Retail", "Hotel / Hospitality", "Historic Renovation", "Institutional"]} />
       <StickyCTA />
     </>
   );

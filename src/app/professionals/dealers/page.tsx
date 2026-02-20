@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
 import StickyCTA from "@/components/StickyCTA";
+import B2BContactForm from "@/components/B2BContactForm";
 
 export const metadata: Metadata = {
   title: "For Dealers & Installers | Partnership Program | DECA Windows",
@@ -102,35 +103,7 @@ export default function DealersPage() {
 
       <ReviewsSection />
       <DeliveryMapSection />
-
-      {/* B2B Contact Form */}
-      <section id="contact-form" className="bg-brand text-white py-20">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Apply for Dealer Partnership</h2>
-          <p className="text-white/60 text-lg mb-10">Tell us about your business and the territory you&apos;d like to cover.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-            {[["Company Name", "text"], ["Your Name", "text"], ["Email", "email"], ["Phone", "tel"]].map(([label, type]) => (
-              <div key={label}>
-                <label className="text-xs text-white/50 block mb-1.5">{label}</label>
-                <input type={type} className="w-full bg-navy-800 border border-white/10 rounded-md px-4 py-2.5 text-sm text-white placeholder-white/30 focus:border-blue-accent focus:outline-none" />
-              </div>
-            ))}
-            <div className="md:col-span-2">
-              <label className="text-xs text-white/50 block mb-1.5">Business Type</label>
-              <select className="w-full bg-navy-800 border border-white/10 rounded-md px-4 py-2.5 text-sm text-white focus:border-blue-accent focus:outline-none">
-                <option>Window & Door Showroom</option><option>General Contractor</option><option>Installation Company</option><option>Home Improvement Retailer</option><option>Other</option>
-              </select>
-            </div>
-            <div className="md:col-span-2">
-              <label className="text-xs text-white/50 block mb-1.5">Desired Territory & Business Details</label>
-              <textarea rows={3} className="w-full bg-navy-800 border border-white/10 rounded-md px-4 py-2.5 text-sm text-white placeholder-white/30 focus:border-blue-accent focus:outline-none" />
-            </div>
-          </div>
-          <button className="bg-blue-accent hover:bg-blue-hover text-white px-8 py-3.5 rounded-md font-semibold mt-8 transition-colors">
-            Submit Application
-          </button>
-        </div>
-      </section>
+      <B2BContactForm title="Apply for Dealer Program" subtitle="Join the DECA dealer network. Territory exclusivity, training, and competitive pricing." buttonText="Apply Now" segment="dealers" projectTypes={["Showroom Dealer", "Installation Partner", "Distribution", "Online Retail"]} />
       <StickyCTA />
     </>
   );
