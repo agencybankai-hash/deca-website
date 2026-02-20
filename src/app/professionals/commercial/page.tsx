@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, StatCard } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder } from "@/components/ui";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
 import StickyCTA from "@/components/StickyCTA";
 import B2BContactForm from "@/components/B2BContactForm";
+import AnimatedStatCard from "@/components/AnimatedStatCard";
 
 export const metadata: Metadata = {
   title: "Commercial Projects | Multi-Family, Office & Retail | DECA Windows",
@@ -64,10 +65,10 @@ export default function CommercialPage() {
       {/* Stats */}
       <Section gray>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <StatCard value="300%" label="Exceeds Energy Code" />
-          <StatCard value="50+" label="Commercial Projects" />
-          <StatCard value="LEED" label="Eligible Products" />
-          <StatCard value="PE" label="Engineering Stamped" />
+          <AnimatedStatCard value="300%" label="Exceeds Energy Code" />
+          <AnimatedStatCard value="50+" label="Commercial Projects" />
+          <AnimatedStatCard value="LEED" label="Eligible Products" />
+          <AnimatedStatCard value="PE" label="Engineering Stamped" />
         </div>
       </Section>
 

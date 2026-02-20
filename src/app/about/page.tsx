@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, StatCard } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder } from "@/components/ui";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
 import CTAWithDocs from "@/components/CTAWithDocs";
 import StickyCTA from "@/components/StickyCTA";
+import AnimatedStatCard from "@/components/AnimatedStatCard";
 
 export const metadata: Metadata = {
   title: "About DECA | European Technology, American Craftsmanship",
@@ -45,10 +46,10 @@ export default function AboutPage() {
           </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-          <StatCard value="70+" label="Years of German Engineering" />
-          <StatCard value="500+" label="Completed Projects" />
-          <StatCard value="15" label="Year Warranty" />
-          <StatCard value="0.10" label="Best U-Value" />
+          <AnimatedStatCard value="70+" label="Years of German Engineering" />
+          <AnimatedStatCard value="500+" label="Completed Projects" />
+          <AnimatedStatCard value="15" label="Year Warranty" />
+          <AnimatedStatCard value="0.10" label="Best U-Value" />
         </div>
       </Section>
 

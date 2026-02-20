@@ -1,8 +1,9 @@
-import { Breadcrumb, PageHero, Section, StatCard } from "@/components/ui";
+import { Breadcrumb, PageHero, Section } from "@/components/ui";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
 import CTAWithDocs from "@/components/CTAWithDocs";
 import StickyCTA from "@/components/StickyCTA";
+import AnimatedStatCard from "@/components/AnimatedStatCard";
 
 export const metadata = {
   title: "Service Areas | Massachusetts & Northeast | DECA Windows",
@@ -29,9 +30,9 @@ export default function LocationsPage() {
             Unlike imported European windows that take 8–12 weeks to arrive, DECA manufactures in Westfield, MA — giving you 4-week turnaround, local warranty support, and no import headaches.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <StatCard value="4 wks" label="Production Time" />
-            <StatCard value="Local" label="Warranty Service" />
-            <StatCard value="$0" label="Import Duties" />
+            <AnimatedStatCard value="4 wks" label="Production Time" />
+            <AnimatedStatCard value="Local" label="Warranty Service" />
+            <AnimatedStatCard value="$0" label="Import Duties" />
           </div>
         </div>
       </Section>

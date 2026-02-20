@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, StatCard, ServiceIcons } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, ServiceIcons } from "@/components/ui";
 import { WindowConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
 import CTAWithDocs from "@/components/CTAWithDocs";
 import StickyCTA from "@/components/StickyCTA";
+import AnimatedStatCard from "@/components/AnimatedStatCard";
 
 export const metadata: Metadata = {
   title: "Aluminum Windows | Modern European Design | DECA Windows",
@@ -53,10 +54,10 @@ export default function AluminumWindowsPage() {
       {/* Stats */}
       <section className="bg-warm-gray py-8 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <StatCard value="92%" label="Glass Area" />
-          <StatCard value="0.20" label="Best U-Value" />
-          <StatCard value={'1.75"'} label="Slimmest Profile" />
-          <StatCard value="50+" label="Year Lifespan" />
+          <AnimatedStatCard value="92%" label="Glass Area" />
+          <AnimatedStatCard value="0.20" label="Best U-Value" />
+          <AnimatedStatCard value={'1.75"'} label="Slimmest Profile" />
+          <AnimatedStatCard value="50+" label="Year Lifespan" />
         </div>
       </section>
 

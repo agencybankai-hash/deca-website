@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, StatCard, ServiceIcons } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, ServiceIcons } from "@/components/ui";
 import { EntryDoorConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
 import CTAWithDocs from "@/components/CTAWithDocs";
 import StickyCTA from "@/components/StickyCTA";
+import AnimatedStatCard from "@/components/AnimatedStatCard";
 
 export const metadata: Metadata = {
   title: "Entry Doors & Front Doors | Secure European Design | DECA Windows",
@@ -56,10 +57,10 @@ export default function EntryDoorsPage() {
       {/* Stats */}
       <section className="bg-warm-gray py-8 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <StatCard value="7" label="Lock Points" />
-          <StatCard value="RC3" label="Security Rating" />
-          <StatCard value="0.8" label="Best U-Value" />
-          <StatCard value="50+" label="Year Lifespan" />
+          <AnimatedStatCard value="7" label="Lock Points" />
+          <AnimatedStatCard value="RC3" label="Security Rating" />
+          <AnimatedStatCard value="0.8" label="Best U-Value" />
+          <AnimatedStatCard value="50+" label="Year Lifespan" />
         </div>
       </section>
 

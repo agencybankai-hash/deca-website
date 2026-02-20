@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, StatCard } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard } from "@/components/ui";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
 import CTAWithDocs from "@/components/CTAWithDocs";
 import StickyCTA from "@/components/StickyCTA";
+import AnimatedStatCard from "@/components/AnimatedStatCard";
 
 export const metadata: Metadata = {
   title: "Performance & Testing Data | DECA Windows",
@@ -42,10 +43,10 @@ export default function PerformancePage() {
       {/* Key Stats - Design Pattern: Stats Grid */}
       <section className="bg-blue-accent py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <StatCard value="0.10" label="U-Value (lowest)" light />
-          <StatCard value="500 Pa" label="Water Resistance" light />
-          <StatCard value="45-50 dB" label="Noise Reduction" light />
-          <StatCard value="140 mph" label="Wind Rating" light />
+          <AnimatedStatCard value="0.10" label="U-Value (lowest)" light />
+          <AnimatedStatCard value="500 Pa" label="Water Resistance" light />
+          <AnimatedStatCard value="45-50 dB" label="Noise Reduction" light />
+          <AnimatedStatCard value="140 mph" label="Wind Rating" light />
         </div>
       </section>
 

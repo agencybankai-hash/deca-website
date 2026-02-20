@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, StatCard } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder } from "@/components/ui";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
 import StickyCTA from "@/components/StickyCTA";
 import B2BContactForm from "@/components/B2BContactForm";
+import AnimatedStatCard from "@/components/AnimatedStatCard";
 
 export const metadata: Metadata = {
   title: "For Contractors & Builders | Volume Pricing & Reliable Delivery | DECA Windows",
@@ -64,10 +65,10 @@ export default function ContractorsPage() {
       {/* Stats */}
       <Section gray>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <StatCard value="500+" label="Projects Completed" />
-          <StatCard value="4 wk" label="Production Cycle" />
-          <StatCard value="25%" label="Volume Discount" />
-          <StatCard value="98%" label="On-Time Delivery" />
+          <AnimatedStatCard value="500+" label="Projects Completed" />
+          <AnimatedStatCard value="4 wk" label="Production Cycle" />
+          <AnimatedStatCard value="25%" label="Volume Discount" />
+          <AnimatedStatCard value="98%" label="On-Time Delivery" />
         </div>
       </Section>
 

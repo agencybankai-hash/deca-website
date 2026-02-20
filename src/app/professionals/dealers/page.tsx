@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, StatCard } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder } from "@/components/ui";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
 import StickyCTA from "@/components/StickyCTA";
 import B2BContactForm from "@/components/B2BContactForm";
+import AnimatedStatCard from "@/components/AnimatedStatCard";
 
 export const metadata: Metadata = {
   title: "For Dealers & Installers | Partnership Program | DECA Windows",
@@ -64,10 +65,10 @@ export default function DealersPage() {
       {/* Stats */}
       <Section gray>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <StatCard value="40+" label="Active Dealers" />
-          <StatCard value="15 yr" label="Warranty Coverage" />
-          <StatCard value="4 wk" label="Order to Delivery" />
-          <StatCard value="100%" label="Territory Protected" />
+          <AnimatedStatCard value="40+" label="Active Dealers" />
+          <AnimatedStatCard value="15 yr" label="Warranty Coverage" />
+          <AnimatedStatCard value="4 wk" label="Order to Delivery" />
+          <AnimatedStatCard value="100%" label="Territory Protected" />
         </div>
       </Section>
 

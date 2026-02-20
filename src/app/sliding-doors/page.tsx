@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, StatCard, ServiceIcons } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, ServiceIcons } from "@/components/ui";
 import { SlidingDoorConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
 import CTAWithDocs from "@/components/CTAWithDocs";
 import StickyCTA from "@/components/StickyCTA";
+import AnimatedStatCard from "@/components/AnimatedStatCard";
 
 export const metadata: Metadata = {
   title: "Sliding Door Systems | PSk, Lift & Slide | DECA Windows",
@@ -53,10 +54,10 @@ export default function SlidingDoorsPage() {
       {/* Stats Section - Figma Pattern: Stats Bar */}
       <section className="bg-warm-gray py-8 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <StatCard value="21 ft" label="Max Opening Width" />
-          <StatCard value="0.15" label="Best U-Factor" />
-          <StatCard value="4" label="GEALAN Systems" />
-          <StatCard value="50+" label="Year Lifespan" />
+          <AnimatedStatCard value="21 ft" label="Max Opening Width" />
+          <AnimatedStatCard value="0.15" label="Best U-Factor" />
+          <AnimatedStatCard value="4" label="GEALAN Systems" />
+          <AnimatedStatCard value="50+" label="Year Lifespan" />
         </div>
       </section>
 

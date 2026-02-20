@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Section, SectionTitle, PhotoPlaceholder, ProductCard, StatCard, ServiceIcons, GuideCard, AnimatedCTA } from "@/components/ui";
+import { Section, SectionTitle, PhotoPlaceholder, ProductCard, ServiceIcons, GuideCard, AnimatedCTA } from "@/components/ui";
+import AnimatedStatCard from "@/components/AnimatedStatCard";
 import { cases } from "@/data/cases";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
@@ -235,10 +236,10 @@ export default function HomeContent() {
           <div>
             <SectionTitle align="left" badge="Peace of Mind" title="Warranty Commitments & Free Technical Support" subtitle="Every DECA product comes with a 15-year transferable warranty covering frames, glass units, and all hardware. Our in-house team provides free technical support for the lifetime of your windows." />
             <div className="grid grid-cols-2 gap-6">
-              <StatCard value="15 yr" label="Transferable Warranty" />
-              <StatCard value="Free" label="Technical Support" />
-              <StatCard value="48 hr" label="Response Time" />
-              <StatCard value="100%" label="Parts Coverage" />
+              <AnimatedStatCard value="15 yr" label="Transferable Warranty" />
+              <AnimatedStatCard value="Free" label="Technical Support" />
+              <AnimatedStatCard value="48 hr" label="Response Time" />
+              <AnimatedStatCard value="100%" label="Parts Coverage" />
             </div>
           </div>
           <PhotoPlaceholder description="Фото: сертификат гарантии DECA, или техник на объекте у заказчика" height="h-96" />
@@ -297,10 +298,10 @@ export default function HomeContent() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">&ldquo;We didn&rsquo;t come to America to sell windows. We came to change what American homeowners expect from a window.&rdquo;</h2>
             <p className="text-white/60 leading-relaxed mb-8 max-w-xl">Born and raised in Europe, Vladimir spent 20+ years in the window industry before founding DECA in Westfield, Massachusetts. His mission: bring true European engineering — triple-pane glass, multi-point locks, thermal-break frames — to every home in New England, at a fair price, with a personal touch.</p>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-              <StatCard value="500+" label="Homes Fitted" light />
-              <StatCard value="0.10" label="Best U-Value" light />
-              <StatCard value="15 yr" label="Full Warranty" light />
-              <StatCard value="50+" label="Years Lifespan" light />
+              <AnimatedStatCard value="500+" label="Homes Fitted" light />
+              <AnimatedStatCard value="0.10" label="Best U-Value" light />
+              <AnimatedStatCard value="15 yr" label="Full Warranty" light />
+              <AnimatedStatCard value="50+" label="Years Lifespan" light />
             </div>
             <Link href="/about" className="inline-flex items-center gap-2 text-blue-accent hover:text-blue-accent/80 font-medium transition-colors">
               Learn about our story
