@@ -44,6 +44,7 @@ const navItems = [
       { href: "/about", label: "About DECA" },
       { href: "/team", label: "Our Team" },
       { href: "/locations", label: "Service Areas" },
+      { href: "/faq", label: "FAQ" },
     ],
   },
   { href: "/calculator", label: "Calculator", highlight: true },

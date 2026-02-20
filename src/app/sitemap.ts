@@ -22,13 +22,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Commercial pages
     { url: "/professionals", priority: 0.8, changeFrequency: "monthly" },
+    { url: "/professionals/contractors", priority: 0.7, changeFrequency: "monthly" },
+    { url: "/professionals/architects", priority: 0.7, changeFrequency: "monthly" },
+    { url: "/professionals/dealers", priority: 0.7, changeFrequency: "monthly" },
+    { url: "/professionals/commercial", priority: 0.7, changeFrequency: "monthly" },
     { url: "/quote", priority: 0.8, changeFrequency: "monthly" },
     { url: "/locations", priority: 0.7, changeFrequency: "monthly" },
 
     // Content pages
     { url: "/blog", priority: 0.7, changeFrequency: "weekly" },
+    { url: "/faq", priority: 0.7, changeFrequency: "monthly" },
     { url: "/about", priority: 0.6, changeFrequency: "monthly" },
     { url: "/team", priority: 0.6, changeFrequency: "monthly" },
+
+    // Legal pages
+    { url: "/privacy", priority: 0.3, changeFrequency: "monthly" },
+    { url: "/terms", priority: 0.3, changeFrequency: "monthly" },
   ];
 
   return pages.map((page) => ({
