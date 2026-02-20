@@ -189,26 +189,34 @@ export default function EntryDoorsPage() {
       <Section gray>
         <SectionTitle badge="Resources" title="Expert Guides" />
         <div className="grid md:grid-cols-3 gap-6">
-          <GuideCard 
-            title="Entry Door Security Guide" 
-            desc="Multi-point locking vs deadbolts — a complete comparison." 
-            href="/blog" 
+          <GuideCard
+            title="Entry Door Security Guide"
+            desc="Multi-point locking vs deadbolts — a complete comparison."
+            href="/blog"
             photoDesc="Фото: сравнение многоточечного замка и обычного дедболта"
           />
-          <GuideCard 
-            title="French Swing Doors" 
-            desc="Classic elegance for indoor-outdoor transitions." 
-            href="/doors/french-doors" 
+          <GuideCard
+            title="French Swing Doors"
+            desc="Classic elegance for indoor-outdoor transitions."
+            href="/doors/french-doors"
             photoDesc="Фото: французские двери в интерьере — свет и простор"
           />
-          <GuideCard 
-            title="Sliding Patio Doors" 
-            desc="Panoramic openings for modern living." 
-            href="/sliding-doors" 
+          <GuideCard
+            title="Sliding Patio Doors"
+            desc="Panoramic openings for modern living."
+            href="/sliding-doors"
             photoDesc="Фото: панорамная раздвижная дверь с видом на террасу"
           />
         </div>
       </Section>
+
+      <CTAWithDocs
+        title="Ready to Upgrade Your Entry?"
+        subtitle="Get your custom order form, door blueprints, and detailed specification — all prepared for your project."
+        btnText="Get Custom Quote"
+      />
+
+      <ServiceIcons />
 
       {/* FAQ */}
       <Section>
@@ -231,14 +239,6 @@ export default function EntryDoorsPage() {
           ))}
         </div>
       </Section>
-
-      <ServiceIcons />
-
-      <CTAWithDocs
-        title="Ready to Upgrade Your Entry?"
-        subtitle="Get your custom order form, door blueprints, and detailed specification — all prepared for your project."
-        btnText="Get Custom Quote"
-      />
 
       <StickyCTA />
     </>

@@ -196,6 +196,12 @@ export default function FrenchDoorsPage() {
         </div>
       </Section>
 
+      <CTAWithDocs
+        title="Add Elegance with French Doors"
+        subtitle="Get your custom order form, door blueprints, and detailed specification — all prepared for your project."
+        btnText="Get Custom Quote"
+      />
+
       {/* FAQ */}
       <Section gray>
         <SectionTitle badge="FAQ" title="Frequently Asked Questions" />
@@ -219,12 +225,6 @@ export default function FrenchDoorsPage() {
       </Section>
 
       <ServiceIcons />
-
-      <CTAWithDocs
-        title="Add Elegance with French Doors"
-        subtitle="Get your custom order form, door blueprints, and detailed specification — all prepared for your project."
-        btnText="Get Custom Quote"
-      />
 
       <StickyCTA />
     </>

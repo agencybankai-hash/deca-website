@@ -214,6 +214,15 @@ export default function SlidingDoorsPage() {
         </div>
       </Section>
 
+      {/* CTA Block - Figma Pattern: Call-to-Action Section */}
+      <CTAWithDocs
+        title="Which Sliding System Is Right for You?"
+        subtitle="Get your custom order form, door blueprints, and detailed specification — all prepared for your project."
+        btnText="Get Expert Advice"
+      />
+
+      <ServiceIcons />
+
       {/* FAQ - Figma Pattern: Accordion */}
       <Section gray>
         <SectionTitle badge="FAQ" title="Frequently Asked Questions" />
@@ -248,15 +257,6 @@ export default function SlidingDoorsPage() {
           ))}
         </div>
       </Section>
-
-      <ServiceIcons />
-
-      {/* CTA Block - Figma Pattern: Call-to-Action Section */}
-      <CTAWithDocs
-        title="Which Sliding System Is Right for You?"
-        subtitle="Get your custom order form, door blueprints, and detailed specification — all prepared for your project."
-        btnText="Get Expert Advice"
-      />
 
       <StickyCTA />
     </>

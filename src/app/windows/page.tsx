@@ -201,6 +201,14 @@ export default function WindowsPage() {
         </div>
       </Section>
 
+      <CTAWithDocs
+        title="Find Your Perfect Window"
+        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
+        btnText="Get a Quote"
+      />
+
+      <ServiceIcons />
+
       {/* FAQ */}
       <Section gray>
         <SectionTitle badge="FAQ" title="Frequently Asked Questions" />
@@ -221,14 +229,6 @@ export default function WindowsPage() {
           ))}
         </div>
       </Section>
-
-      <ServiceIcons />
-
-      <CTAWithDocs
-        title="Find Your Perfect Window"
-        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
-        btnText="Get a Quote"
-      />
 
       <StickyCTA />
     </>

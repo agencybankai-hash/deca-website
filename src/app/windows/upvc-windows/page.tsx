@@ -445,6 +445,13 @@ export default function UPVCWindowsPage() {
       {/* ═══════ DELIVERY MAP ═══════ */}
       <DeliveryMapSection />
 
+      {/* ═══════ FINAL CTA ═══════ */}
+      <CTAWithDocs
+        title="Ready for Premium uPVC Windows?"
+        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
+        btnText="Get Free Quote"
+      />
+
       {/* ═══════ FAQ ═══════ */}
       <Section>
         <SectionTitle badge="FAQ" title="Frequently Asked Questions" />
@@ -467,13 +474,6 @@ export default function UPVCWindowsPage() {
           ))}
         </div>
       </Section>
-
-      {/* ═══════ FINAL CTA ═══════ */}
-      <CTAWithDocs
-        title="Ready for Premium uPVC Windows?"
-        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
-        btnText="Get Free Quote"
-      />
 
       {/* ═══════ STICKY CTA ═══════ */}
       <StickyCTA />

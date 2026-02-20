@@ -201,6 +201,14 @@ export default function AluminumWindowsPage() {
         </div>
       </Section>
 
+      <CTAWithDocs
+        title="Ready for Contemporary Aluminum Windows?"
+        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
+        btnText="Get Custom Quote"
+      />
+
+      <ServiceIcons />
+
       {/* FAQ */}
       <Section gray>
         <SectionTitle badge="FAQ" title="Frequently Asked Questions" />
@@ -222,14 +230,6 @@ export default function AluminumWindowsPage() {
           ))}
         </div>
       </Section>
-
-      <ServiceIcons />
-
-      <CTAWithDocs
-        title="Ready for Contemporary Aluminum Windows?"
-        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
-        btnText="Get Custom Quote"
-      />
 
       <StickyCTA />
     </>

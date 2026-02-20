@@ -325,6 +325,13 @@ export default function HomeContent() {
       {/* ═══════ DELIVERY MAP ═══════ */}
       <DeliveryMapSection />
 
+      {/* ═══════ CTA WITH DOCS ═══════ */}
+      <CTAWithDocs
+        title="Let's Work Together to Build Better Spaces"
+        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
+        btnText="Get a Free Quote"
+      />
+
       {/* ===== FAQ (Figma: accordion) ===== */}
       <Section>
         <SectionTitle badge="FAQ" title="Your Questions — Answered" />
@@ -352,13 +359,6 @@ export default function HomeContent() {
 
       {/* ═══════ LEAD MAGNET ═══════ */}
       <LeadMagnet />
-
-      {/* ═══════ CTA WITH DOCS ═══════ */}
-      <CTAWithDocs
-        title="Let's Work Together to Build Better Spaces"
-        subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
-        btnText="Get a Free Quote"
-      />
 
       <StickyCTA />
     </>
