@@ -1,10 +1,14 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+import { Suspense, useState, FormEvent } from "react";
 
 function QuoteFormInner() {
   const searchParams = useSearchParams();
   const configRaw = searchParams.get("config") || "";
+
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   /* Parse config string: "[window] Profile System: GEALAN-LINEAR | Glazing: Triple" */
   let productType = "";
@@ -26,6 +30,78 @@ function QuoteFormInner() {
 
   const hasConfig = configItems.length > 0;
 
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSubmitting(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const payload = {
+      firstName: data.get("firstName") as string,
+      lastName: data.get("lastName") as string,
+      email: data.get("email") as string,
+      phone: data.get("phone") as string,
+      projectType: data.get("projectType") as string,
+      message: data.get("message") as string,
+      configuration: hasConfig ? configItems.map((i) => `${i.step}: ${i.value}`).join(", ") : "",
+    };
+
+    try {
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("Failed to submit");
+      setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch {
+      setError("Something went wrong. Please call us at (413) 771-4457 or try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  /* ══════ Thank You State ══════ */
+  if (submitted) {
+    return (
+      <div className="max-w-2xl mx-auto text-center py-12">
+        <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
+          <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h1 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">Thank You!</h1>
+        <p className="text-lg text-text-secondary mb-3">
+          Your quote request has been received. Our team will review your project details and contact you within 24 hours.
+        </p>
+        <p className="text-text-muted mb-8">
+          If you need immediate assistance, call us at{" "}
+          <a href="tel:+14137714457" className="text-blue-accent font-semibold hover:underline">(413) 771-4457</a>
+        </p>
+        <div className="bg-warm-gray rounded-xl p-6 border border-border inline-block text-left">
+          <h3 className="font-semibold text-text-primary mb-4">What happens next?</h3>
+          <div className="space-y-3">
+            {[
+              "We review your request within 24 hours",
+              "Our team contacts you to discuss specifications",
+              "You receive a detailed quote within 48 hours",
+              "Custom order completed in 4 weeks or less",
+            ].map((step, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <span className="shrink-0 w-6 h-6 rounded-full bg-blue-accent text-white text-xs font-bold flex items-center justify-center">{i + 1}</span>
+                <p className="text-sm text-text-secondary">{step}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  /* ══════ Form ══════ */
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
       {/* Form */}
@@ -60,53 +136,62 @@ function QuoteFormInner() {
           </div>
         )}
 
-        <div className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-sm font-medium text-text-primary block mb-1.5">First Name</label>
-              <input className="w-full border border-border rounded-md px-4 py-2.5 text-sm focus:border-blue-accent focus:outline-none" />
+              <label htmlFor="firstName" className="text-sm font-medium text-text-primary block mb-1.5">First Name *</label>
+              <input id="firstName" name="firstName" required className="w-full border border-border rounded-md px-4 py-2.5 text-sm focus:border-blue-accent focus:outline-none" />
             </div>
             <div>
-              <label className="text-sm font-medium text-text-primary block mb-1.5">Last Name</label>
-              <input className="w-full border border-border rounded-md px-4 py-2.5 text-sm focus:border-blue-accent focus:outline-none" />
+              <label htmlFor="lastName" className="text-sm font-medium text-text-primary block mb-1.5">Last Name *</label>
+              <input id="lastName" name="lastName" required className="w-full border border-border rounded-md px-4 py-2.5 text-sm focus:border-blue-accent focus:outline-none" />
             </div>
           </div>
           <div>
-            <label className="text-sm font-medium text-text-primary block mb-1.5">Email</label>
-            <input type="email" className="w-full border border-border rounded-md px-4 py-2.5 text-sm focus:border-blue-accent focus:outline-none" />
+            <label htmlFor="email" className="text-sm font-medium text-text-primary block mb-1.5">Email *</label>
+            <input id="email" name="email" type="email" required className="w-full border border-border rounded-md px-4 py-2.5 text-sm focus:border-blue-accent focus:outline-none" />
           </div>
           <div>
-            <label className="text-sm font-medium text-text-primary block mb-1.5">Phone</label>
-            <input type="tel" className="w-full border border-border rounded-md px-4 py-2.5 text-sm focus:border-blue-accent focus:outline-none" />
+            <label htmlFor="phone" className="text-sm font-medium text-text-primary block mb-1.5">Phone *</label>
+            <input id="phone" name="phone" type="tel" required className="w-full border border-border rounded-md px-4 py-2.5 text-sm focus:border-blue-accent focus:outline-none" />
           </div>
           <div>
-            <label className="text-sm font-medium text-text-primary block mb-1.5">Project Type</label>
-            <select className="w-full border border-border rounded-md px-4 py-2.5 text-sm focus:border-blue-accent focus:outline-none bg-white">
-              <option>Residential — Window Replacement</option>
-              <option>Residential — New Construction</option>
-              <option>Commercial Project</option>
-              <option>Multi-family</option>
-              <option>Dealer / Installer Partnership</option>
+            <label htmlFor="projectType" className="text-sm font-medium text-text-primary block mb-1.5">Project Type</label>
+            <select id="projectType" name="projectType" className="w-full border border-border rounded-md px-4 py-2.5 text-sm focus:border-blue-accent focus:outline-none bg-white">
+              <option value="residential-replacement">Residential — Window Replacement</option>
+              <option value="residential-new">Residential — New Construction</option>
+              <option value="commercial">Commercial Project</option>
+              <option value="multi-family">Multi-family</option>
+              <option value="dealer">Dealer / Installer Partnership</option>
             </select>
           </div>
           <div>
-            <label className="text-sm font-medium text-text-primary block mb-1.5">Tell us about your project</label>
+            <label htmlFor="message" className="text-sm font-medium text-text-primary block mb-1.5">Tell us about your project</label>
             <textarea
+              id="message"
+              name="message"
               rows={4}
               className="w-full border border-border rounded-md px-4 py-2.5 text-sm focus:border-blue-accent focus:outline-none"
               placeholder="Number of windows/doors, sizes, any special requirements..."
               defaultValue={hasConfig ? `Configuration: ${configItems.map((i) => `${i.step}: ${i.value}`).join(", ")}` : ""}
             />
           </div>
-          <div className="bg-warm-gray rounded-lg border-2 border-dashed border-border p-6 text-center">
-            <p className="text-sm text-text-secondary">Drop files here or click to upload</p>
-            <p className="text-xs text-text-muted mt-1">Photos of your house or project (optional)</p>
-          </div>
-          <button className="w-full bg-blue-accent hover:bg-blue-hover text-white py-3.5 rounded-md font-semibold transition-colors">
-            Request a Free Quote
+
+          {error && (
+            <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg px-4 py-3 text-sm">
+              {error}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={submitting}
+            className="w-full bg-blue-accent hover:bg-blue-hover disabled:bg-blue-accent/50 text-white py-3.5 rounded-md font-semibold transition-colors"
+          >
+            {submitting ? "Sending..." : "Request a Free Quote"}
           </button>
           <p className="text-xs text-text-muted text-center">By submitting, you agree to our Privacy Policy.</p>
-        </div>
+        </form>
       </div>
 
       {/* Sidebar info */}
@@ -125,13 +210,13 @@ function QuoteFormInner() {
               <svg className="w-5 h-5 text-blue-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              <p>(413) 771-4457</p>
+              <a href="tel:+14137714457" className="hover:text-blue-accent transition-colors">(413) 771-4457</a>
             </div>
             <div className="flex items-start gap-3">
               <svg className="w-5 h-5 text-blue-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              <p>info@decawindows.com</p>
+              <a href="mailto:info@decawindows.com" className="hover:text-blue-accent transition-colors">info@decawindows.com</a>
             </div>
           </div>
         </div>
