@@ -122,36 +122,36 @@ export default function TeamPage() {
             <div className="md:col-span-2">
               <div className="mb-8">
                 <div className="flex items-baseline gap-3 mb-2">
-                  <h3 className="text-3xl font-bold text-text-primary">Alex Chen</h3>
-                  <span className="text-blue-accent text-sm font-semibold">Technical Director & Lead Engineer</span>
+                  <h3 className="text-3xl font-bold text-text-primary">Technical Director</h3>
+                  <span className="text-blue-accent text-sm font-semibold">Lead Engineer</span>
                 </div>
                 <p className="text-text-muted text-sm">10+ years in window engineering, thermal testing, and NFRC certification</p>
               </div>
 
               <h4 className="font-bold text-text-primary text-lg mb-3">Background & Expertise</h4>
               <p className="text-text-secondary leading-relaxed mb-6">
-                Alex earned a degree in mechanical engineering from MIT and spent 10+ years in window manufacturing and testing. His expertise spans thermal performance analysis, NFRC certification procedures, structural modeling, and material science. Before joining DECA, Alex led the engineering team at a major window manufacturer, where he designed performance specifications and oversaw thermal testing facilities.
+                Our Technical Director brings 10+ years of experience in window manufacturing and testing. Their expertise spans thermal performance analysis, NFRC certification procedures, structural modeling, and material science, with a background leading engineering teams at major window manufacturers.
               </p>
 
               <h4 className="font-bold text-text-primary text-lg mb-3">Responsibility at DECA</h4>
               <p className="text-text-secondary leading-relaxed mb-6">
-                Alex oversees all technical specifications, product testing, and performance certification. He personally conducts thermal testing, U-value verification, air leakage testing, and structural analysis. Every DECA window published spec has Alex's review and verification. He's the architect behind DECA's industry-leading performance metrics.
+                Oversees all technical specifications, product testing, and performance certification. Personally conducts thermal testing, U-value verification, air leakage testing, and structural analysis. Every DECA window published spec is reviewed and verified by our engineering team.
               </p>
 
               <h4 className="font-bold text-text-primary text-lg mb-3">Quality Assurance Philosophy</h4>
               <p className="text-text-secondary leading-relaxed mb-6">
-                "We don't claim performance we haven't tested," Alex states. Every published U-value, R-value, and acoustic rating reflects actual laboratory testing. DECA participates in ongoing NFRC certification and third-party verification. This commitment to verifiable, auditable performance distinguishes DECA from competitors who rely on theoretical calculations.
+                We don't claim performance we haven't tested. Every published U-value, R-value, and acoustic rating reflects actual laboratory testing. DECA participates in ongoing NFRC certification and third-party verification. This commitment to verifiable, auditable performance distinguishes DECA from competitors who rely on theoretical calculations.
               </p>
 
               <h4 className="font-bold text-text-primary text-lg mb-3">Key Credentials</h4>
               <ul className="space-y-2 mb-6">
                 <li className="flex gap-2 text-text-secondary">
                   <span className="text-blue-accent font-bold">✓</span>
-                  <span>NFRC Certified Program Reviewer (CPR) for window thermal testing</span>
+                  <span>NFRC Certified testing and verification expertise</span>
                 </li>
                 <li className="flex gap-2 text-text-secondary">
                   <span className="text-blue-accent font-bold">✓</span>
-                  <span>MIT Mechanical Engineering degree with thermal systems focus</span>
+                  <span>Mechanical engineering background with thermal systems focus</span>
                 </li>
                 <li className="flex gap-2 text-text-secondary">
                   <span className="text-blue-accent font-bold">✓</span>
@@ -159,7 +159,7 @@ export default function TeamPage() {
                 </li>
                 <li className="flex gap-2 text-text-secondary">
                   <span className="text-blue-accent font-bold">✓</span>
-                  <span>Published research on thermal bridging and polyamide performance</span>
+                  <span>Deep expertise in thermal bridging and polyamide performance</span>
                 </li>
               </ul>
 
@@ -193,25 +193,25 @@ export default function TeamPage() {
             <div className="md:col-span-2">
               <div className="mb-8">
                 <div className="flex items-baseline gap-3 mb-2">
-                  <h3 className="text-3xl font-bold text-text-primary">Marcus Rodriguez</h3>
-                  <span className="text-blue-accent text-sm font-semibold">Installation Lead & Field Operations</span>
+                  <h3 className="text-3xl font-bold text-text-primary">Installation Lead</h3>
+                  <span className="text-blue-accent text-sm font-semibold">Field Operations Manager</span>
                 </div>
                 <p className="text-text-muted text-sm">20+ years in residential and commercial installation, 500+ completed projects</p>
               </div>
 
               <h4 className="font-bold text-text-primary text-lg mb-3">Background & Expertise</h4>
               <p className="text-text-secondary leading-relaxed mb-6">
-                Marcus started his career as a general contractor and spent 20+ years in residential and commercial construction. He's led installation teams for everything from single-home renovations to large commercial glazing projects. When DECA launched, Marcus joined because he believed in Vladimir's vision of American-manufactured quality.
+                Our Installation Lead started their career as a general contractor and has spent 20+ years in residential and commercial construction, leading installation teams for everything from single-home renovations to large commercial glazing projects.
               </p>
 
               <h4 className="font-bold text-text-primary text-lg mb-3">Responsibility at DECA</h4>
               <p className="text-text-secondary leading-relaxed mb-6">
-                Marcus oversees all DECA installation projects across New England and coordinates with vetted contractors nationwide. He personally supervises complex residential and commercial installations, manages scheduling and logistics, trains installation teams on DECA-specific procedures, and ensures every project meets company standards. His team has completed 500+ installations with a 99.2% customer satisfaction rating.
+                Oversees all DECA installation projects across New England and coordinates with vetted contractors nationwide. Personally supervises complex residential and commercial installations, manages scheduling and logistics, trains installation teams on DECA-specific procedures, and ensures every project meets company standards. The team has completed 500+ installations with a 99.2% customer satisfaction rating.
               </p>
 
               <h4 className="font-bold text-text-primary text-lg mb-3">Installation Philosophy</h4>
               <p className="text-text-secondary leading-relaxed mb-6">
-                "Installation is 50% of the product," Marcus insists. "A premium window installed poorly will fail thermally, mechanically, and aesthetically. We treat installation as engineering: careful measurement, proper techniques, and meticulous attention to detail." DECA installation training is rigorous, and every installer must pass certification before working on projects.
+                "Installation is 50% of the product. A premium window installed poorly will fail thermally, mechanically, and aesthetically. We treat installation as engineering: careful measurement, proper techniques, and meticulous attention to detail." DECA installation training is rigorous, and every installer must pass certification before working on projects.
               </p>
 
               <h4 className="font-bold text-text-primary text-lg mb-3">Key Credentials</h4>
