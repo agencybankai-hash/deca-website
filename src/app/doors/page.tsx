@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, ServiceIcons } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard } from "@/components/ui";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
@@ -219,8 +219,6 @@ export default function DoorsPage() {
           ))}
         </div>
       </Section>
-
-      <ServiceIcons />
 
       <CTAWithDocs
         title="Let's Work Together to Build Better Spaces"

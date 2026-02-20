@@ -8,17 +8,15 @@ import { ServiceIcons, SectionTitle } from "@/components/ui";
  */
 
 export default function ReviewsSection({ showServiceIcons = true }: { showServiceIcons?: boolean }) {
-  return (
-    <section className="py-20 overflow-visible">
-      {/* Reviews section hidden — awaiting real customer testimonials */}
-      {/* When ready, replace this placeholder with actual reviews or a Google Reviews widget */}
+  /* When showServiceIcons is false, render nothing at all (no empty wrapper) */
+  if (!showServiceIcons) return null;
 
-      {showServiceIcons && (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <SectionTitle title="Exceptional Service in Massachusetts" subtitle="From consultation to installation, we're with you every step." />
-          <ServiceIcons />
-        </div>
-      )}
+  return (
+    <section className="py-16 overflow-visible">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <SectionTitle title="Exceptional Service in Massachusetts" subtitle="From consultation to installation, we're with you every step." />
+        <ServiceIcons />
+      </div>
     </section>
   );
 }

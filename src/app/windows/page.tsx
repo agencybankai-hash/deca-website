@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, ServiceIcons } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard } from "@/components/ui";
 import { WindowConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
@@ -206,8 +206,6 @@ export default function WindowsPage() {
         subtitle="Get your custom order form, window blueprints, and detailed specification — all prepared for your project."
         btnText="Get a Quote"
       />
-
-      <ServiceIcons />
 
       {/* FAQ */}
       <Section gray>

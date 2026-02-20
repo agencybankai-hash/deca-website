@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, ServiceIcons } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard } from "@/components/ui";
 import { SlidingDoorConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
@@ -220,8 +220,6 @@ export default function SlidingDoorsPage() {
         subtitle="Get your custom order form, door blueprints, and detailed specification — all prepared for your project."
         btnText="Get Expert Advice"
       />
-
-      <ServiceIcons />
 
       {/* FAQ - Figma Pattern: Accordion */}
       <Section gray>
