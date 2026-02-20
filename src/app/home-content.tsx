@@ -178,14 +178,18 @@ export default function HomeContent() {
           {cases.slice(0, 4).map((c) => (
             <Link key={c.slug} href={`/cases/${c.slug}`} className="group block bg-warm-gray rounded-xl border border-border overflow-hidden transition-all hover:shadow-xl hover:border-blue-accent/20">
               <PhotoPlaceholder description={c.photoDesc} height="h-48" className="rounded-none border-0" />
-              <div className="p-6">
+              <div className="p-6 relative">
+                <span className="absolute top-6 right-6 bg-blue-accent hover:bg-blue-hover text-white text-xs font-semibold px-4 py-2 rounded-md transition-colors group-hover:bg-blue-hover inline-flex items-center gap-1.5">
+                  Read Story
+                  <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                </span>
                 <div className="flex flex-wrap gap-2 mb-3">
                   <span className="text-[10px] font-semibold tracking-wider uppercase text-brand bg-brand/10 px-2 py-0.5 rounded-full">{c.type}</span>
                   <span className="text-[10px] font-semibold tracking-wider uppercase text-text-muted bg-white px-2 py-0.5 rounded-full">{c.location}</span>
                 </div>
-                <h3 className="font-bold text-text-primary mb-2 group-hover:text-blue-accent transition-colors">{c.title}</h3>
+                <h3 className="font-bold text-text-primary mb-2 pr-28 group-hover:text-blue-accent transition-colors">{c.title}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed mb-4 line-clamp-2">{c.summary}</p>
-                <div className="flex gap-3 mb-4">
+                <div className="flex gap-3">
                   {c.results.slice(0, 3).map((r) => (
                     <div key={r.label} className="text-center bg-white rounded-lg px-3 py-2 border border-border">
                       <span className="block text-sm font-bold text-brand">{r.value}</span>
@@ -193,10 +197,6 @@ export default function HomeContent() {
                     </div>
                   ))}
                 </div>
-                <span className="text-blue-accent text-sm font-medium inline-flex items-center gap-1">
-                  Read story
-                  <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                </span>
               </div>
             </Link>
           ))}
