@@ -77,7 +77,7 @@ export default function CommercialPage() {
           {benefits.map((b) => (
             <div key={b.title} className="bg-warm-gray rounded-xl p-6 border border-border">
               <span className="text-2xl mb-3 block">{b.icon}</span>
-              <h3 className="font-bold text-text-primary text-lg mb-2">{b.title}</h3>
+              <h2 className="font-bold text-text-primary text-lg mb-2">{b.title}</h2>
               <p className="text-sm text-text-secondary leading-relaxed">{b.desc}</p>
             </div>
           ))}
@@ -90,7 +90,7 @@ export default function CommercialPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((s) => (
             <div key={s.num} className="relative">
-              <span className="text-5xl font-black text-brand/10 absolute -top-2 -left-1">{s.num}</span>
+              <span className="text-3xl md:text-5xl font-black text-brand/10 absolute -top-2 -left-1">{s.num}</span>
               <div className="pt-10">
                 <h3 className="font-bold text-text-primary mb-2">{s.title}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed">{s.desc}</p>

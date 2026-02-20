@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, StatCard } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, StatCard, ServiceIcons } from "@/components/ui";
 import { WindowConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
@@ -13,9 +13,21 @@ export const metadata: Metadata = {
   alternates: { canonical: "/windows/aluminum-windows" },
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is a thermal break in aluminum windows?", "acceptedAnswer": { "@type": "Answer", "text": "A thermal break is a polyamide strip (14-20mm thick) that physically separates the exterior and interior aluminum frames. Aluminum conducts heat 200x faster than uPVC, so this barrier interrupts the thermal bridge. DECA's polyamide breaks reduce heat transfer by 200x, achieving U-values of 0.20-0.30 W/m²K." } },
+    { "@type": "Question", "name": "How strong are aluminum windows compared to uPVC?", "acceptedAnswer": { "@type": "Answer", "text": "Aluminum is 3-4x stronger than uPVC. This allows for thinner profiles (as narrow as 1.75 inches) while supporting large unsupported spans, heavy tempered glass, and minimal deflection. Perfect for modern floor-to-ceiling glass walls and commercial applications." } },
+    { "@type": "Question", "name": "What color options are available for aluminum windows?", "acceptedAnswer": { "@type": "Answer", "text": "Unlimited RAL colors via powder coating plus anodized finishes in matte, brushed, or polished. Two-tone configurations allow different interior/exterior colors. Custom wood-grain laminates are also available. All finishes are UV-stable and maintenance-free." } },
+    { "@type": "Question", "name": "How do aluminum windows compare to uPVC in price?", "acceptedAnswer": { "@type": "Answer", "text": "Aluminum windows typically cost 20-40% more than uPVC due to stronger materials and thermal break engineering. However, the slim profiles maximize glass area and architectural impact. Aluminum is ideal for commercial applications and homes prioritizing modern aesthetics." } },
+  ],
+};
+
 export default function AluminumWindowsPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Breadcrumb items={[{ label: "Windows", href: "/windows" }, { label: "Aluminum Windows" }]} />
 
       {/* Hero */}
@@ -33,7 +45,7 @@ export default function AluminumWindowsPage() {
                 <Link href="/professionals" className="border border-border text-text-primary hover:border-blue-accent/30 px-7 py-3.5 rounded font-semibold transition-colors">Architect Resources</Link>
               </div>
             </div>
-            <PhotoPlaceholder description="Фото: алюминиевое окно DECA в современном доме — тонкие профили, панорамное остекление" height="h-[450px]" />
+            <img src="https://gealanwindows.com/app/uploads/2024/09/GEALAN-LINEAR-15.webp" alt="Modern aluminum window with slim profiles and panoramic glazing in contemporary home" className="w-full h-[450px] object-cover rounded-xl" loading="lazy" />
           </div>
         </div>
       </section>
@@ -64,7 +76,7 @@ export default function AluminumWindowsPage() {
             <div key={item.title} className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-all">
               <PhotoPlaceholder description={item.photoDesc} height="h-48" className="rounded-none border-0" />
               <div className="p-6">
-                <h3 className="font-bold text-lg text-text-primary mb-2">{item.title}</h3>
+                <h2 className="font-bold text-lg text-text-primary mb-2">{item.title}</h2>
                 <p className="text-sm text-text-secondary leading-relaxed">{item.desc}</p>
               </div>
             </div>
@@ -90,14 +102,14 @@ export default function AluminumWindowsPage() {
                 <div key={s.step} className="flex gap-3">
                   <span className="shrink-0 w-8 h-8 rounded-full bg-blue-accent text-white flex items-center justify-center text-sm font-bold">{s.step}</span>
                   <div>
-                    <h4 className="font-semibold text-text-primary text-sm">{s.title}</h4>
+                    <h3 className="font-semibold text-text-primary text-sm">{s.title}</h3>
                     <p className="text-xs text-text-muted">{s.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-          <PhotoPlaceholder description="Фото: разрез алюминиевого профиля с термомостом — видны полиамидные вставки и камеры" height="h-96" />
+          <img src="https://gealanwindows.com/app/uploads/2024/09/7001x7072x7242_00163072_GK-grau.webp" alt="Aluminum window profile cross-section showing polyamide thermal break inserts and chambers" className="w-full h-96 object-contain bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8" loading="lazy" />
         </div>
       </Section>
 
@@ -209,6 +221,8 @@ export default function AluminumWindowsPage() {
           ))}
         </div>
       </Section>
+
+      <ServiceIcons />
 
       <CTAWithDocs
         title="Ready for Contemporary Aluminum Windows?"

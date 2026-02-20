@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, StatCard } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, StatCard, ServiceIcons } from "@/components/ui";
 import { SlidingDoorConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
@@ -13,9 +13,21 @@ export const metadata: Metadata = {
   alternates: { canonical: "/sliding-doors" },
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is the maximum opening width for sliding doors?", "acceptedAnswer": { "@type": "Answer", "text": "Our Lift & Slide system supports openings up to 21 feet 4 inches wide and 9 feet tall. The PSk Parallel system handles up to 10 feet, and the SMOOVIO system up to 13 feet 1 inch. All systems are GEALAN-engineered for reliable operation at any size." } },
+    { "@type": "Question", "name": "Are sliding doors energy efficient?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. DECA sliding doors with triple glazing and thermal breaks achieve U-values as low as 0.15 W/m²K — comparable to our window systems. The Lift & Slide system ranges from 0.15-0.23 W/m²K depending on configuration." } },
+    { "@type": "Question", "name": "What track systems does DECA offer?", "acceptedAnswer": { "@type": "Answer", "text": "DECA offers four GEALAN track systems: the premium Lift & Slide (threshold-free, panoramic), SMOOVIO (space-saving with impermeable closure), Multi-Slide (2-6 panels, maximum flexibility), and PSk Parallel (classic sliding). Each engineered for different applications and budgets." } },
+    { "@type": "Question", "name": "How much maintenance do sliding doors require?", "acceptedAnswer": { "@type": "Answer", "text": "Minimal. DECA sliding doors are engineered for decades of reliable operation. Simply clean tracks periodically and lubricate hardware annually. Our systems are sealed to prevent debris accumulation, and tracks are designed for easy cleaning." } },
+  ],
+};
+
 export default function SlidingDoorsPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Breadcrumb items={[{ label: "Doors", href: "/doors" }, { label: "Sliding Door Systems" }]} />
 
       {/* Hero Section - Figma Pattern: Hero with Image Right */}
@@ -89,7 +101,7 @@ export default function SlidingDoorsPage() {
               <PhotoPlaceholder description={s.photoDesc} height="h-52" className="rounded-none border-0" />
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-2">
-                  <h3 className="font-bold text-text-primary text-lg">{s.title}</h3>
+                  <h2 className="font-bold text-text-primary text-lg">{s.title}</h2>
                   <span className="text-[9px] font-semibold text-brand bg-brand/10 px-1.5 py-0.5 rounded">{s.tag}</span>
                 </div>
                 <p className="text-sm text-text-secondary leading-relaxed mb-3">{s.desc}</p>
@@ -113,7 +125,7 @@ export default function SlidingDoorsPage() {
               <svg className="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
             </div>
             <div>
-              <h4 className="font-bold text-text-primary mb-1">Plissé Retractable Insect Screens</h4>
+              <h3 className="font-bold text-text-primary mb-1">Plissé Retractable Insect Screens</h3>
               <p className="text-sm text-text-secondary leading-relaxed">All sliding door systems can be equipped with pleated (plissé) insect screens — retractable mesh that folds neatly to the side when not in use. Ideal for large openings where traditional screens are impractical.</p>
             </div>
           </div>
@@ -235,6 +247,8 @@ export default function SlidingDoorsPage() {
           ))}
         </div>
       </Section>
+
+      <ServiceIcons />
 
       {/* CTA Block - Figma Pattern: Call-to-Action Section */}
       <CTAWithDocs

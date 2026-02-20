@@ -182,7 +182,7 @@ function DeliveryMap() {
             {hovered && mouse && info && (
               <div
                 className="absolute z-10 pointer-events-none"
-                style={{ left: mouse.x + 14, top: mouse.y - 6 }}
+                style={{ left: `${mouse.x + 14}px`, top: `${mouse.y - 6}px` }}
               >
                 <div
                   className="border border-white/20 shadow-xl rounded-lg px-3.5 py-2 whitespace-nowrap"
@@ -200,7 +200,7 @@ function DeliveryMap() {
             <div className="px-6 sm:px-8 pb-4 -mt-2">
               <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-[11px] text-white/35">
                 <div className="flex items-center gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.25)" }} />
+                  <div className="w-2.5 h-2.5 rounded-sm border border-white/25" style={{ backgroundColor: "rgba(255,255,255,0.08)" }} />
                   <span>Core delivery region</span>
                 </div>
                 <div className="flex items-center gap-1.5">

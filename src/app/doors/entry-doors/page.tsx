@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, StatCard } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, StatCard, ServiceIcons } from "@/components/ui";
 import { EntryDoorConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
@@ -13,9 +13,21 @@ export const metadata: Metadata = {
   alternates: { canonical: "/doors/entry-doors" },
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How secure are multi-point locking entry doors?", "acceptedAnswer": { "@type": "Answer", "text": "Multi-point locking distributes force across 5-7 points on the entire frame, making forced entry virtually impossible. DECA entry doors are RC2/RC3 certified — RC2 resists 3-5 minutes of attack, RC3 resists 10+ minutes. This is far superior to single deadbolts." } },
+    { "@type": "Question", "name": "What are the energy efficiency benefits of premium entry doors?", "acceptedAnswer": { "@type": "Answer", "text": "DECA entry doors achieve U-values of 0.8-1.2 W/m²K, compared to standard doors at 1.5-2.5. This typically saves $200-400 annually in heating/cooling costs. Triple compression seals prevent drafts and heat loss." } },
+    { "@type": "Question", "name": "Can I customize entry doors with sidelights and transoms?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. DECA offers fixed glass sidelights and transom windows in matching materials and finishes. All glass is tempered safety glass. Configurations can be single, double, or triple panel with full customization." } },
+    { "@type": "Question", "name": "What materials are available for entry doors?", "acceptedAnswer": { "@type": "Answer", "text": "DECA manufactures entry doors in uPVC, aluminum, and composite materials. All offer 40-50 year lifespans with multi-point locking, RC security certification, and customizable colors. Choose based on your aesthetic preferences and climate." } },
+  ],
+};
+
 export default function EntryDoorsPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Breadcrumb items={[{ label: "Doors", href: "/doors" }, { label: "Entry Doors" }]} />
 
       {/* Hero */}
@@ -70,7 +82,7 @@ export default function EntryDoorsPage() {
                   <svg className="w-4 h-4 text-blue-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-text-primary text-sm">{lp.title}</h4>
+                  <h2 className="font-semibold text-text-primary text-sm">{lp.title}</h2>
                   <p className="text-xs text-text-muted">{lp.desc}</p>
                 </div>
               </div>
@@ -110,10 +122,7 @@ export default function EntryDoorsPage() {
               </div>
             ))}
           </div>
-          <PhotoPlaceholder 
-            description="Фото: входная дверь DECA в разрезе — видна пенная изоляция, стальное армирование, уплотнители" 
-            height="h-[420px]"
-          />
+          <img src="https://gealanwindows.com/app/uploads/2024/09/S-8000-2595x8001x8081_00191668-scaled.webp" alt="Entry door profile cross-section showing foam insulation, steel reinforcement, and weather seals" className="w-full h-[420px] object-contain bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6" loading="lazy" />
         </div>
       </Section>
 
@@ -136,7 +145,7 @@ export default function EntryDoorsPage() {
                 className="rounded-none border-0"
               />
               <div className="p-4 text-center">
-                <h4 className="font-semibold text-text-primary text-sm mb-1">{opt.title}</h4>
+                <h3 className="font-semibold text-text-primary text-sm mb-1">{opt.title}</h3>
                 <p className="text-xs text-text-muted">{opt.desc}</p>
               </div>
             </div>
@@ -221,6 +230,8 @@ export default function EntryDoorsPage() {
           ))}
         </div>
       </Section>
+
+      <ServiceIcons />
 
       <CTAWithDocs
         title="Ready to Upgrade Your Entry?"

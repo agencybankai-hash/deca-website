@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, ServiceIcons } from "@/components/ui";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
 import DeliveryMapSection from "@/components/DeliveryMapSection";
@@ -42,7 +42,7 @@ export default function DoorsPage() {
                       <PhotoPlaceholder description={item.photoDesc} height="h-20" className="rounded-lg border-0" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-text-primary group-hover:text-blue-accent transition-colors mb-0.5">{item.label}</h3>
+                      <h2 className="font-semibold text-text-primary group-hover:text-blue-accent transition-colors mb-0.5">{item.label}</h2>
                       <p className="text-sm text-text-muted line-clamp-2">{item.desc}</p>
                     </div>
                     <svg className="w-5 h-5 text-text-muted group-hover:text-blue-accent shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -70,7 +70,7 @@ export default function DoorsPage() {
           ].map((b) => (
             <div key={b.title} className="text-center">
               <div className="text-3xl mb-3">{b.icon}</div>
-              <h4 className="font-semibold text-sm text-text-primary mb-1">{b.title}</h4>
+              <h3 className="font-semibold text-sm text-text-primary mb-1">{b.title}</h3>
               <p className="text-xs text-text-muted">{b.desc}</p>
             </div>
           ))}
@@ -82,14 +82,14 @@ export default function DoorsPage() {
         <SectionTitle badge="Technology" title="Precision in Every Detail" subtitle="Advanced components engineered for decades of reliable performance." />
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="bg-warm-gray rounded-xl border border-border overflow-hidden">
-            <PhotoPlaceholder description="Фото: технический чертёж/разрез дверного uPVC профиля с аннотациями камер и армирования" height="h-72" className="rounded-none border-0" />
+            <img src="https://gealanwindows.com/app/uploads/2024/09/8001-88x8095-88x7162_00163128.webp" alt="uPVC door profile cross-section showing multi-chamber design and steel reinforcement" className="w-full h-72 object-contain bg-white p-4" loading="lazy" />
             <div className="p-6">
               <h3 className="font-bold text-lg text-text-primary mb-2">uPVC Door Profile</h3>
               <p className="text-sm text-text-secondary leading-relaxed">Multi-chamber design with galvanized steel reinforcement. Triple EPDM sealing for maximum weather protection. Low-maintenance, UV-resistant exterior.</p>
             </div>
           </div>
           <div className="bg-warm-gray rounded-xl border border-border overflow-hidden">
-            <PhotoPlaceholder description="Фото: технический чертёж/разрез алюминиевого дверного профиля с термомостом" height="h-72" className="rounded-none border-0" />
+            <img src="https://gealanwindows.com/app/uploads/2024/09/7001x7072x7242_00163072_GK-grau.webp" alt="Aluminum door profile cross-section with thermal break technology" className="w-full h-72 object-contain bg-white p-4" loading="lazy" />
             <div className="p-6">
               <h3 className="font-bold text-lg text-text-primary mb-2">Aluminum Door Profile</h3>
               <p className="text-sm text-text-secondary leading-relaxed">Thermal break technology with polyamide insulation strips. Structural strength for large openings. Available in 200+ RAL colors.</p>
@@ -174,10 +174,10 @@ export default function DoorsPage() {
       <Section gray>
         <SectionTitle badge="Gallery" title="Doors in Real Projects" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <PhotoPlaceholder description="Фото: современный дом с большими раздвижными дверями DECA на террасу" height="h-48" />
-          <PhotoPlaceholder description="Фото: классический фасад с французскими дверями и боковыми окнами" height="h-48" />
-          <PhotoPlaceholder description="Фото: элегантная входная дверь в каменном портале" height="h-48" />
-          <PhotoPlaceholder description="Фото: интерьер лофта с панорамными раздвижными дверями" height="h-48" />
+          <img src="https://gealanwindows.com/app/uploads/2024/09/49-web-or-mls-16039-Austin-St-NE-49.webp" alt="Modern home with large sliding doors opening to terrace" className="w-full h-48 object-cover rounded-xl" loading="lazy" />
+          <img src="https://gealanwindows.com/app/uploads/2024/09/reference-object-2021-08-01-1.webp" alt="Classic facade with French doors and side windows" className="w-full h-48 object-cover rounded-xl" loading="lazy" />
+          <img src="https://gealanwindows.com/app/uploads/2024/09/reference-object-2023-10-02.webp" alt="Elegant entry door in stone portal" className="w-full h-48 object-cover rounded-xl" loading="lazy" />
+          <img src="https://gealanwindows.com/app/uploads/2024/09/reference-object-2021-08-02-2.webp" alt="Loft interior with panoramic sliding doors" className="w-full h-48 object-cover rounded-xl" loading="lazy" />
         </div>
       </Section>
 
@@ -219,6 +219,8 @@ export default function DoorsPage() {
           ))}
         </div>
       </Section>
+
+      <ServiceIcons />
 
       <CTAWithDocs
         title="Let's Work Together to Build Better Spaces"

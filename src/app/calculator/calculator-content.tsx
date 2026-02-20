@@ -336,7 +336,7 @@ export function CalculatorContent() {
                   Estimated Total
                 </p>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-4xl font-bold text-brand">${estimatedPrice.toLocaleString()}</span>
+                  <span className="text-2xl md:text-4xl font-bold text-brand">${estimatedPrice.toLocaleString()}</span>
                   <span className="text-sm text-text-secondary">
                     ${unitPrice.toLocaleString()} per unit
                   </span>

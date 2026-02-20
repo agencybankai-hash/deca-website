@@ -24,6 +24,8 @@
   --color-text-secondary: #495057;
   --color-text-muted: #868e96;
   --color-border: #e9ecef;
+  --color-accent: #3b5bdb;
+  --color-accent-hover: #2f4bc7;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 

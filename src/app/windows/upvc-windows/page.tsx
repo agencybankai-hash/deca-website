@@ -25,9 +25,21 @@ export const metadata: Metadata = {
 /* All images served from public/assets/ */
 const a = "/assets";
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Are uPVC windows prone to warping or discoloration?", "acceptedAnswer": { "@type": "Answer", "text": "No. DECA uses virgin uPVC with co-extruded GEALAN-acrylcolor acrylic surfaces, engineered for dimensional stability from -30°F to 140°F. The acrylic surface is molecularly bonded to the profile — it cannot fade, yellow, crack, or peel. Proven since 1980." } },
+    { "@type": "Question", "name": "How does DECA uPVC compare to imported European windows?", "acceptedAnswer": { "@type": "Answer", "text": "We use the same GEALAN profiles and German Roto/Siegenia hardware as top European manufacturers, but fabricate in Massachusetts. You get identical performance at 30-40% lower cost, plus local warranties, service, and fast delivery (1-5 days to Northeast, 10 days nationwide)." } },
+    { "@type": "Question", "name": "Can DECA uPVC windows be recycled?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. uPVC is fully recyclable. At end-of-life, DECA windows can be sent to recycling facilities that process uPVC profiles. This is a significant environmental advantage over aluminum (which requires energy-intensive processing) and wood (which often ends in landfills)." } },
+    { "@type": "Question", "name": "How do DECA uPVC windows compare to standard vinyl?", "acceptedAnswer": { "@type": "Answer", "text": "DECA uPVC is superior across every metric: U-values as low as 0.14 vs 0.25-0.35 for standard vinyl, 50-year lifespan vs 25-35 years, 50+ RAL color options vs 5-10, up to 12 lock points vs 2-3 for security, and 42-50 dB sound insulation vs 32-38 dB." } },
+  ],
+};
+
 export default function UPVCWindowsPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Breadcrumb items={[{ label: "Windows", href: "/windows" }, { label: "uPVC Windows" }]} />
 
       {/* ═══════ HERO — Split with real photo + trust bar ═══════ */}
@@ -230,11 +242,11 @@ export default function UPVCWindowsPage() {
               className="w-full rounded-xl border border-border"
             />
             <div className="bg-brand/5 rounded-xl p-6 border border-brand/10">
-              <h4 className="font-semibold text-text-primary mb-2">GEALAN-acrylcolor® Finishes</h4>
+              <h2 className="font-semibold text-text-primary mb-2">GEALAN-acrylcolor® Finishes</h2>
               <p className="text-sm text-text-secondary leading-relaxed mb-4">
                 Co-extruded acrylic surface technology, proven since 1980. The surface is molecularly bonded to the profile — it cannot peel, crack, or fade.
               </p>
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
                 {[
                   { name: "White", color: "#FFFFFF" }, { name: "Cream", color: "#F5F0E1" },
                   { name: "Anthracite", color: "#3C3C3C" }, { name: "Golden Oak", color: "#B8860B" },
@@ -411,7 +423,7 @@ export default function UPVCWindowsPage() {
             { src: "style-arched.png", name: "Arched / Custom", desc: "Curved, triangular, circular shapes" },
           ].map((w) => (
             <div key={w.name} className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-all group">
-              <div className="bg-[#f6f6f6] flex items-center justify-center p-4 h-52">
+              <div className="bg-warm-gray flex items-center justify-center p-4 h-52">
                 <Image
                   src={`${a}/images/${w.src}`}
                   alt={`DECA ${w.name}`}
@@ -421,7 +433,7 @@ export default function UPVCWindowsPage() {
                 />
               </div>
               <div className="p-4">
-                <h4 className="font-semibold text-text-primary text-sm">{w.name}</h4>
+                <h3 className="font-semibold text-text-primary text-sm">{w.name}</h3>
                 <p className="text-xs text-text-muted">{w.desc}</p>
               </div>
             </div>

@@ -21,7 +21,11 @@ export default function CasesPage() {
       ]} />
 
       <Section>
-        <SectionTitle badge="Customer Stories" title="Real Homes. Real Results." subtitle="Every project is different. The outcome is always the same — better comfort, lower bills, zero regrets." />
+        <div className="max-w-3xl mx-auto mb-12 text-center">
+          <span className="inline-block text-xs font-semibold tracking-wider uppercase text-brand bg-brand/10 px-3 py-1 rounded-full mb-4">Customer Stories</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-4">Real Homes. Real Results.</h1>
+          <p className="text-lg text-text-secondary leading-relaxed">Every project is different. The outcome is always the same — better comfort, lower bills, zero regrets.</p>
+        </div>
         <div className="space-y-12">
           {cases.map((c, idx) => (
             <Link key={c.slug} href={`/cases/${c.slug}`} className="group block bg-warm-gray rounded-2xl border border-border overflow-hidden transition-all hover:shadow-xl hover:border-blue-accent/20">

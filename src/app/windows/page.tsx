@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, ServiceIcons } from "@/components/ui";
 import { WindowConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
@@ -44,7 +44,7 @@ export default function WindowsPage() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-0.5">
-                        <h3 className="font-semibold text-text-primary group-hover:text-blue-accent transition-colors">{item.label}</h3>
+                        <h2 className="font-semibold text-text-primary group-hover:text-blue-accent transition-colors">{item.label}</h2>
                         <span className="text-[10px] font-semibold text-blue-accent bg-blue-light px-2 py-0.5 rounded">{item.tag}</span>
                       </div>
                       <p className="text-sm text-text-muted truncate">{item.desc}</p>
@@ -53,7 +53,7 @@ export default function WindowsPage() {
                 ))}
               </div>
             </div>
-            <PhotoPlaceholder description="Фото: общий вид коллекции окон DECA — несколько моделей в белом/сером цвете" height="h-[500px]" />
+            <img src="https://gealanwindows.com/app/uploads/2024/09/GEALAN-LINEAR-13-1-1.webp" alt="DECA window collection — GEALAN-LINEAR windows installed in modern home" className="w-full h-[500px] object-cover rounded-xl" loading="lazy" />
           </div>
         </div>
       </section>
@@ -66,7 +66,7 @@ export default function WindowsPage() {
         <SectionTitle badge="Engineered in Germany" title="GEALAN Profile Systems" subtitle="We build with GEALAN — one of Europe's leading uPVC profile manufacturers with 50+ years of innovation." />
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="bg-white rounded-xl border border-border overflow-hidden">
-            <PhotoPlaceholder description="Фото: GEALAN-LINEAR профиль — современный угловой дизайн, алюминиевый вид" height="h-64" className="rounded-none border-0" />
+            <img src="https://gealanwindows.com/app/uploads/2024/09/LINEAR-2595x7001x7082_00191674-e1730101062788.webp" alt="GEALAN-LINEAR profile cross-section — modern angular design with aluminum-like aesthetics" className="w-full h-64 object-contain bg-white" loading="lazy" />
             <div className="p-6">
               <div className="flex items-center gap-2 mb-2">
                 <h3 className="font-bold text-lg text-text-primary">GEALAN-LINEAR</h3>
@@ -82,7 +82,7 @@ export default function WindowsPage() {
             </div>
           </div>
           <div className="bg-white rounded-xl border border-border overflow-hidden">
-            <PhotoPlaceholder description="Фото: GEALAN S 8000 профиль — классический 5-6 камерный дизайн, 3 дюйма глубина" height="h-64" className="rounded-none border-0" />
+            <img src="https://gealanwindows.com/app/uploads/2024/09/S-8000-2595x8001x8081_00191668-e1730100936341.webp" alt="GEALAN S 8000 profile cross-section — classic 5-6 chamber design" className="w-full h-64 object-contain bg-white" loading="lazy" />
             <div className="p-6">
               <div className="flex items-center gap-2 mb-2">
                 <h3 className="font-bold text-lg text-text-primary">GEALAN S 8000</h3>
@@ -176,10 +176,10 @@ export default function WindowsPage() {
       <Section>
         <SectionTitle badge="Gallery" title="Windows in Real Homes" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <PhotoPlaceholder description="Фото: панорамное окно в гостиной с видом на лес" height="h-48" />
-          <PhotoPlaceholder description="Фото: кухня с угловым остеклением DECA" height="h-48" />
-          <PhotoPlaceholder description="Фото: мансардное окно в спальне" height="h-48" />
-          <PhotoPlaceholder description="Фото: фасад коттеджа с окнами DECA разных размеров" height="h-48" />
+          <img src="https://gealanwindows.com/app/uploads/2024/09/DSC03114-Edit-44.webp" alt="Panoramic window in living room" className="w-full h-48 object-cover rounded-xl" loading="lazy" />
+          <img src="https://gealanwindows.com/app/uploads/2024/09/DSC03069-Edit-34.webp" alt="Modern kitchen with DECA corner glazing" className="w-full h-48 object-cover rounded-xl" loading="lazy" />
+          <img src="https://gealanwindows.com/app/uploads/2024/09/DSC03344-1.webp" alt="Bedroom window with uPVC frame" className="w-full h-48 object-cover rounded-xl" loading="lazy" />
+          <img src="https://gealanwindows.com/app/uploads/2025/08/23-web-or-mls-16039-Austin-St-NE-23-2-1.webp" alt="Home exterior with various DECA window sizes" className="w-full h-48 object-cover rounded-xl" loading="lazy" />
         </div>
       </Section>
 
@@ -221,6 +221,8 @@ export default function WindowsPage() {
           ))}
         </div>
       </Section>
+
+      <ServiceIcons />
 
       <CTAWithDocs
         title="Find Your Perfect Window"

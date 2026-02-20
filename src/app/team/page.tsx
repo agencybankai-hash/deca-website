@@ -25,7 +25,7 @@ export default function TeamPage() {
       {/* Team Philosophy */}
       <Section>
         <div className="max-w-4xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">Our Philosophy: Consultation Over Sales</h2>
+          <h1 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">Our Philosophy: Consultation Over Sales</h1>
           <p className="text-lg text-text-secondary leading-relaxed mb-8">
             DECA operates on a principle that guides every interaction: We don't sell windows and doors. We consult with homeowners, builders, and architects to understand their needs, budgets, and aesthetic visions—then recommend the right solution. Sometimes that's DECA products. Sometimes it's not. We value long-term customer satisfaction over short-term commission.
           </p>
@@ -51,7 +51,7 @@ export default function TeamPage() {
             <div className="md:col-span-2">
               <div className="mb-8">
                 <div className="flex items-baseline gap-3 mb-2">
-                  <h3 className="text-3xl font-bold text-text-primary">Vladimir</h3>
+                  <h2 className="text-3xl font-bold text-text-primary">Vladimir</h2>
                   <span className="text-blue-accent text-sm font-semibold">Founder & CEO</span>
                 </div>
                 <p className="text-text-muted text-sm">15+ years in European window manufacturing and distribution</p>
@@ -375,7 +375,7 @@ export default function TeamPage() {
               },
             ].map((item) => (
               <div key={item.title} className="bg-white rounded-xl border border-border p-6 text-center">
-                <div className="text-4xl mb-4">{item.icon}</div>
+                <div className="text-2xl md:text-4xl mb-4">{item.icon}</div>
                 <h4 className="font-bold text-text-primary text-lg mb-3">{item.title}</h4>
                 <p className="text-sm text-text-secondary leading-relaxed">{item.description}</p>
               </div>

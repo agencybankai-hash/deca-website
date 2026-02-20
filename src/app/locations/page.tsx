@@ -28,7 +28,7 @@ export default function LocationsPage() {
           <p className="text-text-secondary leading-relaxed mb-8">
             Unlike imported European windows that take 8–12 weeks to arrive, DECA manufactures in Westfield, MA — giving you 4-week turnaround, local warranty support, and no import headaches.
           </p>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <StatCard value="4 wks" label="Production Time" />
             <StatCard value="Local" label="Warranty Service" />
             <StatCard value="$0" label="Import Duties" />

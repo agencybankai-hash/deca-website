@@ -182,6 +182,7 @@ export default function LeadMagnet() {
                     <input
                       type="email"
                       placeholder="Enter your email address"
+                      aria-label="Email address"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required

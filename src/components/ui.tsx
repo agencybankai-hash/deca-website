@@ -168,7 +168,7 @@ export function ServiceIcons() {
           <div className="w-14 h-14 rounded-full bg-brand/10 flex items-center justify-center mx-auto mb-4 text-brand">
             <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">{item.icon}</svg>
           </div>
-          <h4 className="font-semibold text-text-primary text-sm mb-1">{item.title}</h4>
+          <h3 className="font-semibold text-text-primary text-sm mb-1">{item.title}</h3>
           <p className="text-xs text-text-muted leading-relaxed">{item.desc}</p>
         </div>
       ))}

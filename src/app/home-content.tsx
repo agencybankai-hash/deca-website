@@ -108,12 +108,12 @@ export default function HomeContent() {
           {/* Hero quick-quote form */}
           <div className="hidden lg:block absolute right-6 xl:right-12 top-1/2 -translate-y-1/2 w-80">
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
-              <h3 className="text-white font-bold text-lg mb-1">Get a Free Quote</h3>
+              <h2 className="text-white font-bold text-lg mb-1">Get a Free Quote</h2>
               <p className="text-white/50 text-xs mb-4">Tell us about your project</p>
               <form className="space-y-3" onSubmit={(e) => { e.preventDefault(); window.location.href = "/quote"; }}>
-                <input type="text" placeholder="Your name" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-white/40" />
-                <input type="email" placeholder="Email address" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-white/40" />
-                <input type="tel" placeholder="Phone number" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-white/40" />
+                <input type="text" placeholder="Your name" aria-label="Your name" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-white/40" />
+                <input type="email" placeholder="Email address" aria-label="Email address" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-white/40" />
+                <input type="tel" placeholder="Phone number" aria-label="Phone number" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-white/40" />
                 <select className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white/60 text-sm focus:outline-none focus:border-white/40 appearance-none">
                   <option value="">Project type</option>
                   <option value="new">New Construction</option>
@@ -296,7 +296,7 @@ export default function HomeContent() {
             <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-accent/80 mb-4">Our Story</span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">&ldquo;We didn&rsquo;t come to America to sell windows. We came to change what American homeowners expect from a window.&rdquo;</h2>
             <p className="text-white/60 leading-relaxed mb-8 max-w-xl">Born and raised in Europe, Vladimir spent 20+ years in the window industry before founding DECA in Westfield, Massachusetts. His mission: bring true European engineering — triple-pane glass, multi-point locks, thermal-break frames — to every home in New England, at a fair price, with a personal touch.</p>
-            <div className="grid grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
               <StatCard value="500+" label="Homes Fitted" light />
               <StatCard value="0.10" label="Best U-Value" light />
               <StatCard value="15 yr" label="Full Warranty" light />

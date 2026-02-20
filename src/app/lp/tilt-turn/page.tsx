@@ -25,7 +25,7 @@ export default function TiltTurnLP() {
   return (
     <div className="min-h-screen bg-white">
       {/* Top Bar */}
-      <div className="bg-[#3854AA] text-white py-3 px-4">
+      <div className="bg-brand text-white py-3 px-4">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <span className="text-xl font-bold tracking-tight">DECA</span>
           <a href={`tel:${PHONE.replace(/[^\d+]/g, "")}`} className="text-sm font-medium hover:text-blue-300">
@@ -35,7 +35,7 @@ export default function TiltTurnLP() {
       </div>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#3854AA] to-[#4a66b8] text-white py-16 px-4">
+      <section className="bg-gradient-to-br from-brand to-brand-light text-white py-16 px-4">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-block bg-blue-600/20 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full mb-4">
@@ -43,7 +43,7 @@ export default function TiltTurnLP() {
             </div>
             <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
               European Tilt & Turn Windows
-              <span className="text-[#3b5bdb]"> at Factory-Direct Prices</span>
+              <span className="text-accent"> at Factory-Direct Prices</span>
             </h1>
             <p className="text-lg text-gray-300 mb-6">
               Premium European engineering, manufactured in Westfield, MA. Up to 72% energy savings
@@ -59,7 +59,7 @@ export default function TiltTurnLP() {
             <div className="flex gap-4">
               <a
                 href="#quote-form"
-                className="bg-[#3b5bdb] hover:bg-[#2f4bc7] text-white px-6 py-3 rounded-lg font-semibold text-lg transition-colors"
+                className="bg-accent hover:bg-accent-hover text-white px-6 py-3 rounded-lg font-semibold text-lg transition-colors"
               >
                 Get Free Quote
               </a>
@@ -78,7 +78,7 @@ export default function TiltTurnLP() {
       </section>
 
       {/* Trust Bar */}
-      <section className="bg-[#f8f9fa] py-6 px-4 border-y border-[#e9ecef]">
+      <section className="bg-warm-gray py-6 px-4 border-y border-border">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {[
             { num: "500+", label: "Homes Fitted" },
@@ -87,7 +87,7 @@ export default function TiltTurnLP() {
             { num: "4.9★", label: "Customer Rating" },
           ].map((s) => (
             <div key={s.label}>
-              <div className="text-2xl font-bold text-[#3854AA]">{s.num}</div>
+              <div className="text-2xl font-bold text-brand">{s.num}</div>
               <div className="text-sm text-gray-600">{s.label}</div>
             </div>
           ))}
@@ -97,7 +97,7 @@ export default function TiltTurnLP() {
       {/* Benefits */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-[#3854AA] mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-center text-brand mb-12">
             Why Homeowners Choose DECA Tilt & Turn
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -127,8 +127,8 @@ export default function TiltTurnLP() {
                 desc: "Full coverage on frames, glass, and hardware. Transferable to new owners — adds value to your home.",
               },
             ].map((b) => (
-              <div key={b.title} className="bg-[#f8f9fa] rounded-xl p-6 border border-[#e9ecef]">
-                <h3 className="text-lg font-semibold text-[#3854AA] mb-2">{b.title}</h3>
+              <div key={b.title} className="bg-warm-gray rounded-xl p-6 border border-border">
+                <h3 className="text-lg font-semibold text-brand mb-2">{b.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{b.desc}</p>
               </div>
             ))}
@@ -137,15 +137,15 @@ export default function TiltTurnLP() {
       </section>
 
       {/* Comparison */}
-      <section className="bg-[#f8f9fa] py-16 px-4">
+      <section className="bg-warm-gray py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-center text-[#3854AA] mb-8">
+          <h2 className="text-2xl font-bold text-center text-brand mb-8">
             DECA vs. Standard American Windows
           </h2>
-          <div className="bg-white rounded-xl border border-[#e9ecef] overflow-hidden">
+          <div className="bg-white rounded-xl border border-border overflow-hidden">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-[#3854AA] text-white">
+                <tr className="bg-brand text-white">
                   <th className="text-left py-3 px-4">Feature</th>
                   <th className="text-center py-3 px-4">DECA Tilt & Turn</th>
                   <th className="text-center py-3 px-4">Standard Double-Hung</th>
@@ -163,8 +163,8 @@ export default function TiltTurnLP() {
                   ["Cleaning", "Inward opening", "Tilt-in (limited)"],
                   ["Lifespan", "30-50 years", "15-25 years"],
                 ].map(([feat, deca, std], i) => (
-                  <tr key={feat} className={i % 2 === 0 ? "bg-white" : "bg-[#f8f9fa]"}>
-                    <td className="py-3 px-4 font-medium text-[#3854AA]">{feat}</td>
+                  <tr key={feat} className={i % 2 === 0 ? "bg-white" : "bg-warm-gray"}>
+                    <td className="py-3 px-4 font-medium text-brand">{feat}</td>
                     <td className="py-3 px-4 text-center text-green-700 font-semibold">{deca}</td>
                     <td className="py-3 px-4 text-center text-gray-500">{std}</td>
                   </tr>
@@ -182,7 +182,7 @@ export default function TiltTurnLP() {
             &ldquo;Our heating bill dropped 68% the first winter after installing DECA tilt & turn windows.
             The noise from Route 9 is practically gone. Best home improvement we&apos;ve ever made.&rdquo;
           </p>
-          <p className="font-semibold text-[#3854AA]">— Sarah M., Northampton, MA</p>
+          <p className="font-semibold text-brand">— Sarah M., Northampton, MA</p>
           <div className="flex justify-center gap-1 mt-2">
             {[1, 2, 3, 4, 5].map((n) => (
               <span key={n} className="text-yellow-500 text-lg">★</span>
@@ -192,7 +192,7 @@ export default function TiltTurnLP() {
       </section>
 
       {/* Quote Form */}
-      <section id="quote-form" className="bg-[#3854AA] py-16 px-4">
+      <section id="quote-form" className="bg-brand py-16 px-4">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-2">
             Get Your Free Quote in 24 Hours
@@ -203,7 +203,7 @@ export default function TiltTurnLP() {
 
           {submitted ? (
             <div className="bg-green-900/30 border border-green-500/30 rounded-xl p-8 text-center">
-              <div className="text-4xl mb-4">✓</div>
+              <div className="text-2xl md:text-4xl mb-4">✓</div>
               <h3 className="text-xl font-bold text-white mb-2">Thank You!</h3>
               <p className="text-gray-300">
                 We&apos;ve received your request. A DECA consultant will contact you within 24 hours
@@ -216,41 +216,45 @@ export default function TiltTurnLP() {
                 <input
                   type="text"
                   placeholder="Full Name *"
+                  aria-label="Full Name"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-[#3b5bdb]"
+                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-accent"
                 />
                 <input
                   type="email"
                   placeholder="Email Address *"
+                  aria-label="Email Address"
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-[#3b5bdb]"
+                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-accent"
                 />
                 <input
                   type="tel"
                   placeholder="Phone Number *"
+                  aria-label="Phone Number"
                   required
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-[#3b5bdb]"
+                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-accent"
                 />
                 <input
                   type="text"
                   placeholder="ZIP Code *"
+                  aria-label="ZIP Code"
                   required
                   value={formData.zip}
                   onChange={(e) => setFormData({ ...formData, zip: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-[#3b5bdb]"
+                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-accent"
                 />
               </div>
               <div className="grid md:grid-cols-2 gap-4">
                 <select
                   value={formData.projectType}
                   onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-[#3b5bdb]"
+                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-accent"
                 >
                   <option value="residential" className="text-black">Residential</option>
                   <option value="commercial" className="text-black">Commercial</option>
@@ -260,7 +264,7 @@ export default function TiltTurnLP() {
                 <select
                   value={formData.windows}
                   onChange={(e) => setFormData({ ...formData, windows: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-[#3b5bdb]"
+                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-accent"
                 >
                   <option value="1-5" className="text-black">1-5 Windows</option>
                   <option value="6-10" className="text-black">6-10 Windows</option>
@@ -273,11 +277,11 @@ export default function TiltTurnLP() {
                 rows={3}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-[#3b5bdb]"
+                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-accent"
               />
               <button
                 type="submit"
-                className="w-full bg-[#3b5bdb] hover:bg-[#2f4bc7] text-white py-4 rounded-lg font-bold text-lg transition-colors"
+                className="w-full bg-accent hover:bg-accent-hover text-white py-4 rounded-lg font-bold text-lg transition-colors"
               >
                 Get My Free Quote →
               </button>
@@ -290,7 +294,7 @@ export default function TiltTurnLP() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#2d4590] text-gray-400 py-8 px-4 text-center text-sm">
+      <footer className="bg-brand-dark text-gray-400 py-8 px-4 text-center text-sm">
         <p>© 2025 DECA Windows & Doors. Manufactured in Westfield, Massachusetts.</p>
         <p className="mt-1">109 Apremont Way, Westfield, MA 01085 · {PHONE}</p>
       </footer>

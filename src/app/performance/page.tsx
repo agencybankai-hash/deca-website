@@ -99,7 +99,7 @@ export default function PerformancePage() {
               />
               <div className="p-5">
                 <div className="flex items-center gap-2 mb-2">
-                  <h4 className="font-semibold text-text-primary">{c.title}</h4>
+                  <h2 className="font-semibold text-text-primary">{c.title}</h2>
                   <span className="text-[10px] font-semibold text-blue-accent bg-blue-light px-2 py-0.5 rounded">{c.tag}</span>
                 </div>
                 <p className="text-sm text-text-muted leading-relaxed">{c.desc}</p>

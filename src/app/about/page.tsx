@@ -56,9 +56,9 @@ export default function AboutPage() {
       <Section>
         <SectionTitle badge="Why DECA" title="What Makes DECA Different" subtitle="One of few local tilt & turn window manufacturers in the US." />
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <PhotoPlaceholder description="Фото: сравнение профилей DECA с обычными американскими окнами — крупный план разреза" height="h-80" />
+          <img src="https://gealanwindows.com/app/uploads/2024/09/8001-88x8095-88x7162_00163128_gGK-1.webp" alt="DECA window profile cross-section showing multi-chamber design vs standard American windows" className="w-full h-80 object-contain bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6" loading="lazy" />
           <div>
-            <h3 className="text-2xl font-bold text-text-primary mb-4">European Standards, Local Production</h3>
+            <h2 className="text-2xl font-bold text-text-primary mb-4">European Standards, Local Production</h2>
             <p className="text-text-secondary leading-relaxed mb-6">
               DECA is one of few local tilt and turn window manufacturers in the US. Taking advantage of German standards and technologies proven over 70 years, we deliver premium quality with the speed and warranties of domestic suppliers. Our well-streamlined production allows for more attainable pricing than European importers.
             </p>
@@ -73,7 +73,7 @@ export default function AboutPage() {
                     <svg className="w-4 h-4 text-blue-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-text-primary text-sm">{item.title}</h4>
+                    <h3 className="font-semibold text-text-primary text-sm">{item.title}</h3>
                     <p className="text-xs text-text-muted">{item.desc}</p>
                   </div>
                 </div>

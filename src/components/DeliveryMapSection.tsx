@@ -16,7 +16,7 @@ export default function DeliveryMapSection() {
             directly to your project site. Northeast states enjoy same-day to 5-day
             delivery, while we reach the entire continental U.S. within 10 days.
           </p>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {[
               {
                 value: "1–2",

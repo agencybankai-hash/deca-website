@@ -23,30 +23,30 @@ const docs = [
       <>
         {/* Section heading */}
         <div className="mt-2 mb-1">
-          <div className="rounded-sm bg-gray-200" style={{ width: "55%", height: 2.5 }} />
+          <div className="w-[55%] h-[2.5px] rounded-sm bg-gray-200" />
         </div>
         {/* Specs table */}
         <div className="border border-gray-100 rounded-sm overflow-hidden">
           {/* Table header */}
-          <div className="grid grid-cols-3 gap-px bg-gray-50">
-            <div className="bg-gray-100/80 px-1.5 py-0.5"><div className="rounded-sm bg-gray-300/50" style={{ width: "70%", height: 1.5 }} /></div>
-            <div className="bg-gray-100/80 px-1.5 py-0.5"><div className="rounded-sm bg-gray-300/50" style={{ width: "55%", height: 1.5 }} /></div>
-            <div className="bg-gray-100/80 px-1.5 py-0.5"><div className="rounded-sm bg-gray-300/50" style={{ width: "60%", height: 1.5 }} /></div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-50">
+            <div className="bg-gray-100/80 px-1.5 py-0.5"><div className="w-[70%] h-[1.5px] rounded-sm bg-gray-300/50" /></div>
+            <div className="bg-gray-100/80 px-1.5 py-0.5"><div className="w-[55%] h-[1.5px] rounded-sm bg-gray-300/50" /></div>
+            <div className="bg-gray-100/80 px-1.5 py-0.5"><div className="w-[60%] h-[1.5px] rounded-sm bg-gray-300/50" /></div>
           </div>
-          <div className="grid grid-cols-3 gap-px bg-gray-100">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-100">
             {[...Array(12)].map((_, j) => (
               <div key={j} className="bg-white px-1.5 py-0.5">
-                <div className="rounded-sm bg-gray-100" style={{ width: `${35 + (j % 3) * 22}%`, height: 1.5 }} />
+                <div className="h-[1.5px] rounded-sm bg-gray-100" style={{ width: `${35 + (j % 3) * 22}%` }} />
               </div>
             ))}
           </div>
         </div>
         {/* Performance metrics */}
         <div className="mt-2 space-y-1">
-          <div className="rounded-sm bg-gray-200" style={{ width: "48%", height: 2 }} />
+          <div className="w-[48%] h-[2px] rounded-sm bg-gray-200" />
           {[75, 60, 85, 45].map((w, j) => (
             <div key={j} className="flex items-center gap-1.5">
-              <div className="rounded-sm bg-gray-100" style={{ width: "35%", height: 1.5 }} />
+              <div className="w-[35%] h-[1.5px] rounded-sm bg-gray-100" />
               <div className="flex-1 h-1.5 rounded-full bg-gray-100 overflow-hidden">
                 <div className="h-full rounded-full" style={{ width: `${w}%`, backgroundColor: j < 2 ? "#3854AA30" : "#ef444420" }} />
               </div>
@@ -55,15 +55,15 @@ const docs = [
         </div>
         {/* More text lines */}
         <div className="space-y-1 mt-2">
-          <div className="rounded-sm bg-gray-100" style={{ width: "85%", height: 1.5 }} />
-          <div className="rounded-sm bg-gray-100" style={{ width: "70%", height: 1.5 }} />
-          <div className="rounded-sm bg-gray-100" style={{ width: "60%", height: 1.5 }} />
+          <div className="w-[85%] h-[1.5px] rounded-sm bg-gray-100" />
+          <div className="w-[70%] h-[1.5px] rounded-sm bg-gray-100" />
+          <div className="w-[60%] h-[1.5px] rounded-sm bg-gray-100" />
         </div>
         {/* Signature line */}
         <div className="mt-1.5 pt-1.5 border-t border-dashed border-gray-200 flex items-end gap-2">
-          <div className="rounded-sm bg-gray-100" style={{ width: "45%", height: 1.5 }} />
+          <div className="w-[45%] h-[1.5px] rounded-sm bg-gray-100" />
           <span className="text-[5px] text-gray-300">Date</span>
-          <div className="rounded-sm bg-gray-100 ml-auto" style={{ width: "30%", height: 1.5 }} />
+          <div className="w-[30%] h-[1.5px] rounded-sm bg-gray-100 ml-auto" />
           <span className="text-[5px] text-gray-300">Sign</span>
         </div>
       </>
@@ -89,13 +89,13 @@ const docs = [
           {["Name", "Phone", "Address", "Email"].map((label, j) => (
             <div key={j}>
               <span className="text-[5px] text-gray-300 uppercase">{label}</span>
-              <div className="rounded-sm bg-gray-50 border border-gray-100 mt-0.5" style={{ height: 6 }} />
+              <div className="h-[6px] rounded-sm bg-gray-50 border border-gray-100 mt-0.5" />
             </div>
           ))}
         </div>
         {/* Section heading */}
         <div className="mt-2 mb-1">
-          <div className="rounded-sm bg-gray-200" style={{ width: "40%", height: 2 }} />
+          <div className="w-[40%] h-[2px] rounded-sm bg-gray-200" />
         </div>
         {/* Checkbox items */}
         <div className="space-y-0.5">
@@ -110,7 +110,7 @@ const docs = [
         </div>
         {/* Dimensions table */}
         <div className="mt-1.5 border border-gray-100 rounded-sm overflow-hidden">
-          <div className="grid grid-cols-4 gap-px bg-gray-100 text-[4.5px] text-gray-400">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-gray-100 text-[4.5px] text-gray-400">
             {["Window", "W (mm)", "H (mm)", "Qty"].map((h) => (
               <div key={h} className="bg-gray-50 px-1 py-0.5 font-medium text-gray-500">{h}</div>
             ))}
@@ -122,8 +122,8 @@ const docs = [
         {/* Separator + notes */}
         <div className="mt-1.5 pt-1 border-t border-gray-100 space-y-0.5">
           <span className="text-[5px] text-gray-300 uppercase">Notes</span>
-          <div className="rounded-sm bg-gray-100" style={{ width: "80%", height: 1.5 }} />
-          <div className="rounded-sm bg-gray-100" style={{ width: "55%", height: 1.5 }} />
+          <div className="w-[80%] h-[1.5px] rounded-sm bg-gray-100" />
+          <div className="w-[55%] h-[1.5px] rounded-sm bg-gray-100" />
         </div>
         {/* Total */}
         <div className="mt-1 pt-1 border-t border-gray-200 flex items-center justify-between">
@@ -252,7 +252,7 @@ export default function CTAWithDocs({
             {/* ── Decorative desk objects ── */}
 
             {/* Pencil — top-right, angled */}
-            <div className="absolute" style={{ right: -18, top: -50, zIndex: 5, transform: "rotate(35deg)" }}>
+            <div className="absolute -right-[18px] -top-[50px] z-5" style={{ transform: "rotate(35deg)" }}>
               <svg width="110" height="18" viewBox="0 0 110 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="18" y="3" width="90" height="12" rx="1" fill="#f5c542" />
                 <rect x="18" y="3" width="90" height="4" rx="0" fill="#e8b730" />
@@ -272,14 +272,14 @@ export default function CTAWithDocs({
             </div>
 
             {/* Paper clip — bottom-left */}
-            <div className="absolute" style={{ left: -10, bottom: 20, zIndex: 35, transform: "rotate(-15deg)" }}>
+            <div className="absolute -left-[10px] bottom-20 z-35" style={{ transform: "rotate(-15deg)" }}>
               <svg width="28" height="56" viewBox="0 0 28 56" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 4 C8 2, 20 2, 20 4 L20 42 C20 48, 8 48, 8 42 L8 14 C8 10, 16 10, 16 14 L16 36 C16 39, 12 39, 12 36 L12 14" stroke="white" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.7" />
               </svg>
             </div>
 
             {/* Stamp / Seal — bottom-right */}
-            <div className="absolute" style={{ right: 15, bottom: -25, zIndex: 35, transform: "rotate(12deg)" }}>
+            <div className="absolute right-[15px] -bottom-[25px] z-35" style={{ transform: "rotate(12deg)" }}>
               <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="36" cy="36" r="32" stroke="white" strokeWidth="2" opacity="0.25" />
                 <circle cx="36" cy="36" r="26" stroke="white" strokeWidth="1" opacity="0.2" />
@@ -292,7 +292,7 @@ export default function CTAWithDocs({
             </div>
 
             {/* Ruler — left edge, vertical */}
-            <div className="absolute" style={{ left: -30, top: -30, zIndex: 4, transform: "rotate(-4deg)" }}>
+            <div className="absolute -left-[30px] -top-[30px] z-4" style={{ transform: "rotate(-4deg)" }}>
               <svg width="22" height="160" viewBox="0 0 22 160" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0" y="0" width="22" height="160" rx="1.5" fill="white" fillOpacity="0.12" />
                 <rect x="0" y="0" width="22" height="160" rx="1.5" stroke="white" strokeWidth="0.5" strokeOpacity="0.15" />
@@ -307,13 +307,13 @@ export default function CTAWithDocs({
             </div>
 
             {/* Small sticky note — top-left */}
-            <div className="absolute" style={{ left: 15, top: -65, zIndex: 6, transform: "rotate(-8deg)" }}>
-              <div className="relative" style={{ width: 64, height: 58 }}>
+            <div className="absolute left-[15px] -top-[65px] z-6" style={{ transform: "rotate(-8deg)" }}>
+              <div className="relative w-[64px] h-[58px]">
                 <div className="absolute inset-0 rounded-sm" style={{ background: "linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)", boxShadow: "0 2px 8px rgba(0,0,0,0.15)" }} />
                 <div className="absolute inset-0 p-2 flex flex-col gap-1">
-                  <div className="rounded-[0.5px] bg-amber-400/30" style={{ width: "80%", height: 1.5 }} />
-                  <div className="rounded-[0.5px] bg-amber-400/25" style={{ width: "60%", height: 1.5 }} />
-                  <div className="rounded-[0.5px] bg-amber-400/20" style={{ width: "70%", height: 1.5 }} />
+                  <div className="w-[80%] h-[1.5px] rounded-[0.5px] bg-amber-400/30" />
+                  <div className="w-[60%] h-[1.5px] rounded-[0.5px] bg-amber-400/25" />
+                  <div className="w-[70%] h-[1.5px] rounded-[0.5px] bg-amber-400/20" />
                   {/* Checkmark */}
                   <svg className="mt-auto ml-auto" width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M3 7.5 L5.5 10 L11 4" stroke="#d97706" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -323,7 +323,7 @@ export default function CTAWithDocs({
             </div>
 
             {/* Binder clip — top, peeking above front card */}
-            <div className="absolute" style={{ left: "calc(50% - 70px)", top: -72, zIndex: 40, transform: "rotate(-6deg)" }}>
+            <div className="absolute z-40 -top-[72px]" style={{ left: "calc(50% - 70px)", transform: "rotate(-6deg)" }}>
               <svg width="32" height="28" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Clip body */}
                 <rect x="4" y="12" width="24" height="16" rx="2" fill="#333" fillOpacity="0.8" />
@@ -370,7 +370,7 @@ export default function CTAWithDocs({
 
                     {/* Content */}
                     {doc.content === "blueprint" ? (
-                      <div className="flex-1 bg-[#f8fafb] rounded-[2px] border border-gray-100 p-2">
+                      <div className="flex-1 bg-warm-gray rounded-[2px] border border-gray-100 p-2">
                         <svg viewBox="0 0 170 210" className="w-full h-full" fill="none">
                           {/* Grid */}
                           {[0, 1, 2, 3, 4, 5].map((j) => (
@@ -421,7 +421,7 @@ export default function CTAWithDocs({
                         {/* Text lines */}
                         <div className="space-y-1.5 pt-0.5">
                           {doc.lines.map((line, j) => (
-                            <div key={j} className="rounded-[1px] bg-gray-100" style={{ width: line.w, height: line.h }} />
+                            <div key={j} className="rounded-[1px] bg-gray-100" style={{ width: line.w, height: `${line.h}px` }} />
                           ))}
                         </div>
                         {/* Extras */}

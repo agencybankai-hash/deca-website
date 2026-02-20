@@ -396,7 +396,7 @@ export default function TiltTurnPage() {
               directly to your project site. Northeast states enjoy same-day to 5-day
               delivery, while we reach the entire continental U.S. within 10 days.
             </p>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {[
                 {
                   value: "1–2",
@@ -440,11 +440,11 @@ export default function TiltTurnPage() {
             { src: "style-arched.png", name: "Arched / Custom", desc: "Any shape — curved, round, triangular" },
           ].map((w) => (
             <div key={w.name} className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-all group">
-              <div className="bg-[#f6f6f6] flex items-center justify-center p-4 h-52">
+              <div className="bg-warm-gray flex items-center justify-center p-4 h-52">
                 <Image src={`${a}/images/${w.src}`} alt={`DECA ${w.name}`} width={400} height={300} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
               </div>
               <div className="p-4">
-                <h4 className="font-semibold text-text-primary text-sm">{w.name}</h4>
+                <h3 className="font-semibold text-text-primary text-sm">{w.name}</h3>
                 <p className="text-xs text-text-muted">{w.desc}</p>
               </div>
             </div>

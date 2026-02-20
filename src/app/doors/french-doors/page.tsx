@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, StatCard } from "@/components/ui";
+import { Breadcrumb, Section, SectionTitle, PhotoPlaceholder, GuideCard, StatCard, ServiceIcons } from "@/components/ui";
 import { FrenchDoorConfigurator } from "@/components/ProductConfigurator";
 import type { Metadata } from "next";
 import ReviewsSection from "@/components/ReviewsSection";
@@ -13,9 +13,21 @@ export const metadata: Metadata = {
   alternates: { canonical: "/doors/french-doors" },
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What are the opening modes for French doors?", "acceptedAnswer": { "@type": "Answer", "text": "DECA French doors feature hinged swing operation with 45-degree arc opening. Both doors swing fully open for 100% clear passage and unobstructed airflow. Optional foot bolts hold doors open in wind. Single and double configurations are available." } },
+    { "@type": "Question", "name": "What sizes are available for French doors?", "acceptedAnswer": { "@type": "Answer", "text": "Single French doors range from 32-42 inches wide. Double French doors (the classic configuration) range from 60-72 inches total width. Custom sizes are available. All doors are 80 inches standard height, with custom heights up to 108 inches." } },
+    { "@type": "Question", "name": "What glass options do you offer for French doors?", "acceptedAnswer": { "@type": "Answer", "text": "Choose from clear, frosted, decorative, textured, or laminated tempered glass. All glass is insulated with argon fill for energy efficiency. Triple-glazing achieves U-values of 0.9-1.3 W/m²K, meeting ENERGY STAR and building codes." } },
+    { "@type": "Question", "name": "Are French doors weatherproof in cold climates?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. DECA French doors use compression seals and EPDM gaskets to create watertight, airtight barriers. Triple-glazed insulated units with thermal breaks prevent condensation and drafts even in cold climates like New England winters." } },
+  ],
+};
+
 export default function FrenchDoorsPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Breadcrumb items={[{ label: "Doors", href: "/doors" }, { label: "French Doors" }]} />
 
       {/* Hero */}
@@ -66,7 +78,7 @@ export default function FrenchDoorsPage() {
             <div key={b.title} className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-all">
               <PhotoPlaceholder description={b.photoDesc} height="h-40" className="rounded-none border-0" />
               <div className="p-5">
-                <h4 className="font-semibold text-text-primary mb-2">{b.title}</h4>
+                <h2 className="font-semibold text-text-primary mb-2">{b.title}</h2>
                 <p className="text-sm text-text-muted leading-relaxed">{b.desc}</p>
               </div>
             </div>
@@ -87,7 +99,7 @@ export default function FrenchDoorsPage() {
             <div key={config.name} className="bg-white rounded-xl border border-border overflow-hidden">
               <PhotoPlaceholder description={config.photoDesc} height="h-48" className="rounded-none border-0" />
               <div className="p-6">
-                <h3 className="font-bold text-text-primary text-lg mb-2">{config.name}</h3>
+                <h2 className="font-bold text-text-primary text-lg mb-2">{config.name}</h2>
                 <p className="text-sm text-text-secondary leading-relaxed">{config.desc}</p>
               </div>
             </div>
@@ -204,6 +216,8 @@ export default function FrenchDoorsPage() {
           ))}
         </div>
       </Section>
+
+      <ServiceIcons />
 
       <CTAWithDocs
         title="Add Elegance with French Doors"

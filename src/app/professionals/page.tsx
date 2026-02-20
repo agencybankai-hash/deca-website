@@ -60,7 +60,7 @@ export default function ProfessionalsPage() {
             <div key={item.title} className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-all">
               <PhotoPlaceholder description={item.photoDesc} height="h-40" className="rounded-none border-0" />
               <div className="p-5">
-                <h4 className="font-semibold text-text-primary mb-2">{item.title}</h4>
+                <h2 className="font-semibold text-text-primary mb-2">{item.title}</h2>
                 <p className="text-sm text-text-muted leading-relaxed">{item.desc}</p>
               </div>
             </div>

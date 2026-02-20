@@ -46,7 +46,7 @@ export function SplashPreloader() {
       }`}
     >
       {/* Blueprint pattern background */}
-      <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "url(/pattern-blueprint.svg)", backgroundSize: "600px" }} />
+      <div className="absolute inset-0 opacity-[0.04] bg-[url(/pattern-blueprint.svg)] bg-[600px]" />
 
       {/* Logo animation */}
       <div className="relative z-10 flex flex-col items-center">

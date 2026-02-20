@@ -1,0 +1,2410 @@
+{
+  "timestamp": "2026-02-20T07:17:47.936Z",
+  "filesScanned": 56,
+  "summary": {
+    "errors": 0,
+    "warnings": 255,
+    "info": 10,
+    "score": 45
+  },
+  "issuesByRule": {
+    "placeholder-image": 101,
+    "russian-placeholder": 151,
+    "missing-hero": 1,
+    "mixed-button-styles": 1,
+    "missing-section-padding": 2,
+    "inline-placeholder": 1,
+    "todo-comment": 1,
+    "missing-sticky-cta": 1,
+    "skipped-heading-level": 1,
+    "excessive-inline-styles": 3,
+    "missing-mx-auto": 2
+  },
+  "issues": [
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "media@L34",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 34,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "media@L59",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 59,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "media@L96",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 96,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "media@L116",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 116,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "media@L131",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 131,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "media@L132",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 132,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "media@L133",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 133,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "media@L134",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 134,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "content@L34",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 34,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "content@L59",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 59,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "content@L91",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 91,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "content@L92",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 92,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "content@L93",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 93,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "content@L111",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 111,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "content@L112",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 112,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "content@L113",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 113,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "content@L131",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 131,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "content@L132",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 132,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "content@L133",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 133,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/about/page.tsx",
+      "section": "content@L134",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 134,
+      "suggestion": null
+    },
+    {
+      "severity": "info",
+      "page": "src/app/blog/blog-content.tsx",
+      "section": "design",
+      "rule": "missing-hero",
+      "message": "No hero section detected — pages should have a strong opening",
+      "line": null,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/cases/[slug]/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/cases/[slug]/page.tsx",
+      "section": "media@L54",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 54,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/cases/[slug]/page.tsx",
+      "section": "media@L102",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 102,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/cases/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/cases/page.tsx",
+      "section": "media@L33",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 33,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "media@L48",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 48,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "media@L95",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 95,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "media@L125",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 125,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "media@L145",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 145,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "media@L163",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 163,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "media@L167",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 167,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "media@L171",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 171,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "media@L175",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 175,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L49",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 49,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L96",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 96,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L126",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 126,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L137",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 137,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L138",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 138,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L139",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 139,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L140",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 140,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L141",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 141,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L142",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 142,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L164",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 164,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L168",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 168,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L172",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 172,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L176",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 176,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L198",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 198,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L204",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 204,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/entry-doors/page.tsx",
+      "section": "content@L210",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 210,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "media@L48",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 48,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "media@L79",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 79,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "media@L100",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 100,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "media@L133",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 133,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "media@L173",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 173,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "media@L174",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 174,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "media@L175",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 175,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "media@L176",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 176,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L48",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 48,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L71",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 71,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L72",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 72,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L73",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 73,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L74",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 74,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L75",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 75,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L76",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 76,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L94",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 94,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L95",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 95,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L96",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 96,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L97",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 97,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L133",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 133,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L173",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 173,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L174",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 174,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L175",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 175,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L176",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 176,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L192",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 192,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L193",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 193,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/french-doors/page.tsx",
+      "section": "content@L194",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 194,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "media@L42",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 42,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "media@L55",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 55,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "media@L85",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 85,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "media@L92",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 92,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "media@L141",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 141,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "media@L177",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 177,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "media@L178",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 178,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "media@L179",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 179,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "media@L180",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 180,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L36",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 36,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L37",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 37,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L38",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 38,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L55",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 55,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L85",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 85,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L92",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 92,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L135",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 135,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L136",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 136,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L137",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 137,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L177",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 177,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L178",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 178,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L179",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 179,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L180",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 180,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L196",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 196,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L197",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 197,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/doors/page.tsx",
+      "section": "content@L198",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 198,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "media@L4",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 4,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "media@L169",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 169,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "media@L179",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 179,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "media@L244",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 244,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "media@L262",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 262,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "media@L285",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 285,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L20",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 20,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L27",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 27,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L34",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 34,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L41",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 41,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L48",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 48,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L137",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 137,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L138",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 138,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L139",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 139,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L140",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 140,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L244",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 244,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L256",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 256,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L257",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 257,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L258",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 258,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L285",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 285,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L318",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 318,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L319",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 319,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/home-content.tsx",
+      "section": "content@L320",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 320,
+      "suggestion": null
+    },
+    {
+      "severity": "info",
+      "page": "src/app/home-content.tsx",
+      "section": "buttons",
+      "rule": "mixed-button-styles",
+      "message": "Mixed: AnimatedCTA + 1 inline buttons — consider standardizing",
+      "line": null,
+      "suggestion": null
+    },
+    {
+      "severity": "info",
+      "page": "src/app/home-content.tsx",
+      "section": "section@L59",
+      "rule": "missing-section-padding",
+      "message": "<section> without vertical padding",
+      "line": 59,
+      "suggestion": "Add py-16 or py-28 for consistent spacing"
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/lp/tilt-turn/page.tsx",
+      "section": "media@L75",
+      "rule": "inline-placeholder",
+      "message": "Inline placeholder text → replace with real content",
+      "line": 75,
+      "suggestion": null
+    },
+    {
+      "severity": "info",
+      "page": "src/app/lp/tilt-turn/page.tsx",
+      "section": "code@L21",
+      "rule": "todo-comment",
+      "message": "TODO: connect to HubSpot / API",
+      "line": 21,
+      "suggestion": null
+    },
+    {
+      "severity": "info",
+      "page": "src/app/lp/tilt-turn/page.tsx",
+      "section": "conversion",
+      "rule": "missing-sticky-cta",
+      "message": "Key page without StickyCTA — may reduce conversions",
+      "line": null,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/performance/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/performance/page.tsx",
+      "section": "media@L34",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 34,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/performance/page.tsx",
+      "section": "media@L95",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 95,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/performance/page.tsx",
+      "section": "media@L165",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 165,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/performance/page.tsx",
+      "section": "content@L35",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 35,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/performance/page.tsx",
+      "section": "content@L61",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 61,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/performance/page.tsx",
+      "section": "content@L67",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 67,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/performance/page.tsx",
+      "section": "content@L73",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 73,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/performance/page.tsx",
+      "section": "content@L79",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 79,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/performance/page.tsx",
+      "section": "content@L85",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 85,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/performance/page.tsx",
+      "section": "content@L91",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 91,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/performance/page.tsx",
+      "section": "content@L166",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 166,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/performance/page.tsx",
+      "section": "content@L217",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 217,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/performance/page.tsx",
+      "section": "content@L223",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 223,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/performance/page.tsx",
+      "section": "content@L229",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 229,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/architects/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/architects/page.tsx",
+      "section": "media@L59",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 59,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/architects/page.tsx",
+      "section": "content@L59",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 59,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/commercial/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/commercial/page.tsx",
+      "section": "media@L59",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 59,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/commercial/page.tsx",
+      "section": "content@L59",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 59,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/contractors/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/contractors/page.tsx",
+      "section": "media@L59",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 59,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/contractors/page.tsx",
+      "section": "content@L59",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 59,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/dealers/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/dealers/page.tsx",
+      "section": "media@L59",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 59,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/dealers/page.tsx",
+      "section": "content@L59",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 59,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/page.tsx",
+      "section": "media@L33",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 33,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/page.tsx",
+      "section": "media@L61",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 61,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/page.tsx",
+      "section": "media@L82",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 82,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/page.tsx",
+      "section": "content@L33",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 33,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/page.tsx",
+      "section": "content@L53",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 53,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/page.tsx",
+      "section": "content@L54",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 54,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/page.tsx",
+      "section": "content@L55",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 55,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/page.tsx",
+      "section": "content@L56",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 56,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/page.tsx",
+      "section": "content@L57",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 57,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/page.tsx",
+      "section": "content@L58",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 58,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/page.tsx",
+      "section": "content@L76",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 76,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/page.tsx",
+      "section": "content@L77",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 77,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/page.tsx",
+      "section": "content@L78",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 78,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/professionals/page.tsx",
+      "section": "content@L79",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 79,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "media@L48",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 48,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "media@L101",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 101,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "media@L176",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 176,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "media@L177",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 177,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "media@L178",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 178,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "media@L179",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 179,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "content@L48",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 48,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "content@L75",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 75,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "content@L82",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 82,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "content@L89",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 89,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "content@L96",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 96,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "content@L176",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 176,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "content@L177",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 177,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "content@L178",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 178,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "content@L179",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 179,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "content@L199",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 199,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "content@L205",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 205,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/sliding-doors/page.tsx",
+      "section": "content@L211",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 211,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/team/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/team/page.tsx",
+      "section": "media@L49",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 49,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/team/page.tsx",
+      "section": "media@L120",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 120,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/team/page.tsx",
+      "section": "media@L191",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 191,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/team/page.tsx",
+      "section": "media@L262",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 262,
+      "suggestion": null
+    },
+    {
+      "severity": "info",
+      "page": "src/app/team/page.tsx",
+      "section": "headings",
+      "rule": "skipped-heading-level",
+      "message": "h2 → h4 — level skipped",
+      "line": 60,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "media@L48",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 48,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "media@L77",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 77,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "media@L112",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 112,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "media@L178",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 178,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "media@L179",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 179,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "media@L180",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 180,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "media@L181",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 181,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "content@L48",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 48,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "content@L71",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 71,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "content@L72",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 72,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "content@L73",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 73,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "content@L74",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 74,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "content@L112",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 112,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "content@L178",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 178,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "content@L179",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 179,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "content@L180",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 180,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "content@L181",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 181,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "content@L197",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 197,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "content@L198",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 198,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/aluminum-windows/page.tsx",
+      "section": "content@L199",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 199,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "media@L2",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 2,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "media@L56",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 56,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "media@L69",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 69,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "media@L85",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 85,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "media@L123",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 123,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "media@L146",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 146,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "media@L179",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 179,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "media@L180",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 180,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "media@L181",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 181,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "media@L182",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 182,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L56",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 56,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L69",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 69,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L85",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 85,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L117",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 117,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L118",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 118,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L119",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 119,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L120",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 120,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L138",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 138,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L139",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 139,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L140",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 140,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L141",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 141,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L142",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 142,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L143",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 143,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L179",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 179,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L180",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 180,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L181",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 181,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L182",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 182,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L198",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 198,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L199",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 199,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/app/windows/page.tsx",
+      "section": "content@L200",
+      "rule": "russian-placeholder",
+      "message": "Russian placeholder text — needs real content",
+      "line": 200,
+      "suggestion": null
+    },
+    {
+      "severity": "info",
+      "page": "src/components/CTAWithDocs.tsx",
+      "section": "code",
+      "rule": "excessive-inline-styles",
+      "message": "17 inline style={{}} usages — prefer Tailwind utilities",
+      "line": null,
+      "suggestion": null
+    },
+    {
+      "severity": "info",
+      "page": "src/components/CTAWithDocs.tsx",
+      "section": "section@L172",
+      "rule": "missing-section-padding",
+      "message": "<section> without vertical padding",
+      "line": 172,
+      "suggestion": "Add py-16 or py-28 for consistent spacing"
+    },
+    {
+      "severity": "info",
+      "page": "src/components/DeliveryMap.tsx",
+      "section": "code",
+      "rule": "excessive-inline-styles",
+      "message": "14 inline style={{}} usages — prefer Tailwind utilities",
+      "line": null,
+      "suggestion": null
+    },
+    {
+      "severity": "info",
+      "page": "src/components/Preloader.tsx",
+      "section": "code",
+      "rule": "excessive-inline-styles",
+      "message": "11 inline style={{}} usages — prefer Tailwind utilities",
+      "line": null,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/components/Skeleton.tsx",
+      "section": "layout@L105",
+      "rule": "missing-mx-auto",
+      "message": "max-w-* without mx-auto — container not centered",
+      "line": 105,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/components/ui.tsx",
+      "section": "media@L33",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 33,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/components/ui.tsx",
+      "section": "media@L53",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 53,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/components/ui.tsx",
+      "section": "media@L111",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 111,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/components/ui.tsx",
+      "section": "media@L184",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 184,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/components/ui.tsx",
+      "section": "media@L234",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 234,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/components/ui.tsx",
+      "section": "media@L235",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 235,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/components/ui.tsx",
+      "section": "media@L236",
+      "rule": "placeholder-image",
+      "message": "Placeholder component → needs real image/video",
+      "line": 236,
+      "suggestion": null
+    },
+    {
+      "severity": "warning",
+      "page": "src/components/ui.tsx",
+      "section": "layout@L223",
+      "rule": "missing-mx-auto",
+      "message": "max-w-* without mx-auto — container not centered",
+      "line": 223,
+      "suggestion": null
+    }
+  ]
+}
